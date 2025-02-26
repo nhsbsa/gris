@@ -2,18 +2,84 @@
 
 {% set pageName="Home" %}
 
+{% block beforeContent %}      
+
+{% endblock %}
+
 {% block content %}
 
 <div class="govuk-grid-row">
-	<div class="govuk-grid-column-full">
+	<div class="govuk-grid-column-two-thirds">
 		<h1 class="govuk-heading-xl">
-			{{ serviceName }}
+			{{ serviceName }} (GRIS)
 		</h1>
 
-		<p>Hello world</p>
+		<p>Introduction to service here.</p>
 
-		<h2 class="govuk-heading-l">Previous versions</h2>
+		<h2 class="govuk-heading-l">Iterations</h2>
+
+		<details class="govuk-details">
+			<summary class="govuk-details__summary">
+			  <span class="govuk-details__summary-text">
+				Version 1 - Initial design from UR Workshop
+			  </span>
+			</summary>
+			<div class="govuk-details__text">
+				<h3 class="govuk-heading-m govuk-!-margin-bottom-0">Version 1 - Initial design from UR Workshop</h3>
+				
+				<p class="govuk-hint">(26/02/2025)</p>
+				
+				<h4 class="govuk-heading-s">What we created</h4>
+				
+				<ul>
+					<li>Converted flat designs in to coded screens</li>
+					<li>Clickable journey through the coded screens</li>
+				</ul>
+
+				<h4 class="govuk-heading-s">Known issues</h4>
+
+				<ul>
+					<li>Currrent designs are not currently on pattern</li>
+					<li>The journey flow itself needs work, no start page etc.</li>
+					<li>Content needs looking at by a content designer</li>
+				</ul>
+
+				<a href="/v1/sign-in" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+					View prototype
+				</a>
+			</div>
+		</details>
 	</div>
+
+	<!-- Sidebar starts here -->
+	<div class="govuk-grid-column-one-third">
+		<aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+			<h2 class="govuk-heading-m" id="subsection-title">
+				Useful links
+			</h2>
+			<nav role="navigation" aria-labelledby="subsection-title">
+				<ul class="govuk-list govuk-!-font-size-16">
+					<li>
+						<a href="#">
+							Static pages
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							Design history
+						</a>
+					</li>
+					<li>
+						<a href="https://lucid.app/lucidspark/ccf551bb-f91a-4a99-b775-53ae72738b40/edit?invitationId=inv_e114c4fd-8307-4c8b-a0c2-870be96cdabd&page=0_0#">
+							UR Workshop
+						</a>
+					</li>
+				</ul>
+			</nav>
+		</aside>
+	</div>
+	<!-- Sidebar ends here -->
+
 </div>
 
 {% endblock %}
