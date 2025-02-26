@@ -11,9 +11,43 @@
 		},
 		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
 	}) }}
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "#"
+    }) }}
 {% endblock %}
 
 {% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+		<h1 class="govuk-heading-xl">
+			Sign in to your GRIS account
+		</h1>
+    
+        <p>You can use your existing ORCID iD or NIHR identity gateway login to sign in to the Government Research Identifier Service. This means you don't need to create another account.</p>
+    
+        <a href="" type="submit" class="govuk-button govuk-!-margin-right-5" data-module="govuk-button" role="button">
+            Sign in using your ORCID iD
+        </a>
+
+        <a href="" type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" role="button">
+            Sign in using NIHR identity gateway
+        </a>
+
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+        <h2 class="govuk-heading-l">
+            If you don't have an account
+        </h2>
+
+        <p>If you don't have an ORCID iD or NIHR identity gateway, you will need to sign up for either in order to gain access to the Government Research Identifier Service.</p>
+    
+        <p><a href="#" class="govuk-link govuk-link--no-visited-state">Register for an ORCID iD</a></p>
+        <p><a href="#" class="govuk-link govuk-link--no-visited-state">Register for NIHR identity gateway</a></p>
+    </div>
+</div>
 
 
 {% endblock %}
