@@ -1,0 +1,42 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+    Confirm Chief Investigator or key lead details – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "orcid-and-email-address"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">
+            Confirm Chief Investigator or key lead details
+        </h1>
+
+        <p>There is no contact details attached to the O</p>
+
+		<form action="confirm-chief-investigator-details" method="post">
+
+            {{ govukButton({
+                text: "Check details"
+            }) }}
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}
