@@ -18,7 +18,7 @@ router.post('/what-is-the-short-title', function(req, res) {
 
     if (!title || title.trim() === "") {
         res.redirect("what-is-the-short-title")
-        // add proper errorr functionality in future versions instead of redirect
+        // add proper error functionality in future versions instead of redirect
     } else {
         res.redirect("orcid-and-email-address")
     }
@@ -30,11 +30,22 @@ router.post('/orcid-and-email-address', function(req, res) {
 
     if (!orcid || orcid.trim() === "") {
         res.redirect("orcid-and-email-address")
-        // add proper errorr functionality in future versions instead of redirect
+        // add proper error functionality in future versions instead of redirect
     } else {
         res.redirect("confirm-chief-investigator-details")
     }
 })
 
+// Confirm Chief Investigator or key lead details
+router.post('/confirm-chief-investigator-details', function(req, res) {
+    let email = req.session.data['investigator-email']
+
+    if (!email || email.trim() === "") {
+        res.redirect("confirm-chief-investigator-details")
+        // add proper error functionality in future versions instead of redirect
+    } else {
+        res.redirect("add-study-member-email")
+    }
+})
 
 module.exports = router
