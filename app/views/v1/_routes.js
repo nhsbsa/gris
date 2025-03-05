@@ -48,4 +48,29 @@ router.post('/confirm-chief-investigator-details', function(req, res) {
     }
 })
 
+// Add the ORCID ID or email of at least one study member
+router.post('/add-study-member-email', function(req, res) {
+    let email = req.session.data['add-members']
+
+    if (email == "add") {
+        res.redirect("add-study-member-email")
+        // Redirecting to same page as no screen on preovided dsign for adding members
+    } else {
+        res.redirect("who-is-the-sponsor")
+    }
+})
+
+// Who is the sponsor of the research?
+router.post('/who-is-the-sponsor', function(req, res) {
+    let name = req.session.data['sponsor-name']
+    let email = req.session.data['sponsor-email']
+
+    if (!email || email.trim() === "" || !name || name.trim() === "") {
+        res.redirect("who-is-the-sponsor")
+        // add proper error functionality in future versions instead of redirect
+    } else {
+        res.redirect("we-found-a-matching-study")
+    }
+})
+
 module.exports = router
