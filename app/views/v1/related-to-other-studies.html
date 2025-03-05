@@ -1,0 +1,81 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+    Is this study related to other studies? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "does-study-have-gris-id"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">       
+
+        <form action="related-to-other-studies" method="post">
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="study-related-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                        <h1 class="govuk-fieldset__heading">
+                            Is this study related to other studies?
+                        </h1>
+                    </legend>
+                    
+                    <p class="govuk-hint" id="study-related-hint">
+                        A study is related to another study if:
+                    </p>
+                    <ul class="govuk-list govuk-list--bullet govuk-hint">
+                        <li><strong>it is a sub-study of another study</strong> (this applies to studies where patients that participate in a parent study take part in additional optional activity to that of the parent study)</li>
+                        <li><strong>it is a parent study of another study</strong> (this applies to standalone studies that may have related studies)</li>
+                        <li><strong>it is a platform study</strong> (this applies to studies with a master protocol that is made up of addendums and study arms that may have sub-protocols)</li>
+                        <li><strong>it is a continuation study</strong> (this applies to studies that typically recruit participations from the parent study but have a different IRAS ID to that of the parent study)</li>
+                    </ul>  
+
+                    <div class="govuk-radios" data-module="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="study-related-yes" name="study-related" type="radio" value="yes">
+                            <label class="govuk-label govuk-radios__label" for="study-related-yes">
+                                Yes
+                            </label>
+                        </div>
+
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="study-related-no" name="study-related" type="radio" value="no">
+                            <label class="govuk-label govuk-radios__label" for="study-related-no">
+                                No
+                            </label>
+                        </div>
+
+
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="study-related-unsure" name="study-related" type="radio" value="no">
+                            <label class="govuk-label govuk-radios__label" for="study-related-unsure">
+                                I don't know
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form>
+
+    </div>
+</div>
+
+
+{% endblock %}

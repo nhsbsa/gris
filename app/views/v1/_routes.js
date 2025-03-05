@@ -54,7 +54,7 @@ router.post('/add-study-member-email', function(req, res) {
 
     if (email == "add") {
         res.redirect("add-study-member-email")
-        // Redirecting to same page as no screen on preovided dsign for adding members
+        // Redirecting to same page as no screen on provided designs for adding members
     } else {
         res.redirect("who-is-the-sponsor")
     }
