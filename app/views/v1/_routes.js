@@ -109,4 +109,29 @@ router.post('/relationship-between-studies', function(req, res) {
     }
 })
 
+// Does the related study have the same IRAS ID as the new study?
+router.post('/does-related-study-have-same-iras-id', function(req, res) {
+    let iras = req.session.data['iras-id']
+
+    if (iras == "yes" || iras == "no" || iras == "unsure") {
+        res.redirect("does-related-study-have-same-funding-id")
+    } else {
+        res.redirect("does-related-study-have-same-iras-id")
+        // add proper error functionality in future versions instead of redirect
+    }
+})
+
+// Does the related study have the same funding ID as the new study?
+router.post('/does-related-study-have-same-funding-id', function(req, res) {
+    let funding = req.session.data['funding-id']
+
+    if (funding == "one" || funding == "two" || funding == "unsure") {
+        res.redirect("check-your-answers")
+    } else {
+        res.redirect("does-related-study-have-same-funding-id")
+        // add proper error functionality in future versions instead of redirect
+    }
+})
+
+
 module.exports = router
