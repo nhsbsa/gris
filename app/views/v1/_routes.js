@@ -73,4 +73,28 @@ router.post('/who-is-the-sponsor', function(req, res) {
     }
 })
 
+// Is this study related to other studies?
+router.post('/related-to-other-studies', function(req, res) {
+    let study = req.session.data['study-related']
+
+    if (study == "yes" || study == "no" || study == "unsure") {
+        res.redirect("do-you-know-gris-id")
+    } else {
+        res.redirect("related-to-other-studies")
+        // add proper error functionality in future versions instead of redirect
+    }
+})
+
+// Do you know the GRIS ID of the related study?
+router.post('/do-you-know-gris-id', function(req, res) {
+    let study = req.session.data['study-gris-id']
+
+    if (study == "yes" || study == "no" || study == "unsure") {
+        res.redirect("relationship-between-studies")
+    } else {
+        res.redirect("do-you-know-gris-id")
+        // add proper error functionality in future versions instead of redirect
+    }
+})
+
 module.exports = router
