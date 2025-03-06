@@ -97,4 +97,16 @@ router.post('/do-you-know-gris-id', function(req, res) {
     }
 })
 
+// What is the relationship between the current study and the related study?
+router.post('/relationship-between-studies', function(req, res) {
+    let study = req.session.data['study-gris-id']
+
+    if (study == "yes" || study == "no" || study == "unsure") {
+        res.redirect("does-related-study-have-same-iras-id")
+    } else {
+        res.redirect("relationship-between-studies")
+        // add proper error functionality in future versions instead of redirect
+    }
+})
+
 module.exports = router
