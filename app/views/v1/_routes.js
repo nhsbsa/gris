@@ -125,11 +125,11 @@ router.post('/does-related-study-have-same-iras-id', function(req, res) {
 router.post('/does-related-study-have-same-funding-id', function(req, res) {
     let funding = req.session.data['funding-id']
 
-    if (funding == "one" || funding == "two" || funding == "unsure") {
-        res.redirect("check-your-answers")
-    } else {
+    if (!funding) {
         res.redirect("does-related-study-have-same-funding-id")
         // add proper error functionality in future versions instead of redirect
+    } else {
+        res.redirect("check-your-answers")
     }
 })
 
