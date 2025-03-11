@@ -89,8 +89,10 @@ router.post('/related-to-other-studies', function(req, res) {
 router.post('/do-you-know-gris-id', function(req, res) {
     let study = req.session.data['study-gris-id']
 
-    if (study == "yes" || study == "no" || study == "unsure") {
+    if (study == "yes") {
         res.redirect("relationship-between-studies")
+    } else if ( study == "no" || study == "unsure") {
+        res.redirect("does-related-study-have-same-iras-id");
     } else {
         res.redirect("do-you-know-gris-id")
         // add proper error functionality in future versions instead of redirect
