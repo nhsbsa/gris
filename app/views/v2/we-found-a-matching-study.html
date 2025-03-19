@@ -1,0 +1,82 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+    We found a matching study record which is similar to the one you provided – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "add-study-member-email"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">We found a matching study record which is similar to the one you provided</h1>
+        
+        <p class="govuk-hint govuk-!-margin-bottom-6">
+            Please confirm if the details below are the same as the information you have just provided.
+        </p>
+
+        <table class="govuk-table">
+            <caption class="govuk-table__caption govuk-table__caption--m">Matching study information</caption>
+            
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th scope="col" class="govuk-table__header govuk-!-width-one-third"></th>
+                    <th scope="col" class="govuk-table__header govuk-!-width-one-third">Your study</th>
+                    <th scope="col" class="govuk-table__header govuk-!-width-one-third">Matching study</th>
+                </tr>
+            </thead>
+
+            <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Short study title</th>
+                    <td class="govuk-table__cell">Investigating Left Arm Disease</td>
+                    <td class="govuk-table__cell">Investigating Left Arm Disease - Phase 2</td>
+                </tr>
+
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Chief Investigator ORCID ID</th>
+                    <td class="govuk-table__cell">0009-0000-6037-7481<br>Peter Jones</td>
+                    <td class="govuk-table__cell">0009-0000-6037-7481<br>Peter Jones</td>
+                </tr>
+
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Study team members</th>
+                    <td class="govuk-table__cell">joe.bloggs@research.ac.uk</td>
+                    <td class="govuk-table__cell">joe.bloggs@research.ac.uk</td>
+                </tr>
+
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Sponsor</th>
+                    <td class="govuk-table__cell">Manchester University NHS Foundation Trust<br>randd@manu.ac.uk</td>
+                    <td class="govuk-table__cell">Manchester University NHS Foundation Trust<br>randd@manu.ac.uk</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 class="govuk-heading-m">Use the details listed above for this study</h2>
+        
+        <p>
+            If the details of the study listed above are the same as the information you've just entered, you should follow the link below.
+            This will return you to the system you were in before entering the Government Research Identifier Service.
+        </p>
+
+        <p><a href="#">Return to system I was in before entering the Government Research Identifier Service</a></p>
+    </div>
+</div>
+
+
+{% endblock %}

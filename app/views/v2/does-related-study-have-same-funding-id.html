@@ -1,0 +1,81 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+    Does the related study have the same funding ID as the new study? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "does-related-study-have-same-iras-id"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">       
+
+        <form action="does-related-study-have-same-funding-id" method="post">
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="funding-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                        <h1 class="govuk-fieldset__heading">
+                            Does the related study have the same funding ID as the new study?
+                        </h1>
+                    </legend>
+
+                    <div id="funding-hint" class="govuk-hint">
+                        If you're not sure of the study's funding ID, you should be able to find it in the funding system(s) you used to gain the study's funding. Examples include REALMS, NETSCC, REALMS and OneNIHR.
+                        <br><br>
+                        Please be aware that you are able to select multiple Funding IDs, if the study has more than one source of funding.
+                    </div>
+
+                    <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="one" name="funding-id" type="checkbox" value="one">
+                            <label class="govuk-label govuk-checkboxes__label" for="one">
+                                FUNDING ID 12344, REALMS
+                            </label>
+                            <div id="checkbox-one-hint" class="govuk-hint govuk-checkboxes__hint">
+                                The impact of adverse childhood experiences on sensation and pain in people living with multiple long-term health conditions and chronic pain
+                            </div>
+                        </div>
+
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="two" name="funding-id" type="checkbox" value="two">
+                            <label class="govuk-label govuk-checkboxes__label" for="two">
+                                FUNDING ID 11982, REALMS
+                            </label>
+                            <div id="checkbox-two-hint" class="govuk-hint govuk-checkboxes__hint">
+                                The impact of adverse childhood experiences on sensation and pain in people living with multiple long-term health conditions and chronic pain
+                            </div>
+                        </div>
+
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="three" name="funding-id" type="checkbox" value="no">
+                            <label class="govuk-label govuk-checkboxes__label" for="three">
+                                No / I don't know
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

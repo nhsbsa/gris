@@ -1,0 +1,81 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+    Do you know the GRIS ID of the related study? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "related-to-other-studies"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">       
+
+        <form action="do-you-know-gris-id" method="post">
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="gris-id-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                        <h1 class="govuk-fieldset__heading">
+                            Do you know the GRIS ID of the related study?
+                        </h1>
+                    </legend>
+
+                    <p class="govuk-hint" id="gris-id-hint">
+                        The Government Research ID (GRIS ID) is a unique identifier that will be allocated to all new studies (even if they are sub-studies) when it is first logged in a system.
+                    </p>
+
+                    <div class="govuk-radios" data-module="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="id-yes" name="study-gris-id" type="radio" value="yes" data-aria-controls="conditional-yes">
+                            <label class="govuk-label govuk-radios__label" for="id-yes">
+                                Yes
+                            </label>
+                        </div>
+
+                        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-yes">
+                            <div class="govuk-form-group">
+                                <label class="govuk-label" for="id-of-study">
+                                    GRIS ID of related study
+                                </label>
+                                <input class="govuk-input govuk-!-width-two-thirds" id="id-of-study" name="related-id" type="text">
+                            </div>
+                        </div>
+   
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="id-no" name="study-gris-id" type="radio" value="no">
+                            <label class="govuk-label govuk-radios__label" for="id-no">
+                                No
+                            </label>
+                        </div>
+        
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="id-unsure" name="study-gris-id" type="radio" value="unsure">
+                            <label class="govuk-label govuk-radios__label" for="id-unsure">
+                                I don't know
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

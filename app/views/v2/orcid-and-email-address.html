@@ -1,0 +1,52 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+    What is the ORCID ID and email address of the Chief Investigator or key lead? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "what-is-the-short-title"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">
+            What is the ORCID ID and email address of the Chief Investigator or key lead?
+        </h1>
+
+		<form action="orcid-and-email-address" method="post">
+            <div class="govuk-form-group">                
+                <div id="orcid-id-hint" class="govuk-hint">
+                    <p>If there is no chief investigator yet, include the ORCID ID of the key lead or contact. For example, 0009-0000-6037-7481</p>
+                    <p>If you do not know the ORCID ID use this link: <a href="https://orcid.org/">https://orcid.org/</a></p>
+                </div>
+
+                <label class="govuk-label" for="orcid-id">
+                    ORCID ID
+                </label>
+
+                <input class="govuk-input" id="orcid-id" name="orcid-id" type="text" aria-describedby="orcid-id-hint">
+            </div>
+
+            {{ govukButton({
+                text: "Check details"
+            }) }}
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}
