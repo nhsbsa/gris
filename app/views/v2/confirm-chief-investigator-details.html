@@ -14,7 +14,7 @@
 
     {{ govukBackLink({
         text: "Back",
-        href: "orcid-and-email-address"
+        href: "orcid-id-chief-investigator"
     }) }}
 {% endblock %}
 
@@ -32,7 +32,13 @@
             <p>Amrit Banstola</p>
         </div>
 
-        <p class="govuk-!-font-size-19 govuk-!-font-weight-bold">There is no contact details attached to the ORCID ID, we need this to be able to contact the Chief Investigator</p>
+        <div class="govuk-warning-text">
+            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+            <strong class="govuk-warning-text__text">
+                <span class="govuk-visually-hidden">Warning</span>
+                There is no contact details attached to the ORCID ID, we need this to be able to contact the Chief Investigator.
+            </strong>
+        </div>
 
 		<form action="confirm-chief-investigator-details" method="post">
             <div class="govuk-form-group">

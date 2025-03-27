@@ -26,67 +26,61 @@
 {% endblock %}
 
 {% block content %}
+  	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<h1 class="govuk-heading-xl">
+				Sign in to your {{ serviceName }} account
+			</h1>
 
-  <div class="govuk-grid-row">
-	<div class="govuk-grid-column-two-thirds">
+			<p>Use this service to:</p>
 
-		<h1 class="govuk-heading-xl">
-			Sign in to your {{ serviceName }} account
-		</h1>
+			<ul class="govuk-list govuk-list--bullet">
+				<li>view or make changes to an existing study</li>
+				<li>register a new study and generate a government research ID</li>
+			</ul>
 
-		<p>Use this service to:</p>
+			{{ govukButton({
+				text: "Sign in",
+				href: "sign-in",
+				isStartButton: true
+			}) }}
 
-		<ul class="govuk-list govuk-list--bullet">
-			<li>view or make changes to an existing study</li>
-			<li>register a new study and generate a government research ID</li>
-		</ul>
-
-		{{ govukButton({
-			text: "Sign in",
-			href: "sign-in",
-			isStartButton: true
-		}) }}
-
-      <h2 class="govuk-heading-m">
-        Before you start
-      </h2>
-
-	  <p>You will need an ORCID ID or NIHR identity gateway account in order to sign in.</p>
-	  <p><a href="#">Register for an ORCID ID</a></p>
-	  <p><a href="#">Register for NIHR identity gateway</a></p>
-      <p>
-        You can also <a href="#">register by post</a>.
-      </p>
-    </div>
-
-	<!-- <div class="govuk-grid-column-one-third">
-
-		<aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
-			<h2 class="govuk-heading-m" id="subsection-title">
-				Subsection
+			<h2 class="govuk-heading-m">
+			Before you start
 			</h2>
-			<nav role="navigation" aria-labelledby="subsection-title">
-				<ul class="govuk-list govuk-!-font-size-16">
-				<li>
-					<a href="#">
-					Related link
-					</a>
-				</li>
-				<li>
-					<a href="#">
-					Related link
-					</a>
-				</li>
-				<li>
-					<a href="#" class="govuk-!-font-weight-bold">
-					More <span class="govuk-visually-hidden">in Subsection</span>
-					</a>
-				</li>
-				</ul>
-			</nav>
-		</aside>
 
-	</div> -->
-  </div>
+			<p>You will need an ORCID ID or NIHR identity gateway account in order to sign in.</p>
+			<p><a href="#">Register for an ORCID ID</a></p>
+			<p><a href="#">Register for NIHR identity gateway</a></p>
+		</div>
 
+		<!-- <div class="govuk-grid-column-one-third">
+
+			<aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+				<h2 class="govuk-heading-m" id="subsection-title">
+					Subsection
+				</h2>
+				<nav role="navigation" aria-labelledby="subsection-title">
+					<ul class="govuk-list govuk-!-font-size-16">
+					<li>
+						<a href="#">
+						Related link
+						</a>
+					</li>
+					<li>
+						<a href="#">
+						Related link
+						</a>
+					</li>
+					<li>
+						<a href="#" class="govuk-!-font-weight-bold">
+						More <span class="govuk-visually-hidden">in Subsection</span>
+						</a>
+					</li>
+					</ul>
+				</nav>
+			</aside>
+
+		</div> -->
+	</div>
 {% endblock %}

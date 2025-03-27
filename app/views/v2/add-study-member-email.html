@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-    Add the ORCID IC or email of at least one study team member – {{ serviceName }} – GOV.UK Prototype Kit
+    Do you need to add additional study team members? – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}      
@@ -27,7 +27,7 @@
                 <fieldset class="govuk-fieldset">
                     <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                         <h1 class="govuk-fieldset__heading">
-                            Add the ORCID IC or email of at least one study team member
+                            Do you need to add additional study team members?
                         </h1>
                     </legend>
 
@@ -39,7 +39,7 @@
                             <input class="govuk-radios__input" id="add-members" name="add-members" type="radio" value="add">
                             
                             <label class="govuk-label govuk-radios__label" for="add-members">
-                                Add additional team members
+                                Yes, add additional team members
                             </label>
                         </div>
 
@@ -47,7 +47,7 @@
                             <input class="govuk-radios__input" id="no-other" name="add-members" type="radio" value="no">
                             
                             <label class="govuk-label govuk-radios__label" for="no-other">
-                                I can confirm that there are no other team members for this study
+                                No, I can confirm that there are no other team members for this study
                             </label>
                         </div>
                     </div>

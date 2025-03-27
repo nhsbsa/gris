@@ -1,6 +1,22 @@
 const express = require('express')
 const router = express.Router()
 
+// How do you want to sign in?
+router.post('/sign-in', function(req, res) {
+    let signIn = req.session.data['sign-in']
+
+    if (signIn == "government-gateway") {
+        // redirects to next page as no design for login screen for this iteration
+        res.redirect("does-study-have-gris-id")
+    } else if (signIn == "govuk-one-login") {
+        // redirects to next page as no design for login screen for this iteration
+        res.redirect("does-study-have-gris-id")
+    } else {
+        // Go nowhere if none selected (will add error component later iterations)
+        res.redirect("sign-in")
+    }
+})
+
 // Does this study already have a Government Research (GRIS) ID?
 router.post('/does-study-have-gris-id', function(req, res) {
     let study = req.session.data['has-study-id']
@@ -20,16 +36,19 @@ router.post('/what-is-the-short-title', function(req, res) {
         res.redirect("what-is-the-short-title")
         // add proper error functionality in future versions instead of redirect
     } else {
-        res.redirect("orcid-and-email-address")
+        res.redirect("orcid-id-chief-investigator")
     }
 })
 
-// What is the ORCID ID and email address of the Chief Investigator or key lead?
-router.post('/orcid-and-email-address', function(req, res) {
-    let orcid = req.session.data['orcid-id']
+// What is the ORCID ID of the Chief Investigator or key lead?
+router.post('/orcid-id-chief-investigator', function(req, res) {
+    let orcidOne = req.session.data['orcid-id-one']
+    let orcidTwo = req.session.data['orcid-id-two']
+    let orcidThree = req.session.data['orcid-id-three']
+    let orcidFour = req.session.data['orcid-id-four']
 
-    if (!orcid || orcid.trim() === "") {
-        res.redirect("orcid-and-email-address")
+    if (!orcidOne || orcidOne.trim() === "" || !orcidTwo || orcidTwo.trim() === "" || !orcidThree || orcidThree.trim() === "" || !orcidFour || orcidFour.trim() === "") {
+        res.redirect("orcid-id-chief-investigator")
         // add proper error functionality in future versions instead of redirect
     } else {
         res.redirect("confirm-chief-investigator-details")
