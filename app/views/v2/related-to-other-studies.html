@@ -56,18 +56,22 @@
                                 No
                             </label>
                         </div>
-
-
-                        <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="study-related-unsure" name="study-related" type="radio" value="unsure">
-                            <label class="govuk-label govuk-radios__label" for="study-related-unsure">
-                                I don't know
-                            </label>
-                        </div>
                     </div>
                 </fieldset>
             </div>
 
+            <details class="govuk-details">
+                <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                        I'm not sure if this study related to other studies
+                    </span>
+                </summary>
+                <div class="govuk-details__text">
+                    Information needed here for helping the user to find out if a study is related to other studies.    
+                </div>
+            </details>
+
+            
 
             {{ govukButton({
                 text: "Continue"

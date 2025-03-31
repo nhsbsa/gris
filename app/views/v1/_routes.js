@@ -101,9 +101,9 @@ router.post('/do-you-know-gris-id', function(req, res) {
 
 // What is the relationship between the current study and the related study?
 router.post('/relationship-between-studies', function(req, res) {
-    let study = req.session.data['study-gris-id']
+    let relationship = req.session.data['study-relationship']
 
-    if (study == "yes" || study == "no" || study == "unsure") {
+    if (relationship == "sub" || relationship == "parent" || relationship == "platform" || relationship == "cont" || relationship == "unsure") {
         res.redirect("does-related-study-have-same-iras-id")
     } else {
         res.redirect("relationship-between-studies")

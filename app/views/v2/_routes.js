@@ -96,7 +96,7 @@ router.post('/who-is-the-sponsor', function(req, res) {
 router.post('/related-to-other-studies', function(req, res) {
     let study = req.session.data['study-related']
 
-    if (study == "yes" || study == "no" || study == "unsure") {
+    if (study == "yes" || study == "no") {
         res.redirect("do-you-know-gris-id")
     } else {
         res.redirect("related-to-other-studies")
@@ -110,7 +110,7 @@ router.post('/do-you-know-gris-id', function(req, res) {
 
     if (study == "yes") {
         res.redirect("relationship-between-studies")
-    } else if ( study == "no" || study == "unsure") {
+    } else if ( study == "no") {
         res.redirect("does-related-study-have-same-iras-id");
     } else {
         res.redirect("do-you-know-gris-id")
@@ -120,9 +120,9 @@ router.post('/do-you-know-gris-id', function(req, res) {
 
 // What is the relationship between the current study and the related study?
 router.post('/relationship-between-studies', function(req, res) {
-    let study = req.session.data['study-gris-id']
+    let relationship = req.session.data['study-relationship']
 
-    if (study == "yes" || study == "no" || study == "unsure") {
+    if (relationship == "sub" || relationship == "parent" || relationship == "platform" || relationship == "cont") {
         res.redirect("does-related-study-have-same-iras-id")
     } else {
         res.redirect("relationship-between-studies")
@@ -134,7 +134,7 @@ router.post('/relationship-between-studies', function(req, res) {
 router.post('/does-related-study-have-same-iras-id', function(req, res) {
     let iras = req.session.data['iras-id']
 
-    if (iras == "yes" || iras == "no" || iras == "unsure") {
+    if (iras == "yes" || iras == "no") {
         res.redirect("does-related-study-have-same-funding-id")
     } else {
         res.redirect("does-related-study-have-same-iras-id")

@@ -59,16 +59,20 @@
                                 No
                             </label>
                         </div>
-        
-                        <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="id-unsure" name="study-gris-id" type="radio" value="unsure">
-                            <label class="govuk-label govuk-radios__label" for="id-unsure">
-                                I don't know
-                            </label>
-                        </div>
                     </div>
                 </fieldset>
             </div>
+
+            <details class="govuk-details">
+                <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                        Help with finding the GRIS ID of the related study
+                    </span>
+                </summary>
+                <div class="govuk-details__text">
+                    Content needed here to help the user find the GRIS ID now that we have removed the 'I don't know' radio option.
+                </div>
+            </details>
             
             {{ govukButton({
                 text: "Continue"

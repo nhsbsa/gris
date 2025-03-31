@@ -76,17 +76,20 @@
                                 this applies to studies that typically recruit participants from the parent study but have a different IRAS ID to that of the parent study
                             </div>
                         </div>
-
-                        <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="study-relationship-unsure" name="study-relationship" type="radio" value="unsure">
-                            <label class="govuk-label govuk-radios__label" for="study-relationship-unsure">
-                                I don't know
-                            </label>
-                        </div>
                     </div>
                 </fieldset>
             </div>
 
+            <details class="govuk-details">
+                <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                        Help with the relationship between the current study and the related study
+                    </span>
+                </summary>
+                <div class="govuk-details__text">
+                    Content needed here to help the user with relationship between the current study and the related study.
+                </div>
+            </details>
 
             {{ govukButton({
                 text: "Continue"
