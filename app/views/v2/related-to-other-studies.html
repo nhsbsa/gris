@@ -31,16 +31,6 @@
                             Is this study related to other studies?
                         </h1>
                     </legend>
-                    
-                    <p id="study-related-hint">
-                        A study is related to another study if:
-                    </p>
-                    <ul class="govuk-list govuk-list--bullet">
-                        <li><strong>it is a sub-study of another study</strong> (this applies to studies where patients that participate in a parent study take part in additional optional activity to that of the parent study)</li>
-                        <li><strong>it is a parent study of another study</strong> (this applies to standalone studies that may have related studies)</li>
-                        <li><strong>it is a platform study</strong> (this applies to studies with a master protocol that is made up of addendums and study arms that may have sub-protocols)</li>
-                        <li><strong>it is a continuation study</strong> (this applies to studies that typically recruit participations from the parent study but have a different IRAS ID to that of the parent study)</li>
-                    </ul>  
 
                     <div class="govuk-radios" data-module="govuk-radios">
                         <div class="govuk-radios__item">
@@ -67,7 +57,15 @@
                     </span>
                 </summary>
                 <div class="govuk-details__text">
-                    Information needed here for helping the user to find out if a study is related to other studies.    
+                    <p id="study-related-hint">
+                        A study is related to another study if:
+                    </p>
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li><strong>it is a sub-study of another study</strong> (this applies to studies where patients that participate in a parent study take part in additional optional activity to that of the parent study)</li>
+                        <li><strong>it is a parent study of another study</strong> (this applies to standalone studies that may have related studies)</li>
+                        <li><strong>it is a platform study</strong> (this applies to studies with a master protocol that is made up of addendums and study arms that may have sub-protocols)</li>
+                        <li><strong>it is a continuation study</strong> (this applies to studies that typically recruit participations from the parent study but have a different IRAS ID to that of the parent study)</li>
+                    </ul>     
                 </div>
             </details>
 
