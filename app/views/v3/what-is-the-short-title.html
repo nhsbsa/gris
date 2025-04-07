@@ -1,0 +1,47 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+    What is the short title of the study? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "does-study-have-gris-id"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+		<form action="what-is-the-short-title" method="post">
+            {{ govukInput({
+                label: {
+                  text: "What is the short title of the study?",
+                  classes: "govuk-label--l",
+                  isPageHeading: true
+                },
+                hint: {
+                  text: "This does not have to be final"
+                },
+                id: "short-title",
+                name: "short-title"
+              }) }}
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}
