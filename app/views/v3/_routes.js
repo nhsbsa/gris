@@ -15,13 +15,25 @@ router.post('/sign-in', function(req, res) {
 
 // Enter your password
 router.post('/enter-your-password', function(req, res) {
-    let emailLogin = req.session.data['email-login']
+    let password = req.session.data['password']
 
-    if (!emailLogin || emailLogin.trim() === "") {
+    if (!password || password.trim() === "") {
         res.redirect("enter-your-password")
         // add proper error functionality in future versions instead of redirect
     } else {
         res.redirect("enter-auth-code")
+    }
+})
+
+// Enter auth code
+router.post('/enter-auth-code', function(req, res) {
+    let code = req.session.data['auth-code']
+
+    if (!code || code.trim() === "") {
+        res.redirect("enter-auth-code")
+        // add proper error functionality in future versions instead of redirect
+    } else {
+        res.redirect("dashboard")
     }
 })
 
