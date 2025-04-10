@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-	How do you want to sign in? – {{ serviceName }} – GOV.UK Prototype Kit
+	Enter email – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}      
@@ -24,32 +24,12 @@
 	<div class="govuk-grid-column-two-thirds">
         <form action="sign-in" method="post">
 			<div class="govuk-form-group">
-				<fieldset class="govuk-fieldset" aria-describedby="sign-in-hint">
-					<legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-						<h1 class="govuk-fieldset__heading">
-							How do you want to sign in?
-						</h1>
-					</legend>
-	
-					<div class="govuk-radios" data-module="govuk-radios">
-						<div class="govuk-radios__item">
-							<input class="govuk-radios__input" id="sign-in" name="sign-in" type="radio" value="government-gateway" aria-describedby="sign-in-item-hint">
-							<label class="govuk-label govuk-radios__label" for="sign-in">
-								Sign in with ORCID ID
-							</label>
-						</div>
-	
-						<div class="govuk-radios__item">
-							<input class="govuk-radios__input" id="sign-in-2" name="sign-in" type="radio" value="govuk-one-login" aria-describedby="sign-in-2-item-hint">
-							<label class="govuk-label govuk-radios__label" for="sign-in-2">
-								Sign in with NIHR identity gateway
-							</label>
-							<!-- <div id="sign-in-2-item-hint" class="govuk-hint govuk-radios__hint">
-								If you don’t have a GOV.UK One Login, you can create one
-							</div> -->
-						</div>
-					</div>
-				</fieldset>
+				<h1 class="govuk-label-wrapper">
+					<label class="govuk-label govuk-label--l" for="email-login">
+						Enter your email address to sign in to your GOV.UK One Login
+					</label>
+				</h1>
+				<input class="govuk-input" id="email-login" name="email-login" type="email">
 			</div>
 
 			<button type="submit" class="govuk-button" data-module="govuk-button">

@@ -1,19 +1,27 @@
 const express = require('express')
 const router = express.Router()
 
-// How do you want to sign in?
+// Sign in
 router.post('/sign-in', function(req, res) {
-    let signIn = req.session.data['sign-in']
+    let emailLogin = req.session.data['email-login']
 
-    if (signIn == "government-gateway") {
-        // redirects to next page as no design for login screen for this iteration
-        res.redirect("does-study-have-gris-id")
-    } else if (signIn == "govuk-one-login") {
-        // redirects to next page as no design for login screen for this iteration
-        res.redirect("does-study-have-gris-id")
-    } else {
-        // Go nowhere if none selected (will add error component later iterations)
+    if (!emailLogin || emailLogin.trim() === "") {
         res.redirect("sign-in")
+        // add proper error functionality in future versions instead of redirect
+    } else {
+        res.redirect("enter-your-password")
+    }
+})
+
+// Enter your password
+router.post('/enter-your-password', function(req, res) {
+    let emailLogin = req.session.data['email-login']
+
+    if (!emailLogin || emailLogin.trim() === "") {
+        res.redirect("enter-your-password")
+        // add proper error functionality in future versions instead of redirect
+    } else {
+        res.redirect("enter-auth-code")
     }
 })
 
