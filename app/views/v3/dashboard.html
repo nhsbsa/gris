@@ -1,0 +1,27 @@
+{% extends "layouts/main-new-header.html" %}
+
+{% block pageTitle %}
+	Dashboard - {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Dashboard</h1>
+
+        <p>You're signed in as <strong>{{ data['email-login'] | default('name@email.com') }}</strong></p>
+    </div>
+</div>
+
+
+{% endblock %}

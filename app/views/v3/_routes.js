@@ -33,9 +33,28 @@ router.post('/enter-auth-code', function(req, res) {
         res.redirect("enter-auth-code")
         // add proper error functionality in future versions instead of redirect
     } else {
+        req.session.data['loggedIn'] = true;
         res.redirect("dashboard")
     }
 })
+
+// Dashboard - Don't let user view unless logged in
+let version = 'v3';
+
+router.get('/dashboard', function (req, res) {
+    if (req.session.data['loggedIn']) {
+        res.render(`${version}/dashboard`);
+    } else {
+        res.redirect('sign-in');
+    }
+});
+
+// Sign out functionality
+router.get('/sign-out', function (req, res) {
+    req.session.destroy(function () {
+        res.redirect('sign-in');
+    });
+});
 
 // Does this study already have a Government Research (GRIS) ID?
 router.post('/does-study-have-gris-id', function(req, res) {

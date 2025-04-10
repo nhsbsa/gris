@@ -1,0 +1,43 @@
+{#
+    For guidance on how to use layouts see:
+    https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
+#}
+
+{% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
+
+{% block header %}
+    {{ govukHeader({
+        classes: "govuk-header--full-width-border"
+    }) }}
+    
+    <section aria-label="Service information" class="govuk-service-navigation" data-module="govuk-service-navigation">
+        <div class="govuk-width-container">
+            <div class="govuk-service-navigation__container">
+                <span class="govuk-service-navigation__service-name">
+                    <a href="start" class="govuk-service-navigation__link">
+                        {{ serviceName }}
+                    </a>
+                </span>
+                {% if data['loggedIn'] %}
+                    <nav aria-label="Menu" class="govuk-service-navigation__wrapper">
+                        <button type="button" class="govuk-service-navigation__toggle govuk-js-service-navigation-toggle" aria-controls="navigation" hidden>
+                            Menu
+                        </button>
+                        <ul class="govuk-service-navigation__list" id="navigation">
+                            <li class="govuk-service-navigation__item govuk-service-navigation__item--active">
+                                <a class="govuk-service-navigation__link" href="dashboard" aria-current="true">
+                                    <strong class="govuk-service-navigation__active-fallback">Dashboard</strong>
+                                </a>
+                            </li>
+                            <li class="govuk-service-navigation__item">
+                                <a class="govuk-service-navigation__link" href="sign-out">
+                                    Sign out
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+{% endblock %}
