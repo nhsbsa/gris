@@ -29,7 +29,7 @@
   	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
 			<h1 class="govuk-heading-xl">
-				Sign in to your {{ serviceName }} account
+				{{ serviceName }}
 			</h1>
 
 			<p>Use this service to:</p>
@@ -39,18 +39,17 @@
 				<li>register a new study and generate a government research ID</li>
 			</ul>
 
+			<h2 class="govuk-heading-m">
+				Before you start
+			</h2>
+			<p class="govuk-!-margin-bottom-7">You need a GOV.UK One Login to sign in to this service. You can <a href="#">create a GOV.UK One Login</a> if you do not already have one.</p>
+
 			{{ govukButton({
 				text: "Sign in",
 				href: "sign-in",
 				isStartButton: true
 			}) }}
 
-			<h2 class="govuk-heading-m">
-			Before you start
-			</h2>
-
-			<p>You'll need a GOV.UK One Login. You can <a href="#">create a GOV.UK One Login</a> if you do not already have one.</p>
-			
 		</div>
 
 		<!-- <div class="govuk-grid-column-one-third">

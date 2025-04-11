@@ -1,0 +1,488 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Card component" %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}      
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-full">
+        <h1 class="govuk-heading-xl">
+          Creating a card component
+        </h1>
+        
+        <p class="govuk-body-l">Demonstation of a card component that can be configured a number of ways using BEM modifiers.</p>
+        
+        <h2 class="govuk-heading-l">.govuk-card</h2>
+
+        <p>
+          Default card. Has slots available for <code>govuk-card__hero</code>, <code>govuk-card__content</code> and <code>govuk-card__actions</code>.
+        </p>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+        <div class="govuk-card">
+            <div class="govuk-card__hero">
+                <img src="/public/images/larry.jpg" alt="Larry the cat">
+            </div>
+            <div class="govuk-card__content">
+                <h3 class="govuk-heading-m">Card heading of intermediate length</h3>
+                <p>A short overview of the content that exists behind this card. For example a full page detailing what goes inside the body of a card.
+                </p>
+            </div>
+            <div class="govuk-card__actions">
+                <a class="govuk-body govuk-link" href="#">Perform this action</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+        <div class="govuk-card">
+            <div class="govuk-card__hero">
+                <img src="/public/images/larry.jpg" alt="Larry the cat">
+            </div>
+            <div class="govuk-card__content">
+                <h3 class="govuk-heading-m">Card heading of intermediate length</h3>
+                <p>A short overview of the content that exists behind this card. For example a full page detailing what goes inside the body of a card.
+                </p>
+            </div>
+            <div class="govuk-card__actions">
+                <a class="govuk-body govuk-link" href="#">Perform this action</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+        <div class="govuk-card">
+            <div class="govuk-card__hero">
+                <img src="/public/images/larry.jpg" alt="Larry the cat">
+            </div>
+            <div class="govuk-card__content">
+                <h3 class="govuk-heading-m">Card heading of intermediate length</h3>
+                <p>A short overview of the content that exists behind this card. For example a full page detailing what goes inside the body of a card.
+                </p>
+            </div>
+            <div class="govuk-card__actions">
+                <a class="govuk-body govuk-link" href="#">Perform this action</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+        <h2 class="govuk-heading-l">.govuk-card + .govuk-card--contained</h2>
+        
+        <p>
+          Modifier class <code>govuk-card--contained</code> can be added. This will add a background colour and padding.
+        </p>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+        <div class="govuk-card govuk-card--contained">
+            <div class="govuk-card__hero">
+                <img src="/public/images/larry.jpg" alt="Larry the cat">
+            </div>
+            <div class="govuk-card__content">
+                <h3 class="govuk-heading-m">Card heading of intermediate length</h3>
+                <p>A short overview of the content that exists behind this card. For example a full page detailing what goes inside the body of a card.
+                </p>
+            </div>
+            <div class="govuk-card__actions">
+                <a class="govuk-body govuk-link" href="#">Perform this action</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+        <div class="govuk-card govuk-card--contained">
+            <div class="govuk-card__hero">
+                <img src="/public/images/larry.jpg" alt="Larry the cat">
+            </div>
+            <div class="govuk-card__content">
+                <h3 class="govuk-heading-m">Card heading of intermediate length</h3>
+                <p>A short overview of the content that exists behind this card. For example a full page detailing what goes inside the body of a card.
+                </p>
+            </div>
+            <div class="govuk-card__actions">
+                <a class="govuk-body govuk-link" href="#">Perform this action</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+        <div class="govuk-card govuk-card--contained">
+            <div class="govuk-card__hero">
+                <img src="/public/images/larry.jpg" alt="Larry the cat">
+            </div>
+            <div class="govuk-card__content">
+                <h3 class="govuk-heading-m">Card heading of intermediate length</h3>
+                <p>A short overview of the content that exists behind this card. For example a full page detailing what goes inside the body of a card.
+                </p>
+            </div>
+            <div class="govuk-card__actions">
+                <a class="govuk-body govuk-link" href="#">Perform this action</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+        <h2 class="govuk-heading-l">.govuk-card + .govuk-card--contained + .govuk-card--contained--on-background</h2>
+        
+        <p>
+          Modifier class <code>govuk-card--contained--on-background</code> can be added on top of <code>govuk-card--contained</code> for when the page has a background colour and you want the cards to be white.
+        </p>
+    </div>
+</div>
+
+<section class="wrapper--grey">
+    <div class="govuk-grid-row wrapper--grey">
+        <div class="govuk-grid-column-one-third">
+            <div class="govuk-card govuk-card--contained govuk-card--contained--on-background">
+                <div class="govuk-card__hero">
+                    <img src="/public/images/larry.jpg" alt="Larry the cat">
+                </div>
+                <div class="govuk-card__content">
+                    <h3 class="govuk-heading-m">Card heading of intermediate length</h3>
+                    <p>A short overview of the content that exists behind this card. For example a full page detailing what goes inside the body of a card.
+                    </p>
+                </div>
+                <div class="govuk-card__actions">
+                    <a class="govuk-body govuk-link" href="#">Perform this action</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="govuk-grid-column-one-third">
+            <div class="govuk-card govuk-card--contained govuk-card--contained--on-background">
+                <div class="govuk-card__hero">
+                    <img src="/public/images/larry.jpg" alt="Larry the cat">
+                </div>
+                <div class="govuk-card__content">
+                    <h3 class="govuk-heading-m">Card heading of intermediate length</h3>
+                    <p>A short overview of the content that exists behind this card. For example a full page detailing what goes inside the body of a card.
+                    </p>
+                </div>
+                <div class="govuk-card__actions">
+                    <a class="govuk-body govuk-link" href="#">Perform this action</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="govuk-grid-column-one-third">
+            <div class="govuk-card govuk-card--contained govuk-card--contained--on-background">
+                <div class="govuk-card__hero">
+                    <img src="/public/images/larry.jpg" alt="Larry the cat">
+                </div>
+                <div class="govuk-card__content">
+                    <h3 class="govuk-heading-m">Card heading of intermediate length</h3>
+                    <p>A short overview of the content that exists behind this card. For example a full page detailing what goes inside the body of a card.
+                    </p>
+                </div>
+                <div class="govuk-card__actions">
+                    <a class="govuk-body govuk-link" href="#">Perform this action</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+        <h2 class="govuk-heading-l">.govuk-card (with no image)</h2>
+
+        <p>
+          Removing the image.
+        </p>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+        <div class="govuk-card">
+            <div class="govuk-card__content">
+                <h3 class="govuk-heading-m">Card heading of intermediate length</h3>
+                <p>A short overview of the content that exists behind this card. For example a full page detailing what goes inside the body of a card.
+                </p>
+            </div>
+            <div class="govuk-card__actions">
+                <a class="govuk-body govuk-link" href="#">Perform this action</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+        <div class="govuk-card">
+            <div class="govuk-card__content">
+                <h3 class="govuk-heading-m">Card heading of intermediate length</h3>
+                <p>A short overview of the content that exists behind this card. For example a full page detailing what goes inside the body of a card.
+                </p>
+            </div>
+            <div class="govuk-card__actions">
+                <a class="govuk-body govuk-link" href="#">Perform this action</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+        <div class="govuk-card">
+            <div class="govuk-card__content">
+                <h3 class="govuk-heading-m">Card heading of intermediate length</h3>
+                <p>A short overview of the content that exists behind this card. For example a full page detailing what goes inside the body of a card.
+                </p>
+            </div>
+            <div class="govuk-card__actions">
+                <a class="govuk-body govuk-link" href="#">Perform this action</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+        <h2 class="govuk-heading-l">.govuk-card (with button)</h2>
+        <p>
+            Swapping the link for a button
+        </p>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+        <div class="govuk-card">
+            <div class="govuk-card__content">
+                <h3 class="govuk-heading-m">Card heading of intermediate length</h3>
+                <p>A short overview of the content that exists behind this card. For example a full page detailing what goes inside the body of a card.
+                </p>
+            </div>
+            <div class="govuk-card__actions">
+                <a href="#" role="button" class="govuk-button" data-module="govuk-button">
+                    Start now
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+        <div class="govuk-card">
+            <div class="govuk-card__content">
+                <h3 class="govuk-heading-m">Card heading of intermediate length</h3>
+                <p>A short overview of the content that exists behind this card. For example a full page detailing what goes inside the body of a card.
+                </p>
+            </div>
+            <div class="govuk-card__actions">
+                <a href="#" role="button" class="govuk-button" data-module="govuk-button">
+                    Start now
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+        <div class="govuk-card">
+            <div class="govuk-card__content">
+                <h3 class="govuk-heading-m">Card heading of intermediate length</h3>
+                <p>A short overview of the content that exists behind this card. For example a full page detailing what goes inside the body of a card.
+                </p>
+            </div>
+            <div class="govuk-card__actions">
+                <a href="#" role="button" class="govuk-button" data-module="govuk-button">
+                    Start now
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+        <h2 class="govuk-heading-l">.govuk-card (with heading link)</h2>
+
+        <p>
+          Adding a link to the heading.
+        </p>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+        <div class="govuk-card">
+            <div class="govuk-card__content">
+                <h3 class="govuk-heading-m"><a href="#">Card heading of intermediate length</a></h3>
+                <p>A short overview of the content that exists behind this card. For example a full page detailing what goes inside the body of a card.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+        <div class="govuk-card">
+            <div class="govuk-card__content">
+                <h3 class="govuk-heading-m"><a href="#">Card heading of intermediate length</a></h3>
+                <p>A short overview of the content that exists behind this card. For example a full page detailing what goes inside the body of a card.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+        <div class="govuk-card">
+            <div class="govuk-card__content">
+                <h3 class="govuk-heading-m"><a href="#">Card heading of intermediate length</a></h3>
+                <p>A short overview of the content that exists behind this card. For example a full page detailing what goes inside the body of a card.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+        <h2 class="govuk-heading-l">.govuk-card + govuk-card--borderless</h2>
+
+        <p>
+          Modifier class <code>govuk-card--borderless</code> will remove the bottom blue border and associated padding.
+        </p>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+        <div class="govuk-card govuk-card--borderless">
+            <div class="govuk-card__content">
+                <h3 class="govuk-heading-m"><a href="#">Card heading of intermediate length</a></h3>
+                <p>A short overview of the content that exists behind this card. For example a full page detailing what goes inside the body of a card.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+        <div class="govuk-card govuk-card--borderless">
+            <div class="govuk-card__content">
+                <h3 class="govuk-heading-m"><a href="#">Card heading of intermediate length</a></h3>
+                <p>A short overview of the content that exists behind this card. For example a full page detailing what goes inside the body of a card.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+        <div class="govuk-card govuk-card--borderless">
+            <div class="govuk-card__content">
+                <h3 class="govuk-heading-m"><a href="#">Card heading of intermediate length</a></h3>
+                <p>A short overview of the content that exists behind this card. For example a full page detailing what goes inside the body of a card.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+        <h2 class="govuk-heading-l">.govuk-card + govuk-card govuk-card--contained + govuk-card--selectable</h2>
+
+        <p>
+            If you want your whole card to be a link you can add <code>govuk-card--selectable</code> and add an <code>a</code> tag as the first thing inside the card markup.
+        </p>
+        
+        <p style="border-left: 5px solid red; padding-left: 10px;">
+            Need to understand the best way to implement for screen readers / understand if having non-selectable text is an issue.
+        </p>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+        <div class="govuk-card govuk-card--contained govuk-card--selectable">
+            <a href="#"></a>
+            <div class="govuk-card__content">
+                <h3 class="govuk-heading-m">Card heading of intermediate length</h3>
+                <p>A short overview of the content that exists behind this card. For example a full page detailing what goes inside the body of a card.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+        <div class="govuk-card govuk-card--contained govuk-card--selectable">
+            <a href="#"></a>
+            <div class="govuk-card__content">
+                <h3 class="govuk-heading-m">Card heading of intermediate length</h3>
+                <p>A short overview of the content that exists behind this card. For example a full page detailing what goes inside the body of a card.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+        <div class="govuk-card govuk-card--contained govuk-card--selectable">
+            <a href="#"></a>
+            <div class="govuk-card__content">
+                <h3 class="govuk-heading-m">Card heading of intermediate length</h3>
+                <p>A short overview of the content that exists behind this card. For example a full page detailing what goes inside the body of a card.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+        <h2 class="govuk-heading-l">.govuk-card + govuk-card--contained + govuk-card--selectable</h2>
+
+        <p>
+          On top of the whole card being a link you can add additional links indside. For example
+        </p>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-half">
+        <div class="govuk-card govuk-card--contained govuk-card--selectable">
+            <a href="#"></a>
+            <div class="govuk-card__content">
+                <h3 class="govuk-heading-m"><a href="#">Link to whole section</a></h3>
+                <p>
+                    A short overview of the content that exists behind this card. For example a full page detailing what goes inside the body of a card.
+                </p>
+            </div>
+            <div class="govuk-card__actions">
+                <ul class="govuk-list govuk-!-mb-r0">
+                    <li><a href="#">Item</a></li>
+                    <li><a href="#">Item</a></li>
+                    <li><a href="#">Item</a></li>
+                    <li><a href="#">Item</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="govuk-grid-column-one-half">
+        <div class="govuk-card govuk-card--contained govuk-card--selectable">
+            <a href="#"></a>
+            <div class="govuk-card__content">
+                <h3 class="govuk-heading-m"><a href="#">Card heading of intermediate length</a></h3>
+                <p>
+                    A short overview of the content that exists behind this card. For example a full page detailing what goes inside the body of a card.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

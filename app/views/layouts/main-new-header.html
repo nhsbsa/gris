@@ -24,10 +24,10 @@
                             Menu
                         </button>
                         <ul class="govuk-service-navigation__list" id="navigation">
-                            <li class="govuk-service-navigation__item govuk-service-navigation__item--active">
-                                <a class="govuk-service-navigation__link" href="dashboard" aria-current="true">
-                                    <strong class="govuk-service-navigation__active-fallback">Dashboard</strong>
-                                </a>
+                            <li class="govuk-service-navigation__item {% if currentPath == '/dashboard' %}govuk-service-navigation__item--active{% endif %}">
+                              <a class="govuk-service-navigation__link" href="dashboard" {% if currentPath == '/dashboard' %}aria-current="true"{% endif %}>
+                                <strong class="govuk-service-navigation__active-fallback">Dashboard</strong>
+                              </a>
                             </li>
                             <li class="govuk-service-navigation__item">
                                 <a class="govuk-service-navigation__link" href="sign-out">

@@ -42,8 +42,10 @@ router.post('/enter-auth-code', function(req, res) {
 let version = 'v3';
 
 router.get('/dashboard', function (req, res) {
+    let currentPath = req.path;
+
     if (req.session.data['loggedIn']) {
-        res.render(`${version}/dashboard`);
+        res.render(`${version}/dashboard`, { currentPath });
     } else {
         res.redirect('sign-in');
     }
@@ -52,7 +54,7 @@ router.get('/dashboard', function (req, res) {
 // Sign out functionality
 router.get('/sign-out', function (req, res) {
     req.session.destroy(function () {
-        res.redirect('sign-in');
+        res.redirect('you-are-now-signed-out');
     });
 });
 
