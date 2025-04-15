@@ -86,7 +86,7 @@ router.post('/manage-my-study-add-member-2', function(req, res) {
 router.post('/manage-my-study-add-member-3', function(req, res) {
     let permissions = req.session.data['permissions']
 
-    if (permissions == "read-only" || permissions == "edit") {
+    if (permissions == "read only" || permissions == "editor") {
         res.redirect("manage-my-study-add-member-4")
     } else {
         // add proper error functionality in future versions instead of redirect
