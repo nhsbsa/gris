@@ -1,0 +1,42 @@
+{% extends "layouts/main-new-header.html" %}
+
+{% block pageTitle %}
+	Add a new study member - {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "manage-my-study-add-member"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">What is the email address of the member you want to add to [study name]?</h1>
+        
+        <form action="manage-my-study-add-member-2" method="post">
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="member-email-address">
+                    Email address
+                </label>
+                <input class="govuk-input" id="member-email-address" name="member-email-address" type="email" spellcheck="false" autocomplete="email">
+            </div>
+
+            <button type="submit" class="govuk-button" data-module="govuk-button">
+                Continue
+            </button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

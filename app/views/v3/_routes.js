@@ -58,14 +58,53 @@ router.get('/sign-out', function (req, res) {
     });
 });
 
+// Manage my study - add a member (name)
+router.post('/manage-my-study-add-member', function(req, res) {
+    let name = req.session.data['member-full-name']
+
+    if (!name || name.trim() === "") {
+        res.redirect("manage-my-study-add-member")
+        // add proper error functionality in future versions instead of redirect
+    } else {
+        res.redirect("manage-my-study-add-member-2")
+    }
+})
+
+// Manage my study - add a member (email)
+router.post('/manage-my-study-add-member-2', function(req, res) {
+    let email = req.session.data['member-email-address']
+
+    if (!email || email.trim() === "") {
+        res.redirect("manage-my-study-add-member-2")
+        // add proper error functionality in future versions instead of redirect
+    } else {
+        res.redirect("manage-my-study-add-member-3")
+    }
+})
+
+// Manage my study - add a member (permissions)
+router.post('/manage-my-study-add-member-3', function(req, res) {
+    let permissions = req.session.data['permissions']
+
+    if (permissions == "read-only" || permissions == "edit") {
+        res.redirect("manage-my-study-add-member-4")
+    } else {
+        // add proper error functionality in future versions instead of redirect
+        res.redirect("manage-my-study-add-member-3")
+    }
+})
+
 // Does this study already have a Government Research (GRIS) ID?
 router.post('/does-study-have-gris-id', function(req, res) {
     let study = req.session.data['has-study-id']
 
     if (study == "yes") {
         res.redirect("related-to-other-studies")
-    } else {
+    } else if (study == "no") {
         res.redirect("what-is-the-short-title")
+    } else {
+        // None selected add error in future here instead of redirect
+        res.redirect("does-study-have-gris-id")
     }
 })
 
