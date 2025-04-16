@@ -137,27 +137,41 @@ router.post('/orcid-id-chief-investigator', function(req, res) {
 
 // Confirm Chief Investigator or key lead details
 router.post('/confirm-chief-investigator-details', function(req, res) {
+    let confirm = req.session.data['confirm-chief']
+
+    if (confirm == "yes") {
+        res.redirect("add-chief-investigator-email")
+    } else {
+        // add proper error functionality in future versions instead of redirect
+        res.redirect("confirm-chief-investigator-details")
+    }
+})
+
+// Add email address of Chief Investigator of key lead
+router.post('/add-chief-investigator-email', function(req, res) {
     let email = req.session.data['investigator-email']
 
     if (!email || email.trim() === "") {
-        res.redirect("confirm-chief-investigator-details")
         // add proper error functionality in future versions instead of redirect
+        res.redirect("add-chief-investigator-email")
     } else {
-        res.redirect("add-study-member-email")
+        res.redirect("add-additional-study-members")
     }
 })
 
-// Add the ORCID ID or email of at least one study member
-router.post('/add-study-member-email', function(req, res) {
-    let email = req.session.data['add-members']
+// Do you need to add additional study members?
+router.post('/add-additional-study-members', function(req, res) {
+    let add = req.session.data['add-members']
 
-    if (email == "add") {
-        res.redirect("add-study-member-email")
-        // Redirecting to same page as no screen on provided designs for adding members
-    } else {
+    if (add == "yes") {
+        res.redirect("add-study-member")
+    } else if (add == "no") {
         res.redirect("who-is-the-sponsor")
+    } else {
+        res.redirect("add-additional-study-members")
     }
 })
+
 
 // Who is the sponsor of the research?
 router.post('/who-is-the-sponsor', function(req, res) {
