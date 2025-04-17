@@ -164,7 +164,7 @@ router.post('/add-additional-study-members', function(req, res) {
     let add = req.session.data['add-members']
 
     if (add == "yes") {
-        res.redirect("add-study-member")
+        res.redirect("add-study-member-name")
     } else if (add == "no") {
         res.redirect("who-is-the-sponsor")
     } else {
@@ -172,6 +172,55 @@ router.post('/add-additional-study-members', function(req, res) {
     }
 })
 
+// Add additional member (name)
+router.post('/add-study-member-name', function(req, res) {
+    let name = req.session.data['add-full-name']
+
+    if (!name || name.trim() === "") {
+        res.redirect("add-study-member-name")
+        // add proper error functionality in future versions instead of redirect
+    } else {
+        res.redirect("add-study-member-email")
+    }
+})
+
+// Add additional member (email)
+router.post('/add-study-member-email', function(req, res) {
+    let email = req.session.data['add-member-email']
+
+    if (!email || email.trim() === "") {
+        res.redirect("add-study-member-email")
+        // add proper error functionality in future versions instead of redirect
+    } else {
+        res.redirect("add-study-member-permissions")
+    }
+})
+
+// Add additional member (permissions)
+router.post('/add-study-member-permissions', function(req, res) {
+    let permissions = req.session.data['add-member-permissions']
+
+    if (permissions == "read only" || permissions == "editor") {
+        res.redirect("add-study-member-check-answers")
+    } else {
+        // add proper error functionality in future versions instead of redirect
+        res.redirect("add-study-member-permissions")
+    }
+})
+
+// Add additional member (completed)
+router.post('/add-study-member-completed', function(req, res) {
+    let more = req.session.data['add-more-members']
+
+    if (more == "yes") {
+        res.redirect("add-study-member-name")
+    } else if (more == "no") {
+        res.redirect("who-is-the-sponsor")
+    } else {
+        // no option selected - add proper error functionality in future versions instead of redirect
+        res.redirect("add-study-member-completed")
+    }
+})
 
 // Who is the sponsor of the research?
 router.post('/who-is-the-sponsor', function(req, res) {
