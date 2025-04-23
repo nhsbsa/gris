@@ -289,11 +289,23 @@ router.post('/does-related-study-have-same-iras-id', function(req, res) {
 router.post('/does-related-study-have-same-funding-id', function(req, res) {
     let funding = req.session.data['funding-id']
 
-    if (!funding) {
-        res.redirect("does-related-study-have-same-funding-id")
-        // add proper error functionality in future versions instead of redirect
+    if (funding == "yes" || funding == "no") {
+        res.redirect("select-funding-id")
     } else {
+        // add proper error functionality in future versions instead of redirect
+        res.redirect("does-related-study-have-same-funding-id")
+    }
+})
+
+// Select the funding ID for the study
+router.post('/select-funding-id', function(req, res) {
+    let funding = req.session.data['funding-name']
+
+    if (funding) {
         res.redirect("check-your-answers")
+    } else {
+        // add proper error functionality in future versions instead of redirect
+        res.redirect("select-funding-id")
     }
 })
 

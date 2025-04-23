@@ -24,8 +24,41 @@
 	<div class="govuk-grid-column-two-thirds">       
 
         <form action="does-related-study-have-same-funding-id" method="post">
-
             <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                        <h1 class="govuk-fieldset__heading">
+                            Does the related study have the same funding ID as the new study?
+                        </h1>
+                    </legend>
+                    <div class="govuk-radios" data-module="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="funding" name="funding-id" type="radio" value="yes">
+                            <label class="govuk-label govuk-radios__label" for="funding">
+                                Yes
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="funding-2" name="funding-id" type="radio" value="no">
+                            <label class="govuk-label govuk-radios__label" for="funding-2">
+                                No
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <details class="govuk-details">
+                <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                        I'm not sure of the study's funding ID
+                    </span>
+                </summary>
+                <div class="govuk-details__text">
+                    If you're not sure of the study's funding ID, you should be able to find it in the funding system(s) you used to gain the study's funding. Examples include REALMS, NETSCC, REALMS and OneNIHR.
+                </div>
+            </details>
+            <!-- <div class="govuk-form-group">
                 <fieldset class="govuk-fieldset" >
                     <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                         <h1 class="govuk-fieldset__heading">
@@ -34,8 +67,7 @@
                     </legend>
 
                     <p>
-                        If you're not sure of the study's funding ID, you should be able to find it in the funding system(s) you used to gain the study's funding. Examples include REALMS, NETSCC, REALMS and OneNIHR.
-                    </p>
+                        </p>
 
                     <div class="govuk-inset-text">
                         Please be aware that you are able to select multiple Funding IDs, if the study has more than one source of funding.
@@ -63,7 +95,7 @@
                         </div>
                     </div>
                 </fieldset>
-            </div>
+            </div> -->
 
             {{ govukButton({
                 text: "Continue"
