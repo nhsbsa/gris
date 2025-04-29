@@ -94,6 +94,30 @@ router.post('/manage-my-study-add-member-3', function(req, res) {
     }
 })
 
+// Manage my study - add a sponsor (name)
+router.post('/manage-my-study-add-sponsor', function(req, res) {
+    let name = req.session.data['add-sponsor-name']
+
+    if (!name || name.trim() === "") {
+        res.redirect("manage-my-study-add-sponsor")
+        // add proper error functionality in future versions instead of redirect
+    } else {
+        res.redirect("manage-my-study-add-sponsor-2")
+    }
+})
+
+// Manage my study - add a sponsor (email)
+router.post('/manage-my-study-add-sponsor-2', function(req, res) {
+    let email = req.session.data['add-sponsor-email']
+
+    if (!email || email.trim() === "") {
+        res.redirect("manage-my-study-add-sponsor-2")
+        // add proper error functionality in future versions instead of redirect
+    } else {
+        res.redirect("manage-my-study-add-sponsor-3")
+    }
+})
+
 // Does this study already have a Government Research (GRIS) ID?
 router.post('/does-study-have-gris-id', function(req, res) {
     let study = req.session.data['has-study-id']
