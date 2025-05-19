@@ -1,0 +1,61 @@
+{% extends "layouts/main-new-header.html" %}
+
+{% block pageTitle %}
+    Add a new sponsoring organisation - {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "manage-my-study-add-sponsor-2"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Check your answers before adding a new sponsoring organisation</h1>
+
+        <h2 class="govuk-heading-m">Sponsoring organisation details</h2>
+        
+        <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Name of the sponsoring organisation
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data['add-sponsor-name'] | title | default('Manchester University NHS Foundation Trust') }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link govuk-link--no-visited-state" href="manage-my-study-add-sponsor">Change<span class="govuk-visually-hidden"> sponsor name</span></a>
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Point of contact email address
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data['add-sponsor-email'] | default('sponsor-email@email.com') }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link govuk-link--no-visited-state" href="manage-my-study-add-sponsor-2">Change<span class="govuk-visually-hidden"> sponsor email address</span></a>
+                </dd>
+            </div>
+        </dl>
+
+        <a href="manage-my-study-add-sponsor-4" role="button" class="govuk-button" data-module="govuk-button">
+            Submit
+        </a>
+    </div>
+</div>
+
+{% endblock %}

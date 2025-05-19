@@ -1,0 +1,113 @@
+{% extends "layouts/main-new-header.html" %}
+
+{% block pageTitle %}
+    What is the ORCID ID the Chief Investigator or key lead? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "what-is-the-short-title"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">
+            What is the ORCID ID of the Chief Investigator or key lead?
+        </h1>
+
+		<form action="orcid-id-chief-investigator" method="post">
+            <div class="govuk-form-group">                
+                <div id="orcid-id-hint" class="govuk-hint">
+                    <p>If there is no chief investigator yet, include the ORCID ID of the key lead or contact.</p>
+                
+                </div>                      
+
+                <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset" role="group" aria-describedby="orcid-id-hint">
+                        <legend class="govuk-fieldset__legend">
+                            ORCID ID
+                        </legend>
+                        
+                        <div id="orcid-id-hint" class="govuk-hint">
+                            For example, 0009-0000-6037-7481
+                        </div>
+                        
+                        <div class="govuk-date-input" id="orcid-id">
+                            <div class="govuk-date-input__item govuk-!-margin-right-0">
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-visually-hidden" for="orcid-id-one">
+                                        ORCID ID part one
+                                    </label>
+                                    <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="orcid-id-one" name="orcid-id-one" type="text" inputmode="numeric">
+                                </div>
+                            </div>
+
+                            <p class="govuk-!-display-inline govuk-!-margin-right-1 govuk-!-margin-left-1" >-</p>
+
+                            <div class="govuk-date-input__item govuk-!-margin-right-0">
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-visually-hidden" for="orcid-id-two">
+                                        ORCID ID part two
+                                    </label>
+                                    <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="orcid-id-two" name="orcid-id-two" type="text" inputmode="numeric">
+                                </div>
+                            </div>
+
+                            <p class="govuk-!-display-inline govuk-!-margin-right-1 govuk-!-margin-left-1" >-</p>
+                            
+                            <div class="govuk-date-input__item govuk-!-margin-right-0">
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-visually-hidden" for="orcid-id-three">
+                                        ORCID ID part three
+                                    </label>
+                                    <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="orcid-id-three" name="orcid-id-three" type="text" inputmode="numeric">
+                                </div>
+                            </div>
+
+                            <p class="govuk-!-display-inline govuk-!-margin-right-1 govuk-!-margin-left-1" >-</p>
+
+                            <div class="govuk-date-input__item govuk-!-margin-right-0">
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-visually-hidden" for="orcid-id-four">
+                                        ORCID ID part four
+                                    </label>
+                                    <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="orcid-id-four" name="orcid-id-four" type="text" inputmode="numeric">
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+
+            <details class="govuk-details">
+                <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                        Where can you find an ORCID ID
+                    </span>
+                </summary>
+                <div class="govuk-details__text">
+                    <p>If you do not know the ORCID ID use this link: <a href="https://orcid.org/">https://orcid.org/</a></p>
+                </div>
+            </details>            
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

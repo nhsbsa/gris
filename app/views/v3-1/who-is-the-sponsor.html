@@ -1,0 +1,45 @@
+{% extends "layouts/main-new-header.html" %}
+
+{% block pageTitle %}
+    Who is the sponsor of the research? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "add-additional-study-members"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+        <form action="who-is-the-sponsor" method="post">
+            <div class="govuk-form-group">
+                <h1 class="govuk-label-wrapper">
+                    <label class="govuk-label govuk-label--l" for="event-name">
+                        What is the name of the sponsoring organisation for this research?
+                    </label>
+                </h1>
+                <div id="sponsor-name-hint" class="govuk-hint">For example, Manchester University NHS Foundation Trust</div>
+                <input class="govuk-input" id="sponsor-name" name="sponsor-name" type="text">
+            </div>
+
+            <p class="govuk-!-margin-bottom-6">More sponsors can be added at a later stage.</p>
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form>
+    </div>
+</div>
+
+{% endblock %}

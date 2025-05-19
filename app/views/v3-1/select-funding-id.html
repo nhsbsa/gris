@@ -1,0 +1,75 @@
+{% extends "layouts/main-new-header.html" %}
+
+{% block pageTitle %}
+    Select the funding ID for the study – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "does-related-study-have-same-funding-id"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">       
+
+        <form action="select-funding-id" method="post">
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" >
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                        <h1 class="govuk-fieldset__heading">
+                            Select the funding ID for the study
+                        </h1>
+                    </legend>
+
+                    <p>
+                        </p>
+
+                    <div class="govuk-inset-text">
+                        Please be aware that you are able to select multiple Funding IDs, if the study has more than one source of funding.
+                    </div>
+
+                    <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="one" name="funding-name" type="checkbox" value="one">
+                            <label class="govuk-label govuk-checkboxes__label" for="one">
+                                FUNDING ID 12344, REALMS
+                            </label>
+                            <div id="checkbox-one-hint" class="govuk-hint govuk-checkboxes__hint">
+                                The impact of adverse childhood experiences on sensation and pain in people living with multiple long-term health conditions and chronic pain
+                            </div>
+                        </div>
+
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="two" name="funding-name" type="checkbox" value="two">
+                            <label class="govuk-label govuk-checkboxes__label" for="two">
+                                FUNDING ID 11982, REALMS
+                            </label>
+                            <div id="checkbox-two-hint" class="govuk-hint govuk-checkboxes__hint">
+                                The impact of adverse childhood experiences on sensation and pain in people living with multiple long-term health conditions and chronic pain
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

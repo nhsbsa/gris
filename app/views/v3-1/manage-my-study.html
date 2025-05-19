@@ -1,0 +1,146 @@
+{% extends "layouts/main-new-header.html" %}
+
+{% block pageTitle %}
+	Manage my study - {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "my-studies"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-full">
+        <h1 class="govuk-heading-l">Investigating left arm disease</h1>
+
+        <div class="govuk-summary-card">
+            <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">
+                    Study information
+                </h2>
+            </div>
+
+            <div class="govuk-summary-card__content">
+                <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Short study title
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            Investigating left arm disease
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> Short study title</span></a>
+                        </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Government research ID
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            1234-1234-5678-0987
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                        </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Chief investigator email
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            joe.bloggs@email.com
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> Chief investigator email</span></a>
+                        </dd>
+                    </div>
+                </dl>
+            </div>
+        </div>
+
+        <div class="govuk-summary-card">
+            <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">
+                    Sponsor information
+                </h2>
+                <ul class="govuk-summary-card__actions">
+                    <li class="govuk-summary-card__action">
+                        <a class="govuk-link govuk-link--no-visited-state" href="manage-my-study-add-sponsor">Add a sponsor</a>
+                    </li>
+                  </ul>
+            </div>
+
+            <div class="govuk-summary-card__content">
+                <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Manchester University NHS Foundation Trust
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            sponsor-contact@email.com
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> sponsor</span></a>
+                        </dd>
+                    </div>
+                </dl>
+            </div>
+        </div>
+
+        <div class="govuk-summary-card">
+            <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">
+                    Study members
+                </h2>
+                <ul class="govuk-summary-card__actions">
+                    <li class="govuk-summary-card__action">
+                        <a class="govuk-link govuk-link--no-visited-state" href="manage-my-study-add-member">Add a study member</a>
+                    </li>
+                  </ul>
+            </div>
+
+            <div class="govuk-summary-card__content">
+                <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Jane Doe
+                            <p class="govuk-hint">(Read only permissions)</p>
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            jane.doe@email.com
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link govuk-link--no-visited-state" href="#">Manage<span class="govuk-visually-hidden"> Jane Doe</span></a>
+                        </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Joe Bloggs
+                            <p class="govuk-hint">(Editor permissions)</p>
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            joe.bloggs@email.com
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link govuk-link--no-visited-state" href="#">Manage<span class="govuk-visually-hidden"> Joe Bloggs</span></a>
+                        </dd>
+                    </div>
+                </dl>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+{% endblock %}

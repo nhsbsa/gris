@@ -1,0 +1,43 @@
+{% extends "layouts/main-new-header.html" %}
+
+{% block pageTitle %}
+    Your Government Research Identifier – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">       
+        <div class="govuk-panel govuk-panel--confirmation">
+            <h1 class="govuk-panel__title">
+                GRIS-872 872 241
+            </h1>
+            <div class="govuk-panel__body">
+                This is your Government Research Identifier
+            </div>
+        </div>
+
+        <p>Keep a copy of your Government Research Identifier (GRIS ID) for your records. We have sent you a confirmation email, including the ID of your study.</p>
+        <p>This information will also be emailed to the Chief Investigator and the study team members associated with the study.</p>
+
+        <p>
+            <a href="#">Copy identifier to clipboard</a>
+        </p>
+        <h2 class="govuk-heading-m">What happnes next</h2>
+
+
+        <p>You can <a href="dashboard">go to the dashboard</a> to view and manage all the studies associated with your account.</p>
+        <p><a href="#">What did you think of this service?</a> (takes 30 seconds)</p>
+    </div>
+</div>
+
+{% endblock %}
