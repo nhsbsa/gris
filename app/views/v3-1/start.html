@@ -1,7 +1,7 @@
 {% extends "layouts/main-new-header.html" %}
 
 {% block pageTitle %}
-  Start – {{ serviceName }} – GOV.UK Prototype Kit
+  Sign in to the government research identifier service – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block header %}
@@ -29,14 +29,16 @@
   	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
 			<h1 class="govuk-heading-xl">
-				{{ serviceName }}
+				Sign in to the government research identifier service 
 			</h1>
 
 			<p>Use this service to:</p>
 
 			<ul class="govuk-list govuk-list--bullet">
-				<li>view or make changes to an existing study</li>
-				<li>register a new study and generate a government research ID</li>
+				<li>register a new study</li>
+				<li>view an existing study</li>
+				<li>edit an existing study</li>
+				<li>create a unique government research identifier service ID (GRIS ID)</li>
 			</ul>
 
 			<h2 class="govuk-heading-m">
@@ -45,7 +47,7 @@
 			<p class="govuk-!-margin-bottom-7">You need a GOV.UK One Login to sign in to this service. You can <a href="#">create a GOV.UK One Login</a> if you do not already have one.</p>
 
 			{{ govukButton({
-				text: "Sign in",
+				text: "Start now",
 				href: "sign-in",
 				isStartButton: true
 			}) }}

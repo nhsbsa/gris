@@ -6,6 +6,9 @@
 const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 
+// Routes for v3.1
+router.use('/v3-1', require('./views/v3/\_routes'));
+
 // Routes for v3
 router.use('/v3', require('./views/v3/\_routes'));
 
