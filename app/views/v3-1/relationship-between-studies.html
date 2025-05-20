@@ -1,7 +1,7 @@
 {% extends "layouts/main-new-header.html" %}
 
 {% block pageTitle %}
-    What is the relationship between the current study and the related study? – {{ serviceName }} – GOV.UK Prototype Kit
+    What is the relationship between the new study and the related study? – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}      
@@ -28,52 +28,52 @@
                 <fieldset class="govuk-fieldset" aria-describedby="study-relationship-hint">
                     <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                         <h1 class="govuk-fieldset__heading">
-                            What is the relationship between the current study and the related study?
+                            What is the relationship between the new study and the related study? 
                         </h1>
                     </legend>
                     
                     <p class="govuk-hint" id="study-relationship-hint">
-                        Please select the relationship that best describes how the studies are related.
+                        Select one option
                     </p>
          
                     <div class="govuk-radios" data-module="govuk-radios">
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="study-relationship-sub" name="study-relationship" type="radio" value="sub">
-                            <label class="govuk-label govuk-radios__label" for="study-relationship-sub">
-                                It is a sub-study of another study
+                            <input class="govuk-radios__input" id="study-relationship-parent" name="study-relationship" type="radio" value="parent">
+                            <label class="govuk-label govuk-radios__label" for="study-relationship-parent">
+                                It's a parent study of another study
                             </label>
-                            <div id="sub-study-hint" class="govuk-hint govuk-radios__hint">
-                                this applies to studies where patients that participate in a parent study take part in additional optional activity to that of the parent study
+                            <div id="parent-study-hint" class="govuk-hint govuk-radios__hint">
+                                This is a standalone study that may have related studies connected to it.
                             </div>
                         </div>
 
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="study-relationship-parent" name="study-relationship" type="radio" value="parent">
-                            <label class="govuk-label govuk-radios__label" for="study-relationship-parent">
-                                It is a parent study of another study
+                            <input class="govuk-radios__input" id="study-relationship-sub" name="study-relationship" type="radio" value="sub">
+                            <label class="govuk-label govuk-radios__label" for="study-relationship-sub">
+                                It's a sub-study
                             </label>
-                            <div id="parent-study-hint" class="govuk-hint govuk-radios__hint">
-                                this applies to standalone studies that may have related studies
+                            <div id="sub-study-hint" class="govuk-hint govuk-radios__hint">
+                                This is a smaller research project exploring specific parts of the parent study
                             </div>
                         </div>
 
                         <div class="govuk-radios__item">
                             <input class="govuk-radios__input" id="study-relationship-platform" name="study-relationship" type="radio" value="platform">
                             <label class="govuk-label govuk-radios__label" for="study-relationship-platform">
-                                It is a platform study
+                                It's a platform study
                             </label>
                             <div id="parent-study-hint" class="govuk-hint govuk-radios__hint">
-                                this applies to studies with a master protocol that is made up of addendums and study arms that may have sub-protocols
+                                This is a study with a master protocol which can be updated and expanded using smaller addenda or sub-protocols
                             </div>
                         </div>
 
                         <div class="govuk-radios__item">
                             <input class="govuk-radios__input" id="study-relationship-cont" name="study-relationship" type="radio" value="cont">
                             <label class="govuk-label govuk-radios__label" for="study-relationship-cont">
-                                It is a continuation study
+                                It's a continuation study
                             </label>
                             <div id="parent-study-hint" class="govuk-hint govuk-radios__hint">
-                                this applies to studies that typically recruit participants from the parent study but have a different IRAS ID to that of the parent study
+                                This is an extension of an earlier study. This might have a different integrated research application system ID (IRAS ID) from the parent study.
                             </div>
                         </div>
                     </div>
@@ -83,11 +83,11 @@
             <details class="govuk-details">
                 <summary class="govuk-details__summary">
                     <span class="govuk-details__summary-text">
-                        Help with the relationship between the current study and the related study
+                        How do I find out what the relationship is between the new study and the related study?
                     </span>
                 </summary>
                 <div class="govuk-details__text">
-                    Content needed here to help the user with relationship between the current study and the related study.
+                    To determine if a research study is related to another study, you can use the <a href="https://www.nihr.ac.uk/support-and-services/support-for-delivering-research/clinical-research-network/study-support-service">NIHR Open Data Platform (ODP)</a>. This platform provides access to details of all NIHR-supported studies, including recruitment data, allowing you to identify related studies. 
                 </div>
             </details>
 
@@ -98,6 +98,5 @@
 
     </div>
 </div>
-
 
 {% endblock %}
