@@ -28,7 +28,7 @@
                 <fieldset class="govuk-fieldset">
                     <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                         <h1 class="govuk-fieldset__heading">
-                            Does the related study have the same funding ID as the new study?
+                            Does the related study have the same funding ID as the new study? 
                         </h1>
                     </legend>
                     <div class="govuk-radios" data-module="govuk-radios">
@@ -51,51 +51,19 @@
             <details class="govuk-details">
                 <summary class="govuk-details__summary">
                     <span class="govuk-details__summary-text">
-                        I'm not sure of the study's funding ID
+                        I'm not sure if the related study has the same funding ID as the new study
                     </span>
                 </summary>
                 <div class="govuk-details__text">
-                    If you're not sure of the study's funding ID, you should be able to find it in the funding system(s) you used to gain the study's funding. Examples include REALMS, NETSCC, REALMS and OneNIHR.
+                    <p>If you're not sure what the study's funding ID is, you can usually find it in the system where you applied for funding.</p>
+                    <p>Examples of these might include:</p>
+                    <ul>
+                        <li>Research Awards Lifecycle Management System (REALMS)</li>
+                        <li>NIHR Evaluation, Trials and Studies Coordinating Centre (NETSCC)</li>
+                        <li>OneNIHR</li>
+                    </ul>
                 </div>
             </details>
-            <!-- <div class="govuk-form-group">
-                <fieldset class="govuk-fieldset" >
-                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-                        <h1 class="govuk-fieldset__heading">
-                            Does the related study have the same funding ID as the new study?
-                        </h1>
-                    </legend>
-
-                    <p>
-                        </p>
-
-                    <div class="govuk-inset-text">
-                        Please be aware that you are able to select multiple Funding IDs, if the study has more than one source of funding.
-                    </div>
-
-                    <div class="govuk-checkboxes" data-module="govuk-checkboxes">
-                        <div class="govuk-checkboxes__item">
-                            <input class="govuk-checkboxes__input" id="one" name="funding-id" type="checkbox" value="one">
-                            <label class="govuk-label govuk-checkboxes__label" for="one">
-                                FUNDING ID 12344, REALMS
-                            </label>
-                            <div id="checkbox-one-hint" class="govuk-hint govuk-checkboxes__hint">
-                                The impact of adverse childhood experiences on sensation and pain in people living with multiple long-term health conditions and chronic pain
-                            </div>
-                        </div>
-
-                        <div class="govuk-checkboxes__item">
-                            <input class="govuk-checkboxes__input" id="two" name="funding-id" type="checkbox" value="two">
-                            <label class="govuk-label govuk-checkboxes__label" for="two">
-                                FUNDING ID 11982, REALMS
-                            </label>
-                            <div id="checkbox-two-hint" class="govuk-hint govuk-checkboxes__hint">
-                                The impact of adverse childhood experiences on sensation and pain in people living with multiple long-term health conditions and chronic pain
-                            </div>
-                        </div>
-                    </div>
-                </fieldset>
-            </div> -->
 
             {{ govukButton({
                 text: "Continue"

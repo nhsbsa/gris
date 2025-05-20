@@ -1,7 +1,7 @@
 {% extends "layouts/main-new-header.html" %}
 
 {% block pageTitle %}
-    Check your answers before you submit – {{ serviceName }} – GOV.UK Prototype Kit
+    Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}      
@@ -17,11 +17,12 @@
 
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">       
-        <h1 class="govuk-heading-l">Check your answers before you submit</h1>
+        <h1 class="govuk-heading-l">Check your answers before you submit your new study details</h1>
 
-        <p>If you notice a mistake, you can change your response by clicking 'Change'. You will also have the option to change the responses after the submission.</p>
-    
-        <h2 class="govuk-heading-m">New study information</h2>
+        <p>If you notice a mistake, you can change your response by selecting 'Change'. </p>
+        <p>You’ll also have the option to change the responses after the submission through the 'my studies' section of the dashboard.</p>
+
+        <h2 class="govuk-heading-m">New study details</h2>
 
         <dl class="govuk-summary-list">
             <div class="govuk-summary-list__row">
@@ -38,10 +39,9 @@
 
             <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                    Chief Investigator ORCID ID
+                    Chief Investigator
                 </dt>
                 <dd class="govuk-summary-list__value">
-                    <p class="govuk-body">0009-0000-6037-7481</p>
                     <p class="govuk-body">Peter Jones</p>
                 </dd>
                 <dd class="govuk-summary-list__actions">
@@ -51,7 +51,19 @@
 
             <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                    Study team members
+                    Chief Investigator ORCiD ID
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    <p class="govuk-body">0009-0000-6037-7481</p>
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="orcid-id-chief-investigator">Change<span class="govuk-visually-hidden"> Chief Investigator ORCID ID</span></a>
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Team members' email addresses
                 </dt>
                 <dd class="govuk-summary-list__value">
                     joe.bloggs@research.ac.uk
@@ -63,7 +75,7 @@
             
             <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                    Sponsor
+                    Sponsor name
                 </dt>
                 <dd class="govuk-summary-list__value">
                     Manchester University NHS Foundation Trust
@@ -74,7 +86,7 @@
             </div>
         </dl>
 
-        <h2 class="govuk-heading-m">Related study information</h2>
+        <h2 class="govuk-heading-m">Related study details</h2>
 
         <dl class="govuk-summary-list">
             <div class="govuk-summary-list__row">
