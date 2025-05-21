@@ -1,7 +1,7 @@
 {% extends "layouts/main-new-header.html" %}
 
 {% block pageTitle %}
-    Add additional study team members - {{ serviceName }} – GOV.UK Prototype Kit
+    New study team member has been added - {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}      
@@ -19,7 +19,7 @@
 	<div class="govuk-grid-column-two-thirds">
         <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-6">
             <h1 class="govuk-panel__title">
-                Study member added
+                New study team member has been added
             </h1>
             <div class="govuk-panel__body">
                 {{ data['add-full-name'] | title | default('James Bond') }}<br>
@@ -32,7 +32,7 @@
                 <fieldset class="govuk-fieldset">
                     <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
                         <h2 class="govuk-fieldset__heading">
-                            Do you need to add additional study team members?
+                            Do you need to add any additional team members?
                         </h2>
                     </legend>
                                   

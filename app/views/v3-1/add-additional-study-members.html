@@ -31,16 +31,15 @@
                         </h1>
                     </legend>
 
-                    <p>You do not need to add all study team members, only those who will potentially require access to the information stored about the study.</p>
-                        
-                    <p>More study members can be added at a later stage.</p>
-                                  
+                    <p>You only need to add study team members who might need access to the study information.</p>
+                    <p>You can add more team members later.</p>
+
                     <div class="govuk-radios" data-module="govuk-radios">
                         <div class="govuk-radios__item">
                             <input class="govuk-radios__input" id="add-members" name="add-members" type="radio" value="yes">
                             
                             <label class="govuk-label govuk-radios__label" for="add-members">
-                                Yes, add additional team members
+                                Yes, add additional study team members
                             </label>
                         </div>
 
@@ -48,7 +47,7 @@
                             <input class="govuk-radios__input" id="no-other" name="add-members" type="radio" value="no">
                             
                             <label class="govuk-label govuk-radios__label" for="no-other">
-                                No, I can confirm that there are no other team members for this study
+                                No, I can confirm that there are no other team members who need access to this study
                             </label>
                         </div>
                     </div>
@@ -61,6 +60,5 @@
         </form>
     </div>
 </div>
-
 
 {% endblock %}

@@ -1,7 +1,7 @@
 {% extends "layouts/main-new-header.html" %}
 
 {% block pageTitle %}
-    What is the ORCID ID the Chief Investigator or key lead? – {{ serviceName }} – GOV.UK Prototype Kit
+    What is the ORCID iD of the chief investigator or the key lead – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}      
@@ -24,20 +24,19 @@
 	<div class="govuk-grid-column-two-thirds">
 
         <h1 class="govuk-heading-l">
-            What is the ORCID ID of the Chief Investigator or key lead?
+            What is the ORCID iD of the chief investigator or the key lead?
         </h1>
+
+        <div class="govuk-inset-text">
+            If there's no chief investigator, include the ORCID iD of the key lead.
+        </div>
 
 		<form action="orcid-id-chief-investigator" method="post">
             <div class="govuk-form-group">                
-                <div id="orcid-id-hint" class="govuk-hint">
-                    <p>If there is no chief investigator yet, include the ORCID ID of the key lead or contact.</p>
-                
-                </div>                      
-
                 <div class="govuk-form-group">
                     <fieldset class="govuk-fieldset" role="group" aria-describedby="orcid-id-hint">
                         <legend class="govuk-fieldset__legend">
-                            ORCID ID
+                            Enter an ORCID iD
                         </legend>
                         
                         <div id="orcid-id-hint" class="govuk-hint">
@@ -94,11 +93,11 @@
             <details class="govuk-details">
                 <summary class="govuk-details__summary">
                     <span class="govuk-details__summary-text">
-                        Where can you find an ORCID ID
+                        Where can I find an ORCID iD?
                     </span>
                 </summary>
                 <div class="govuk-details__text">
-                    <p>If you do not know the ORCID ID use this link: <a href="https://orcid.org/">https://orcid.org/</a></p>
+                    To find an ORCID iD you can search the <a href="#" target="_blank">ORCID registry (opens in new tab)</a>.
                 </div>
             </details>            
 
