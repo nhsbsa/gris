@@ -1,7 +1,7 @@
 {% extends "layouts/main-new-header.html" %}
 
 {% block pageTitle %}
-    Add a new sponsoring organisation - {{ serviceName }} – GOV.UK Prototype Kit
+    You have added a sponsoring organisation to [study name] - {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}      
@@ -19,7 +19,7 @@
 	<div class="govuk-grid-column-two-thirds">
         <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-6">
             <h1 class="govuk-panel__title">
-                Sponsoring organisation added
+                You have added a sponsoring organisation
             </h1>
             <div class="govuk-panel__body">
                 {{ data['add-sponsor-name'] | title | default('Manchester University NHS Foundation Trust') }}<br>
@@ -28,7 +28,7 @@
         </div>
                         
         <h2 class="govuk-heading-m">What happens next</h2>
-        <p>We have now updated [study name] with the details of the new sponsoring organisation, to view the updated information you will need to <a href="my-studies" class="govuk-link govuk-link--no-visited-state">return to my studies</a> and access the relevant study.</p>
+        <p>We have updated [study name] with the sponsor details. To view the changes, go to <a href="my-studies" class="govuk-link govuk-link--no-visited-state">'My studies'</a> and select the study.</p>
     </div>
 </div>
 

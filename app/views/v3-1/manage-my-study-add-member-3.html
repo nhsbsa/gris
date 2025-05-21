@@ -1,7 +1,7 @@
 {% extends "layouts/main-new-header.html" %}
 
 {% block pageTitle %}
-	Add a new study member - {{ serviceName }} – GOV.UK Prototype Kit
+	What permissions do you want to give this team member for [study name]? - {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}      
@@ -27,7 +27,7 @@
                 <fieldset class="govuk-fieldset">
                     <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                         <h1 class="govuk-fieldset__heading">
-                            What permissions should be granted to this member for [study name]?
+                            What permissions do you want to give this team member for [study name]?
                         </h1>
                     </legend>
 
@@ -38,7 +38,7 @@
                                 Read only
                             </label>
                             <div id="permissions-item-hint" class="govuk-hint govuk-radios__hint">
-                                This option allows the member to view and read all information associated with [study name], but they will not be able to make changes to the information or add new study members.
+                                This option lets the team member view all study information. They will not be able to change the study information or add new members.
                             </div>
                         </div>
 
@@ -48,7 +48,7 @@
                                 Editor
                             </label>
                             <div id="permissions-2-item-hint" class="govuk-hint govuk-radios__hint">
-                                This option allows the member to update study information for [study name], and add or remove existing study members.
+                                This option lets the team member update study information and add or remove other members.
                             </div>
                         </div>
                     </div>

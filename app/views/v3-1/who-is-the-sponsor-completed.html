@@ -1,7 +1,7 @@
 {% extends "layouts/main-new-header.html" %}
 
 {% block pageTitle %}
-    Who is the sponsor of the research? - {{ serviceName }} – GOV.UK Prototype Kit
+    You have added a sponsoring organisation - {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}      
@@ -19,7 +19,7 @@
 	<div class="govuk-grid-column-two-thirds">
         <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-6">
             <h1 class="govuk-panel__title">
-                Sponsoring organisation added
+                You have added a sponsoring organisation
             </h1>
             <div class="govuk-panel__body">
                 {{ data['sponsor-name'] | title | default('Manchester University NHS Foundation Trust') }}<br>
@@ -32,7 +32,7 @@
                 <fieldset class="govuk-fieldset">
                     <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
                         <h2 class="govuk-fieldset__heading">
-                            Do you need to add additional sponsoring organisations?
+                            Do you need to add any additional sponsoring organisations?
                         </h2>
                     </legend>
                                   

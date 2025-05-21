@@ -1,7 +1,7 @@
 {% extends "layouts/main-new-header.html" %}
 
 {% block pageTitle %}
-    We found a matching study record which is similar to the one you provided – {{ serviceName }} – GOV.UK Prototype Kit
+    We have found a matching study record – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}      
@@ -19,15 +19,15 @@
 	<div class="govuk-grid-column-two-thirds">
         
         <h1 class="govuk-heading-l">
-            We found a matching study record which is similar to the one you provided
+            We have found a matching study record
         </h1>
 
-        <!-- <p class="govuk-!-margin-top-6 govuk-!-margin-bottom-6">
-            Please confirm if the details below are the same as the information you have just provided.
-        </p> -->
+        <p class="govuk-!-margin-top-6 govuk-!-margin-bottom-6">
+            We have found a study that's similar to your new study.
+        </p>
 
         <table class="govuk-table">
-            <caption class="govuk-table__caption govuk-table__caption--m">Matching study information</caption>
+            <caption class="govuk-table__caption govuk-table__caption--m">Matching summary details</caption>
             
             <thead class="govuk-table__head">
                 <tr class="govuk-table__row">
@@ -45,7 +45,7 @@
                 </tr>
 
                 <tr class="govuk-table__row">
-                    <th scope="row" class="govuk-table__header">Chief Investigator ORCID ID</th>
+                    <th scope="row" class="govuk-table__header">Chief investigator or key lead ORCID iD</th>
                     <td class="govuk-table__cell">0009-0000-6037-7481<br>Peter Jones</td>
                     <td class="govuk-table__cell">0009-0000-6037-7481<br>Peter Jones</td>
                 </tr>
@@ -68,7 +68,7 @@
             <div class="govuk-form-group">
                 <fieldset class="govuk-fieldset">
                     <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-                        Use the details listed above for this study?
+                        Do you want to use the details from the matching study for your new study?
                     </legend>
                     
                     <div class="govuk-radios" data-module="govuk-radios">
