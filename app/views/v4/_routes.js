@@ -1,120 +1,17 @@
 const express = require('express')
 const router = express.Router()
 
-// Sign in
-router.post('/sign-in', function(req, res) {
-    let emailLogin = req.session.data['email-login']
+// What do you want to do?
+router.post('/what-do-you-want-to-do', function(req, res) {
+    let route = req.session.data['start-route']
 
-    if (!emailLogin || emailLogin.trim() === "") {
-        res.redirect("sign-in")
+    if (route == "create") {
+        res.redirect("does-study-have-gris-id")
+    } else if ( route == "manage") {
+        res.redirect("manage");
+    } else {
+        res.redirect("what-do-you-want-to-do")
         // add proper error functionality in future versions instead of redirect
-    } else {
-        res.redirect("enter-your-password")
-    }
-})
-
-// Enter your password
-router.post('/enter-your-password', function(req, res) {
-    let password = req.session.data['password']
-
-    if (!password || password.trim() === "") {
-        res.redirect("enter-your-password")
-        // add proper error functionality in future versions instead of redirect
-    } else {
-        res.redirect("enter-auth-code")
-    }
-})
-
-// Enter auth code
-router.post('/enter-auth-code', function(req, res) {
-    let code = req.session.data['auth-code']
-
-    if (!code || code.trim() === "") {
-        res.redirect("enter-auth-code")
-        // add proper error functionality in future versions instead of redirect
-    } else {
-        req.session.data['loggedIn'] = true;
-        res.redirect("dashboard")
-    }
-})
-
-// Dashboard - Don't let user view unless logged in
-let version = 'v3';
-
-router.get('/dashboard', function (req, res) {
-    let currentPath = req.path;
-
-    if (req.session.data['loggedIn']) {
-        res.render(`${version}/dashboard`, { currentPath });
-    } else {
-        res.redirect('sign-in');
-    }
-});
-
-// Sign out functionality
-router.get('/sign-out', function (req, res) {
-    req.session.destroy(function () {
-        res.redirect('you-are-now-signed-out');
-    });
-});
-
-// Manage my study - add a member (name)
-router.post('/manage-my-study-add-member', function(req, res) {
-    let name = req.session.data['member-full-name']
-
-    if (!name || name.trim() === "") {
-        res.redirect("manage-my-study-add-member")
-        // add proper error functionality in future versions instead of redirect
-    } else {
-        res.redirect("manage-my-study-add-member-2")
-    }
-})
-
-// Manage my study - add a member (email)
-router.post('/manage-my-study-add-member-2', function(req, res) {
-    let email = req.session.data['member-email-address']
-
-    if (!email || email.trim() === "") {
-        res.redirect("manage-my-study-add-member-2")
-        // add proper error functionality in future versions instead of redirect
-    } else {
-        res.redirect("manage-my-study-add-member-3")
-    }
-})
-
-// Manage my study - add a member (permissions)
-router.post('/manage-my-study-add-member-3', function(req, res) {
-    let permissions = req.session.data['permissions']
-
-    if (permissions == "read only" || permissions == "editor") {
-        res.redirect("manage-my-study-add-member-4")
-    } else {
-        // add proper error functionality in future versions instead of redirect
-        res.redirect("manage-my-study-add-member-3")
-    }
-})
-
-// Manage my study - add a sponsor (name)
-router.post('/manage-my-study-add-sponsor', function(req, res) {
-    let name = req.session.data['add-sponsor-name']
-
-    if (!name || name.trim() === "") {
-        res.redirect("manage-my-study-add-sponsor")
-        // add proper error functionality in future versions instead of redirect
-    } else {
-        res.redirect("manage-my-study-add-sponsor-2")
-    }
-})
-
-// Manage my study - add a sponsor (email)
-router.post('/manage-my-study-add-sponsor-2', function(req, res) {
-    let email = req.session.data['add-sponsor-email']
-
-    if (!email || email.trim() === "") {
-        res.redirect("manage-my-study-add-sponsor-2")
-        // add proper error functionality in future versions instead of redirect
-    } else {
-        res.redirect("manage-my-study-add-sponsor-3")
     }
 })
 
