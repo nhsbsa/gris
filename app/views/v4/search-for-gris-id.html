@@ -1,0 +1,98 @@
+{% extends "layouts/main-new-header.html" %}
+
+{% block pageTitle %}
+    What is the government research identifier service ID (GRIS ID) of the existing study you want to view or edit? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "what-do-you-want-to-do"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">       
+        <form action="search-for-gris-id" method="post">                     
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" role="group" aria-describedby="gris-id-hint">
+      
+
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                            <h1 class="govuk-fieldset__heading">
+                                What is the government research identifier service ID (GRIS ID) of the existing study you want to view or edit?
+                        
+                            </h1>
+                        </legend>
+                    
+                    <div id="gris-id-hint" class="govuk-hint">
+                        For example, GRIS-872 872 24
+                    </div>
+                    
+                    <div class="govuk-date-input" id="gris-id">
+                        <div class="govuk-date-input__item">
+                            <div class="govuk-form-group">
+                                <div class="govuk-input__wrapper">
+                                    <label class="govuk-label govuk-visually-hidden" for="gris-id-one">
+                                        GRIS ID part one
+                                    </label>
+                                    <div class="govuk-input__prefix" aria-hidden="true">GRIS-</div>
+                                    <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="gris-id-one" name="gris-id-one" type="text" inputmode="numeric">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- <p class="govuk-!-display-inline govuk-!-margin-right-1 govuk-!-margin-left-1" >-</p> -->
+
+                        <div class="govuk-date-input__item">
+                            <div class="govuk-form-group">
+                                <label class="govuk-label govuk-visually-hidden" for="gris-id-two">
+                                    GRIS ID part two
+                                </label>
+                                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="gris-id-two" name="gris-id-two" type="text" inputmode="numeric">
+                            </div>
+                        </div>
+
+                        <!-- <p class="govuk-!-display-inline govuk-!-margin-right-1 govuk-!-margin-left-1" >-</p> -->
+                        
+                        <div class="govuk-date-input__item">
+                            <div class="govuk-form-group">
+                                <label class="govuk-label govuk-visually-hidden" for="gris-id-three">
+                                    GRIS ID part three
+                                </label>
+                                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="gris-id-three" name="gris-id-three" type="text" inputmode="numeric">
+                            </div>
+                        </div>
+
+                        <!-- <p class="govuk-!-display-inline govuk-!-margin-right-1 govuk-!-margin-left-1" >-</p> -->
+
+                        <!-- <div class="govuk-date-input__item govuk-!-margin-right-0">
+                            <div class="govuk-form-group">
+                                <label class="govuk-label govuk-visually-hidden" for="gris-id-four">
+                                    GRIS ID part four
+                                </label>
+                                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="gris-id-four" name="gris-id-four" type="text" inputmode="numeric">
+                            </div>
+                        </div> -->
+                    </div>
+                </fieldset>
+            </div>
+            
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form>
+    </div>
+</div>
+
+{% endblock %}

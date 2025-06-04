@@ -8,7 +8,7 @@ router.post('/what-do-you-want-to-do', function(req, res) {
     if (route == "create") {
         res.redirect("does-study-have-gris-id")
     } else if ( route == "manage") {
-        res.redirect("manage");
+        res.redirect("search-for-gris-id");
     } else {
         res.redirect("what-do-you-want-to-do")
         // add proper error functionality in future versions instead of redirect
