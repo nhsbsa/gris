@@ -267,4 +267,57 @@ router.post('/select-funding-id', function(req, res) {
     }
 })
 
+// Search for GRIS ID
+router.post('/search-for-gris-id', function(req, res) {
+    let grisOne = req.session.data['gris-id-one'];
+    let grisTwo = req.session.data['gris-id-two'];
+    let grisThree = req.session.data['gris-id-three'];
+
+    // Check if any of the fields are empty
+    if (!grisOne?.trim() || !grisTwo?.trim() || !grisThree?.trim()) {
+        return res.redirect("search-for-gris-id"); // All fields must be filled
+    }
+
+    // Check if all fields are exactly '111'
+    if (grisOne === "111" && grisTwo === "111" && grisThree === "111") {
+        return res.redirect("search-for-gris-id-not-found");
+    }
+
+    // Otherwise, proceed
+    return res.redirect("search-for-chief-investigator-email");
+});
+
+// Search for Chief Investigator email address
+router.post('/search-for-chief-investigator-email', function(req, res) {
+    let ciEmail = req.session.data['email-search'];
+
+    // Check if field is empty
+    if (!ciEmail?.trim()) {
+        return res.redirect("search-for-chief-investigator-email"); // Field must be filled
+    }
+
+    // Check if fields equal 'notfound@emai.com'
+    if (ciEmail === "notfound@emai.com") {
+        return res.redirect("search-for-chief-investigator-email-not-found");
+    }
+
+    // Otherwise, proceed
+    return res.redirect("search-matching-study-found");
+});
+
+// Search matching study found
+
+router.post('/search-matching-study-found', function(req, res) {
+    let useStudy = req.session.data['search-matching-study']
+
+    if (useStudy == "yes") {
+        res.redirect("dashboard")
+    } else if (useStudy == "no") {
+        res.redirect("search-for-gris-id")
+    } else {
+        // None selected add error in future here instead of redirect
+        res.redirect("search-matching-study-found")
+    }
+})
+
 module.exports = router

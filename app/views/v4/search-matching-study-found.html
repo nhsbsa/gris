@@ -1,0 +1,83 @@
+{% extends "layouts/main-new-header.html" %}
+
+{% block pageTitle %}
+    We have found a matching study record – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+        
+        <h1 class="govuk-heading-l">
+            We have found a matching study record
+        </h1>
+
+        <table class="govuk-table">
+            <caption class="govuk-table__caption govuk-table__caption--m">Matching study details</caption>
+            
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th scope="col" class="govuk-table__header govuk-!-width-one-third"></th>
+                    <th scope="col" class="govuk-table__header govuk-!-width-one-third">Your study</th>
+                    <th scope="col" class="govuk-table__header govuk-!-width-one-third">Matching study</th>
+                </tr>
+            </thead>
+
+            <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Short study title</th>
+                    <td class="govuk-table__cell">Investigating Left Arm Disease</td>
+                    <td class="govuk-table__cell">Investigating Left Arm Disease</td>
+                </tr>
+
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Chief investigator or key lead ORCID iD</th>
+                    <td class="govuk-table__cell">0009-0000-6037-7481<br>Peter Jones</td>
+                    <td class="govuk-table__cell">0009-0000-6037-7481<br>Peter Jones</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <form action="search-matching-study-found" method="post">
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                        Is this the existing study you want to view or edit?
+                    </legend>
+                    
+                    <div class="govuk-radios" data-module="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="search-matching-study" name="search-matching-study" type="radio" value="yes">
+                            <label class="govuk-label govuk-radios__label" for="search-matching-study">
+                                Yes
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="search-matching-study-2" name="search-matching-study" type="radio" value="no">
+                            <label class="govuk-label govuk-radios__label" for="search-matching-study-2">
+                                No
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+    
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

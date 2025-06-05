@@ -1,0 +1,42 @@
+{% extends "layouts/main-new-header.html" %}
+
+{% block pageTitle %}
+    What is the email address of the Chief Investigator for the existing study you want to view or edit? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "search-for-gris-id"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">       
+        <form action="search-for-chief-investigator-email" method="post">                     
+            <div class="govuk-form-group">
+                <h1 class="govuk-label-wrapper">
+                    <label class="govuk-label govuk-label--l" for="email-search">
+                        What is the email address of the Chief Investigator for the existing study you want to view or edit?
+                    </label>
+                </h1>
+                <input class="govuk-input" id="email-search" name="email-search" type="email">
+            </div>
+            
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form>
+    </div>
+</div>
+
+{% endblock %}
