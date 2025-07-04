@@ -1,7 +1,7 @@
 {% extends "layouts/main-new-header.html" %}
 
 {% block pageTitle %}
-  Sign in to the government research identifier service – {{ serviceName }} – GOV.UK Prototype Kit
+  Government research identifier service – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block header %}
@@ -29,7 +29,7 @@
   	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
 			<h1 class="govuk-heading-xl">
-				Sign in to the government research identifier service 
+				Government research identifier service
 			</h1>
 
 			<p>Use this service to:</p>
@@ -37,14 +37,27 @@
 			<ul class="govuk-list govuk-list--bullet">
 				<li>create a unique government research identifier service ID (GRIS ID)</li>
 				<li>view an existing study</li>
-				<li>edit an existing study</li>
+				<li>make changes to an existing study</li>
 			</ul>
 
-			<!-- <h2 class="govuk-heading-m">
+			<h2 class="govuk-heading-m">
 				Before you start
 			</h2>
-			<p class="govuk-!-margin-bottom-7">You need a GOV.UK One Login to sign in to this service. You can <a href="#">create a GOV.UK One Login</a> if you do not already have one.</p> -->
+			<p>To create a new GRIS ID, you'll need:</p>
 
+			<ul class="govuk-list govuk-list--bullet">
+				<li>the short title of the study</li>
+				<li>an ORCID iD for the chief investigator or a key team member</li>
+			</ul>
+
+			<p>It would be helpful to know the details of any related study, such as the GRIS ID, IRAS ID, and funding ID.</p>
+			<p>To view or make changes to a study, you'll need the:</p>
+
+			<ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
+				<li>the study's existing GRIS ID </li>
+				<li>the chief investigator's email address</li>
+			</ul>
+			
 			{{ govukButton({
 				text: "Start now",
 				href: "what-do-you-want-to-do",

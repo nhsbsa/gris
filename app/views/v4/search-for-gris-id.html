@@ -1,7 +1,7 @@
 {% extends "layouts/main-new-header.html" %}
 
 {% block pageTitle %}
-    What is the government research identifier service ID (GRIS ID) of the existing study you want to view or edit? – {{ serviceName }} – GOV.UK Prototype Kit
+    What is the government research identifier service ID (GRIS ID) for the study you want to view or make changes to? – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}      
@@ -26,13 +26,11 @@
 
             <div class="govuk-form-group">
                 <fieldset class="govuk-fieldset" role="group" aria-describedby="gris-id-hint">
-      
-
-                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-                            <h1 class="govuk-fieldset__heading">
-                                What is the government research identifier service ID (GRIS ID) for the existing study you want to view or edit?
-                            </h1>
-                        </legend>
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                        <h1 class="govuk-fieldset__heading">
+                            What is the government research identifier service ID (GRIS ID) for the study you want to view or make changes to?
+                        </h1>
+                    </legend>
                     
                     <div id="gris-id-hint" class="govuk-hint">
                         For example, GRIS-872 872 24
@@ -86,6 +84,22 @@
                     </div>
                 </fieldset>
             </div>
+
+            <details class="govuk-details">
+                <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                        How do I find the GRIS ID of a study?
+                    </span>
+                </summary>
+                <div class="govuk-details__text">
+                    <p>
+                        The GRIS ID should be held by the chief investigator of the study. 
+                    </p>
+                    <p>
+                        If you cannot contact them, email the NIHR Study Support Service Helpdesk at <a href="mailto:supportmystudy@nihr.ac.uk">supportmystudy@nihr.ac.uk</a>.
+                    </p>
+                </div>
+            </details>
             
             {{ govukButton({
                 text: "Continue"

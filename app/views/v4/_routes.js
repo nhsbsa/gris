@@ -296,8 +296,8 @@ router.post('/search-for-chief-investigator-email', function(req, res) {
         return res.redirect("search-for-chief-investigator-email"); // Field must be filled
     }
 
-    // Check if fields equal 'notfound@emai.com'
-    if (ciEmail === "notfound@emai.com") {
+    // Check if fields equal 'notfound@email.com'
+    if (ciEmail === "notfound@email.com") {
         return res.redirect("search-for-chief-investigator-email-not-found");
     }
 
