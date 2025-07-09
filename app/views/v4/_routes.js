@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+const path = require('path')
 
 // What do you want to do?
 router.post('/what-do-you-want-to-do', function(req, res) {
@@ -269,21 +270,27 @@ router.post('/select-funding-id', function(req, res) {
 
 // Search for GRIS ID
 router.post('/search-for-gris-id', function(req, res) {
-    let grisOne = req.session.data['gris-id-one'];
-    let grisTwo = req.session.data['gris-id-two'];
-    let grisThree = req.session.data['gris-id-three'];
+    const grisOne = req.session.data['gris-id-one'];
+    const grisTwo = req.session.data['gris-id-two'];
+    const grisThree = req.session.data['gris-id-three'];
 
     // Check if any of the fields are empty
     if (!grisOne?.trim() || !grisTwo?.trim() || !grisThree?.trim()) {
-        return res.redirect("search-for-gris-id"); // All fields must be filled
+        return res.redirect("search-for-gris-id");
     }
 
-    // Check if all fields are exactly '111'
+    // Show error if all fields equal '111'
     if (grisOne === "111" && grisTwo === "111" && grisThree === "111") {
-        return res.redirect("search-for-gris-id-not-found");
+        return res.render(path.join(__dirname, "search-for-gris-id"), {
+            errorSummary: [
+                {
+                    text: "We cannot find a study with the GRIS ID of GRIS-111-111-111",
+                    href: "#gris-id-one"
+                }
+            ]
+        });
     }
 
-    // Otherwise, proceed
     return res.redirect("search-for-chief-investigator-email");
 });
 
@@ -298,7 +305,14 @@ router.post('/search-for-chief-investigator-email', function(req, res) {
 
     // Check if fields equal 'notfound@email.com'
     if (ciEmail === "notfound@email.com") {
-        return res.redirect("search-for-chief-investigator-email-not-found");
+        return res.render(path.join(__dirname, "search-for-chief-investigator-email"), {
+            errorSummary: [
+                {
+                    text: "The email address does not match the chief investigator for this GRIS ID",
+                    href: "#email-search"
+                }
+            ]
+        });
     }
 
     // Otherwise, proceed
@@ -311,7 +325,7 @@ router.post('/search-matching-study-found', function(req, res) {
     let useStudy = req.session.data['search-matching-study']
 
     if (useStudy == "yes") {
-        res.redirect("dashboard")
+        res.redirect("manage-my-study")
     } else if (useStudy == "no") {
         res.redirect("search-for-gris-id")
     } else {
@@ -319,5 +333,74 @@ router.post('/search-matching-study-found', function(req, res) {
         res.redirect("search-matching-study-found")
     }
 })
+
+// End session functionality
+router.get('/end-session', function (req, res) {
+    req.session.destroy(function () {
+        res.redirect('you-are-now-signed-out');
+    });
+});
+
+
+// Manage my study - add a member (name)
+router.post('/manage-my-study-add-member', function(req, res) {
+    let name = req.session.data['member-full-name']
+
+    if (!name || name.trim() === "") {
+        res.redirect("manage-my-study-add-member")
+        // add proper error functionality in future versions instead of redirect
+    } else {
+        res.redirect("manage-my-study-add-member-2")
+    }
+})
+
+// Manage my study - add a member (email)
+router.post('/manage-my-study-add-member-2', function(req, res) {
+    let email = req.session.data['member-email-address']
+
+    if (!email || email.trim() === "") {
+        res.redirect("manage-my-study-add-member-2")
+        // add proper error functionality in future versions instead of redirect
+    } else {
+        res.redirect("manage-my-study-add-member-3")
+    }
+})
+
+// Manage my study - add a member (permissions)
+router.post('/manage-my-study-add-member-3', function(req, res) {
+    let permissions = req.session.data['permissions']
+
+    if (permissions == "read only" || permissions == "editor") {
+        res.redirect("manage-my-study-add-member-4")
+    } else {
+        // add proper error functionality in future versions instead of redirect
+        res.redirect("manage-my-study-add-member-3")
+    }
+})
+
+// Manage my study - add a sponsor (name)
+router.post('/manage-my-study-add-sponsor', function(req, res) {
+    let name = req.session.data['add-sponsor-name']
+
+    if (!name || name.trim() === "") {
+        res.redirect("manage-my-study-add-sponsor")
+        // add proper error functionality in future versions instead of redirect
+    } else {
+        res.redirect("manage-my-study-add-sponsor-2")
+    }
+})
+
+// Manage my study - add a sponsor (email)
+router.post('/manage-my-study-add-sponsor-2', function(req, res) {
+    let email = req.session.data['add-sponsor-email']
+
+    if (!email || email.trim() === "") {
+        res.redirect("manage-my-study-add-sponsor-2")
+        // add proper error functionality in future versions instead of redirect
+    } else {
+        res.redirect("manage-my-study-add-sponsor-3")
+    }
+})
+
 
 module.exports = router

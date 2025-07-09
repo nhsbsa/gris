@@ -21,10 +21,17 @@
 {% block content %}
 
 <div class="govuk-grid-row">
-	<div class="govuk-grid-column-two-thirds">       
+	<div class="govuk-grid-column-two-thirds"> 
+        {% if errorSummary %}
+            {{ govukErrorSummary({
+                titleText: "There is a problem",
+                errorList: errorSummary
+            }) }}
+        {% endif %}
+  
         <form action="search-for-gris-id" method="post">                     
 
-            <div class="govuk-form-group">
+            <div class="govuk-form-group {% if errorSummary %} govuk-form-group--error {% endif %}">
                 <fieldset class="govuk-fieldset" role="group" aria-describedby="gris-id-hint">
                     <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                         <h1 class="govuk-fieldset__heading">
@@ -35,6 +42,12 @@
                     <div id="gris-id-hint" class="govuk-hint">
                         For example, GRIS-872 872 24
                     </div>
+
+                    {% if errorSummary %}
+                    <p id="gris-id-error" class="govuk-error-message">
+                        <span class="govuk-visually-hidden">Error:</span> Enter a valid GRIS ID
+                    </p>
+                    {% endif %}
                     
                     <div class="govuk-date-input" id="gris-id">
                         <div class="govuk-date-input__item">
@@ -44,7 +57,7 @@
                                         GRIS ID part one
                                     </label>
                                     <div class="govuk-input__prefix" aria-hidden="true">GRIS-</div>
-                                    <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="gris-id-one" name="gris-id-one" type="text" inputmode="numeric">
+                                    <input class="govuk-input govuk-date-input__input govuk-input--width-4 {% if errorSummary %} govuk-input--error {% endif %}" id="gris-id-one" name="gris-id-one" type="text" inputmode="numeric">
                                 </div>
                             </div>
                         </div>
@@ -56,7 +69,7 @@
                                 <label class="govuk-label govuk-visually-hidden" for="gris-id-two">
                                     GRIS ID part two
                                 </label>
-                                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="gris-id-two" name="gris-id-two" type="text" inputmode="numeric">
+                                <input class="govuk-input govuk-date-input__input govuk-input--width-4 {% if errorSummary %} govuk-input--error {% endif %}" id="gris-id-two" name="gris-id-two" type="text" inputmode="numeric">
                             </div>
                         </div>
 
@@ -67,7 +80,7 @@
                                 <label class="govuk-label govuk-visually-hidden" for="gris-id-three">
                                     GRIS ID part three
                                 </label>
-                                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="gris-id-three" name="gris-id-three" type="text" inputmode="numeric">
+                                <input class="govuk-input govuk-date-input__input govuk-input--width-4 {% if errorSummary %} govuk-input--error {% endif %}" id="gris-id-three" name="gris-id-three" type="text" inputmode="numeric">
                             </div>
                         </div>
 

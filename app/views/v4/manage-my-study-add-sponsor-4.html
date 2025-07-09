@@ -1,0 +1,36 @@
+{% extends "layouts/main-new-header.html" %}
+
+{% block pageTitle %}
+    You have added a sponsoring organisation to [study name] - {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+        <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-6">
+            <h1 class="govuk-panel__title">
+                You have added a sponsoring organisation
+            </h1>
+            <div class="govuk-panel__body">
+                {{ data['add-sponsor-name'] | title | default('Manchester University NHS Foundation Trust') }}<br>
+                {{ data['add-sponsor-email'] | default('sponsor-email@email.com') }}
+            </div>
+        </div>
+                        
+        <h2 class="govuk-heading-m">What happens next</h2>
+        <p>We have updated [study name] with the sponsor details.</p>
+        <p><a href="manage-my-study" role="button" draggable="false" class="govuk-button" data-module="govuk-button">Return to manage my study</a></p>
+    </div>
+</div>
+
+{% endblock %}
