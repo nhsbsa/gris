@@ -276,19 +276,49 @@ router.post('/search-for-gris-id', function(req, res) {
 
     // Check if any of the fields are empty
     if (!grisOne?.trim() || !grisTwo?.trim() || !grisThree?.trim()) {
-        return res.redirect("search-for-gris-id");
-    }
-
-    // Show error if all fields equal '111'
-    if (grisOne === "111" && grisTwo === "111" && grisThree === "111") {
         return res.render(path.join(__dirname, "search-for-gris-id"), {
             errorSummary: [
                 {
-                    text: "We cannot find a study with the GRIS ID of GRIS-111-111-111",
+                    text: "Enter a GRIS ID",
                     href: "#gris-id-one"
                 }
             ]
         });
+    }
+
+    // Check if any field contains non-numeric characters
+    const numberOnlyRegex = /^\d+$/;
+    if (
+        !numberOnlyRegex.test(grisOne) ||
+        !numberOnlyRegex.test(grisTwo) ||
+        !numberOnlyRegex.test(grisThree)
+    ) {
+        return res.render(path.join(__dirname, "search-for-gris-id"), {
+            errorSummary: [
+                {
+                    text: "Enter the GRIS ID in the correct format",
+                    href: "#gris-id-one"
+                }
+            ]
+        });
+    }
+
+    // Check total character count
+    const totalLength = grisOne.length + grisTwo.length + grisThree.length;
+    if (totalLength < 8) {
+        return res.render(path.join(__dirname, "search-for-gris-id"), {
+            errorSummary: [
+                {
+                    text: "GRIS ID must contain 8 characters",
+                    href: "#gris-id-one"
+                }
+            ]
+        });
+    }
+
+    // Show kickout page if all fields equal '111'
+    if (grisOne === "111" && grisTwo === "111" && grisThree === "111") {
+        res.redirect("no-study-found")
     }
 
     return res.redirect("search-for-chief-investigator-email");
@@ -300,19 +330,31 @@ router.post('/search-for-chief-investigator-email', function(req, res) {
 
     // Check if field is empty
     if (!ciEmail?.trim()) {
-        return res.redirect("search-for-chief-investigator-email"); // Field must be filled
-    }
-
-    // Check if fields equal 'notfound@email.com'
-    if (ciEmail === "notfound@email.com") {
         return res.render(path.join(__dirname, "search-for-chief-investigator-email"), {
             errorSummary: [
                 {
-                    text: "The email address does not match the chief investigator for this GRIS ID",
+                    text: "Enter an email address",
                     href: "#email-search"
                 }
             ]
         });
+    }
+
+    // Basic format validation: must contain @ and .
+    if (!ciEmail.includes('@') || !ciEmail.includes('.')) {
+        return res.render(path.join(__dirname, "search-for-chief-investigator-email"), {
+            errorSummary: [
+                {
+                    text: "Enter an email address in the correct format, like name@example.com",
+                    href: "#email-search"
+                }
+            ]
+        });
+    }
+
+    // Check if fields equal 'notfound@email.com'
+    if (ciEmail === "notfound@email.com") {
+        res.redirect("no-study-found")
     }
 
     // Otherwise, proceed
@@ -327,7 +369,7 @@ router.post('/search-matching-study-found', function(req, res) {
     if (useStudy == "yes") {
         res.redirect("manage-my-study")
     } else if (useStudy == "no") {
-        res.redirect("search-for-gris-id")
+        res.redirect("no-study-found")
     } else {
         // None selected add error in future here instead of redirect
         res.redirect("search-matching-study-found")
@@ -340,7 +382,6 @@ router.get('/end-session', function (req, res) {
         res.redirect('you-are-now-signed-out');
     });
 });
-
 
 // Manage my study - add a member (name)
 router.post('/manage-my-study-add-member', function(req, res) {
