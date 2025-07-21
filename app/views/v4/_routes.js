@@ -63,6 +63,8 @@ router.post('/confirm-chief-investigator-details', function(req, res) {
 
     if (confirm == "yes") {
         res.redirect("add-chief-investigator-email")
+    } else if (confirm == "no") {
+        res.redirect("we-could-not-find-orcid-id")
     } else {
         // add proper error functionality in future versions instead of redirect
         res.redirect("confirm-chief-investigator-details")
