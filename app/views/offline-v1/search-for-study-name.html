@@ -1,0 +1,42 @@
+{% extends "layouts/offline.html" %}
+
+{% block pageTitle %}
+	Search for a study using study name - {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	<!-- {{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }} -->
+	{{ govukBackLink({
+        text: "Back",
+        href: "search-for-study"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+        <form action="" method="post">
+        {{ govukInput({
+            label: {
+                text: "What is the short title of the study you want to search for?",
+                classes: "govuk-label--l",
+                isPageHeading: true
+            },
+            id: "search-short-title",
+            name: "search-study-name"
+        }) }}
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+		</form>
+    </div>
+</div>
+
+{% endblock %}

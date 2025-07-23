@@ -1,0 +1,56 @@
+{% extends "layouts/offline.html" %}
+
+{% block pageTitle %}
+	How do you want to search for a study? - {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	<!-- {{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }} -->
+	{{ govukBackLink({
+        text: "Back",
+        href: "dashboard"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+        <form action="" method="post">
+			<div class="govuk-form-group">
+				<fieldset class="govuk-fieldset">
+					<legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+						<h1 class="govuk-fieldset__heading">
+							How do you want to search for a study?
+						</h1>
+					</legend>
+					<div class="govuk-radios" data-module="govuk-radios">
+						<div class="govuk-radios__item">
+							<input class="govuk-radios__input" id="searchId" name="search-study" type="radio" value="id">
+							<label class="govuk-label govuk-radios__label" for="searchId">
+								Search using a GRIS ID
+							</label>
+						</div>
+						<div class="govuk-radios__item">
+							<input class="govuk-radios__input" id="searchName" name="search-study" type="radio" value="name">
+							<label class="govuk-label govuk-radios__label" for="searchName">
+								Search using a study name
+							</label>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+
+			<button type="submit" class="govuk-button" data-module="govuk-button">
+				Continue
+			</button>
+		</form>
+    </div>
+</div>
+
+{% endblock %}
