@@ -39,7 +39,7 @@ router.post('/enter-auth-code', function(req, res) {
 })
 
 // Dashboard - Don't let user view unless logged in
-let version = 'v3';
+let version = 'v3-1';
 
 router.get('/dashboard', function (req, res) {
     let currentPath = req.path;

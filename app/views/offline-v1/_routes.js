@@ -34,22 +34,12 @@ router.post('/enter-auth-code', function(req, res) {
         // add proper error functionality in future versions instead of redirect
     } else {
         req.session.data['loggedIn'] = true;
-        res.redirect("dashboard")
+        res.redirect("search-for-gris-id")
     }
 })
 
-// Dashboard - Don't let user view unless logged in
-let version = 'v3';
+// Search for a GRIS ID
 
-router.get('/dashboard', function (req, res) {
-    let currentPath = req.path;
-
-    if (req.session.data['loggedIn']) {
-        res.render(`${version}/dashboard`, { currentPath });
-    } else {
-        res.redirect('sign-in');
-    }
-});
 
 // Sign out functionality
 router.get('/sign-out', function (req, res) {
@@ -57,6 +47,10 @@ router.get('/sign-out', function (req, res) {
         res.redirect('you-are-now-signed-out');
     });
 });
+
+
+// BELOW THIS LINE MIGHT BE NEEDED SO KEEP FOR NOW - ALL TAKEN FROM V3.1 ONLINE
+
 
 // Manage my study - add a member (name)
 router.post('/manage-my-study-add-member', function(req, res) {
