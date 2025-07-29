@@ -122,13 +122,13 @@ router.post('/search-for-study-id', function(req, res) {
         });
     }
     
-    // Show one result if all fields are '111'
-    if (grisOne === "111" && grisTwo === "111" && grisThree === "111") {
-        return res.redirect("search-for-study-results")
+    // Show no results if all fields are '000'
+    if (grisOne === "000" && grisTwo === "000" && grisThree === "000") {
+        return res.redirect("search-for-study-no-results");        
     }
 
-    // Show no results if anything but '111' is in all fields
-    return res.redirect("search-for-study-no-results");
+    // Show results if anything but '000' is in all fields
+    return res.redirect("search-for-study-results")
 });
 
 // Search via study name

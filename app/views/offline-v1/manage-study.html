@@ -42,7 +42,7 @@
                             GRIS ID
                         </dt>
                         <dd class="govuk-summary-list__value">
-                            GRIS-111 111 111
+                            GRIS-{{ data['search-gris-id-one'] | default('111') }} {{ data['search-gris-id-two'] | default('111') }} {{ data['search-gris-id-three'] | default('111') }}
                         </dd>
                         <dd class="govuk-summary-list__actions">
                         </dd>
