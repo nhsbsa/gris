@@ -378,13 +378,6 @@ router.post('/search-matching-study-found', function(req, res) {
     }
 })
 
-// End session functionality
-router.get('/end-session', function (req, res) {
-    req.session.destroy(function () {
-        res.redirect('you-are-now-signed-out');
-    });
-});
-
 // Manage my study - add a member (name)
 router.post('/manage-my-study-add-member', function(req, res) {
     let name = req.session.data['member-full-name']

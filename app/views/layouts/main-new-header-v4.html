@@ -1,0 +1,24 @@
+{#
+    For guidance on how to use layouts see:
+    https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
+#}
+
+{% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
+
+{% block header %}
+    {{ govukHeader({
+        classes: "govuk-header--full-width-border"
+    }) }}
+    
+    <section aria-label="Service information" class="govuk-service-navigation" data-module="govuk-service-navigation">
+        <div class="govuk-width-container">
+            <div class="govuk-service-navigation__container">
+                <span class="govuk-service-navigation__service-name">
+                    <a href="start" class="govuk-service-navigation__link">
+                        {{ serviceName }}
+                    </a>
+                </span>
+            </div>
+        </div>
+    </section>
+{% endblock %}
