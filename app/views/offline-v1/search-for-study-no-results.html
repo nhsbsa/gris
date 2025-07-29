@@ -30,6 +30,8 @@
                 <strong>"GRIS-{{ data['search-gris-id-one'] | default('222') }} {{ data['search-gris-id-two'] | default('111') }} {{ data['search-gris-id-three'] | default('111') }}"</strong>
             {% elseif data['search-study-name'] %}
                 <strong>"{{ data['search-study-name'] | default('ieygt') }}"</strong>
+			{% else %}
+                <strong>"SEARCH TERM HERE"</strong>
             {% endif %}
 		</p>
         <p>Check your spelling and <a href="javascript:history.back()">try again</a>.</p>

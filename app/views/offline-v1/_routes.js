@@ -158,68 +158,67 @@ router.post('/search-for-study-name', function(req, res) {
 
 });
 
-// BELOW THIS LINE MIGHT BE NEEDED SO KEEP FOR NOW - ALL TAKEN FROM V3.1 ONLINE
-
-
-// Manage my study - add a member (name)
-router.post('/manage-my-study-add-member', function(req, res) {
+// Manage study - add a member (name)
+router.post('/manage-study-add-member', function(req, res) {
     let name = req.session.data['member-full-name']
 
     if (!name || name.trim() === "") {
-        res.redirect("manage-my-study-add-member")
+        res.redirect("manage-study-add-member")
         // add proper error functionality in future versions instead of redirect
     } else {
-        res.redirect("manage-my-study-add-member-2")
+        res.redirect("manage-study-add-member-2")
     }
 })
 
-// Manage my study - add a member (email)
-router.post('/manage-my-study-add-member-2', function(req, res) {
+// Manage study - add a member (email)
+router.post('/manage-study-add-member-2', function(req, res) {
     let email = req.session.data['member-email-address']
 
     if (!email || email.trim() === "") {
-        res.redirect("manage-my-study-add-member-2")
+        res.redirect("manage-study-add-member-2")
         // add proper error functionality in future versions instead of redirect
     } else {
-        res.redirect("manage-my-study-add-member-3")
+        res.redirect("manage-study-add-member-3")
     }
 })
 
-// Manage my study - add a member (permissions)
-router.post('/manage-my-study-add-member-3', function(req, res) {
+// Manage study - add a member (permissions)
+router.post('/manage-study-add-member-3', function(req, res) {
     let permissions = req.session.data['permissions']
 
     if (permissions == "read only" || permissions == "editor") {
-        res.redirect("manage-my-study-add-member-4")
+        res.redirect("manage-study-add-member-4")
     } else {
         // add proper error functionality in future versions instead of redirect
-        res.redirect("manage-my-study-add-member-3")
+        res.redirect("manage-study-add-member-3")
     }
 })
 
-// Manage my study - add a sponsor (name)
-router.post('/manage-my-study-add-sponsor', function(req, res) {
+// Manage study - add a sponsor (name)
+router.post('/manage-study-add-sponsor', function(req, res) {
     let name = req.session.data['add-sponsor-name']
 
     if (!name || name.trim() === "") {
-        res.redirect("manage-my-study-add-sponsor")
+        res.redirect("manage-study-add-sponsor")
         // add proper error functionality in future versions instead of redirect
     } else {
-        res.redirect("manage-my-study-add-sponsor-2")
+        res.redirect("manage-study-add-sponsor-2")
     }
 })
 
-// Manage my study - add a sponsor (email)
-router.post('/manage-my-study-add-sponsor-2', function(req, res) {
+// Manage study - add a sponsor (email)
+router.post('/manage-study-add-sponsor-2', function(req, res) {
     let email = req.session.data['add-sponsor-email']
 
     if (!email || email.trim() === "") {
-        res.redirect("manage-my-study-add-sponsor-2")
+        res.redirect("manage-study-add-sponsor-2")
         // add proper error functionality in future versions instead of redirect
     } else {
-        res.redirect("manage-my-study-add-sponsor-3")
+        res.redirect("manage-study-add-sponsor-3")
     }
 })
+
+// BELOW THIS LINE MIGHT BE NEEDED SO KEEP FOR NOW - ALL TAKEN FROM V3.1 ONLINE
 
 // Does this study already have a Government Research (GRIS) ID?
 router.post('/does-study-have-gris-id', function(req, res) {

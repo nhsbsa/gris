@@ -28,6 +28,8 @@
                 <strong>"GRIS-{{ data['search-gris-id-one'] | default('111') }} {{ data['search-gris-id-two'] | default('111') }} {{ data['search-gris-id-three'] | default('111') }}"</strong>
             {% elseif data['search-study-name'] %}
                 <strong>"{{ data['search-study-name'] | default('investigating') }}"</strong>
+            {% else %}
+                <strong>"SEARCH TERM HERE"</strong>
             {% endif %}
         </p>
 
@@ -41,7 +43,7 @@
                 </h2>
                 <ul class="govuk-summary-card__actions">
                     <li class="govuk-summary-card__action">
-                        <a class="govuk-link govuk-link--no-visited-state" href="manage-my-study">View<span class="govuk-visually-hidden"> Investigating left arm disease</span></a>
+                        <a class="govuk-link govuk-link--no-visited-state" href="manage-study">View<span class="govuk-visually-hidden"> Investigating left arm disease</span></a>
                     </li>
                 </ul>
             </div>
