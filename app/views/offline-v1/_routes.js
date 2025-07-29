@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+const path = require('path')
 
 // Sign in
 router.post('/sign-in', function(req, res) {
@@ -51,6 +52,13 @@ router.get('/dashboard', function (req, res) {
     }
 });
 
+// Sign out functionality
+router.get('/sign-out', function (req, res) {
+    req.session.destroy(function () {
+        res.redirect('you-are-now-signed-out');
+    });
+});
+
 // Search for a study
 router.post('/search-for-study', function(req, res) {
     let searchBy = req.session.data['search-study']
@@ -65,14 +73,90 @@ router.post('/search-for-study', function(req, res) {
     }
 })
 
+// Search via GRIS ID
+router.post('/search-for-study-id', function(req, res) {
 
-// Sign out functionality
-router.get('/sign-out', function (req, res) {
-    req.session.destroy(function () {
-        res.redirect('you-are-now-signed-out');
-    });
+    const grisOne = req.session.data['search-gris-id-one'];
+    const grisTwo = req.session.data['search-gris-id-two'];
+    const grisThree = req.session.data['search-gris-id-three'];
+
+    // Check if any of the fields are empty
+    if (!grisOne?.trim() || !grisTwo?.trim() || !grisThree?.trim()) {
+        return res.render(path.join(__dirname, "search-for-study-id"), {
+            errorSummary: [
+                {
+                    text: "Enter a GRIS ID",
+                    href: "#gris-id-one"
+                }
+            ]
+        });
+    }
+
+    // Check if any field contains non-numeric characters
+    const numberOnlyRegex = /^\d+$/;
+    if (
+        !numberOnlyRegex.test(grisOne) ||
+        !numberOnlyRegex.test(grisTwo) ||
+        !numberOnlyRegex.test(grisThree)
+    ) {
+        return res.render(path.join(__dirname, "search-for-study-id"), {
+            errorSummary: [
+                {
+                    text: "Enter the GRIS ID in the correct format",
+                    href: "#gris-id-one"
+                }
+            ]
+        });
+    }
+
+    // Check total character count
+    const totalLength = grisOne.length + grisTwo.length + grisThree.length;
+    if (totalLength < 8) {
+        return res.render(path.join(__dirname, "search-for-study-id"), {
+            errorSummary: [
+                {
+                    text: "GRIS ID must contain 8 characters",
+                    href: "#gris-id-one"
+                }
+            ]
+        });
+    }
+    
+    // Show one result if all fields are '111'
+    if (grisOne === "111" && grisTwo === "111" && grisThree === "111") {
+        return res.redirect("search-for-study-results")
+    }
+
+    // Show no results if anything but '111' is in all fields
+    return res.redirect("search-for-study-no-results");
 });
 
+// Search via study name
+
+router.post('/search-for-study-name', function(req, res) {
+    let searchName = req.session.data['search-study-name'];
+    
+    // Check if field is empty
+    if (!searchName?.trim()) {
+        return res.render(path.join(__dirname, "search-for-study-name"), {
+            errorSummary: [
+                {
+                    text: "Enter a short title",
+                    href: "#search-study-name"
+                }
+            ]
+        });
+    }
+
+    // Check if fields equal 'investigating'
+    if (searchName === "investigating") {
+       return res.redirect("search-for-study-results")
+    }
+
+    // Otherwise, show no results found
+    return res.redirect("search-for-study-no-results");
+
+});
 
 // BELOW THIS LINE MIGHT BE NEEDED SO KEEP FOR NOW - ALL TAKEN FROM V3.1 ONLINE
 

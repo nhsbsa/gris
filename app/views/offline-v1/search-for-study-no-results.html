@@ -1,0 +1,39 @@
+{% extends "layouts/offline.html" %}
+
+{% block pageTitle %}
+	No results found - {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	<!-- {{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }} -->
+	{{ govukBackLink({
+        text: "Back",
+        href: "javascript:history.back()"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">No results found</h1>
+
+        <p>
+			We couldn't find any results for
+
+			{% if data['search-gris-id-one'] %}
+                <strong>"GRIS-{{ data['search-gris-id-one'] | default('222') }} {{ data['search-gris-id-two'] | default('111') }} {{ data['search-gris-id-three'] | default('111') }}"</strong>
+            {% elseif data['search-study-name'] %}
+                <strong>"{{ data['search-study-name'] | default('ieygt') }}"</strong>
+            {% endif %}
+		</p>
+        <p>Check your spelling and <a href="javascript:history.back()">try again</a>.</p>
+    </div>
+</div>
+
+{% endblock %}

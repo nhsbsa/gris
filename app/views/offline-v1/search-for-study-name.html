@@ -21,21 +21,34 @@
 
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
-        <form action="" method="post">
-        {{ govukInput({
-            label: {
-                text: "What is the short title of the study you want to search for?",
-                classes: "govuk-label--l",
-                isPageHeading: true
-            },
-            id: "search-short-title",
-            name: "search-study-name"
-        }) }}
-
-            {{ govukButton({
-                text: "Continue"
+        {% if errorSummary %}
+            {{ govukErrorSummary({
+                titleText: "There is a problem",
+                errorList: errorSummary
             }) }}
-		</form>
+        {% endif %}    
+		
+		<form action="search-for-study-name" method="post">                     
+			<div class="govuk-form-group {% if errorSummary %}govuk-form-group--error{% endif %}">
+				<h1 class="govuk-label-wrapper">
+					<label class="govuk-label govuk-label--l" for="search-study-name">
+						What is the short title of the study you want to search for?
+					</label>
+				</h1>
+
+				{% if errorSummary %}
+					<p id="search-study-name-error" class="govuk-error-message">
+					    <span class="govuk-visually-hidden">Error:</span> {{ errorSummary[0].text }}
+					</p>
+				{% endif %}
+
+				<input class="govuk-input {% if errorSummary %}govuk-input--error{% endif %}" id="search-study-name" name="search-study-name" type="text" aria-describedby="{% if errorSummary %}search-study-name-error{% endif %}">
+			</div>
+				
+			{{ govukButton({
+				text: "Continue"
+			}) }}
+		</form>        
     </div>
 </div>
 

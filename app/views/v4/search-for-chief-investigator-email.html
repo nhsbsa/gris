@@ -28,31 +28,28 @@
                 errorList: errorSummary
             }) }}
         {% endif %}    
-        <form action="search-for-chief-investigator-email" method="post">                     
-<div class="govuk-form-group {% if errorSummary %}govuk-form-group--error{% endif %}">
-  <h1 class="govuk-label-wrapper">
-    <label class="govuk-label govuk-label--l" for="email-search">
-      What is the email address of the chief investigator for the study you want to view or make changes to?
-    </label>
-  </h1>
+		
+		<form action="search-for-chief-investigator-email" method="post">                     
+			<div class="govuk-form-group {% if errorSummary %}govuk-form-group--error{% endif %}">
+				<h1 class="govuk-label-wrapper">
+					<label class="govuk-label govuk-label--l" for="email-search">
+						What is the email address of the chief investigator for the study you want to view or make changes to?
+					</label>
+				</h1>
 
-  {% if errorSummary %}
-    <p id="email-search-error" class="govuk-error-message">
-      <span class="govuk-visually-hidden">Error:</span> {{ errorSummary[0].text }}
-    </p>
-  {% endif %}
+				{% if errorSummary %}
+					<p id="email-search-error" class="govuk-error-message">
+					<span class="govuk-visually-hidden">Error:</span> {{ errorSummary[0].text }}
+					</p>
+				{% endif %}
 
-  <input class="govuk-input {% if errorSummary %}govuk-input--error{% endif %}"
-         id="email-search"
-         name="email-search"
-         type="text"
-         aria-describedby="{% if errorSummary %}email-search-error{% endif %}">
-</div>
-            
-            {{ govukButton({
-                text: "Continue"
-            }) }}
-        </form>
+				<input class="govuk-input {% if errorSummary %}govuk-input--error{% endif %}" id="email-search" name="email-search" type="text" aria-describedby="{% if errorSummary %}email-search-error{% endif %}">
+			</div>
+				
+			{{ govukButton({
+				text: "Continue"
+			}) }}
+		</form>
     </div>
 </div>
 
