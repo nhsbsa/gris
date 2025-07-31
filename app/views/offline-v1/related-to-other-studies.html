@@ -1,0 +1,72 @@
+{% extends "layouts/main-new-header.html" %}
+
+{% block pageTitle %}
+    Is this new study related to any other studies? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+    {{ govukBackLink({
+        text: "Back",
+        href: "does-study-have-gris-id"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">       
+
+        <form action="related-to-other-studies" method="post">
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="study-related-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                        <h1 class="govuk-fieldset__heading">
+                            Is this new study related to any other studies?
+                        </h1>
+                    </legend>
+
+                    <div class="govuk-radios" data-module="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="study-related-yes" name="study-related" type="radio" value="yes">
+                            <label class="govuk-label govuk-radios__label" for="study-related-yes">
+                                Yes
+                            </label>
+                        </div>
+
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="study-related-no" name="study-related" type="radio" value="no">
+                            <label class="govuk-label govuk-radios__label" for="study-related-no">
+                                No
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <details class="govuk-details">
+                <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                        I'm not sure if this new study is related to any other studies
+                    </span>
+                </summary>
+                <div class="govuk-details__text">
+                    <p id="study-related-hint">
+                        A study is related to another study if it's a:
+                    </p>
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li><strong>parent study</strong> - the main research project</li>
+                        <li><strong>sub-study</strong> - a smaller research project exploring specific parts of the parent study</li>
+                        <li><strong>platform study</strong> - a study with a master protocol which can be updated and expanded using smaller adenda or sub-protocols</li>
+                        <li><strong>continuation study</strong> - an extension of an earlier study. This might have a different integrated research application system ID (IRAS ID) from the parent study.</li>
+                    </ul>     
+                </div>
+            </details>
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form>
+    </div>
+</div>
+
+{% endblock %}

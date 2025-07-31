@@ -1,0 +1,40 @@
+{% extends "layouts/main-new-header.html" %}
+
+{% block pageTitle %}
+  What is the short title of the new study? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+    {{ govukBackLink({
+        text: "Back",
+        href: "does-study-have-gris-id"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+		<form action="what-is-the-short-title" method="post">
+			{{ govukInput({
+				label: {
+					text: "What is the short title of the study?",
+					classes: "govuk-label--l",
+					isPageHeading: true
+				},
+				hint: {
+					html: "You can change the title before submitting.<br><br>The title should be short but contain enough information so it's clear what the research is about."
+				},
+				id: "short-title",
+				name: "short-title"
+			}) }}
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}
