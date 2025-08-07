@@ -25,5 +25,8 @@ router.use('/v1', require('./views/v1/\_routes'));
 
 // Offline Journey:
 
+// Routes for v2
+router.use('/offline-v2', require('./views/offline-v2/\_routes'));
+
 // Routes for v1
 router.use('/offline-v1', require('./views/offline-v1/\_routes'));
