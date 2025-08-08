@@ -6,6 +6,20 @@
 // Add extra styles here
 @import "custom-card-component";
 
+.govuk-full-width,
+.govuk-full-width-body {
+    width: 100% !important;
+    max-width: calc(100% - 120px) !important;
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
 .govuk-panel-blue {
     background-color: #1d70b8;
+}
+
+.govuk-search-panel {
+    text-align: left;
+    color: #0b0c0c;
+    background-color: #f3f2f1;
 }
