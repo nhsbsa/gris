@@ -25,10 +25,12 @@
                 Sort by
             </label>
             <select class="govuk-select" id="sort" name="sort">
-                <option value="views" selected>GRIS ID (ascending)</option>
-                <option value="comments">GRIS ID (descending)</option>
-                <option value="published">Study name (ascending)</option>
-                <option value="updated">Study name (descending)</option>
+                <option value="gris-asc" selected>GRIS ID (ascending)</option>
+                <option value="gris-desc">GRIS ID (descending)</option>
+                <option value="title-asc">Study title (ascending)</option>
+                <option value="title-desc">Study title (descending)</option>
+                <option value="sponsor-asc">Study sponsor (ascending)</option>
+                <option value="sponsor-desc">Study sponsor (descending)</option>
             </select>
         </div>
 
@@ -38,7 +40,7 @@
             <thead class="govuk-table__head">
                 <tr class="govuk-table__row">
                     <th scope="col" class="govuk-table__header">GRIS ID</th>
-                    <th scope="col" class="govuk-table__header">Study name</th>
+                    <th scope="col" class="govuk-table__header">Short title of study</th>
                     <th scope="col" class="govuk-table__header">Study phase</th>
                     <th scope="col" class="govuk-table__header">Chief investigator</th>
                     <th scope="col" class="govuk-table__header">Study sponsor</th>
@@ -54,8 +56,8 @@
                             Application
                         </strong>
                     </td>
-                    <td class="govuk-table__cell"><p class="govuk-!-margin-bottom-1">Jane Doe</p> <p class="govuk-hint">jane.doe@email.com</p></td>
-                    <td class="govuk-table__cell">Manchester University NHS Foundation Trust</td>
+                    <td class="govuk-table__cell">Jane Doe <p class="govuk-hint">jane.doe@email.com</p></td>
+                    <td class="govuk-table__cell">Manchester University NHS Foundation Trust <p class="govuk-hint">manchester@nhs.co.uk</p></td>
                     <td class="govuk-table__cell">12/05/2025 at 14:43</td>
                 </tr>
 
@@ -67,8 +69,8 @@
                             Pre-award
                         </strong>                        
                     </td>
-                    <td class="govuk-table__cell"><p class="govuk-!-margin-bottom-1">Joe Bloggs</p> <p class="govuk-hint">joe.bloggs@email.com</p></td>
-                    <td class="govuk-table__cell">Pet Research UK</td>
+                    <td class="govuk-table__cell">Joe Bloggs <p class="govuk-hint">joe.bloggs@email.com</p></td>
+                    <td class="govuk-table__cell">Pet Research UK <p class="govuk-hint">info@petresearch.co.uk</p></td>
                     <td class="govuk-table__cell">06/06/2025 at 22:44</td>
                 </tr>
 
@@ -80,8 +82,8 @@
                             Review
                         </strong>
                     </td>
-                    <td class="govuk-table__cell"><p class="govuk-!-margin-bottom-1">James Dean</p> <p class="govuk-hint">james.dean@email.com</p></td>
-                    <td class="govuk-table__cell">Institution for Eyesight</td>
+                    <td class="govuk-table__cell">James Dean <p class="govuk-hint">james.dean@email.com</p></td>
+                    <td class="govuk-table__cell">Institution for Eyesight <p class="govuk-hint">support@ife.ac.uk</p></td>
                     <td class="govuk-table__cell">16/01/2025 at 15:14</td>
                 </tr>
             </tbody>
