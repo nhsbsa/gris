@@ -10,9 +10,31 @@ router.post('/sign-in', function(req, res) {
         res.redirect("sign-in")
         // add proper error functionality in future versions instead of redirect
     } else {
-        res.redirect("search")
+        req.session.data['loggedIn'] = true;
+        res.redirect("dashboard")
     }
 })
+
+// Sign out functionality
+router.get('/sign-out', function (req, res) {
+    req.session.destroy(function () {
+        res.redirect('you-are-now-signed-out');
+    });
+});
+
+
+// Dashboard - Don't let user view unless logged in
+let version = 'offline-v2';
+
+router.get('/dashboard', function (req, res) {
+    let currentPath = req.path;
+
+    if (req.session.data['loggedIn']) {
+        res.render(`${version}/dashboard`, { currentPath });
+    } else {
+        res.redirect('sign-in');
+    }
+});
 
 // Search
 router.post('/search', function(req, res) {
