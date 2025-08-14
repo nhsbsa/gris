@@ -38,16 +38,21 @@ router.get('/dashboard', function (req, res) {
 
 // Search
 router.post('/search', function(req, res) {
-    let title = req.session.data['search-study-title']
-    let grisID = req.session.data['search-gris-id']
-    let ciEmail = req.session.data['search-ci-email']
-    let ciName = req.session.data['search-ci-name']
+    let title   = String(req.session.data['search-study-title'] || '').trim();
+    let grisID  = String(req.session.data['search-gris-id'] || '').trim();
+    let ciEmail = String(req.session.data['search-ci-email'] || '').trim();
+    let ciName  = String(req.session.data['search-ci-name'] || '').trim();
 
-    if (!title || title.trim() === "") {
-        res.redirect("search")
-        // add proper error functionality in future versions instead of redirect
-    } else {
+    // If any field is NOT blank
+    if (
+        (title && title.trim() !== "") ||
+        (grisID && grisID.trim() !== "") ||
+        (ciEmail && ciEmail.trim() !== "") ||
+        (ciName && ciName.trim() !== "")
+    ) {
         res.redirect("search-results")
+    } else {
+        res.redirect("search")
     }
 })
 

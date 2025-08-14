@@ -1,0 +1,37 @@
+{% extends "layouts/offline-v2.html" %}
+{% set containerClasses = "govuk-full-width-body" %}
+
+{% block pageTitle %}
+	What is the name of the study team member you want to add to [study name]? - {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "manage-study"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">What is the name of the study team member you want to add to [study name]?</h1>
+        
+        <form action="manage-study-add-member" method="post">
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="full-name">
+                    Full name
+                </label>
+                <input class="govuk-input" id="full-name" name="member-full-name" type="text" spellcheck="false" autocomplete="name">
+            </div>
+
+            <button type="submit" class="govuk-button" data-module="govuk-button">
+                Continue
+            </button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
