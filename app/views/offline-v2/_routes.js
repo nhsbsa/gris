@@ -57,6 +57,19 @@ router.post('/search', function(req, res) {
     }
 })
 
+// Manage study - change title
+router.post('/manage-study-change-title', function(req, res) {
+    let changeTitle = req.session.data['change-title'];
+
+    if (!changeTitle || changeTitle.trim() === "") {
+        res.redirect("manage-study-change-title");
+        // Add error message functionality here
+    } else {
+        // Redirect to the "check your answers" page if filled
+        res.redirect("manage-study-change-title-cya");
+    }
+});
+
 // Manage study - add a sponsor
 router.post('/manage-study-add-sponsor', function(req, res) {
     let name = req.session.data['add-sponsor-name'];

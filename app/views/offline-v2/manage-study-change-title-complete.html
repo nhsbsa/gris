@@ -1,0 +1,28 @@
+{% extends "layouts/offline-v2.html" %}
+{% set containerClasses = "govuk-full-width-body" %}
+{% block pageTitle %}
+	Short title of study has been changed - {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+        <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-6">
+            <h1 class="govuk-panel__title">
+                The short title of the study has been changed
+            </h1>
+            <div class="govuk-panel__body">
+                {{ data['change-title'] | title | default('Investigating left arm disease in the UK') }}
+            </div>
+        </div>
+                        
+        <h2 class="govuk-heading-m">What happens next</h2>
+        <p>We have updated [study name]. To view the changes <a href="manage-study" class="govuk-link--no-visited-state">return to manage [study name]</a>.</p>
+    </div>
+</div>
+
+{% endblock %}
