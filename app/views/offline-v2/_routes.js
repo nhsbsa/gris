@@ -53,7 +53,41 @@ router.post('/search', function(req, res) {
         res.redirect("search-results")
     } else {
         res.redirect("search")
+        // Add error functionality here
     }
 })
+
+// Manage study - add a sponsor
+router.post('/manage-study-add-sponsor', function(req, res) {
+    let name = req.session.data['add-sponsor-name'];
+    let email = req.session.data['add-sponsor-email'];
+
+    // Check that both name and email are provided and not just whitespace
+    if (!name || name.trim() === "" || !email || email.trim() === "") {
+        // Redirect back to the add sponsor page if either is blank
+        res.redirect("manage-study-add-sponsor");
+        // Add error message functionality here
+    } else {
+        // Redirect to the "check your answers" page if both are filled
+        res.redirect("manage-study-add-sponsor-cya");
+    }
+});
+
+// Manage study - add a member 
+router.post('/manage-study-add-member', function(req, res) {
+    let name = req.session.data['member-full-name'];
+    let email = req.session.data['member-email-address'];
+    let permissions = req.session.data['permissions'];
+
+    // Check if name or email are blank, or if permissions is invalid
+    if (!name || name.trim() === "" ||
+        !email || email.trim() === "" ||
+        (permissions !== "read only" && permissions !== "editor")) {
+        res.redirect("manage-study-add-member");
+        // add proper error functionality in future versions instead of redirect
+    } else {
+        res.redirect("manage-study-add-member-cya");
+    }
+});
 
 module.exports = router
