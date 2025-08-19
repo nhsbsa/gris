@@ -83,6 +83,24 @@ router.post('/manage-study-change-ci-email', function(req, res) {
     }
 });
 
+
+// Manage study - change sponsor
+
+router.post('/manage-study-change-sponsor', function(req, res) {
+    let name = req.session.data['change-sponsor-name'];
+    let email = req.session.data['change-sponsor-email'];
+
+    // Check that both name and email are provided and not just whitespace
+    if (!name || name.trim() === "" || !email || email.trim() === "") {
+        // Redirect back to the add sponsor page if either is blank
+        res.redirect("manage-study-change-sponsor");
+        // Add error message functionality here
+    } else {
+        // Redirect to the "check your answers" page if both are filled
+        res.redirect("manage-study-change-sponsor-cya");
+    }
+});
+
 // Manage study - add a sponsor
 router.post('/manage-study-add-sponsor', function(req, res) {
     let name = req.session.data['add-sponsor-name'];
