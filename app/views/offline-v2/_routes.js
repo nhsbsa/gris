@@ -70,6 +70,19 @@ router.post('/manage-study-change-title', function(req, res) {
     }
 });
 
+// Manage study - change chief investigator's email address
+router.post('/manage-study-change-ci-email', function(req, res) {
+    let changeEmail = req.session.data['change-ci-email'];
+
+    if (!changeEmail || changeEmail.trim() === "") {
+        res.redirect("manage-study-change-ci-email");
+        // Add error message functionality here
+    } else {
+        // Redirect to the "check your answers" page if filled
+        res.redirect("manage-study-change-ci-email-cya");
+    }
+});
+
 // Manage study - add a sponsor
 router.post('/manage-study-add-sponsor', function(req, res) {
     let name = req.session.data['add-sponsor-name'];
