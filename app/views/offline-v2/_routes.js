@@ -134,4 +134,21 @@ router.post('/manage-study-add-member', function(req, res) {
     }
 });
 
+// Manage study - change member 
+router.post('/manage-study-change-member', function(req, res) {
+    let name = req.session.data['change-full-name'];
+    let email = req.session.data['change-email-address'];
+    let permissions = req.session.data['change-permissions'];
+
+    // Check if name or email are blank, or if permissions is invalid
+    if (!name || name.trim() === "" ||
+        !email || email.trim() === "" ||
+        (permissions !== "read only" && permissions !== "editor")) {
+        res.redirect("manage-study-change-member");
+        // add proper error functionality in future versions instead of redirect
+    } else {
+        res.redirect("manage-study-change-member-cya");
+    }
+});
+
 module.exports = router

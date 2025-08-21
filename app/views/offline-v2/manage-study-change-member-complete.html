@@ -1,0 +1,29 @@
+{% extends "layouts/offline-v2.html" %}
+{% set containerClasses = "govuk-full-width-body" %}
+{% block pageTitle %}
+	A new study team member has chanegd for [study name] - {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+        <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-6">
+            <h1 class="govuk-panel__title">
+                Study team member has been changed
+            </h1>
+            <div class="govuk-panel__body">
+                {{ data['change-full-name'] | title | default('James Bond') }}<br>
+                <strong>{{ data['change-email-address'] | default('james.bond@email.com') }}</strong>
+            </div>
+        </div>
+                        
+        <h2 class="govuk-heading-m">What happens next</h2>
+        <p>We have updated [study name] with the team member's details. To view the changes <a href="manage-study" class="govuk-link--no-visited-state">return to manage [study name]</a>.</p>
+    </div>
+</div>
+
+{% endblock %}
