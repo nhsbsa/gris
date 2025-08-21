@@ -1,0 +1,197 @@
+
+
+{% extends "layouts/offline-v2.html" %}
+{% set containerClasses = "govuk-full-width-body" %}
+
+{% block pageTitle %}
+    Study already has a government research identifier service ID (GRIS ID) – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+    {{ govukBackLink({
+        text: "Back",
+        href: "does-study-have-gris-id"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-l">Register a study</span>
+        <h1 class="govuk-heading-l">
+            Study already has a government research identifier service ID (GRIS ID)
+        </h1>
+
+        <hr class="govuk-!-margin-bottom-6">
+
+		<form action="does-study-have-gris-id" method="post">
+            <!-- Related to other studies -->
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="study-related-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                        Is this new study related to any other studies?
+                    </legend>
+
+                    <div class="govuk-radios" data-module="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="study-related-yes" name="study-related" type="radio" value="yes">
+                            <label class="govuk-label govuk-radios__label" for="study-related-yes">
+                                Yes
+                            </label>
+                        </div>
+
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="study-related-no" name="study-related" type="radio" value="no">
+                            <label class="govuk-label govuk-radios__label" for="study-related-no">
+                                No
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <!-- Do you know related study GRIS ID -->
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="gris-id-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                        Do you know the government research identifier service ID (GRIS ID) of the related study?
+                    </legend>
+
+                    <div class="govuk-radios" data-module="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="id-yes" name="study-gris-id" type="radio" value="yes" data-aria-controls="conditional-yes">
+                            <label class="govuk-label govuk-radios__label" for="id-yes">
+                                Yes
+                            </label>
+                        </div>
+
+                        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-yes">
+                            <div class="govuk-form-group">
+                                <label class="govuk-label" for="id-of-study">
+                                    GRIS ID of the related study
+                                </label>
+                                <input class="govuk-input govuk-!-width-two-thirds" id="id-of-study" name="related-id" type="text">
+                            </div>
+                        </div>
+   
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="id-no" name="study-gris-id" type="radio" value="no">
+                            <label class="govuk-label govuk-radios__label" for="id-no">
+                                No
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <!-- Relationship between studies -->
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="study-relationship-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                        What is the relationship between the new study and the related study? 
+                    </legend>
+                    
+                    <p class="govuk-hint" id="study-relationship-hint">
+                        Select one option
+                    </p>
+         
+                    <div class="govuk-radios" data-module="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="study-relationship-parent" name="study-relationship" type="radio" value="parent">
+                            <label class="govuk-label govuk-radios__label" for="study-relationship-parent">
+                                It's a parent study of another study
+                            </label>
+                            <div id="parent-study-hint" class="govuk-hint govuk-radios__hint">
+                                This is a standalone study that may have related studies connected to it.
+                            </div>
+                        </div>
+
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="study-relationship-sub" name="study-relationship" type="radio" value="sub">
+                            <label class="govuk-label govuk-radios__label" for="study-relationship-sub">
+                                It's a sub-study
+                            </label>
+                            <div id="sub-study-hint" class="govuk-hint govuk-radios__hint">
+                                This is a smaller research project exploring specific parts of the parent study
+                            </div>
+                        </div>
+
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="study-relationship-platform" name="study-relationship" type="radio" value="platform">
+                            <label class="govuk-label govuk-radios__label" for="study-relationship-platform">
+                                It's a platform study
+                            </label>
+                            <div id="parent-study-hint" class="govuk-hint govuk-radios__hint">
+                                This is a study with a master protocol which can be updated and expanded using smaller addenda or sub-protocols
+                            </div>
+                        </div>
+
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="study-relationship-cont" name="study-relationship" type="radio" value="cont">
+                            <label class="govuk-label govuk-radios__label" for="study-relationship-cont">
+                                It's a continuation study
+                            </label>
+                            <div id="parent-study-hint" class="govuk-hint govuk-radios__hint">
+                                This is an extension of an earlier study. This might have a different integrated research application system ID (IRAS ID) from the parent study.
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <!-- Same IRAS ID -->
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="iras-id-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                            Does the related study have the same integrated research application system ID (IRAS ID) as the new study? 
+                    </legend>
+
+                    <div class="govuk-radios" data-module="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="iras-yes" name="iras-id" type="radio" value="yes">
+                            <label class="govuk-label govuk-radios__label" for="iras-yes">
+                                Yes
+                            </label>
+                        </div>
+   
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="iras-no" name="iras-id" type="radio" value="no">
+                            <label class="govuk-label govuk-radios__label" for="iras-no">
+                                No
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <!-- Same funding ID -->
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">                        
+                        Does the related study have the same funding ID as the new study?                         
+                    </legend>
+                    <div class="govuk-radios" data-module="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="funding" name="funding-id" type="radio" value="yes">
+                            <label class="govuk-label govuk-radios__label" for="funding">
+                                Yes
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="funding-2" name="funding-id" type="radio" value="no">
+                            <label class="govuk-label govuk-radios__label" for="funding-2">
+                                No
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form> 
+    </div>
+</div>
+{% endblock %}

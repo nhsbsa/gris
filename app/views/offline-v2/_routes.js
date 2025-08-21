@@ -22,7 +22,6 @@ router.get('/sign-out', function (req, res) {
     });
 });
 
-
 // Dashboard - Don't let user view unless logged in
 let version = 'offline-v2';
 
@@ -85,7 +84,6 @@ router.post('/manage-study-change-ci-email', function(req, res) {
 
 
 // Manage study - change sponsor
-
 router.post('/manage-study-change-sponsor', function(req, res) {
     let name = req.session.data['change-sponsor-name'];
     let email = req.session.data['change-sponsor-email'];
@@ -164,5 +162,20 @@ router.post('/manage-study-delete-member', function(req, res) {
         res.redirect("manage-study-delete-member")
     }
 })
+
+// Register study - does study already have a GRIS ID?
+router.post('/does-study-have-gris-id', function(req, res) {
+    let study = req.session.data['has-study-id']
+
+    if (study == "yes") {
+        res.redirect("register-study-yes-route")
+    } else if (study == "no") {
+        res.redirect("register-study-no-route")
+    } else {
+        // None selected add error in future here instead of redirect
+        res.redirect("does-study-have-gris-id")
+    }
+})
+
 
 module.exports = router
