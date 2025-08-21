@@ -151,4 +151,18 @@ router.post('/manage-study-change-member', function(req, res) {
     }
 });
 
+// Manage study - delete member 
+router.post('/manage-study-delete-member', function(req, res) {
+    let deleteMember = req.session.data['delete-member']
+
+    if (deleteMember == "yes") {
+        res.redirect("manage-study-delete-member-complete")
+    } else if (deleteMember == "no") {
+        res.redirect("manage-study")
+    } else {
+        // add proper error functionality in future versions instead of redirect
+        res.redirect("manage-study-delete-member")
+    }
+})
+
 module.exports = router
