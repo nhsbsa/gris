@@ -186,4 +186,19 @@ router.post('/register-study-yes-route', function(req, res) {
 })
 
 
+// Register study - Yes route part two
+router.post('/select-funding', function(req, res) {
+    let funding = req.session.data['funding-name']
+
+    if (funding) {
+        res.redirect("check-your-answers")
+    } else {
+        // add proper error functionality in future versions instead of redirect
+        res.redirect("select-funding")
+    }
+})
+
+// Register study - Check your answers
+
+
 module.exports = router
