@@ -177,5 +177,13 @@ router.post('/does-study-have-gris-id', function(req, res) {
     }
 })
 
+// Register study - Yes route part one
+router.post('/register-study-yes-route', function(req, res) {
+    // Need to add rules here for checking fields are not empty etc.
+
+    // For now, just redirect to next page on submit:
+    res.redirect("select-funding")
+})
+
 
 module.exports = router
