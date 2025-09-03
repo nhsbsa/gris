@@ -163,40 +163,35 @@ router.post('/manage-study-delete-member', function(req, res) {
     }
 })
 
-// Register study - does study already have a GRIS ID?
-router.post('/does-study-have-gris-id', function(req, res) {
-    let study = req.session.data['has-study-id']
-
-    if (study == "yes") {
-        res.redirect("register-study-yes-route")
-    } else if (study == "no") {
-        res.redirect("register-study-no-route")
-    } else {
-        // None selected add error in future here instead of redirect
-        res.redirect("does-study-have-gris-id")
-    }
-})
-
-// Register study - Yes route part one
-router.post('/register-study-yes-route', function(req, res) {
+// Register study - study information
+router.post('/register-study', function(req, res) {
     // Need to add rules here for checking fields are not empty etc.
 
     // For now, just redirect to next page on submit:
-    res.redirect("select-funding")
+    res.redirect("register-study-add-members")
 })
 
+// Register study - do you need to add study members
+router.post('/register-study-add-members', function(req, res) {
+    let add = req.session.data['add-members']
 
-// Register study - Yes route part two
-router.post('/select-funding', function(req, res) {
-    let funding = req.session.data['funding-name']
-
-    if (funding) {
-        res.redirect("check-your-answers")
+    if (add == "yes") {
+        res.redirect("register-study-add-member-details")
+    } else if (add == "no") {
+        res.redirect("register-study-sponsors")
     } else {
-        // add proper error functionality in future versions instead of redirect
-        res.redirect("select-funding")
+        res.redirect("register-study-add-members")
     }
 })
+
+// Register study - add study member details
+router.post('/register-study-add-member-details', function(req, res) {
+    // Need to add rules here for checking fields are not empty etc.
+
+    // For now, just redirect to next page on submit:
+    res.redirect("register-study-add-member-details-cya")
+})
+
 
 // Register study - Check your answers
 
