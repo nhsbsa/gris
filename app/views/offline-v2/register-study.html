@@ -18,15 +18,15 @@
             Study information
         </h1>
 
-        <hr class="govuk-!-margin-bottom-6">
+        <!-- <hr class="govuk-!-margin-bottom-6"> -->
 
 		<form action="register-study" method="post">
             <!-- Short title of study -->
             {{ govukInput({
 				label: {
 					text: "What is the short title of the study?",
-					classes: "govuk-label--m",
-					isPageHeading: true
+					classes: "",
+					isPageHeading: false
 				},
 				id: "short-title",
 				name: "short-title"
@@ -36,8 +36,8 @@
             {{ govukInput({
 				label: {
 					text: " What is the chief investigator or key lead's full name?",
-					classes: "govuk-label--m",
-					isPageHeading: true
+					classes: "",
+					isPageHeading: false
 				},
 				id: "ci-name",
 				name: "ci-name"
@@ -47,8 +47,8 @@
             {{ govukInput({
 				label: {
 					text: "What is the chief investigator or key lead's email address?",
-					classes: "govuk-label--m",
-					isPageHeading: true
+					classes: "",
+					isPageHeading: false
 				},
 				id: "ci-email",
 				name: "ci-email"
@@ -58,7 +58,7 @@
             <div class="govuk-form-group">                
                 <div class="govuk-form-group">
                     <fieldset class="govuk-fieldset" role="group" aria-describedby="orcid-id-hint">
-                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                        <legend class="govuk-fieldset__legend">
                             What is the ORCID iD of the chief investigator or the key lead?
                         </legend>
                         

@@ -35,6 +35,36 @@
                 <input class="govuk-input" id="member-email" name="add-member-email" type="text" spellcheck="false" autocomplete="email">
             </div>
 
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend">
+                        What permissions do you want to give this team member?
+                    </legend>
+
+                    <div class="govuk-radios" data-module="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="permissions" name="add-member-permissions" type="radio" value="read only" aria-describedby="permissions-item-hint">
+                            <label class="govuk-label govuk-radios__label" for="permissions">
+                                Read only
+                            </label>
+                            <div id="permissions-item-hint" class="govuk-hint govuk-radios__hint">
+                                This option lets the team member view all study information. They will not be able to change the study information or add new members.
+                            </div>
+                        </div>
+
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="permissions-2" name="add-member-permissions" type="radio" value="editor" aria-describedby="permissions-2-item-hint">
+                            <label class="govuk-label govuk-radios__label" for="permissions-2">
+                                Editor
+                            </label>
+                            <div id="permissions-2-item-hint" class="govuk-hint govuk-radios__hint">
+                                This option lets the team member update study information and add or remove other members.
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
             {{ govukButton({
                 text: "Continue"
             }) }}
