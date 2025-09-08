@@ -82,7 +82,6 @@ router.post('/manage-study-change-ci-email', function(req, res) {
     }
 });
 
-
 // Manage study - change sponsor
 router.post('/manage-study-change-sponsor', function(req, res) {
     let name = req.session.data['change-sponsor-name'];
@@ -225,6 +224,19 @@ router.post('/register-study-sponsors-completed', function(req, res) {
     } else {
         // no option selected - add proper error functionality in future versions instead of redirect
         res.redirect("register-study-sponsors-completed")
+    }
+})
+
+// Register study - is study related to other studies?
+router.post('/register-study-related', function(req, res) {
+    let related = req.session.data['study-related']
+
+    if (related == "yes") {
+        res.redirect("register-study-related-information")
+    } else if (related == "not-sure-yet") {
+        res.redirect("register-study-sponsors")
+    } else {
+        res.redirect("register-study-related")
     }
 })
 
