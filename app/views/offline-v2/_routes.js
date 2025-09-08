@@ -207,6 +207,11 @@ router.post('/register-study-add-member-completed', function(req, res) {
 })
 
 // Register study - add sponsor details
+router.post('/register-study-sponsors', function(req, res) {
+    // Need to add rules here for checking fields are not empty etc.
 
+    // For now, just redirect to next page on submit:
+    res.redirect("register-study-sponsors-cya")
+})
 
 module.exports = router

@@ -1,0 +1,48 @@
+{% extends "layouts/offline-v2.html" %}
+{% set containerClasses = "govuk-full-width-body" %}
+
+{% block pageTitle %}
+   Register a study - add a sponsor – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+    {{ govukBackLink({
+        text: "Back",
+        href: "register-study-add-members"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-l">Register a study</span>
+        <h1 class="govuk-heading-l">
+            Add sponsoring organisation details
+        </h1>
+
+        <form action="register-study-sponsors" method="post">
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="sponsor-name">
+                    What is the name of the organisation sponsoring this research?
+                </label>
+
+                <div id="sponsor-name-hint" class="govuk-hint">For example, Manchester University NHS Foundation Trust</div>
+                <input class="govuk-input" id="sponsor-name" name="sponsor-name" type="text">
+            </div>
+
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="sponsor-email">
+                    Enter the email address of the sponsoring organisation's point of contact
+                </label>
+                <input class="govuk-input" id="sponsor-email" name="sponsor-email" type="email">
+            </div>
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form>
+    </div>
+</div>
+
+{% endblock %}
