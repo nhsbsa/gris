@@ -1,0 +1,54 @@
+{% extends "layouts/offline-v2.html" %}
+{% set containerClasses = "govuk-full-width-body" %}
+
+{% block pageTitle %}
+   Register a study – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+    {{ govukBackLink({
+        text: "Back",
+        href: "register-study-sponsors"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+		<form action="register-study-related" method="post">
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="study-related-hint"> 
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                        <span class="govuk-caption-l">Register a study</span>
+                        <h1 class="govuk-fieldset__heading">
+                            Is this new study related to any other studies?
+                        </h1>
+                    </legend>
+
+                    <div class="govuk-radios" data-module="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="study-related-yes" name="study-related" type="radio" value="yes">
+                            <label class="govuk-label govuk-radios__label" for="study-related-yes">
+                                Yes
+                            </label>
+                        </div>
+
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="study-related-no" name="study-related" type="radio" value="no">
+                            <label class="govuk-label govuk-radios__label" for="study-related-no">
+                                No
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form> 
+    </div>
+</div>
+{% endblock %}

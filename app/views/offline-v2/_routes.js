@@ -214,4 +214,18 @@ router.post('/register-study-sponsors', function(req, res) {
     res.redirect("register-study-sponsors-cya")
 })
 
+// Register study - add sponsor details completed
+router.post('/register-study-sponsors-completed', function(req, res) {
+    let more = req.session.data['add-more-sponsors']
+
+    if (more == "yes") {
+        res.redirect("register-study-sponsors")
+    } else if (more == "no") {
+        res.redirect("register-study-related")
+    } else {
+        // no option selected - add proper error functionality in future versions instead of redirect
+        res.redirect("register-study-sponsors-completed")
+    }
+})
+
 module.exports = router
