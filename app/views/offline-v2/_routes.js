@@ -248,5 +248,4 @@ router.post('/register-study-related-information', function(req, res) {
     res.redirect("register-study-cya")
 })
 
-
 module.exports = router
