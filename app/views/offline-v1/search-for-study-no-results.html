@@ -24,7 +24,7 @@
         <h1 class="govuk-heading-l">No results found</h1>
 
         <p>
-			We couldn't find any results for
+			We could not find any results for
 
 			{% if data['search-gris-id-one'] %}
                 <strong>"GRIS-{{ data['search-gris-id-one'] | default('222') }} {{ data['search-gris-id-two'] | default('111') }} {{ data['search-gris-id-three'] | default('111') }}"</strong>
@@ -34,7 +34,7 @@
                 <strong>"SEARCH TERM HERE"</strong>
             {% endif %}
 		</p>
-        <p>Check your spelling and <a href="javascript:history.back()">try again</a>.</p>
+        <p>Try <a href="search-for-study-id">searching for GRIS ID</a> or <a href="search-for-study-name">searching by the study's short title</a>.</p>
     </div>
 </div>
 
