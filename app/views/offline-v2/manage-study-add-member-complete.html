@@ -1,7 +1,7 @@
 {% extends "layouts/offline-v2.html" %}
 {% set containerClasses = "govuk-full-width-body" %}
 {% block pageTitle %}
-	A new study team member has been added to [study name] - {{ serviceName }} – GOV.UK Prototype Kit
+	You have added a new study team member has been added to [study name] - {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}      
@@ -22,7 +22,11 @@
         </div>
                         
         <h2 class="govuk-heading-m">What happens next</h2>
-        <p>We have updated [study name] with the new team member's details. To view the changes <a href="manage-study" class="govuk-link--no-visited-state">return to manage [study name]</a>.</p>
+        <p>We have updated [study name] with the new team member's details.</p> 
+            
+        <p>We've sent an email to the chief investigator, the study team members, and the organisation's point of contact to let them know that a new study team member has been added to the study.</p>
+        <p>To update more information in this study, <a href="manage-study" class="govuk-link--no-visited-state">return to manage this study</a>.</p>
+        <p>To start a new search or create a new GRIS ID, <a href="dashboard" class="govuk-link--no-visited-state">return to the dashboard</a>.</p>
     </div>
 </div>
 

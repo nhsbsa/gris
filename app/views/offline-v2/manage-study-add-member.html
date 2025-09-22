@@ -2,11 +2,10 @@
 {% set containerClasses = "govuk-full-width-body" %}
 
 {% block pageTitle %}
-	Add a new study member to [study name] - {{ serviceName }} – GOV.UK Prototype Kit
+	Add a new study member to [study name] - manage study - {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
-{% block beforeContent %}      
-
+{% block beforeContent %}     
     {{ govukBackLink({
         text: "Back",
         href: "manage-study"
@@ -18,7 +17,7 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
         <span class="govuk-caption-l">Manage study</span>
-        <h1 class="govuk-heading-l">Add a new study member</h1>
+        <h1 class="govuk-heading-l">Add a new study member to [study name]</h1>
         
         <form action="manage-study-add-member" method="post">
             <div class="govuk-form-group">
@@ -46,7 +45,7 @@
                         <div class="govuk-radios__item">
                             <input class="govuk-radios__input" id="permissions" name="permissions" type="radio" value="read only" aria-describedby="permissions-item-hint">
                             <label class="govuk-label govuk-radios__label" for="permissions">
-                                Read only
+                                Read-only
                             </label>
                             <div id="permissions-item-hint" class="govuk-hint govuk-radios__hint">
                                 This option lets the team member view all study information. They will not be able to change the study information or add new members.
@@ -59,7 +58,7 @@
                                 Editor
                             </label>
                             <div id="permissions-2-item-hint" class="govuk-hint govuk-radios__hint">
-                                This option lets the team member update study information and add or remove other members.
+                                This option allows the team member to update study information and add or remove other members.
                             </div>
                         </div>
                     </div>
