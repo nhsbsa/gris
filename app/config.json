@@ -1,3 +1,8 @@
 {
-  "serviceName": "Government research identifier service"
+  "serviceName": "Government research identifier service",
+  "plugins": {
+    "govuk-frontend": {
+      "rebrand": true
+    }
+  }
 }
