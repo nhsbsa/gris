@@ -2,7 +2,7 @@
 {% set containerClasses = "govuk-full-width-body" %}
 
 {% block pageTitle %}
-   Register a study – {{ serviceName }} – GOV.UK Prototype Kit
+   Is this new study related to any other studies? - Register a study – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}      
@@ -44,6 +44,25 @@
                     </div>
                 </fieldset>
             </div>
+
+            <details class="govuk-details">
+                <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                        I'm not sure if this new study is related to any other studies
+                    </span>
+                </summary>
+                <div class="govuk-details__text">
+                    <p id="study-related-hint">
+                        A study is related to another study if it's a:
+                    </p>
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li><strong>parent study</strong> - the main research project</li>
+                        <li><strong>sub-study</strong> - a smaller research project exploring specific parts of the parent study</li>
+                        <li><strong>platform study</strong> - a study with a master protocol which can be updated and expanded using smaller adenda or sub-protocols</li>
+                        <li><strong>continuation study</strong> - an extension of an earlier study. This may have a different Integrated Research Application System ID (IRAS ID) from the parent study.</li>
+                    </ul>     
+                </div>
+            </details>
 
             {{ govukButton({
                 text: "Continue"

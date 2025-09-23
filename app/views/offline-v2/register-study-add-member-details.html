@@ -2,7 +2,7 @@
 {% set containerClasses = "govuk-full-width-body" %}
 
 {% block pageTitle %}
-   Register a study - add member details – {{ serviceName }} – GOV.UK Prototype Kit
+   Study team member's details - Register a study – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}      
@@ -18,7 +18,7 @@
 	<div class="govuk-grid-column-two-thirds">
         <span class="govuk-caption-l">Register a study</span>
         <h1 class="govuk-heading-l">
-            Study member details
+            Study team member's details
         </h1>
         <form action="register-study-add-member-details" method="post">
             <div class="govuk-form-group">
@@ -45,7 +45,7 @@
                         <div class="govuk-radios__item">
                             <input class="govuk-radios__input" id="permissions" name="add-member-permissions" type="radio" value="read only" aria-describedby="permissions-item-hint">
                             <label class="govuk-label govuk-radios__label" for="permissions">
-                                Read only
+                                Read-only
                             </label>
                             <div id="permissions-item-hint" class="govuk-hint govuk-radios__hint">
                                 This option lets the team member view all study information. They will not be able to change the study information or add new members.
@@ -58,7 +58,7 @@
                                 Editor
                             </label>
                             <div id="permissions-2-item-hint" class="govuk-hint govuk-radios__hint">
-                                This option lets the team member update study information and add or remove other members.
+                                This option allows the team member to update study information and add or remove other members.
                             </div>
                         </div>
                     </div>

@@ -2,7 +2,7 @@
 {% set containerClasses = "govuk-full-width-body" %}
 
 {% block pageTitle %}
-   Register a study – {{ serviceName }} – GOV.UK Prototype Kit
+   New study information - Register a study – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}      
@@ -15,7 +15,7 @@
 	<div class="govuk-grid-column-two-thirds">
         <span class="govuk-caption-l">Register a study</span>
         <h1 class="govuk-heading-l">
-            Study information
+            New study information
         </h1>
 
         <!-- <hr class="govuk-!-margin-bottom-6"> -->
@@ -112,6 +112,17 @@
                     </fieldset>
                 </div>
             </div>
+            
+            <details class="govuk-details">
+                <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                        Where can I find an ORCID iD?
+                    </span>
+                </summary>
+                <div class="govuk-details__text">
+                    To find an ORCID iD you can search the <a href="#" target="_blank">ORCID registry (opens in new tab)</a>.
+                </div>
+            </details>    
 
             {{ govukButton({
                 text: "Continue"
