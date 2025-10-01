@@ -1,0 +1,72 @@
+{% extends "layouts/main-new-header.html" %}
+
+{% block pageTitle %}
+    Does the related study have the same IRAS ID as the new study? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "relationship-between-studies"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">       
+
+        <form action="does-related-study-have-same-iras-id" method="post">
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="iras-id-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                        <h1 class="govuk-fieldset__heading">
+                            Does the related study have the same integrated research application system ID (IRAS ID) as the new study? 
+                        </h1>
+                    </legend>
+
+                    <div class="govuk-radios" data-module="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="iras-yes" name="iras-id" type="radio" value="yes">
+                            <label class="govuk-label govuk-radios__label" for="iras-yes">
+                                Yes
+                            </label>
+                        </div>
+   
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="iras-no" name="iras-id" type="radio" value="no">
+                            <label class="govuk-label govuk-radios__label" for="iras-no">
+                                No
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <details class="govuk-details">
+                <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                        How do I find out the related study's IRAS ID?
+                    </span>
+                </summary>
+                <div class="govuk-details__text">
+                    If you're not sure what the study's IRAS ID is, you can usually find it in the <a href="https://www.myresearchproject.org.uk/Signin.aspx">IRAS system</a> or in the system used to apply for approvals.
+                </div>
+            </details>
+            
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

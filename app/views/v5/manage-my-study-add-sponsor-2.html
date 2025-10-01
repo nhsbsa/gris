@@ -1,0 +1,43 @@
+{% extends "layouts/main-new-header.html" %}
+
+{% block pageTitle %}
+    Enter the email address of the sponsoring organisation's point of contact – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "manage-my-study-add-sponsor"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+       
+        <form action="manage-my-study-add-sponsor-2" method="post">
+            <div class="govuk-form-group">
+                <h1 class="govuk-label-wrapper">
+                    <label class="govuk-label govuk-label--l" for="add-sponsor-email">
+                        Enter the email address of the sponsoring organisation's point of contact
+                    </label>
+                </h1>
+                <input class="govuk-input" id="add-sponsor-email" name="add-sponsor-email" type="email">
+            </div>
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form>
+    </div>
+</div>
+
+{% endblock %}

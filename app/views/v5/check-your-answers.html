@@ -1,0 +1,123 @@
+{% extends "layouts/main-new-header.html" %}
+
+{% block pageTitle %}
+    Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">       
+        <h1 class="govuk-heading-l">Check your answers before you submit your new study details</h1>
+
+        <p>If you notice a mistake, you can change your response by selecting 'Change'. </p>
+        <p>You’ll also have the option to change the responses after the submission through the 'my studies' section of the dashboard.</p>
+
+        <h2 class="govuk-heading-m">New study details</h2>
+
+        <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Short study title
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Investigating Left Arm Disease
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="what-is-the-short-title">Change<span class="govuk-visually-hidden"> short study title</span></a>
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Chief Investigator
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    <p class="govuk-body">Peter Jones</p>
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="orcid-id-chief-investigator">Change<span class="govuk-visually-hidden"> Chief Investigator ORCID ID</span></a>
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Chief Investigator ORCiD ID
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    <p class="govuk-body">0009-0000-6037-7481</p>
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="orcid-id-chief-investigator">Change<span class="govuk-visually-hidden"> Chief Investigator ORCID ID</span></a>
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Team members' email addresses
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    joe.bloggs@research.ac.uk
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> Study team members</span></a>
+                </dd>
+            </div>
+            
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Sponsor name
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Manchester University NHS Foundation Trust
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="who-is-the-sponsor">Change<span class="govuk-visually-hidden"> sponsor</span></a>
+                </dd>
+            </div>
+        </dl>
+
+        <h2 class="govuk-heading-m">Related study details</h2>
+
+        <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Short study title
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Investigating RIGHT Arm Disease
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> related short study title</span></a>
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    GRIS ID of related study
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    <p class="govuk-body">GRIS-342 524 247</p>
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="do-you-know-gris-id">Change<span class="govuk-visually-hidden"> CGRIS ID of related study</span></a>
+                </dd>
+            </div>
+        </dl>
+        
+        <a href="gris-confirmed" class="govuk-button" data-module="govuk-button" role="button" draggable="false">
+            Submit
+        </a>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "layouts/main-new-header.html" %}
+
+{% block pageTitle %}
+	A new study team member has been added to [study name] - {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+        <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-6">
+            <h1 class="govuk-panel__title">
+                A new study team member has been added
+            </h1>
+            <div class="govuk-panel__body">
+                {{ data['member-full-name'] | title | default('James Bond') }}<br>
+                <strong>{{ data['member-email-address'] | default('james.bond@email.com') }}</strong>
+            </div>
+        </div>
+                        
+        <h2 class="govuk-heading-m">What happens next</h2>
+        <p>We have updated [study name] with the new team member's details. To view the changes, go to <a href="my-studies" class="govuk-link govuk-link--no-visited-state">'My studies'</a> and select the study.</p>
+    </div>
+</div>
+
+{% endblock %}
