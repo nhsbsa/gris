@@ -1,0 +1,37 @@
+{% extends "layouts/main-new-header.html" %}
+
+{% block pageTitle %}
+   Change chief invetsigator's email address – manage study - {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "manage-my-study"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">        
+        <form action="manage-study-change-ci-email" method="post">
+            <div class="govuk-form-group">
+                <span class="govuk-caption-l">Manage study</span>
+                <h1 class="govuk-label-wrapper">
+                    <label class="govuk-label govuk-label--l" for="change-ci-email">
+                        What is the chief invetsigator's email address?
+                    </label>
+                </h1>
+                <input class="govuk-input" id="change-ci-email" name="change-ci-email" type="email">
+            </div>        
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form>
+    </div>
+</div>
+
+{% endblock %}

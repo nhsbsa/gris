@@ -1,0 +1,56 @@
+{% extends "layouts/main-new-header.html" %}
+
+{% block pageTitle %}
+    Check your answers before changing a sponsoring organisation's details for - manage study - {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "manage-study-change-sponsor"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-l">Manage study</span>
+        <h1 class="govuk-heading-l">Check your answers before changing a sponsoring organisation's details</h1>
+
+        <h2 class="govuk-heading-m">Sponsoring organisation details</h2>
+        
+        <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Name of sponsoring organisation
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data['change-sponsor-name'] | title | default('Manchester University NHS Foundation Trust') }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link govuk-link--no-visited-state" href="manage-study-change-sponsor">Change<span class="govuk-visually-hidden"> sponsor name</span></a>
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Point of contact email address
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data['change-sponsor-email'] | default('sponsor-email@email.com') }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link govuk-link--no-visited-state" href="manage-study-change-sponsor">Change<span class="govuk-visually-hidden"> sponsor email address</span></a>
+                </dd>
+            </div>
+        </dl>
+
+        <a href="manage-study-change-sponsor-complete" role="button" class="govuk-button" data-module="govuk-button">
+            Submit
+        </a>
+    </div>
+</div>
+
+{% endblock %}
