@@ -11,11 +11,6 @@
 		},
 		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
 	}) }}
-
-    {{ govukBackLink({
-        text: "Back",
-        href: "does-study-have-gris-id"
-    }) }}
 {% endblock %}
 
 {% block content %}
@@ -23,6 +18,7 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 		<form action="what-is-the-short-title" method="post">
+            <span class="govuk-caption-l">Register a study</span>
 			{{ govukInput({
 				label: {
 					text: "What is the short title of the study?",
