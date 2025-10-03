@@ -144,6 +144,42 @@ router.post('/manage-study-change-sponsor-email', function(req, res) {
     }
 });
 
+// Manage my study - add a member (name)
+router.post('/manage-study-add-member', function(req, res) {
+    let name = req.session.data['member-full-name']
+
+    if (!name || name.trim() === "") {
+        res.redirect("manage-study-add-member")
+        // add proper error functionality in future versions instead of redirect
+    } else {
+        res.redirect("manage-study-add-member-email")
+    }
+})
+
+// Manage my study - add a member (email)
+router.post('/manage-study-add-member-email', function(req, res) {
+    let email = req.session.data['member-email-address']
+
+    if (!email || email.trim() === "") {
+        res.redirect("manage-study-add-member-email")
+        // add proper error functionality in future versions instead of redirect
+    } else {
+        res.redirect("manage-study-add-member-permissions")
+    }
+})
+
+// Manage my study - add a member (permissions)
+router.post('/manage-study-add-member-permissions', function(req, res) {
+    let permissions = req.session.data['permissions']
+
+    if (permissions == "read only" || permissions == "editor") {
+        res.redirect("manage-study-add-member-cya")
+    } else {
+        // add proper error functionality in future versions instead of redirect
+        res.redirect("manage-study-add-member-permissions")
+    }
+})
+
 // Manage study - delete member 
 router.post('/manage-study-delete-member', function(req, res) {
     let deleteMember = req.session.data['delete-member']

@@ -1,7 +1,7 @@
 {% extends "layouts/main-new-header.html" %}
 
 {% block pageTitle %}
-	What is the name of the study team member you want to add to [study name]? - {{ serviceName }} – GOV.UK Prototype Kit
+	What is the email address of the study team member you want to add to [study name]? - {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}      
@@ -14,7 +14,7 @@
 
     {{ govukBackLink({
         text: "Back",
-        href: "manage-my-study"
+        href: "manage-study-add-member"
     }) }}
 {% endblock %}
 
@@ -23,14 +23,14 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
         <span class="govuk-caption-l">Manage study</span>
-        <h1 class="govuk-heading-l">What is the name of the study team member you want to add to [study name]?</h1>
+        <h1 class="govuk-heading-l">What is the email address of the study team member you want to add to [study name]?</h1>
         
-        <form action="manage-study-add-member" method="post">
+        <form action="manage-study-add-member-email" method="post">
             <div class="govuk-form-group">
-                <label class="govuk-label" for="full-name">
-                    Full name
+                <label class="govuk-label" for="member-email-address">
+                    Email address
                 </label>
-                <input class="govuk-input" id="full-name" name="member-full-name" type="text" spellcheck="false" autocomplete="name">
+                <input class="govuk-input" id="member-email-address" name="member-email-address" type="email" spellcheck="false" autocomplete="email">
             </div>
 
             <button type="submit" class="govuk-button" data-module="govuk-button">

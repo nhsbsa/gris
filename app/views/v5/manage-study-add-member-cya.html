@@ -14,7 +14,7 @@
 
     {{ govukBackLink({
         text: "Back",
-        href: "manage-study-add-member"
+        href: "manage-study-add-member-permissions"
     }) }}
 {% endblock %}
 
@@ -48,7 +48,7 @@
                     {{ data['member-email-address'] | default('james.bond@email.com') }}
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link govuk-link--no-visited-state" href="manage-study-add-member">Change<span class="govuk-visually-hidden"> email address</span></a>
+                    <a class="govuk-link govuk-link--no-visited-state" href="manage-study-add-member-email">Change<span class="govuk-visually-hidden"> email address</span></a>
                 </dd>
             </div>
 
@@ -60,7 +60,7 @@
                     {{ data['permissions'] | capitalize | default('Read-only') }}
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link govuk-link--no-visited-state" href="manage-study-add-member">Change<span class="govuk-visually-hidden"> permissions</span></a>
+                    <a class="govuk-link govuk-link--no-visited-state" href="manage-study-add-member-permissions">Change<span class="govuk-visually-hidden"> permissions</span></a>
                 </dd>
             </div>
         </dl>
