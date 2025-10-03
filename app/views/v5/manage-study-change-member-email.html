@@ -14,7 +14,7 @@
 
     {{ govukBackLink({
         text: "Back",
-        href: "manage-my-study"
+        href: "manage-study-change-member"
     }) }}
 {% endblock %}
 
@@ -23,14 +23,14 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
         <span class="govuk-caption-l">Manage study</span>
-        <h1 class="govuk-heading-l">Change name of the study team member</h1>
+        <h1 class="govuk-heading-l">Change email address of the study team member</h1>
         
-        <form action="manage-study-change-member" method="post">
+        <form action="manage-study-change-member-email" method="post">
             <div class="govuk-form-group">
-                <label class="govuk-label" for="change-full-name">
-                    Full name
+                <label class="govuk-label" for="change-email-address">
+                    Email address
                 </label>
-                <input class="govuk-input" id="change-full-name" name="change-full-name" type="text" spellcheck="false">
+                <input class="govuk-input" id="change-email-address" name="change-email-address" type="email" spellcheck="false" >
             </div>
 
             <button type="submit" class="govuk-button" data-module="govuk-button">

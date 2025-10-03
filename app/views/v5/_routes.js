@@ -180,6 +180,46 @@ router.post('/manage-study-add-member-permissions', function(req, res) {
     }
 })
 
+// Manage my study - change member (name)
+router.post('/manage-study-change-member', function(req, res) {
+    let name = req.session.data['change-full-name'];
+
+    // Check if name is blank
+    if (!name || name.trim() === "") {
+        // Don't progress if blank
+        res.redirect("manage-study-change-member");
+        // add proper error functionality in future versions instead of redirect
+    } else {
+        res.redirect("manage-study-change-member-email");
+    }
+});
+
+// Manage study - change member (email)
+router.post('/manage-study-change-member-email', function(req, res) {
+    let email = req.session.data['change-email-address'];
+
+    // Check if email is blank
+    if (!email || email.trim() === "") {
+        // Don't progress if blank
+        res.redirect("manage-study-change-member-email");
+        // add proper error functionality in future versions instead of redirect
+    } else {
+        res.redirect("manage-study-change-member-permissions");
+    }
+});
+
+// Manage study - change member (permissions)
+router.post('/manage-study-change-member-permissions', function(req, res) {
+    let permissions = req.session.data['change-permissions'];
+
+    if (permissions == "read only" || permissions == "editor") {
+        res.redirect("manage-study-change-member-cya")
+    } else {
+        // add proper error functionality in future versions instead of redirect
+        res.redirect("manage-study-change-member-permissions")
+    }
+});
+
 // Manage study - delete member 
 router.post('/manage-study-delete-member', function(req, res) {
     let deleteMember = req.session.data['delete-member']
