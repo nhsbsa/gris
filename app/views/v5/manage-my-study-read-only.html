@@ -22,7 +22,7 @@
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
         <span class="govuk-caption-l">Manage study</span>
-        <h1 class="govuk-heading-l">Investigating left arm disease</h1>
+        <h1 class="govuk-heading-l">Investigating right arm disease</h1>
     </div>
 </div>
 
@@ -42,10 +42,7 @@
                             Short title of study
                         </dt>
                         <dd class="govuk-summary-list__value">
-                            Investigating left arm disease
-                        </dd>
-                        <dd class="govuk-summary-list__actions">
-                            <a class="govuk-link govuk-link--no-visited-state" href="manage-study-change-title">Change<span class="govuk-visually-hidden"> Short study title</span></a>
+                            Investigating right arm disease
                         </dd>
                     </div>
                     <div class="govuk-summary-list__row">
@@ -53,10 +50,9 @@
                             GRIS ID
                         </dt>
                         <dd class="govuk-summary-list__value">
-                            GRIS-{{ data['search-gris-id-one'] | default('111') }} {{ data['search-gris-id-two'] | default('111') }} {{ data['search-gris-id-three'] | default('111') }}
+                            GRIS-458 854 444
                         </dd>
-                        <dd class="govuk-summary-list__actions">
-                        </dd>
+
                     </div>
                     <div class="govuk-summary-list__row">
                         <dt class="govuk-summary-list__key">
@@ -75,9 +71,6 @@
                         <dd class="govuk-summary-list__value">
                             jane.doe@email.com
                         </dd>
-                        <dd class="govuk-summary-list__actions">
-                            <a class="govuk-link govuk-link--no-visited-state" href="manage-study-change-ci-email">Change<span class="govuk-visually-hidden"> Chief investigator email</span></a>
-                        </dd>
                     </div>
                 </dl>
             </div>
@@ -88,11 +81,11 @@
                 <h2 class="govuk-summary-card__title">
                     Sponsor's details
                 </h2>
-                <ul class="govuk-summary-card__actions">
+                <!-- <ul class="govuk-summary-card__actions">
                     <li class="govuk-summary-card__action">
                         <a class="govuk-link govuk-link--no-visited-state" href="manage-study-add-sponsor">Add a sponsor</a>
                     </li>
-                  </ul>
+                </ul> -->
             </div>
 
             <div class="govuk-summary-card__content">
@@ -104,9 +97,7 @@
                         <dd class="govuk-summary-list__value">
                             sponsor-contact@email.com
                         </dd>
-                        <dd class="govuk-summary-list__actions">
-                            <a class="govuk-link govuk-link--no-visited-state" href="manage-study-change-sponsor">Change<span class="govuk-visually-hidden"> sponsor</span></a>
-                        </dd>
+
                     </div>
                 </dl>
             </div>
@@ -117,11 +108,11 @@
                 <h2 class="govuk-summary-card__title">
                     Study members
                 </h2>
-                <ul class="govuk-summary-card__actions">
+                <!-- <ul class="govuk-summary-card__actions">
                     <li class="govuk-summary-card__action">
                         <a class="govuk-link govuk-link--no-visited-state" href="manage-study-add-member">Add a study member</a>
                     </li>
-                  </ul>
+                  </ul> -->
             </div>
 
             <div class="govuk-summary-card__content">
@@ -134,16 +125,6 @@
                         <dd class="govuk-summary-list__value">
                             jane.doe@email.com
                         </dd>
-                        <dd class="govuk-summary-list__actions">
-                            <ul class="govuk-summary-list__actions-list">
-                                <li class="govuk-summary-list__actions-list-item">
-                                    <a class="govuk-link govuk-link--no-visited-state" href="manage-study-change-member">Change<span class="govuk-visually-hidden"> Jane Doe</span></a>
-                                </li>
-                                <li class="govuk-summary-list__actions-list-item">
-                                    <a class="govuk-link govuk-link--no-visited-state" href="manage-study-delete-member">Delete<span class="govuk-visually-hidden"> Jane Doe</span></a>
-                                </li>
-                            </ul>                            
-                        </dd>
                     </div>
                     <div class="govuk-summary-list__row">
                         <dt class="govuk-summary-list__key">
@@ -152,16 +133,6 @@
                         </dt>
                         <dd class="govuk-summary-list__value">
                             joe.bloggs@email.com
-                        </dd>
-                        <dd class="govuk-summary-list__actions">
-                            <ul class="govuk-summary-list__actions-list">
-                                <li class="govuk-summary-list__actions-list-item">
-                                    <a class="govuk-link govuk-link--no-visited-state" href="manage-study-change-member">Change<span class="govuk-visually-hidden"> Joe Bloggs</span></a>
-                                </li>
-                                <li class="govuk-summary-list__actions-list-item">
-                                    <a class="govuk-link govuk-link--no-visited-state" href="manage-study-delete-member">Delete<span class="govuk-visually-hidden"> Joe Bloggs</span></a>
-                                </li>
-                            </ul>    
                         </dd>
                     </div>
                 </dl>

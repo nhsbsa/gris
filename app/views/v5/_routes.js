@@ -58,4 +58,74 @@ router.get('/sign-out', function (req, res) {
     });
 });
 
+// Manage study - change title
+router.post('/manage-study-change-title', function(req, res) {
+    let changeTitle = req.session.data['change-title'];
+
+    if (!changeTitle || changeTitle.trim() === "") {
+        res.redirect("manage-study-change-title");
+        // Add error message functionality here
+    } else {
+        // Redirect to the "check your answers" page if filled
+        res.redirect("manage-study-change-title-cya");
+    }
+});
+
+// Manage study - change chief investigator's email address
+router.post('/manage-study-change-ci-email', function(req, res) {
+    let changeEmail = req.session.data['change-ci-email'];
+
+    if (!changeEmail || changeEmail.trim() === "") {
+        res.redirect("manage-study-change-ci-email");
+        // Add error message functionality here
+    } else {
+        // Redirect to the "check your answers" page if filled
+        res.redirect("manage-study-change-ci-email-cya");
+    }
+});
+
+// Manage study - add a sponsor
+router.post('/manage-study-add-sponsor', function(req, res) {
+    let name = req.session.data['add-sponsor-name'];
+
+    // Check that name is provided and not just whitespace
+    if (!name || name.trim() === "") {
+        // Redirect back to the add sponsor page if field is blank
+        res.redirect("manage-study-add-sponsor");
+        // Add error message functionality here
+    } else {
+        // Redirect to the add email if field is filled
+        res.redirect("manage-study-add-sponsor-email");
+    }
+});
+
+// Manage study - add a sponsor email address
+router.post('/manage-study-add-sponsor-email', function(req, res) {
+    let email = req.session.data['add-sponsor-email'];
+
+    // Check that email is provided and not just whitespace
+    if (!email || email.trim() === "") {
+        // Redirect back to the add sponsor email page if field is blank
+        res.redirect("manage-study-add-sponsor-email");
+        // Add error message functionality here
+    } else {
+        // Redirect to the "check your answers" page if field is filled
+        res.redirect("manage-study-add-sponsor-cya");
+    }
+});
+
+// Manage study - delete member 
+router.post('/manage-study-delete-member', function(req, res) {
+    let deleteMember = req.session.data['delete-member']
+
+    if (deleteMember == "yes") {
+        res.redirect("manage-study-delete-member-complete")
+    } else if (deleteMember == "no") {
+        res.redirect("manage-my-study")
+    } else {
+        // add proper error functionality in future versions instead of redirect
+        res.redirect("manage-study-delete-member")
+    }
+})
+
 module.exports = router
