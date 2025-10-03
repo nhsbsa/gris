@@ -14,7 +14,7 @@
 
     {{ govukBackLink({
         text: "Back",
-        href: "manage-my-study"
+        href: "manage-study-change-sponsor"
     }) }}
 {% endblock %}
 
@@ -22,24 +22,16 @@
 
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">  
-        <form action="manage-study-change-sponsor" method="post">
+        <form action="manage-study-change-sponsor-email" method="post">
             <div class="govuk-form-group">
                 <span class="govuk-caption-l">Manage study</span>
                 <h1 class="govuk-label-wrapper">
-                    <label class="govuk-label govuk-label--l" for="change-sponsor-name">
-                        What is the name of the organisation sponsoring the research for [study name]?
+                    <label class="govuk-label govuk-label--l" for="change-sponsor-email">
+                        Enter the email address of the sponsoring organisation's point of contact
                     </label>
                 </h1>
-                <div id="change-sponsor-name-hint" class="govuk-hint">For example, Manchester University NHS Foundation Trust</div>
-                <input class="govuk-input" id="change-sponsor-name" name="change-sponsor-name" type="text" spellcheck="false">
-            </div>
-
-            <!-- <div class="govuk-form-group">
-                <label class="govuk-label" for="change-sponsor-email">
-                    Enter the email address of the sponsoring organisation's point of contact
-                </label>
                 <input class="govuk-input" id="change-sponsor-email" name="change-sponsor-email" type="email" spellcheck="false">
-            </div>  -->
+            </div>
 
             {{ govukButton({
                 text: "Continue"

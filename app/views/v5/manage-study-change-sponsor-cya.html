@@ -14,7 +14,7 @@
 
     {{ govukBackLink({
         text: "Back",
-        href: "manage-study-change-sponsor"
+        href: "manage-study-change-sponsor-email"
     }) }}
 {% endblock %}
 
@@ -48,7 +48,7 @@
                     {{ data['change-sponsor-email'] | default('sponsor-email@email.com') }}
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link govuk-link--no-visited-state" href="manage-study-change-sponsor">Change<span class="govuk-visually-hidden"> sponsor email address</span></a>
+                    <a class="govuk-link govuk-link--no-visited-state" href="manage-study-change-sponsor-email">Change<span class="govuk-visually-hidden"> sponsor email address</span></a>
                 </dd>
             </div>
         </dl>

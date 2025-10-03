@@ -114,6 +114,36 @@ router.post('/manage-study-add-sponsor-email', function(req, res) {
     }
 });
 
+// Manage study - change sponsor
+router.post('/manage-study-change-sponsor', function(req, res) {
+    let name = req.session.data['change-sponsor-name'];
+
+    // Check that name is provided and not just whitespace
+    if (!name || name.trim() === "") {
+        // Redirect back to the change sponsor page if blank
+        res.redirect("manage-study-change-sponsor");
+        // Add error message functionality here
+    } else {
+        // Redirect to the change sponsor email page if filled
+        res.redirect("manage-study-change-sponsor-email");
+    }
+});
+
+// Manage study - change sponsor email
+router.post('/manage-study-change-sponsor-email', function(req, res) {
+    let email = req.session.data['change-sponsor-email'];
+
+    // Check that email is provided and not just whitespace
+    if (!email || email.trim() === "") {
+        // Redirect back to the change sponsor email page if blank
+        res.redirect("manage-study-change-sponsor-email");
+        // Add error message functionality here
+    } else {
+        // Redirect to the "check your answers" if filled
+        res.redirect("manage-study-change-sponsor-cya");
+    }
+});
+
 // Manage study - delete member 
 router.post('/manage-study-delete-member', function(req, res) {
     let deleteMember = req.session.data['delete-member']
