@@ -1,0 +1,56 @@
+{% extends "layouts/main-new-header.html" %}
+
+{% block pageTitle %}
+  TITLE HERE – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+			text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}
+
+	{{ govukBackLink({
+		text: "Back",
+		href: "government-strategic-priority"
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+		<form action="study-status" method="post">
+            <span class="govuk-caption-l">Register a study</span>
+            {{ govukRadios({
+            name: "status",
+            fieldset: {
+                legend: {
+                text: "What is the current status for this study?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+                }
+            },
+            items: [
+                {
+                value: "recruiting",
+                text: "Recruiting"
+                },
+                {
+                value: "complete",
+                text: "Complete"
+                }
+            ]
+            }) }}
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -234,4 +234,40 @@ router.post('/manage-study-delete-member', function(req, res) {
     }
 })
 
+// Register study - what is the short title of the study?
+router.post('/what-is-the-short-title', function(req, res) {
+    let title = req.session.data['short-title']
+
+    if (!title || title.trim() === "") {
+        res.redirect("what-is-the-short-title")
+        // add proper error functionality in future versions instead of redirect
+    } else {
+        res.redirect("disease-area-speciality")
+    }
+})
+
+// Register study - disease area speciality
+router.post('/disease-area-speciality', function(req, res) {
+    // Need to add rules here for checking fields are not empty etc.
+
+    // For now, just redirect to next page on submit:
+    res.redirect("government-strategic-priority")
+})
+
+// Register study - government strategic priority
+router.post('/government-strategic-priority', function(req, res) {
+    // Need to add rules here for checking fields are not empty etc.
+
+    // For now, just redirect to next page on submit:
+    res.redirect("study-status")
+})
+
+// Register study - study status
+router.post('/study-status', function(req, res) {
+    // Need to add rules here for checking fields are not empty etc.
+
+    // For now, just redirect to next page on submit:
+    res.redirect("study-phase")
+})
+
 module.exports = router
