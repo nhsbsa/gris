@@ -270,4 +270,20 @@ router.post('/study-status', function(req, res) {
     res.redirect("study-phase")
 })
 
+// Register study - study phase
+router.post('/study-phase', function(req, res) {
+    // Need to add rules here for checking fields are not empty etc.
+
+    // For now, just redirect to next page on submit:
+    res.redirect("study-setting")
+})
+
+// Register study - study setting
+router.post('/study-setting', function(req, res) {
+    // Need to add rules here for checking fields are not empty etc.
+
+    // For now, just redirect to next page on submit:
+    res.redirect("study-location")
+})
+
 module.exports = router

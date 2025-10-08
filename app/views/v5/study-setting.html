@@ -1,0 +1,96 @@
+
+
+
+{% extends "layouts/main-new-header.html" %}
+
+{% block pageTitle %}
+  TITLE HERE – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+			text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}
+
+	{{ govukBackLink({
+		text: "Back",
+		href: "study-phase"
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+		<form action="study-setting" method="post">
+            <span class="govuk-caption-l">Register a study</span>
+            {{ govukCheckboxes({
+                name: "priorities",
+                fieldset: {
+                    legend: {
+                    text: "What is the study setting?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                    }
+                },
+                hint: {
+                    html: "<p>Please indicate the type(s) of environment in which the study will take place.</p><p>Select all that apply.</p>"
+                },
+                items: [
+                    {
+                    value: "primary-care",
+                    text: "Primary care",
+                    hint: {
+                        text: "(e.g. GP practice, community pharmacy)"
+                    }
+                    },
+                    {
+                    value: "secondary-care",
+                    text: "Secondary care",
+                    hint: {
+                        text: "(e.g. hospital outpatient or inpatient service)"
+                    }
+                    },
+                    {
+                    value: "tertiary-care",
+                    text: "Tertiary care",
+                    hint: {
+                        text: "(e.g. specialist or teaching hospital)"
+                    }
+                    },
+                    {
+                    value: "community",
+                    text: "Community setting",
+                    hint: {
+                        text: "(e.g. school, workplace, local community centre)"
+                    }
+                    },
+                    {
+                    value: "social",
+                    text: "Social care setting",
+                    hint: {
+                        text: "(e.g. care home, supported living, domiciliary care)"
+                    }
+                    },
+                    {
+                    value: "virtual",
+                    text: "Online or virtual setting",
+                    hint: {
+                        text: "(e.g. remote data collection, online survey)"
+                    }
+                    }             
+                ]
+            }) }}
+            
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}
