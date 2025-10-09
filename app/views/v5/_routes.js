@@ -286,4 +286,104 @@ router.post('/study-setting', function(req, res) {
     res.redirect("study-location")
 })
 
+// Register study - study location
+router.post('/study-location', function(req, res) {
+    // Need to add rules here for checking fields are not empty etc.
+
+    // For now, just redirect to next page on submit:
+    res.redirect("chief-investigator-orcid-id")
+})
+
+// Register study - what is the ORCID ID of the chief investigator or key lead?
+router.post('/chief-investigator-orcid-id', function(req, res) {
+    let orcidOne = req.session.data['orcid-id-one']
+    let orcidTwo = req.session.data['orcid-id-two']
+    let orcidThree = req.session.data['orcid-id-three']
+    let orcidFour = req.session.data['orcid-id-four']
+
+    if (!orcidOne || orcidOne.trim() === "" || !orcidTwo || orcidTwo.trim() === "" || !orcidThree || orcidThree.trim() === "" || !orcidFour || orcidFour.trim() === "") {
+        res.redirect("chief-investigator-orcid-id")
+        // add proper error functionality in future versions instead of redirect
+    } else {
+        res.redirect("confirm-chief-investigator-details")
+    }
+})
+
+// Register study - confirm chief investigator or key lead details
+router.post('/confirm-chief-investigator-details', function(req, res) {
+    let confirm = req.session.data['confirm-chief']
+
+    if (confirm == "yes") {
+        res.redirect("chief-investigator-email")
+    } else if (confirm == "no") {
+        res.redirect("we-could-not-find-orcid-id")
+    } else {
+        // add proper error functionality in future versions instead of redirect
+        res.redirect("confirm-chief-investigator-details")
+    }
+})
+
+// Register study - do you need to add additional study members?
+router.post('/add-additional-study-members', function(req, res) {
+    let add = req.session.data['add-members']
+
+    if (add == "yes") {
+        res.redirect("add-study-member-name")
+    } else if (add == "no") {
+        res.redirect("who-is-the-sponsor")
+    } else {
+        res.redirect("add-additional-study-members")
+    }
+})
+
+// Register study - add additional member (name)
+router.post('/add-study-member-name', function(req, res) {
+    let name = req.session.data['add-full-name']
+
+    if (!name || name.trim() === "") {
+        res.redirect("add-study-member-name")
+        // add proper error functionality in future versions instead of redirect
+    } else {
+        res.redirect("add-study-member-email")
+    }
+})
+
+// Register study - add additional member (email)
+router.post('/add-study-member-email', function(req, res) {
+    let email = req.session.data['add-member-email']
+
+    if (!email || email.trim() === "") {
+        res.redirect("add-study-member-email")
+        // add proper error functionality in future versions instead of redirect
+    } else {
+        res.redirect("add-study-member-permissions")
+    }
+})
+
+// Register study - add additional member (permissions)
+router.post('/add-study-member-permissions', function(req, res) {
+    let permissions = req.session.data['add-member-permissions']
+
+    if (permissions == "read only" || permissions == "editor") {
+        res.redirect("add-study-member-check-answers")
+    } else {
+        // add proper error functionality in future versions instead of redirect
+        res.redirect("add-study-member-permissions")
+    }
+})
+
+// Register study - add additional member (completed)
+router.post('/add-study-member-completed', function(req, res) {
+    let more = req.session.data['add-more-members']
+
+    if (more == "yes") {
+        res.redirect("add-study-member-name")
+    } else if (more == "no") {
+        res.redirect("who-is-the-sponsor")
+    } else {
+        // no option selected - add proper error functionality in future versions instead of redirect
+        res.redirect("add-study-member-completed")
+    }
+})
+
 module.exports = router

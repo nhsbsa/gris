@@ -1,0 +1,37 @@
+{% extends "layouts/main-new-header-v4.html" %}
+
+{% block pageTitle %}
+    We could not find a matching ORCID iD for the chief investigator or key lead – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-l">Register a study</span>
+        <h1 class="govuk-heading-l">
+            We could not find a matching ORCID iD for the chief investigator or key lead
+        </h1>
+               
+        <p>We need this information to view or make changes to a study.</p>
+
+        <h2 class="govuk-heading-m">What to do next?</h2>
+
+        <p>Check that you have the correct ORCID iD for the chief investigator or key lead of the study.</p>
+        <p>To find an ORCID iD, you can <a href="#" target="_blank" class="govuk-link--no-visited-state">search the ORCID registry (opens in new tab)</a>.</p>
+        <p><a href="chief-investigator-orcid-id" class="govuk-link--no-visited-state">Search for the ORCID iD again</a>.</p>
+
+    </div>
+</div>
+
+
+{% endblock %}
