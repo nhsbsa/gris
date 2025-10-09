@@ -323,6 +323,18 @@ router.post('/confirm-chief-investigator-details', function(req, res) {
     }
 })
 
+// Register study -  add email address of chief investigator of key lead
+router.post('/chief-investigator-email', function(req, res) {
+    let email = req.session.data['investigator-email']
+
+    if (!email || email.trim() === "") {
+        // add proper error functionality in future versions instead of redirect
+        res.redirect("chief-investigator-email")
+    } else {
+        res.redirect("add-additional-study-members")
+    }
+})
+
 // Register study - do you need to add additional study members?
 router.post('/add-additional-study-members', function(req, res) {
     let add = req.session.data['add-members']

@@ -1,0 +1,74 @@
+{% extends "layouts/main-new-header.html" %}
+
+{% block pageTitle %}
+    Check your answers before adding a new study team member - {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "add-study-member-permissions"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-l">Register a study</span>
+        <h1 class="govuk-heading-l">Check your answers before adding a new study team member </h1>
+
+        <h2 class="govuk-heading-m">Study member details</h2>
+        
+        <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Name
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data['add-full-name'] | title | default('James Bond') }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link govuk-link--no-visited-state" href="add-study-member-name">Change<span class="govuk-visually-hidden"> name</span></a>
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Email address
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data['add-member-email'] | default('james.bond@email.com') }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link govuk-link--no-visited-state" href="add-study-member-email">Change<span class="govuk-visually-hidden"> email address</span></a>
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Permissions
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data['add-member-permissions'] | capitalize | default('Read only') }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link govuk-link--no-visited-state" href="add-study-member-permissions">Change<span class="govuk-visually-hidden"> permissions</span></a>
+                </dd>
+            </div>
+        </dl>
+
+        <a href="add-study-member-completed" role="button" class="govuk-button" data-module="govuk-button">
+            Submit
+        </a>
+    </div>
+</div>
+
+{% endblock %}
