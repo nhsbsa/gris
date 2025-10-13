@@ -448,4 +448,78 @@ router.post('/who-is-the-sponsor-completed', function(req, res) {
     }
 })
 
+// Register study - is this study related to other studies?
+router.post('/related-to-other-studies', function(req, res) {
+    let study = req.session.data['study-related']
+
+    if (study == "yes") {
+        res.redirect("related-study-gris-id")
+    } else  if ( study == "no") {
+        res.redirect("check-your-answers")
+    } else {
+        res.redirect("related-to-other-studies")
+        // add proper error functionality in future versions instead of redirect
+    }
+})
+
+// Register study - do you know the GRIS ID of the related study?
+router.post('/related-study-gris-id', function(req, res) {
+    let study = req.session.data['study-gris-id']
+
+    if (study == "yes" || study == "no") {
+        res.redirect("related-study-relationship")
+    } else {
+        res.redirect("related-study-gris-id")
+        // add proper error functionality in future versions instead of redirect
+    }
+})
+
+// Register study - what is the relationship between the current study and the related study?
+router.post('/related-study-relationship', function(req, res) {
+    let relationship = req.session.data['study-relationship']
+
+    if (relationship == "sub" || relationship == "parent" || relationship == "platform" || relationship == "cont") {
+        res.redirect("related-study-iras-id")
+    } else {
+        res.redirect("related-study-relationship")
+        // add proper error functionality in future versions instead of redirect
+    }
+})
+
+// Register study - does the related study have the same IRAS ID as the new study?
+router.post('/related-study-iras-id', function(req, res) {
+    let iras = req.session.data['iras-id']
+
+    if (iras == "yes" || iras == "no") {
+        res.redirect("related-study-funding-id")
+    } else {
+        res.redirect("related-study-iras-id")
+        // add proper error functionality in future versions instead of redirect
+    }
+})
+
+// Register study - does the related study have the same funding ID as the new study?
+router.post('/related-study-funding-id', function(req, res) {
+    let funding = req.session.data['funding-id']
+
+    if (funding == "yes" || funding == "no") {
+        res.redirect("related-study-select-funding")
+    } else {
+        // add proper error functionality in future versions instead of redirect
+        res.redirect("related-study-funding-id")
+    }
+})
+
+// Register study - select the funding ID for the study
+router.post('/related-study-select-funding', function(req, res) {
+    let funding = req.session.data['funding-name']
+
+    if (funding) {
+        res.redirect("check-your-answers")
+    } else {
+        // add proper error functionality in future versions instead of redirect
+        res.redirect("related-study-select-funding")
+    }
+})
+
 module.exports = router

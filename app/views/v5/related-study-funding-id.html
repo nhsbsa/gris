@@ -1,0 +1,70 @@
+{% extends "layouts/main-new-header.html" %}
+
+{% block pageTitle %}
+    Does the related study have the same funding ID as the new study? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "related-study-iras-id"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">       
+
+        <form action="related-study-funding-id" method="post">
+            <span class="govuk-caption-l">Register a study</span>
+
+            {{ govukRadios({
+                name: "funding-id",
+                fieldset: {
+                    legend: {
+                    text: "Does the related study have the same funding ID as the new study? ",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                    }
+                },
+                items: [
+                    {
+                    value: "yes",
+                    text: "Yes"
+                    },
+                    {
+                    value: "no",
+                    text: "No"
+                    }
+                ]
+            }) }}
+
+            {{ govukDetails({
+                summaryText: "I'm not sure if the related study has the same funding ID as the new study",
+                html: "<p>If you're not sure what the study's funding ID is, you can usually find it in the system where you applied for funding.</p>
+                        <p>Examples of these might include:</p>
+                        <ul>
+                        <li>Research Awards Lifecycle Management System (REALMS)</li>
+                        <li>NIHR Evaluation, Trials and Studies Coordinating Centre (NETSCC)</li>
+                        <li>OneNIHR</li>
+                        </ul>"
+            }) }}
+
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
