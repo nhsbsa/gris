@@ -24,13 +24,15 @@
 	<div class="govuk-grid-column-two-thirds">
         <span class="govuk-caption-l">Register a study</span>
         <h1 class="govuk-heading-l">What is the name of the study team member you want to add?</h1>
-        <form action="add-study-member-name" method="post">
-            <div class="govuk-form-group">
-                <label class="govuk-label" for="member-full-name">
-                    Full name
-                </label>
-                <input class="govuk-input" id="member-full-name" name="add-full-name" type="text" spellcheck="false" autocomplete="name">
-            </div>
+       
+        <form action="add-study-member-name" method="post">     
+            {{ govukInput({
+                label: {
+                    text: "Full name"
+                },
+                id: "member-full-name",
+                name: "add-full-name"
+            }) }}
 
             {{ govukButton({
                 text: "Continue"

@@ -1,7 +1,7 @@
 {% extends "layouts/main-new-header.html" %}
 
 {% block pageTitle %}
-    New study team member has been added - {{ serviceName }} – GOV.UK Prototype Kit
+    You have added a sponsoring organisation - {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}      
@@ -19,33 +19,33 @@
 	<div class="govuk-grid-column-two-thirds">
         <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-6">
             <h1 class="govuk-panel__title">
-                New study team member has been added
+                You have added a sponsoring organisation
             </h1>
             <div class="govuk-panel__body">
-                {{ data['add-full-name'] | title | default('James Bond') }}<br>
-                <strong>{{ data['add-member-email'] | default('james.bond@email.com') }}</strong>
+                {{ data['sponsor-name'] | title | default('Manchester University NHS Foundation Trust') }}<br>
+                {{ data['sponsor-email'] | default('sponsor-email@email.com') }}
             </div>
         </div>
 
-        <form action="add-study-member-completed" method="post">
+        <form action="who-is-the-sponsor-completed" method="post">           
             {{ govukRadios({
-            name: "add-more-members",
-            fieldset: {
-                legend: {
-                text: "Do you need to add any additional team members?",
-                classes: "govuk-fieldset__legend--m"
-                }
-            },
-            items: [                
-                {
+                name: "add-more-sponsors",
+                fieldset: {
+                    legend: {
+                    text: "Do you need to add any additional sponsoring organisations?",
+                    classes: "govuk-fieldset__legend--m"
+                    }
+                },
+                items: [                    
+                    {
                     value: "yes",
                     text: "Yes"
-                },
-                {
+                    },
+                    {
                     value: "no",
                     text: "No"
-                }
-            ]
+                    }
+                ]
             }) }}
 
             {{ govukButton({

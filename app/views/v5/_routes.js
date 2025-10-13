@@ -398,4 +398,54 @@ router.post('/add-study-member-completed', function(req, res) {
     }
 })
 
+// Register study - who is the sponsor of the research (name)
+router.post('/who-is-the-sponsor', function(req, res) {
+    let name = req.session.data['sponsor-name']
+
+    if (!name || name.trim() === "") {
+        res.redirect("who-is-the-sponsor")
+        // add proper error functionality in future versions instead of redirect
+    } else {
+        res.redirect("who-is-the-sponsor-type")
+    }
+})
+
+// Register study - who is the sponsor of the research (type)
+router.post('/who-is-the-sponsor-type', function(req, res) {
+    let type = req.session.data['sponsor-type']
+
+    if (type == "nhs" || type == "education" || type == "commercial" || type == "gov" || type == "charity" || type == "other") {
+        res.redirect("who-is-the-sponsor-email")
+    } else {
+        // add proper error functionality in future versions instead of redirect
+        res.redirect("who-is-the-sponsor-type")
+    }
+})
+
+// Register study - who is the sponsor of the research (email)
+router.post('/who-is-the-sponsor-email', function(req, res) {
+    let email = req.session.data['sponsor-email']
+
+    if (!email || email.trim() === "") {
+        res.redirect("who-is-the-sponsor-email")
+        // add proper error functionality in future versions instead of redirect
+    } else {
+        res.redirect("who-is-the-sponsor-check-answers")
+    }
+})
+
+// Register study - who is the sponsor of the research (completed)
+router.post('/who-is-the-sponsor-completed', function(req, res) {
+    let more = req.session.data['add-more-sponsors']
+
+    if (more == "yes") {
+        res.redirect("who-is-the-sponsor")
+    } else if (more == "no") {
+        res.redirect("related-to-other-studies")
+    } else {
+        // no option selected - add proper error functionality in future versions instead of redirect
+        res.redirect("who-is-the-sponsor-completed")
+    }
+})
+
 module.exports = router
