@@ -14,7 +14,7 @@
 
     {{ govukBackLink({
         text: "Back",
-        href: "what-is-the-short-title"
+        href: "study-location"
     }) }}
 {% endblock %}
 
@@ -28,9 +28,9 @@
             What is the ORCID iD of the chief investigator or the key lead?
         </h1>
 
-        <div class="govuk-inset-text">
-            If there's no chief investigator, include the ORCID iD of the key lead.
-        </div>
+        {{ govukInsetText({
+            text: "If there's no chief investigator, include the ORCID iD of the key lead."
+        }) }}
 
 		<form action="chief-investigator-orcid-id" method="post">
             <div class="govuk-form-group">                
@@ -89,18 +89,12 @@
                         </div>
                     </fieldset>
                 </div>
-            </div>
+            </div>            
 
-            <details class="govuk-details">
-                <summary class="govuk-details__summary">
-                    <span class="govuk-details__summary-text">
-                        Where can I find an ORCID iD?
-                    </span>
-                </summary>
-                <div class="govuk-details__text">
-                    To find an ORCID iD you can search the <a href="#" target="_blank">ORCID registry (opens in new tab)</a>.
-                </div>
-            </details>            
+            {{ govukDetails({
+                summaryText: " Where can I find an ORCID iD?",
+                html: 'To find an ORCID iD you can search the <a href="#" target="_blank">ORCID registry (opens in new tab)</a>.'
+            }) }}
 
             {{ govukButton({
                 text: "Continue"
