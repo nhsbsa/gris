@@ -200,43 +200,32 @@
                 <h2 class="govuk-summary-card__title">
                    New study sponsor details
                 </h2>
+                <ul class="govuk-summary-card__actions">
+                    <li class="govuk-summary-card__action">
+                        <a class="govuk-link govuk-link--no-visited-state" href="who-is-the-sponsor">Add a sponsor</a>
+                    </li>
+                  </ul>
             </div>
 
             <div class="govuk-summary-card__content">
                 <dl class="govuk-summary-list">
                     <div class="govuk-summary-list__row">
                         <dt class="govuk-summary-list__key">
-                            Sponsor name
-                        </dt>
-                        <dd class="govuk-summary-list__value">
                             Manchester University NHS Foundation Trust
-                        </dd>
-                        <dd class="govuk-summary-list__actions">
-                            <a class="govuk-link govuk-link--no-visited-state" href="who-is-the-sponsor">Change<span class="govuk-visually-hidden"> sponsor name</span></a>
-                        </dd>
-                    </div>
-
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-                            Sponsor organisation type
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-                            Higher education institution
-                        </dd>
-                        <dd class="govuk-summary-list__actions">
-                            <a class="govuk-link govuk-link--no-visited-state" href="who-is-the-sponsor-type">Change<span class="govuk-visually-hidden"> sponsor type</span></a>
-                        </dd>
-                    </div>
-
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-                            Email address of the sponsoring organisation's point of contact
+                            <p class="govuk-hint govuk-!-margin-bottom-0">Higher education institution</p>
                         </dt>
                         <dd class="govuk-summary-list__value">
                             sponsor-contact@email.com
                         </dd>
                         <dd class="govuk-summary-list__actions">
-                            <a class="govuk-link govuk-link--no-visited-state" href="who-is-the-sponsor-email">Change<span class="govuk-visually-hidden"> sponsor email</span></a>
+                            <ul class="govuk-summary-list__actions-list">
+                                <li class="govuk-summary-list__actions-list-item">
+                                    <a class="govuk-link govuk-link--no-visited-state" href="who-is-the-sponsor">Change <span class="govuk-visually-hidden">sponsor name</span></a>
+                                </li>
+                                <li class="govuk-summary-list__actions-list-item">
+                                    <a class="govuk-link govuk-link--no-visited-state" href="delete-sponsor">Delete <span class="govuk-visually-hidden">sponsor</span></a>
+                                </li>
+                            </ul>   
                         </dd>
                     </div>
                 </dl>
@@ -283,6 +272,18 @@
                         </dd>
                         <dd class="govuk-summary-list__actions">
                             <a class="govuk-link govuk-link--no-visited-state" href="related-study-relationship">Change <span class="govuk-visually-hidden">relationship</span></a>
+                        </dd>
+                    </div>
+
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                           Does the related study have the same integrated research application system ID (IRAS ID) as the new study?
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            <p class="govuk-body">Yes</p>
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link govuk-link--no-visited-state" href="related-study-iras-id">Change <span class="govuk-visually-hidden">relationship</span></a>
                         </dd>
                     </div>
 
