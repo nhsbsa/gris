@@ -16,101 +16,290 @@
 {% block content %}
 
 <div class="govuk-grid-row">
-	<div class="govuk-grid-column-two-thirds">   
+	<div class="govuk-grid-column-full">   
         <span class="govuk-caption-l">Register a study</span>    
         <h1 class="govuk-heading-l">Check your answers before you submit your new study details</h1>
 
         <p>If you notice a mistake, you can change your response by selecting 'Change'. </p>
         <p>You'll also have the option to change the responses after the submission through the 'my studies' section of the dashboard.</p>
 
-        <h2 class="govuk-heading-m">New study details</h2>
-
-        <dl class="govuk-summary-list">
-            <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                    Short study title
-                </dt>
-                <dd class="govuk-summary-list__value">
-                    Investigating Left Arm Disease
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link govuk-link--no-visited-state" href="what-is-the-short-title">Change<span class="govuk-visually-hidden"> short study title</span></a>
-                </dd>
+        <!-- Study details -->
+        <div class="govuk-summary-card">
+            <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">
+                    New study details
+                </h2>
             </div>
 
-            <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                    Chief investigator
-                </dt>
-                <dd class="govuk-summary-list__value">
-                    <p class="govuk-body">Peter Jones</p>
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link govuk-link--no-visited-state" href="chief-investigator-orcid-id">Change<span class="govuk-visually-hidden"> Chief Investigator ORCID ID</span></a>
-                </dd>
+            <div class="govuk-summary-card__content">
+                <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Short title of study
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            Investigating left arm disease
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link govuk-link--no-visited-state" href="what-is-the-short-title">Change<span class="govuk-visually-hidden"> short study title</span></a>
+                        </dd>
+                    </div>
+
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Disease area or speciality
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            <p class="govuk-body">Genetics</p>
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link govuk-link--no-visited-state" href="disease-area-speciality">Change<span class="govuk-visually-hidden"> disease area</span></a>
+                        </dd>
+                    </div>
+
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Government strategic priorities
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            <p class="govuk-body">Healthy ageing and multimorbidity</p>
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link govuk-link--no-visited-state" href="government-strategic-priority">Change<span class="govuk-visually-hidden"> government strategic priority</span></a>
+                        </dd>
+                    </div>
+
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Current status of study
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            <p class="govuk-body">Open to recruitment</p>
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link govuk-link--no-visited-state" href="study-status">Change<span class="govuk-visually-hidden"> status</span></a>
+                        </dd>
+                    </div>
+
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Current phase of study
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            <p class="govuk-body">Phase I</p>
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link govuk-link--no-visited-state" href="study-phase">Change<span class="govuk-visually-hidden"> phase</span></a>
+                        </dd>
+                    </div>
+
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Study setting
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            <p class="govuk-body">Primary care</p>
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link govuk-link--no-visited-state" href="study-setting">Change<span class="govuk-visually-hidden"> setting</span></a>
+                        </dd>
+                    </div>
+
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Study location
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            <p class="govuk-body">England</p>
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link govuk-link--no-visited-state" href="study-location">Change<span class="govuk-visually-hidden"> location</span></a>
+                        </dd>
+                    </div>
+
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Chief investigator
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            <p class="govuk-body">Peter Jones</p>
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link govuk-link--no-visited-state" href="chief-investigator-orcid-id">Change<span class="govuk-visually-hidden"> Chief Investigator ORCID ID</span></a>
+                        </dd>
+                    </div>
+
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Chief investigator ORCID iD
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            <p class="govuk-body">0009-0000-6037-7481</p>
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link govuk-link--no-visited-state" href="chief-investigator-orcid-id">Change<span class="govuk-visually-hidden"> Chief Investigator ORCID ID</span></a>
+                        </dd>
+                    </div>
+
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Chief investigator's email
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            jane.doe@email.com
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link govuk-link--no-visited-state" href="chief-investigator-email">Change<span class="govuk-visually-hidden"> Chief investigator email</span></a>
+                        </dd>
+                    </div>
+                </dl>
+            </div>
+        </div>
+
+        <!-- Team member details -->
+        <div class="govuk-summary-card">
+            <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">
+                    Additional study team members
+                </h2>
+                <ul class="govuk-summary-card__actions">
+                    <li class="govuk-summary-card__action">
+                        <a class="govuk-link govuk-link--no-visited-state" href="add-study-member-name">Add a study member</a>
+                    </li>
+                  </ul>
             </div>
 
-            <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                    Chief investigator ORCID iD
-                </dt>
-                <dd class="govuk-summary-list__value">
-                    <p class="govuk-body">0009-0000-6037-7481</p>
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link govuk-link--no-visited-state" href="chief-investigator-orcid-id">Change<span class="govuk-visually-hidden"> Chief Investigator ORCID ID</span></a>
-                </dd>
+            <div class="govuk-summary-card__content">
+                <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Joe Bloggs
+                            <p class="govuk-hint govuk-!-margin-bottom-0">(Editor permissions)</p>
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            joe.bloggs@email.com
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <ul class="govuk-summary-list__actions-list">
+                                <li class="govuk-summary-list__actions-list-item">
+                                    <a class="govuk-link govuk-link--no-visited-state" href="add-study-member-name">Change<span class="govuk-visually-hidden"> Joe Bloggs</span></a>
+                                </li>
+                                <li class="govuk-summary-list__actions-list-item">
+                                    <a class="govuk-link govuk-link--no-visited-state" href="delete-study-member">Delete<span class="govuk-visually-hidden"> Joe Bloggs</span></a>
+                                </li>
+                            </ul>    
+                        </dd>
+                    </div>
+                </dl>
+            </div>
+        </div>
+
+        <!-- Sponsor details -->
+        <div class="govuk-summary-card">
+            <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">
+                   New study sponsor details
+                </h2>
             </div>
 
-            <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                    Team members' email addresses
-                </dt>
-                <dd class="govuk-summary-list__value">
-                    joe.bloggs@research.ac.uk
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> Study team members</span></a>
-                </dd>
-            </div>
-            
-            <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                    Sponsor name
-                </dt>
-                <dd class="govuk-summary-list__value">
-                    Manchester University NHS Foundation Trust
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link govuk-link--no-visited-state" href="who-is-the-sponsor">Change<span class="govuk-visually-hidden"> sponsor</span></a>
-                </dd>
-            </div>
-        </dl>
+            <div class="govuk-summary-card__content">
+                <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Sponsor name
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            Manchester University NHS Foundation Trust
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link govuk-link--no-visited-state" href="who-is-the-sponsor">Change<span class="govuk-visually-hidden"> sponsor name</span></a>
+                        </dd>
+                    </div>
 
-        <h2 class="govuk-heading-m">Related study details</h2>
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Sponsor organisation type
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            Higher education institution
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link govuk-link--no-visited-state" href="who-is-the-sponsor-type">Change<span class="govuk-visually-hidden"> sponsor type</span></a>
+                        </dd>
+                    </div>
 
-        <dl class="govuk-summary-list">
-            <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                    Short study title
-                </dt>
-                <dd class="govuk-summary-list__value">
-                    Investigating Right Arm Disease
-                </dd>
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Email address of the sponsoring organisation's point of contact
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            sponsor-contact@email.com
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link govuk-link--no-visited-state" href="who-is-the-sponsor-email">Change<span class="govuk-visually-hidden"> sponsor email</span></a>
+                        </dd>
+                    </div>
+                </dl>
+            </div>
+        </div>
+
+        <!-- Related study details -->
+        <div class="govuk-summary-card">
+            <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">
+                   Related study details
+                </h2>
             </div>
 
-            <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                    GRIS ID of related study
-                </dt>
-                <dd class="govuk-summary-list__value">
-                    <p class="govuk-body">GRIS-342 524 247</p>
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link govuk-link--no-visited-state" href="related-study-gris-id">Change<span class="govuk-visually-hidden"> GRIS ID of related study</span></a>
-                </dd>
+            <div class="govuk-summary-card__content">
+                <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Short study title
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            Investigating Right Arm Disease
+                        </dd>
+                    </div>
+
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            GRIS ID of related study
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            <p class="govuk-body">GRIS-342 524 247</p>
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link govuk-link--no-visited-state" href="related-study-gris-id">Change <span class="govuk-visually-hidden">GRIS ID of related study</span></a>
+                        </dd>
+                    </div>
+
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Relationship between the new study and the related study
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            <p class="govuk-body">Continuation study</p>
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link govuk-link--no-visited-state" href="related-study-relationship">Change <span class="govuk-visually-hidden">relationship</span></a>
+                        </dd>
+                    </div>
+
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Funding ID of related study
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            <p class="govuk-body">FUNDING ID 12344, REALMS</p>
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link govuk-link--no-visited-state" href="related-study-select-funding">Change <span class="govuk-visually-hidden">funding</span></a>
+                        </dd>
+                    </div>
+                </dl>
             </div>
-        </dl>
+        </div>
         
         <a href="gris-confirmed" class="govuk-button" data-module="govuk-button" role="button" draggable="false">
             Submit
