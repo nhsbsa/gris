@@ -1,0 +1,49 @@
+{% extends "layouts/offline-v2.html" %}
+{% set containerClasses = "govuk-full-width-body" %}
+
+{% block pageTitle %}
+   Change sponsor details for the study - manage study – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "manage-study"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">  
+        
+        <span class="govuk-caption-l">Manage study</span>
+        <h1 class="govuk-heading-l">
+            Change sponsor details for the study
+        </h1>
+
+        <form action="manage-study-change-sponsor" method="post">
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="change-sponsor-name">
+                    What is the name of the organisation sponsoring the research for [study name]?
+                </label>
+                <div id="sponsor-name-hint" class="govuk-hint">For example, Manchester University NHS Foundation Trust</div>
+                <input class="govuk-input" id="change-sponsor-name" name="change-sponsor-name" type="text" spellcheck="false">
+            </div>
+
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="change-sponsor-email">
+                    Enter the email address of the sponsoring organisation's point of contact
+                </label>
+                <input class="govuk-input" id="change-sponsor-email" name="change-sponsor-email" type="email" spellcheck="false">
+            </div> 
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form>
+    </div>
+</div>
+
+{% endblock %}

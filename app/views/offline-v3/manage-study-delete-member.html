@@ -1,0 +1,54 @@
+{% extends "layouts/offline-v2.html" %}
+{% set containerClasses = "govuk-full-width-body" %}
+
+{% block pageTitle %}
+   Are you sure you want to delete [member name] from [study name]? – manage study - {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "manage-study"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">        
+        <form action="manage-study-delete-member" method="post">
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                        <span class="govuk-caption-l">Manage study</span>
+                        <h1 class="govuk-fieldset__heading">
+                            Are you sure you want to delete [member name] from [study name]?  
+                        </h1>
+                    </legend>
+
+                    <div class="govuk-radios" data-module="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="delete-member-yes" name="delete-member" type="radio" value="yes">
+                            <label class="govuk-label govuk-radios__label" for="delete-member-yes">
+                                Yes
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="delete-member-no" name="delete-member" type="radio" value="no">
+                            <label class="govuk-label govuk-radios__label" for="delete-member-no">
+                                No
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form>
+    </div>
+</div>
+
+{% endblock %}

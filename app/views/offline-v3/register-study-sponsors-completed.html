@@ -1,0 +1,62 @@
+{% extends "layouts/offline-v2.html" %}
+{% set containerClasses = "govuk-full-width-body" %}
+
+{% block pageTitle %}
+    You have added a sponsoring organisation - Register a study - {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+        <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-6">
+            <h1 class="govuk-panel__title">
+                You have added a sponsoring organisation
+            </h1>
+            <div class="govuk-panel__body">
+                {{ data['sponsor-name'] | title | default('Manchester University NHS Foundation Trust') }}<br>
+                {{ data['sponsor-email'] | default('sponsor-email@email.com') }}
+            </div>
+        </div>
+
+        <form action="register-study-sponsors-completed" method="post">
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                        <h2 class="govuk-fieldset__heading">
+                            Do you need to add any additional sponsoring organisations?
+                        </h2>
+                    </legend>
+                                  
+                    <div class="govuk-radios" data-module="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="yes" name="add-more-sponsors" type="radio" value="yes">
+                            
+                            <label class="govuk-label govuk-radios__label" for="yes">
+                                Yes
+                            </label>
+                        </div>
+
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="no" name="add-more-sponsors" type="radio" value="no">
+                            
+                            <label class="govuk-label govuk-radios__label" for="no">
+                                No
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form>                       
+    </div>
+</div>
+
+{% endblock %}
