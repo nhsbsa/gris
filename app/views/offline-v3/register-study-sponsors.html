@@ -31,12 +31,52 @@
                 <input class="govuk-input" id="sponsor-name" name="sponsor-name" type="text">
             </div>
 
-            <div class="govuk-form-group">
-                <label class="govuk-label" for="sponsor-email">
-                    Enter the email address of the sponsoring organisation's point of contact
-                </label>
-                <input class="govuk-input" id="sponsor-email" name="sponsor-email" type="email">
-            </div>
+            {{ govukRadios({
+                name: "sponsor-type",
+                fieldset: {
+                    legend: {
+                    text: "What type of organisation is acting as the study sponsor?",
+                    classes: ""
+                    }
+                },
+                items: [
+                    {
+                    value: "nhs",
+                    text: "NHS organisation"
+                    },
+                    {
+                    value: "education",
+                    text: "Higher education institution"
+                    },
+                    {
+                    value: "commercial",
+                    text: "Commercial company"
+                    },
+                    {
+                    value: "gov",
+                    text: "Government or public sector body (non-NHS)"
+                    },
+                    {
+                    value: "charity",
+                    text: "Charity or not-for-profit organisation"
+                    },
+                    {
+                    value: "other",
+                    text: "Other"
+                    }
+                ]
+            }) }}    
+
+            {{ govukInput({
+                label: {
+                    text: "Enter the email address of the sponsoring organisation's point of contact",
+                    classes: ""
+                },
+                id: "sponsor-email",
+                name: "sponsor-email",
+                type: "email",
+                autocomplete: "email"
+            }) }}
 
             {{ govukButton({
                 text: "Continue"

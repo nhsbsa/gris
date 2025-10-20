@@ -18,26 +18,372 @@
             New study information
         </h1>
 
-        <!-- <hr class="govuk-!-margin-bottom-6"> -->
-
 		<form action="register-study" method="post">
             <!-- Short title of study -->
             {{ govukInput({
 				label: {
 					text: "What is the short title of the study?",
-					classes: "",
-					isPageHeading: false
+					classes: ""
 				},
 				id: "short-title",
 				name: "short-title"
 			}) }}
 
+            <!-- Disease area or speciality -->
+            {{ govukRadios({
+                name: "speciality",
+                fieldset: {
+                    legend: {
+                    text: "What is the disease area or speciality for this study?",
+                    classes: ""
+                    }
+                },
+                items: [
+                    {
+                        "value": "ageing",
+                        "text": "Ageing"
+                    },
+                    {
+                        "value": "anaesthesia-perioperative-medicine-pain-management",
+                        "text": "Anaesthesia, Perioperative Medicine and Pain Management"
+                    },
+                    {
+                        "value": "cancer",
+                        "text": "Cancer"
+                    },
+                    {
+                        "value": "cardiovascular-disease-cardiac-surgery",
+                        "text": "Cardiovascular Disease/Cardiac Surgery"
+                    },
+                    {
+                        "value": "children",
+                        "text": "Children"
+                    },
+                    {
+                        "value": "critical-care",
+                        "text": "Critical Care"
+                    },
+                    {
+                        "value": "dementias-neurodegeneration",
+                        "text": "Dementias & Neurodegeneration"
+                    },
+                    {
+                        "value": "dermatology",
+                        "text": "Dermatology"
+                    },
+                    {
+                        "value": "diabetes",
+                        "text": "Diabetes"
+                    },
+                    {
+                        "value": "ear-nose-throat",
+                        "text": "Ear, Nose and Throat"
+                    },
+                    {
+                        "value": "gastroenterology",
+                        "text": "Gastroenterology"
+                    },
+                    {
+                        "value": "genetics",
+                        "text": "Genetics"
+                    },
+                    {
+                        "value": "haematology-non-cancer",
+                        "text": "Haematology (Non-cancer)"
+                    },
+                    {
+                        "value": "health-services-research",
+                        "text": "Health Services Research"
+                    },
+                    {
+                        "value": "hepatology",
+                        "text": "Hepatology"
+                    },
+                    {
+                        "value": "infection",
+                        "text": "Infection"
+                    },
+                    {
+                        "value": "mental-health",
+                        "text": "Mental Health"
+                    },
+                    {
+                        "value": "metabolic-endocrine-disorders",
+                        "text": "Metabolic and Endocrine Disorders"
+                    },
+                    {
+                        "value": "musculoskeletal-disorders-elective-orthopaedic",
+                        "text": "Musculoskeletal Disorders/Elective Orthopaedic"
+                    },
+                    {
+                        "value": "neurological-disorders",
+                        "text": "Neurological Disorders"
+                    },
+                    {
+                        "value": "obstetrics-gynaecology",
+                        "text": "Obstetrics and Gynaecology"
+                    },
+                    {
+                        "value": "oral-dental-health",
+                        "text": "Oral and Dental Health"
+                    },
+                    {
+                        "value": "palliative-care",
+                        "text": "Palliative Care"
+                    },
+                    {
+                        "value": "primary-care",
+                        "text": "Primary Care"
+                    },
+                    {
+                        "value": "public-health",
+                        "text": "Public Health"
+                    },
+                    {
+                        "value": "rare-diseases",
+                        "text": "Rare Diseases"
+                    },
+                    {
+                        "value": "renal",
+                        "text": "Renal"
+                    },
+                    {
+                        "value": "reproductive-health-childbirth",
+                        "text": "Reproductive Health and Childbirth"
+                    },
+                    {
+                        "value": "residential",
+                        "text": "Residential"
+                    }
+                ]
+            }) }}
+
+            <!-- Government strategic priorities -->
+            {{ govukCheckboxes({
+                name: "priorities",
+                fieldset: {
+                    legend: {
+                    text: "Which of the following government strategic priorities does your study align with?",
+                    classes: ""
+                    }
+                },
+                hint: {
+                    text: "Select all that apply."
+                },
+                items: [
+                    {
+                        value: "prevention-early-detection",
+                        text: "Prevention and early detection of disease"
+                    },
+                    {
+                        value: "patient-safety-quality",
+                        text: "Improving patient safety and quality of care"
+                    },
+                    {
+                        value: "health-inequalities",
+                        text: "Reducing health inequalities"
+                    },
+                    {
+                        value: "mental-health",
+                        text: "Mental health and wellbeing"
+                    },
+                    {
+                        value: "healthy-ageing",
+                        text: "Healthy ageing and multimorbidity"
+                    },
+                    {
+                        value: "digital-health",
+                        text: "Digital health and data-driven innovation"
+                    },
+                    {
+                        value: "capacity-building",
+                        text: "Translational & clinical research capacity building"
+                    },
+                    {
+                        value: "sustainability-net-zero",
+                        text: "Sustainability and net zero in health and care"
+                    },
+                    {
+                        value: "social-care-integration",
+                        text: "Social care and integration of services"
+                    },
+                    {
+                        value: "public-health",
+                        text: "Public and community health improvement"
+                    },
+                    {
+                    divider: "or"
+                    },
+                    {
+                    value: "none",
+                    text: "None",
+                    behaviour: "exclusive"
+                    }
+                ]
+            }) }}
+
+            <!-- Study status-->
+            {{ govukRadios({
+                name: "status",
+                fieldset: {
+                    legend: {
+                    text: "What is the current status for this study?",
+                    classes: ""
+                    }
+                },
+                items: [
+                    {
+                    value: "open-recruiting",
+                    text: "Open to recruitment"
+                    },
+                    {
+                    value: "close-recruiting",
+                    text: "Closed to recruitment"
+                    },
+                    {
+                    value: "completed",
+                    text: "Completed"
+                    },
+                    {
+                    value: "suspended",
+                    text: "Suspended or on hold"
+                    },
+                    {
+                    value: "not-started",
+                    text: "Not started"
+                    }
+                ]
+            }) }}
+
+            <!-- Study phase -->
+            {{ govukRadios({   
+                name: "phase",
+                fieldset: {
+                    legend: {
+                    text: "What is the current phase of your study?",
+                    classes: ""
+                    }
+                },
+                items: [
+                    {
+                    value: "pre",
+                    text: "Pre-clinical"
+                    },
+                    {
+                    value: "one",
+                    text: "Phase I"
+                    },
+                    {
+                    value: "two",
+                    text: "Phase II"
+                    },
+                    {
+                    value: "three",
+                    text: "Phase III"
+                    },
+                    {
+                    value: "four",
+                    text: "Phase IIII"
+                    },
+                    {
+                    value: "na",
+                    text: "Not applicable"
+                    }
+                ]
+            }) }}
+
+            <!-- Study setting -->
+            {{ govukCheckboxes({
+                name: "setting",
+                fieldset: {
+                    legend: {
+                    text: "What is the study setting?",
+                    classes: ""
+                    }
+                },
+                hint: {
+                    html: "<p>Please indicate the type(s) of environment in which the study will take place.</p><p>Select all that apply.</p>"
+                },
+                items: [
+                    {
+                    value: "primary-care",
+                    text: "Primary care",
+                    hint: {
+                        text: "(e.g. GP practice, community pharmacy)"
+                    }
+                    },
+                    {
+                    value: "secondary-care",
+                    text: "Secondary care",
+                    hint: {
+                        text: "(e.g. hospital outpatient or inpatient service)"
+                    }
+                    },
+                    {
+                    value: "tertiary-care",
+                    text: "Tertiary care",
+                    hint: {
+                        text: "(e.g. specialist or teaching hospital)"
+                    }
+                    },
+                    {
+                    value: "community",
+                    text: "Community setting",
+                    hint: {
+                        text: "(e.g. school, workplace, local community centre)"
+                    }
+                    },
+                    {
+                    value: "social",
+                    text: "Social care setting",
+                    hint: {
+                        text: "(e.g. care home, supported living, domiciliary care)"
+                    }
+                    },
+                    {
+                    value: "virtual",
+                    text: "Online or virtual setting",
+                    hint: {
+                        text: "(e.g. remote data collection, online survey)"
+                    }
+                    }             
+                ]
+            }) }}
+
+            <!-- Study location -->
+            {{ govukRadios({   
+                name: "location",
+                fieldset: {
+                    legend: {
+                    text: "What is the study location?",
+                    classes: ""
+                    }
+                },
+                items: [
+                    {
+                    value: "england",
+                    text: "England"
+                    },
+                    {
+                    value: "scotland",
+                    text: "Scotland"
+                    },
+                    {
+                    value: "wales",
+                    text: "Wales"
+                    },
+                    {
+                    value: "northern-ireland",
+                    text: "Northern Ireland"
+                    }
+                ]
+            }) }}
+
             <!-- Name of chief investigator or key lead -->
             {{ govukInput({
 				label: {
 					text: " What is the chief investigator or key lead's full name?",
-					classes: "",
-					isPageHeading: false
+					classes: ""
 				},
 				id: "ci-name",
 				name: "ci-name"
@@ -47,8 +393,7 @@
             {{ govukInput({
 				label: {
 					text: "What is the chief investigator or key lead's email address?",
-					classes: "",
-					isPageHeading: false
+					classes: ""
 				},
 				id: "ci-email",
 				name: "ci-email"

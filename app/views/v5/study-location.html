@@ -25,32 +25,32 @@
 		<form action="study-location" method="post">
             <span class="govuk-caption-l">Register a study</span>
             {{ govukRadios({
-            name: "location",
-            fieldset: {
-                legend: {
-                text: "What is the study location?",
-                isPageHeading: true,
-                classes: "govuk-fieldset__legend--l"
-                }
-            },
-            items: [
-                {
-                value: "england",
-                text: "England"
+                name: "location",
+                fieldset: {
+                    legend: {
+                    text: "What is the study location?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                    }
                 },
-                {
-                value: "scotland",
-                text: "Scotland"
-                },
-                {
-                value: "wales",
-                text: "Wales"
-                },
-                {
-                value: "northern-ireland",
-                text: "Northern Ireland"
-                }
-            ]
+                items: [
+                    {
+                    value: "england",
+                    text: "England"
+                    },
+                    {
+                    value: "scotland",
+                    text: "Scotland"
+                    },
+                    {
+                    value: "wales",
+                    text: "Wales"
+                    },
+                    {
+                    value: "northern-ireland",
+                    text: "Northern Ireland"
+                    }
+                ]
             }) }}
             
             {{ govukButton({

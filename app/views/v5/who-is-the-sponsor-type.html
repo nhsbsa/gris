@@ -26,40 +26,40 @@
             <span class="govuk-caption-l">Register a study</span>          
 
             {{ govukRadios({
-            name: "sponsor-type",
-            fieldset: {
-                legend: {
-                text: "What type of organisation is acting as the study sponsor?",
-                isPageHeading: true,
-                classes: "govuk-fieldset__legend--l"
-                }
-            },
-            items: [
-                {
-                value: "nhs",
-                text: "NHS organisation"
+                name: "sponsor-type",
+                fieldset: {
+                    legend: {
+                    text: "What type of organisation is acting as the study sponsor?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                    }
                 },
-                {
-                value: "education",
-                text: "Higher education institution"
-                },
-                {
-                value: "commercial",
-                text: "Commercial company"
-                },
-                {
-                value: "gov",
-                text: "Government or public sector body (non-NHS)"
-                },
-                {
-                value: "charity",
-                text: "Charity or not-for-profit organisation"
-                },
-                {
-                value: "other",
-                text: "Other"
-                }
-            ]
+                items: [
+                    {
+                    value: "nhs",
+                    text: "NHS organisation"
+                    },
+                    {
+                    value: "education",
+                    text: "Higher education institution"
+                    },
+                    {
+                    value: "commercial",
+                    text: "Commercial company"
+                    },
+                    {
+                    value: "gov",
+                    text: "Government or public sector body (non-NHS)"
+                    },
+                    {
+                    value: "charity",
+                    text: "Charity or not-for-profit organisation"
+                    },
+                    {
+                    value: "other",
+                    text: "Other"
+                    }
+                ]
             }) }}        
 
             {{ govukButton({

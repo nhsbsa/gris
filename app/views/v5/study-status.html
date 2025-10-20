@@ -25,36 +25,36 @@
 		<form action="study-status" method="post">
             <span class="govuk-caption-l">Register a study</span>
             {{ govukRadios({
-            name: "status",
-            fieldset: {
-                legend: {
-                text: "What is the current status for this study?",
-                isPageHeading: true,
-                classes: "govuk-fieldset__legend--l"
-                }
-            },
-            items: [
-                {
-                value: "open-recruiting",
-                text: "Open to recruitment"
+                name: "status",
+                fieldset: {
+                    legend: {
+                    text: "What is the current status for this study?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                    }
                 },
-                {
-                value: "close-recruiting",
-                text: "Closed to recruitment"
-                },
-                {
-                value: "completed",
-                text: "Completed"
-                },
-                {
-                value: "suspended",
-                text: "Suspended or on hold"
-                },
-                {
-                value: "not-started",
-                text: "Not started"
-                }
-            ]
+                items: [
+                    {
+                    value: "open-recruiting",
+                    text: "Open to recruitment"
+                    },
+                    {
+                    value: "close-recruiting",
+                    text: "Closed to recruitment"
+                    },
+                    {
+                    value: "completed",
+                    text: "Completed"
+                    },
+                    {
+                    value: "suspended",
+                    text: "Suspended or on hold"
+                    },
+                    {
+                    value: "not-started",
+                    text: "Not started"
+                    }
+                ]
             }) }}
 
             {{ govukButton({

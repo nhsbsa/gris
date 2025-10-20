@@ -25,40 +25,40 @@
 		<form action="study-phase" method="post">
             <span class="govuk-caption-l">Register a study</span>
             {{ govukRadios({
-            name: "status",
-            fieldset: {
-                legend: {
-                text: "What is the current phase of your study?",
-                isPageHeading: true,
-                classes: "govuk-fieldset__legend--l"
-                }
-            },
-            items: [
-                {
-                value: "pre",
-                text: "Pre-clinical"
+                name: "phase",
+                fieldset: {
+                    legend: {
+                    text: "What is the current phase of your study?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                    }
                 },
-                {
-                value: "one",
-                text: "Phase I"
-                },
-                {
-                value: "two",
-                text: "Phase II"
-                },
-                {
-                value: "three",
-                text: "Phase III"
-                },
-                {
-                value: "four",
-                text: "Phase IIII"
-                },
-                {
-                value: "na",
-                text: "Not applicable"
-                }
-            ]
+                items: [
+                    {
+                    value: "pre",
+                    text: "Pre-clinical"
+                    },
+                    {
+                    value: "one",
+                    text: "Phase I"
+                    },
+                    {
+                    value: "two",
+                    text: "Phase II"
+                    },
+                    {
+                    value: "three",
+                    text: "Phase III"
+                    },
+                    {
+                    value: "four",
+                    text: "Phase IIII"
+                    },
+                    {
+                    value: "na",
+                    text: "Not applicable"
+                    }
+                ]
             }) }}
 
             {{ govukButton({
