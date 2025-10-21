@@ -95,9 +95,21 @@ router.post('/manage-study-add-sponsor', function(req, res) {
         // Add error message functionality here
     } else {
         // Redirect to the add email if field is filled
-        res.redirect("manage-study-add-sponsor-email");
+        res.redirect("manage-study-add-sponsor-type");
     }
 });
+
+// Manage study - add a sponsor type
+router.post('/manage-study-add-sponsor-type', function(req, res) {
+    let type = req.session.data['add-sponsor-type']
+
+    if (type == "nhs" || type == "education" || type == "commercial" || type == "gov" || type == "charity" || type == "other") {
+        res.redirect("manage-study-add-sponsor-email")
+    } else {
+        // add proper error functionality in future versions instead of redirect
+        res.redirect("manage-study-add-sponsor-type")
+    }
+})
 
 // Manage study - add a sponsor email address
 router.post('/manage-study-add-sponsor-email', function(req, res) {
@@ -125,9 +137,21 @@ router.post('/manage-study-change-sponsor', function(req, res) {
         // Add error message functionality here
     } else {
         // Redirect to the change sponsor email page if filled
-        res.redirect("manage-study-change-sponsor-email");
+        res.redirect("manage-study-change-sponsor-type");
     }
 });
+
+// Manage study - change sponsor type
+router.post('/manage-study-change-sponsor-type', function(req, res) {
+    let type = req.session.data['change-sponsor-type']
+
+    if (type == "nhs" || type == "education" || type == "commercial" || type == "gov" || type == "charity" || type == "other") {
+        res.redirect("manage-study-change-sponsor-email")
+    } else {
+        // add proper error functionality in future versions instead of redirect
+        res.redirect("manage-study-change-sponsor-type")
+    }
+})
 
 // Manage study - change sponsor email
 router.post('/manage-study-change-sponsor-email', function(req, res) {

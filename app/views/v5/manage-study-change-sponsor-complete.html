@@ -1,7 +1,7 @@
 {% extends "layouts/main-new-header.html" %}
 
 {% block pageTitle %}
-    You have changed a sponsoring organisation - manage study - {{ serviceName }} – GOV.UK Prototype Kit
+    You have changed a sponsoring organisation - Manage study - {{ serviceName }} - GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}  
@@ -19,17 +19,18 @@
 	<div class="govuk-grid-column-two-thirds">
         <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-6">
             <h1 class="govuk-panel__title">
-                You have changed a sponsoring organisation
+                You have changed the sponsoring organisation
             </h1>
             <div class="govuk-panel__body">
                 The new name is {{ data['change-sponsor-name'] | title | default('Manchester University NHS Foundation Trust') }}<br>
                 The new email is {{ data['change-sponsor-email'] | default('sponsor-email@email.com') }}
             </div>
         </div>
+
+        <p>We've updated [study name] with the new name and email address.</p>
                         
         <h2 class="govuk-heading-m">What happens next</h2>
-        <p>We've updated [study name] with the updated name and email address of the sponsoring organisation.</p>
-        <p>We've sent an email to the chief investigator and the sponsoring organisation's point of contact to let them know that this had been changed.</p>
+        <p>We've sent an email to the chief investigator and the sponsoring organisation's point of contact to let them know that this has been changed.</p>
         <p>To update more information in this study, <a href="manage-my-study" class="govuk-link--no-visited-state">return to manage this study</a>.</p>
         <!-- <p>To start a new search or create a new GRIS ID, <a href="dashboard" class="govuk-link--no-visited-state">return to the dashboard</a>.</p> -->
     </div>

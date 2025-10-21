@@ -1,7 +1,7 @@
 {% extends "layouts/main-new-header.html" %}
 
 {% block pageTitle %}
-    Add a sponsor to [study name] - Manage a study – {{ serviceName }} – GOV.UK Prototype Kit
+    Add a sponsor to [study name] - Manage study - {{ serviceName }} - GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}    
@@ -32,7 +32,10 @@
                     </label>
                 </h1>
 
-                <div id="sponsor-name-hint" class="govuk-hint">For example, Manchester University NHS Foundation Trust</div>
+                <div id="sponsor-name-hint" class="govuk-hint">
+                    <p>A sponsor is the organisation, company, or person responsible for starting, managing, and funding a research study.</p>
+                    <p>You can add more sponsors later.</p>
+                </div>
                 <input class="govuk-input" id="add-sponsor-name" name="add-sponsor-name" type="text">
             </div>
             

@@ -1,7 +1,7 @@
 {% extends "layouts/main-new-header.html" %}
 
 {% block pageTitle %}
-    Add a sponsor to [study name] - Manage a study – {{ serviceName }} – GOV.UK Prototype Kit
+What is the email address of the sponsoring organisation's point of contact? - Manage study - {{ serviceName }} - GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}    
@@ -14,7 +14,7 @@
 
     {{ govukBackLink({
         text: "Back",
-        href: "manage-study-add-sponsor"
+        href: "manage-study-add-sponsor-type"
     }) }}
 {% endblock %}
 
@@ -28,7 +28,7 @@
                 <span class="govuk-caption-l">Manage study</span>
                 <h1 class="govuk-label-wrapper">
                     <label class="govuk-label govuk-label--l" for="add-sponsor-email">
-                        Enter the email address of the sponsoring organisation's point of contact
+                        What is the email address of the sponsoring organisation's point of contact?
                     </label>
                 </h1>
 
