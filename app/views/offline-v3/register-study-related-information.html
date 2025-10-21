@@ -2,7 +2,7 @@
 {% set containerClasses = "govuk-full-width-body" %}
 
 {% block pageTitle %}
-   Related study information – Register a study - {{ serviceName }} – GOV.UK Prototype Kit
+   Related study information - Register a study - {{ serviceName }} - GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}      
@@ -28,7 +28,7 @@
             <div class="govuk-form-group">
                 <fieldset class="govuk-fieldset" aria-describedby="gris-id-hint">
                     <legend class="govuk-fieldset__legend">
-                        Do you know the government research identifier service ID (GRIS ID) of the related study?
+                        Do you know the GRIS ID of the related study?
                     </legend>
 
                     <div class="govuk-radios" data-module="govuk-radios">
@@ -162,40 +162,34 @@
             </div>
 
             <!-- Select funding -->
-
-            <div class="govuk-form-group">
-                <fieldset class="govuk-fieldset" >
-                    <legend class="govuk-fieldset__legend">
-                        Select the related study or studies which have the same funding ID as the new study
-                    </legend>
-
-                    <div class="govuk-inset-text">
-                        Select all that apply
-                    </div>
-
-                    <div class="govuk-checkboxes" data-module="govuk-checkboxes">
-                        <div class="govuk-checkboxes__item">
-                            <input class="govuk-checkboxes__input" id="one" name="funding-name" type="checkbox" value="one">
-                            <label class="govuk-label govuk-checkboxes__label" for="one">
-                                FUNDING ID 12344, REALMS
-                            </label>
-                            <div id="checkbox-one-hint" class="govuk-hint govuk-checkboxes__hint">
-                                The impact of adverse childhood experiences on sensation and pain in people living with multiple long-term health conditions and chronic pain
-                            </div>
-                        </div>
-
-                        <div class="govuk-checkboxes__item">
-                            <input class="govuk-checkboxes__input" id="two" name="funding-name" type="checkbox" value="two">
-                            <label class="govuk-label govuk-checkboxes__label" for="two">
-                                FUNDING ID 11982, REALMS
-                            </label>
-                            <div id="checkbox-two-hint" class="govuk-hint govuk-checkboxes__hint">
-                                The impact of adverse childhood experiences on sensation and pain in people living with multiple long-term health conditions and chronic pain
-                            </div>
-                        </div>
-                    </div>
-                </fieldset>
-            </div>
+            {{ govukCheckboxes({
+                name: "funding-name",
+                fieldset: {
+                    legend: {
+                    text: "Select the related study or studies which have the same funding ID as the new study",
+                    classes: ""
+                    }
+                },
+                hint: {
+                    text: "Select all that apply"
+                },
+                items: [
+                    {
+                    value: "one",
+                    text: "FUNDING ID 12344, REALMS",
+                    hint: {
+                        text: "The impact of adverse childhood experiences on sensation and pain in people living with multiple long-term health conditions and chronic pain"
+                    }
+                    },
+                    {
+                    value: "two",
+                    text: "FUNDING ID 11982, REALMS",
+                    hint: {
+                        text: "The impact of adverse childhood experiences on sensation and pain in people living with multiple long-term health conditions and chronic pain"
+                    }
+                    }
+                ]
+            }) }}
 
             {{ govukButton({
                 text: "Continue"

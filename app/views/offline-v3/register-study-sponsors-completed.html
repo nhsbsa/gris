@@ -2,7 +2,7 @@
 {% set containerClasses = "govuk-full-width-body" %}
 
 {% block pageTitle %}
-    You have added a sponsoring organisation - Register a study - {{ serviceName }} – GOV.UK Prototype Kit
+    You have added a sponsoring organisation - Register a study - {{ serviceName }} - GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}      
@@ -19,6 +19,7 @@
             </h1>
             <div class="govuk-panel__body">
                 {{ data['sponsor-name'] | title | default('Manchester University NHS Foundation Trust') }}<br>
+                NHS organisation<br>
                 {{ data['sponsor-email'] | default('sponsor-email@email.com') }}
             </div>
         </div>

@@ -2,7 +2,7 @@
 {% set containerClasses = "govuk-full-width-body" %}
 
 {% block pageTitle %}
-    Add a sponsor to [study name] - Manage a study – {{ serviceName }} – GOV.UK Prototype Kit
+    Add a sponsor to [study name] - Manage a study - {{ serviceName }} - GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}      
@@ -27,6 +27,42 @@
                 <div id="sponsor-name-hint" class="govuk-hint">For example, Manchester University NHS Foundation Trust</div>
                 <input class="govuk-input" id="add-sponsor-name" name="add-sponsor-name" type="text">
             </div>
+
+            {{ govukRadios({
+                name: "add-sponsor-type",
+                fieldset: {
+                    legend: {
+                    text: "What type of organisation is acting as the study sponsor?",
+                    classes: ""
+                    }
+                },
+                items: [
+                    {
+                    value: "nhs",
+                    text: "NHS organisation"
+                    },
+                    {
+                    value: "education",
+                    text: "Higher education institution"
+                    },
+                    {
+                    value: "commercial",
+                    text: "Commercial company"
+                    },
+                    {
+                    value: "gov",
+                    text: "Government or public sector body (non-NHS)"
+                    },
+                    {
+                    value: "charity",
+                    text: "Charity or not-for-profit organisation"
+                    },
+                    {
+                    value: "other",
+                    text: "Other"
+                    }
+                ]
+            }) }}   
 
             <div class="govuk-form-group">
                 <label class="govuk-label" for="add-sponsor-email">
