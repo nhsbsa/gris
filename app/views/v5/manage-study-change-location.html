@@ -1,7 +1,7 @@
 {% extends "layouts/main-new-header.html" %}
 
 {% block pageTitle %}
-  What is the current status of this study? - {{ serviceName }} - GOV.UK Prototype Kit
+  What is the study located? - {{ serviceName }} - GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}      
@@ -14,7 +14,7 @@
 
 	{{ govukBackLink({
 		text: "Back",
-		href: "government-strategic-priority"
+		href: "manage-my-study"
 	}) }}
 {% endblock %}
 
@@ -22,41 +22,37 @@
 
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
-		<form action="study-status" method="post">
-            <span class="govuk-caption-l">Register a study</span>
+		<form action="manage-study-change-location" method="post">
+            <span class="govuk-caption-l">Manage study</span>
             {{ govukRadios({
-                name: "status",
+                name: "change-location",
                 fieldset: {
                     legend: {
-                    text: "What is the current status of this study?",
+                    text: "Where is the study located?",
                     isPageHeading: true,
                     classes: "govuk-fieldset__legend--l"
                     }
                 },
                 items: [
                     {
-                    value: "open-recruiting",
-                    text: "Open to recruitment"
+                    value: "england",
+                    text: "England"
                     },
                     {
-                    value: "close-recruiting",
-                    text: "Closed to recruitment"
+                    value: "scotland",
+                    text: "Scotland"
                     },
                     {
-                    value: "completed",
-                    text: "Completed"
+                    value: "wales",
+                    text: "Wales"
                     },
                     {
-                    value: "suspended",
-                    text: "Suspended or on hold"
-                    },
-                    {
-                    value: "not-started",
-                    text: "Not started"
+                    value: "northern-ireland",
+                    text: "Northern Ireland"
                     }
                 ]
             }) }}
-
+            
             {{ govukButton({
                 text: "Continue"
             }) }}

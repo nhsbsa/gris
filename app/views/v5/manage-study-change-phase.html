@@ -1,7 +1,7 @@
 {% extends "layouts/main-new-header.html" %}
 
 {% block pageTitle %}
-  What is the current status of this study? - {{ serviceName }} - GOV.UK Prototype Kit
+  What is the current phase of this study? - {{ serviceName }} - GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}      
@@ -14,7 +14,7 @@
 
 	{{ govukBackLink({
 		text: "Back",
-		href: "government-strategic-priority"
+		href: "manage-my-study"
 	}) }}
 {% endblock %}
 
@@ -22,37 +22,41 @@
 
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
-		<form action="study-status" method="post">
-            <span class="govuk-caption-l">Register a study</span>
+		<form action="manage-study-change-phase" method="post">
+            <span class="govuk-caption-l">Manage study</span>
             {{ govukRadios({
-                name: "status",
+                name: "change-phase",
                 fieldset: {
                     legend: {
-                    text: "What is the current status of this study?",
+                    text: "What is the current phase of this study?",
                     isPageHeading: true,
                     classes: "govuk-fieldset__legend--l"
                     }
                 },
                 items: [
                     {
-                    value: "open-recruiting",
-                    text: "Open to recruitment"
+                    value: "pre",
+                    text: "Pre-clinical"
                     },
                     {
-                    value: "close-recruiting",
-                    text: "Closed to recruitment"
+                    value: "one",
+                    text: "Phase I"
                     },
                     {
-                    value: "completed",
-                    text: "Completed"
+                    value: "two",
+                    text: "Phase II"
                     },
                     {
-                    value: "suspended",
-                    text: "Suspended or on hold"
+                    value: "three",
+                    text: "Phase III"
                     },
                     {
-                    value: "not-started",
-                    text: "Not started"
+                    value: "four",
+                    text: "Phase IV"
+                    },
+                    {
+                    value: "na",
+                    text: "Not applicable"
                     }
                 ]
             }) }}
