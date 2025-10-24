@@ -1,0 +1,58 @@
+{% extends "layouts/main-new-header.html" %}
+
+{% block pageTitle %}	
+    Check your answers before changing the phase of the study - Manage study - {{ serviceName }} - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}   
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}   
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "manage-study-change-phase"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-l">Manage study</span>
+        <h1 class="govuk-heading-l">Check your answers before changing the phase of the study</h1>
+
+        <h2 class="govuk-heading-m">Study details</h2>
+        
+        <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Phase of the study
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {% set phaseLabels = {
+                        "phase-one": "Phase I",
+                        "phase-two": "Phase II",
+                        "phase-three": "Phase III",
+                        "phase-four": "Phase IV",
+                        "na": "Not applicable"
+                    } %}
+
+                    {{ phaseLabels[data['change-phase']] | default('Phase I') }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link govuk-link--no-visited-state" href="manage-study-change-phase">Change<span class="govuk-visually-hidden"> phase</span></a>
+                </dd>
+            </div>    
+        </dl>
+
+        <a href="manage-study-change-phase-complete" role="button" class="govuk-button" data-module="govuk-button">
+            Submit
+        </a>
+    </div>
+</div>
+
+{% endblock %}

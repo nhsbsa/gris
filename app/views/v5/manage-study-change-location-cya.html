@@ -1,0 +1,50 @@
+{% extends "layouts/main-new-header.html" %}
+
+{% block pageTitle %}	
+    Check your answers before changing where the study is located - Manage study - {{ serviceName }} - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}   
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}   
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "manage-study-change-location"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-l">Manage study</span>
+        <h1 class="govuk-heading-l">Check your answers before changing where the study is located</h1>
+
+        <h2 class="govuk-heading-m">Study details</h2>
+        
+        <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Study location
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data['change-location'] | replace('-', ' ') | title | default('England', true) }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link govuk-link--no-visited-state" href="manage-study-change-location">Change<span class="govuk-visually-hidden"> location</span></a>
+                </dd>
+            </div>    
+        </dl>
+
+        <a href="manage-study-change-location-complete" role="button" class="govuk-button" data-module="govuk-button">
+            Submit
+        </a>
+    </div>
+</div>
+
+{% endblock %}

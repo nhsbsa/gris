@@ -1,15 +1,16 @@
 {% extends "layouts/main-new-header.html" %}
+
 {% block pageTitle %}
-	Study team member's details have been changed - Manage study - {{ serviceName }} - GOV.UK Prototype Kit
+    You have changed the study setting - Manage study - {{ serviceName }} - GOV.UK Prototype Kit
 {% endblock %}
 
-{% block beforeContent %}    
+{% block beforeContent %}  
 	{{ govukPhaseBanner({
 		tag: {
 		text: "Alpha"
 		},
 		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
-	}) }}  
+	}) }}    
 {% endblock %}
 
 {% block content %}
@@ -18,19 +19,21 @@
 	<div class="govuk-grid-column-two-thirds">
         <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-6">
             <h1 class="govuk-panel__title">
-                Study team member's details have been changed
+                You have changed the study setting to
             </h1>
             <div class="govuk-panel__body">
-                {{ data['change-full-name'] | title | default('James Bond') }}<br>
-                {{ data['change-email-address'] | default('james.bond@email.com') }}<br>
-                {{ data['change-permissions'] | capitalize | default('Read-only') }}
+                {% if data['change-setting'] %}
+                    {{ data['change-setting'] | join(', ') | replace('-', ' ') | capitalize }}
+                {% else %}
+                    Primary care
+                {% endif %}
             </div>
         </div>
-        
-        <p>We have updated [study name] with the name, email address and permissions.</p>
+
+        <p>We've updated [study name] with the new study setting.</p>
                         
         <h2 class="govuk-heading-m">What happens next</h2>
-        <p>We've sent an email to the chief investigator and the study team members to let them know that the team member details have been changed.</p>
+        <p>	We've sent an email to the chief investigator and the study team members to let them know that the study setting has been changed.</p>
         <p>To update more information in this study, <a href="manage-my-study" class="govuk-link--no-visited-state">return to manage this study</a>.</p>
         <!-- <p>To start a new search or create a new GRIS ID, <a href="dashboard" class="govuk-link--no-visited-state">return to the dashboard</a>.</p> -->
     </div>
