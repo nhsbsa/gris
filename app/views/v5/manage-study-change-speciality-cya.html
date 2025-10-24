@@ -33,7 +33,7 @@
                     Disease area or speciality
                 </dt>
                 <dd class="govuk-summary-list__value">
-                    {{ data['change-speciality'] | title | default('Genetics') }}
+                    {{ data['change-speciality'] | title | default('Genetics', true) }}
                 </dd>
                 <dd class="govuk-summary-list__actions">
                     <a class="govuk-link govuk-link--no-visited-state" href="manage-study-change-speciality">Change<span class="govuk-visually-hidden"> email</span></a>

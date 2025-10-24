@@ -22,8 +22,8 @@
                 You have added a new study team member
             </h1>
             <div class="govuk-panel__body">
-                {{ data['member-full-name'] | title | default('James Bond') }}<br>
-                <strong>{{ data['member-email-address'] | default('james.bond@email.com') }}</strong>
+                {{ data['member-full-name'] | title | default('James Bond', true) }}<br>
+                <strong>{{ data['member-email-address'] | default('james.bond@email.com', true) }}</strong>
             </div>
         </div>
 

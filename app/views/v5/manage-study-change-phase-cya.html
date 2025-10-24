@@ -41,7 +41,7 @@
                         "na": "Not applicable"
                     } %}
 
-                    {{ phaseLabels[data['change-phase']] | default('Phase I') }}
+                    {{ phaseLabels[data['change-phase']] | default('Phase I', true) }}
                 </dd>
                 <dd class="govuk-summary-list__actions">
                     <a class="govuk-link govuk-link--no-visited-state" href="manage-study-change-phase">Change<span class="govuk-visually-hidden"> phase</span></a>

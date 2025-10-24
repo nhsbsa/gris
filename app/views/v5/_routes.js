@@ -349,7 +349,7 @@ router.post('/manage-study-add-member-email', function(req, res) {
 router.post('/manage-study-add-member-permissions', function(req, res) {
     let permissions = req.session.data['permissions']
 
-    if (permissions == "read only" || permissions == "editor") {
+    if (permissions == "read-only" || permissions == "editor") {
         res.redirect("manage-study-add-member-cya")
     } else {
         // add proper error functionality in future versions instead of redirect
@@ -389,7 +389,7 @@ router.post('/manage-study-change-member-email', function(req, res) {
 router.post('/manage-study-change-member-permissions', function(req, res) {
     let permissions = req.session.data['change-permissions'];
 
-    if (permissions == "read only" || permissions == "editor") {
+    if (permissions == "read-only" || permissions == "editor") {
         res.redirect("manage-study-change-member-cya")
     } else {
         // add proper error functionality in future versions instead of redirect
@@ -553,7 +553,7 @@ router.post('/add-study-member-email', function(req, res) {
 router.post('/add-study-member-permissions', function(req, res) {
     let permissions = req.session.data['add-member-permissions']
 
-    if (permissions == "read only" || permissions == "editor") {
+    if (permissions == "read-only" || permissions == "editor") {
         res.redirect("add-study-member-check-answers")
     } else {
         // add proper error functionality in future versions instead of redirect

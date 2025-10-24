@@ -30,7 +30,7 @@
                     "na": "Not applicable"
                 } %}
 
-                {{ phaseLabels[data['change-phase']] | default('Phase I') }}
+                {{ phaseLabels[data['change-phase']] | default('Phase I', true) }}
             </div>
         </div>
 

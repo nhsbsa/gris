@@ -33,7 +33,7 @@
                     Short title of the study
                 </dt>
                 <dd class="govuk-summary-list__value">
-                    {{ data['change-title'] | title | default('Investigating left arm disease in the UK') }}
+                    {{ data['change-title'] | title | default('Investigating left arm disease in the UK', true) }}
                 </dd>
                 <dd class="govuk-summary-list__actions">
                     <a class="govuk-link govuk-link--no-visited-state" href="manage-study-change-title">Change<span class="govuk-visually-hidden"> title</span></a>

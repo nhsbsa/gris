@@ -33,7 +33,7 @@
                     Chief investigator's email address
                 </dt>
                 <dd class="govuk-summary-list__value">
-                    {{ data['change-ci-email'] | title | default('chief-investigator@email.com') }}
+                    {{ data['change-ci-email'] | title | default('chief-investigator@email.com', true) }}
                 </dd>
                 <dd class="govuk-summary-list__actions">
                     <a class="govuk-link govuk-link--no-visited-state" href="manage-study-change-ci-email">Change<span class="govuk-visually-hidden"> email</span></a>

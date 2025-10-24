@@ -22,7 +22,7 @@
                 You have changed the disease area or speciality to
             </h1>
             <div class="govuk-panel__body">
-                {{ data['change-speciality'] | title | default('Genetics') }}
+                {{ data['change-speciality'] | title | default('Genetics', true) }}
             </div>
         </div>
 

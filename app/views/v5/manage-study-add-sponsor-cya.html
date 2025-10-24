@@ -33,7 +33,7 @@
                     Name of sponsoring organisation
                 </dt>
                 <dd class="govuk-summary-list__value">
-                    {{ data['add-sponsor-name'] | title | default('Manchester University NHS Foundation Trust') }}
+                    {{ data['add-sponsor-name'] | title | default('Manchester University NHS Foundation Trust', true) }}
                 </dd>
                 <dd class="govuk-summary-list__actions">
                     <a class="govuk-link govuk-link--no-visited-state" href="manage-study-add-sponsor">Change<span class="govuk-visually-hidden"> sponsor name</span></a>
@@ -57,7 +57,7 @@
                     Point of contact email address
                 </dt>
                 <dd class="govuk-summary-list__value">
-                    {{ data['add-sponsor-email'] | default('sponsor-email@email.com') }}
+                    {{ data['add-sponsor-email'] | default('sponsor-email@email.com', true) }}
                 </dd>
                 <dd class="govuk-summary-list__actions">
                     <a class="govuk-link govuk-link--no-visited-state" href="manage-study-add-sponsor-email">Change<span class="govuk-visually-hidden"> sponsor email address</span></a>

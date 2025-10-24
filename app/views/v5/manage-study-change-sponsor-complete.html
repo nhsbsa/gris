@@ -22,8 +22,8 @@
                 You have changed the sponsoring organisation
             </h1>
             <div class="govuk-panel__body">
-                The new name is {{ data['change-sponsor-name'] | title | default('Manchester University NHS Foundation Trust') }}<br>
-                The new email is {{ data['change-sponsor-email'] | default('sponsor-email@email.com') }}
+                The new name is {{ data['change-sponsor-name'] | title | default('Manchester University NHS Foundation Trust', true) }}<br>
+                The new email is {{ data['change-sponsor-email'] | default('sponsor-email@email.com', true) }}
             </div>
         </div>
 

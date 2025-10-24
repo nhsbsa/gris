@@ -33,7 +33,7 @@
                     Status of the study
                 </dt>
                 <dd class="govuk-summary-list__value">
-                    {{ data['change-status'] | replace('-', ' ') | capitalize | default('Not started') }}
+                    {{ data['change-status'] | replace('-', ' ') | capitalize | default('Not started', true) }}
                 </dd>
                 <dd class="govuk-summary-list__actions">
                     <a class="govuk-link govuk-link--no-visited-state" href="manage-study-change-status">Change<span class="govuk-visually-hidden"> status</span></a>

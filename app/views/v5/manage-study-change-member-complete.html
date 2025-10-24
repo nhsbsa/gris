@@ -21,9 +21,9 @@
                 Study team member's details have been changed
             </h1>
             <div class="govuk-panel__body">
-                {{ data['change-full-name'] | title | default('James Bond') }}<br>
-                {{ data['change-email-address'] | default('james.bond@email.com') }}<br>
-                {{ data['change-permissions'] | capitalize | default('Read-only') }}
+                {{ data['change-full-name'] | title | default('James Bond', true) }}<br>
+                {{ data['change-email-address'] | default('james.bond@email.com, true') }}<br>
+                {{ data['change-permissions'] | capitalize | default('Read-only', true) }}
             </div>
         </div>
         

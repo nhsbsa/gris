@@ -22,7 +22,7 @@
                 You have changed the status of the study to
             </h1>
             <div class="govuk-panel__body">
-                {{ data['change-status'] | replace('-', ' ') | capitalize | default('Not started') }}
+                {{ data['change-status'] | replace('-', ' ') | capitalize | default('Not started', true) }}
             </div>
         </div>
 
