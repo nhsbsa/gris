@@ -18,8 +18,8 @@
                 New study team member has been added
             </h1>
             <div class="govuk-panel__body">
-                {{ data['add-full-name'] | title | default('James Bond') }}<br>
-                <strong>{{ data['add-member-email'] | default('james.bond@email.com') }}</strong>
+                {{ data['add-full-name'] | title | default('James Bond', true) }}<br>
+                <strong>{{ data['add-member-email'] | default('james.bond@email.com', true) }}</strong>
             </div>
         </div>
 

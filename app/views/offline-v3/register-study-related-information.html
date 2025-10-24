@@ -25,141 +25,127 @@
 
 		<form action="register-study-related-information" method="post">
             <!-- Do you know related study GRIS ID -->
-            <div class="govuk-form-group">
-                <fieldset class="govuk-fieldset" aria-describedby="gris-id-hint">
-                    <legend class="govuk-fieldset__legend">
-                        Do you know the GRIS ID of the related study?
-                    </legend>
+            {% set yesHtml %}
+                {{ govukInput({
+                id: "related-id",
+                name: "related-id",
+                type: "text",
+                spellcheck: false,
+                classes: "govuk-!-width-two-thirds",
+                label: {
+                    text: "GRIS ID of the related study"
+                }
+                }) }}
+            {% endset -%}
 
-                    <div class="govuk-radios" data-module="govuk-radios">
-                        <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="id-yes" name="study-gris-id" type="radio" value="yes" data-aria-controls="conditional-yes">
-                            <label class="govuk-label govuk-radios__label" for="id-yes">
-                                Yes
-                            </label>
-                        </div>
-
-                        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-yes">
-                            <div class="govuk-form-group">
-                                <label class="govuk-label" for="id-of-study">
-                                    GRIS ID of the related study
-                                </label>
-                                <input class="govuk-input govuk-!-width-two-thirds" id="id-of-study" name="related-id" type="text">
-                            </div>
-                        </div>
-   
-                        <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="id-no" name="study-gris-id" type="radio" value="no">
-                            <label class="govuk-label govuk-radios__label" for="id-no">
-                                No
-                            </label>
-                        </div>
-                    </div>
-                </fieldset>
-            </div>
+            {{ govukRadios({
+                name: "study-gris-id",
+                fieldset: {
+                    legend: {
+                    text: "Do you know the GRIS ID of the related study?",
+                    classes: ""
+                    }
+                },
+                items: [
+                    {
+                    value: "yes",
+                    text: "Yes",
+                    conditional: {
+                        html: yesHtml
+                    }
+                    },
+                    {
+                    value: "no",
+                    text: "No"
+                    }
+                ]
+            }) }}
 
             <!-- Relationship between studies -->
-            <div class="govuk-form-group">
-                <fieldset class="govuk-fieldset" aria-describedby="study-relationship-hint">
-                    <legend class="govuk-fieldset__legend">
-                        What is the relationship between the new study and the related study? 
-                    </legend>
-                    
-                    <p class="govuk-hint" id="study-relationship-hint">
-                        Select one option
-                    </p>
-         
-                    <div class="govuk-radios" data-module="govuk-radios">
-                        <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="study-relationship-parent" name="study-relationship" type="radio" value="parent">
-                            <label class="govuk-label govuk-radios__label" for="study-relationship-parent">
-                                It's a parent study of another study
-                            </label>
-                            <div id="parent-study-hint" class="govuk-hint govuk-radios__hint">
-                                This is a standalone study that may have related studies connected to it.
-                            </div>
-                        </div>
-
-                        <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="study-relationship-sub" name="study-relationship" type="radio" value="sub">
-                            <label class="govuk-label govuk-radios__label" for="study-relationship-sub">
-                                It's a sub-study
-                            </label>
-                            <div id="sub-study-hint" class="govuk-hint govuk-radios__hint">
-                                This is a smaller research project exploring specific parts of the parent study
-                            </div>
-                        </div>
-
-                        <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="study-relationship-platform" name="study-relationship" type="radio" value="platform">
-                            <label class="govuk-label govuk-radios__label" for="study-relationship-platform">
-                                It's a platform study
-                            </label>
-                            <div id="parent-study-hint" class="govuk-hint govuk-radios__hint">
-                                This is a study with a master protocol which can be updated and expanded using smaller addenda or sub-protocols
-                            </div>
-                        </div>
-
-                        <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="study-relationship-cont" name="study-relationship" type="radio" value="cont">
-                            <label class="govuk-label govuk-radios__label" for="study-relationship-cont">
-                                It's a continuation study
-                            </label>
-                            <div id="parent-study-hint" class="govuk-hint govuk-radios__hint">
-                                This is an extension of an earlier study. This may have a different Integrated Research Application System ID (IRAS ID) from the parent study.
-                            </div>
-                        </div>
-                    </div>
-                </fieldset>
-            </div>
+            {{ govukRadios({
+                name: "study-relationship",
+                fieldset: {
+                    legend: {
+                    text: "What is the relationship between the new study and the related study?",
+                    classes: ""
+                    }
+                },
+                hint: {
+                    text: "Select one option"
+                },
+                items: [
+                    {
+                        value: "parent",
+                        text: "It's a parent study of another study",
+                        hint: {
+                            text: "This is a standalone study that may have related studies connected to it."
+                        }
+                    },
+                    {
+                        value: "sub",
+                        text: "It's a sub-study",
+                        hint: {
+                            text: "This is a smaller research project exploring specific parts of the parent study"
+                        }
+                    },
+                    {
+                        value: "platform",
+                        text: "It's a platform study",
+                        hint: {
+                            text: "This is a study with a master protocol which can be updated and expanded using smaller addenda or sub-protocols"
+                        }
+                    },
+                    {
+                        value: "cont",
+                        text: "It's a continuation study",
+                        hint: {
+                            text: "This is an extension of an earlier study. This might have a different integrated research application system ID (IRAS ID) from the parent study."
+                        }
+                    }
+                ]
+            }) }}
 
             <!-- Same IRAS ID -->
-            <div class="govuk-form-group">
-                <fieldset class="govuk-fieldset" aria-describedby="iras-id-hint">
-                    <legend class="govuk-fieldset__legend">
-                        Does the related study have the same integrated research application system ID (IRAS ID) as the new study? 
-                    </legend>
-
-                    <div class="govuk-radios" data-module="govuk-radios">
-                        <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="iras-yes" name="iras-id" type="radio" value="yes">
-                            <label class="govuk-label govuk-radios__label" for="iras-yes">
-                                Yes
-                            </label>
-                        </div>
-   
-                        <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="iras-no" name="iras-id" type="radio" value="no">
-                            <label class="govuk-label govuk-radios__label" for="iras-no">
-                                No
-                            </label>
-                        </div>
-                    </div>
-                </fieldset>
-            </div>
+            {{ govukRadios({
+                name: "iras-id",
+                fieldset: {
+                    legend: {
+                    text: "Does the related study have the same integrated research application system ID (IRAS ID) as the new study? ",                    
+                    classes: ""
+                    }
+                },
+                items: [
+                    {
+                    value: "yes",
+                    text: "Yes"
+                    },
+                    {
+                    value: "no",
+                    text: "No"
+                    }
+                ]
+            }) }}
 
             <!-- Same funding ID -->
-            <div class="govuk-form-group">
-                <fieldset class="govuk-fieldset">
-                    <legend class="govuk-fieldset__legend">                        
-                        Does the related study have the same funding ID as the new study?                         
-                    </legend>
-                    <div class="govuk-radios" data-module="govuk-radios">
-                        <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="funding" name="funding-id" type="radio" value="yes">
-                            <label class="govuk-label govuk-radios__label" for="funding">
-                                Yes
-                            </label>
-                        </div>
-                        <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="funding-2" name="funding-id" type="radio" value="no">
-                            <label class="govuk-label govuk-radios__label" for="funding-2">
-                                No
-                            </label>
-                        </div>
-                    </div>
-                </fieldset>
-            </div>
+            {{ govukRadios({
+                name: "funding-id",
+                fieldset: {
+                    legend: {
+                    text: "Does the related study have the same funding ID as the new study? ",
+                    classes: ""
+                    }
+                },
+                items: [
+                    {
+                    value: "yes",
+                    text: "Yes"
+                    },
+                    {
+                    value: "no",
+                    text: "No"
+                    }
+                ]
+            }) }}
 
             <!-- Select funding -->
             {{ govukCheckboxes({

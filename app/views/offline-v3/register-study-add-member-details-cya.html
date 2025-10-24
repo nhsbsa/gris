@@ -29,7 +29,7 @@
                     Name
                 </dt>
                 <dd class="govuk-summary-list__value">
-                    {{ data['add-full-name'] | title | default('James Bond') }}
+                    {{ data['add-full-name'] | title | default('James Bond', true) }}
                 </dd>
                 <dd class="govuk-summary-list__actions">
                     <a class="govuk-link govuk-link--no-visited-state" href="register-study-add-member-details">Change<span class="govuk-visually-hidden"> name</span></a>
@@ -41,7 +41,7 @@
                     Email address
                 </dt>
                 <dd class="govuk-summary-list__value">
-                    {{ data['add-member-email'] | default('james.bond@email.com') }}
+                    {{ data['add-member-email'] | default('james.bond@email.com', true) }}
                 </dd>
                 <dd class="govuk-summary-list__actions">
                     <a class="govuk-link govuk-link--no-visited-state" href="register-study-add-member-details">Change<span class="govuk-visually-hidden"> email address</span></a>
@@ -53,7 +53,7 @@
                     Permissions
                 </dt>
                 <dd class="govuk-summary-list__value">
-                    {{ data['add-member-permissions'] | capitalize | default('Read only') }}
+                    {{ data['add-member-permissions'] | capitalize | default('Read only', true) }}
                 </dd>
                 <dd class="govuk-summary-list__actions">
                     <a class="govuk-link govuk-link--no-visited-state" href="register-study-add-member-details">Change<span class="govuk-visually-hidden"> permissions</span></a>

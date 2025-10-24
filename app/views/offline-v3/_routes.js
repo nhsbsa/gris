@@ -234,7 +234,7 @@ router.post('/register-study-related', function(req, res) {
     if (related == "yes") {
         res.redirect("register-study-related-information")
     } else if (related == "no") {
-        res.redirect("register-study-cya")
+        res.redirect("check-your-answers")
     } else {
         res.redirect("register-study-related")
     }
@@ -245,7 +245,7 @@ router.post('/register-study-related-information', function(req, res) {
     // Need to add rules here for checking fields are not empty etc.
 
     // For now, just redirect to next page on submit:
-    res.redirect("register-study-cya")
+    res.redirect("check-your-answers")
 })
 
 module.exports = router

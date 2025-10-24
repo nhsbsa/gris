@@ -22,8 +22,8 @@
                 You have added a sponsoring organisation
             </h1>
             <div class="govuk-panel__body">
-                {{ data['sponsor-name'] | title | default('Manchester University NHS Foundation Trust') }}<br>
-                {{ data['sponsor-email'] | default('sponsor-email@email.com') }}
+                {{ data['sponsor-name'] | title | default('Manchester University NHS Foundation Trust', true) }}<br>
+                {{ data['sponsor-email'] | default('sponsor-email@email.com', true) }}
             </div>
         </div>
 

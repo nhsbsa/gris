@@ -256,7 +256,7 @@ router.post('/manage-study-add-sponsor', function(req, res) {
 router.post('/manage-study-add-sponsor-type', function(req, res) {
     let type = req.session.data['add-sponsor-type']
 
-    if (type == "nhs" || type == "education" || type == "commercial" || type == "gov" || type == "charity" || type == "other") {
+    if (type == "nhs-organisation" || type == "higher-education-institution" || type == "commercial-company" || type == "government-or-public-sector-body" || type == "charity-or-not-for-profit-organisation" || type == "other") {
         res.redirect("manage-study-add-sponsor-email")
     } else {
         // add proper error functionality in future versions instead of redirect
@@ -298,7 +298,7 @@ router.post('/manage-study-change-sponsor', function(req, res) {
 router.post('/manage-study-change-sponsor-type', function(req, res) {
     let type = req.session.data['change-sponsor-type']
 
-    if (type == "nhs" || type == "education" || type == "commercial" || type == "gov" || type == "charity" || type == "other") {
+    if (type == "nhs-organisation" || type == "higher-education-institution" || type == "commercial-company" || type == "government-or-public-sector-body" || type == "charity-or-not-for-profit-organisation" || type == "other") {
         res.redirect("manage-study-change-sponsor-email")
     } else {
         // add proper error functionality in future versions instead of redirect
@@ -591,7 +591,7 @@ router.post('/who-is-the-sponsor', function(req, res) {
 router.post('/who-is-the-sponsor-type', function(req, res) {
     let type = req.session.data['sponsor-type']
 
-    if (type == "nhs" || type == "education" || type == "commercial" || type == "gov" || type == "charity" || type == "other") {
+    if (type == "nhs-organisation" || type == "higher-education-institution" || type == "commercial-company" || type == "government-or-public-sector-body" || type == "charity-or-not-for-profit-organisation" || type == "other") {
         res.redirect("who-is-the-sponsor-email")
     } else {
         // add proper error functionality in future versions instead of redirect

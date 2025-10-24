@@ -237,11 +237,11 @@
                 <dl class="govuk-summary-list">
                     <div class="govuk-summary-list__row">
                         <dt class="govuk-summary-list__key">
-                            Manchester University NHS Foundation Trust
-                            <p class="govuk-hint govuk-!-margin-bottom-0">Higher education institution</p>
+                            {{ data['sponsor-name'] | title | default('Manchester University NHS Foundation Trust', true) }}
+                            <p class="govuk-hint govuk-!-margin-bottom-0">{{ data['sponsor-type'] | replace('-', ' ') | capitalize | default('Higher education institution', true)}}</p>
                         </dt>
                         <dd class="govuk-summary-list__value">
-                            sponsor-contact@email.com
+                            {{ data['sponsor-email'] | default('sponsor-email@email.com', true) }}
                         </dd>
                         <dd class="govuk-summary-list__actions">
                             <ul class="govuk-summary-list__actions-list">
