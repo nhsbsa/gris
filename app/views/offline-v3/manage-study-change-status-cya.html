@@ -1,17 +1,11 @@
-{% extends "layouts/main-new-header.html" %}
+{% extends "layouts/offline-v2.html" %}
+{% set containerClasses = "govuk-full-width-body" %}
 
 {% block pageTitle %}	
     Check your answers before changing the status of the study - Manage study - {{ serviceName }} - GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}   
-	{{ govukPhaseBanner({
-		tag: {
-		text: "Alpha"
-		},
-		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
-	}) }}   
-
     {{ govukBackLink({
         text: "Back",
         href: "manage-study-change-status"

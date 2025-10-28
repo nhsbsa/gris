@@ -1,20 +1,14 @@
-{% extends "layouts/main-new-header.html" %}
+{% extends "layouts/offline-v2.html" %}
+{% set containerClasses = "govuk-full-width-body" %}
 
 {% block pageTitle %}
   What is the current status of this study? - {{ serviceName }} - GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}      
-	{{ govukPhaseBanner({
-		tag: {
-			text: "Alpha"
-		},
-		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
-	}) }}
-
 	{{ govukBackLink({
 		text: "Back",
-		href: "manage-my-study"
+		href: "manage-study"
 	}) }}
 {% endblock %}
 
