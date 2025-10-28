@@ -1,0 +1,38 @@
+{% extends "layouts/main-new-header.html" %}
+
+{% block pageTitle %}
+    You have changed the status of the study - Manage study - {{ serviceName }} - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}  
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}    
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+        <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-6">
+            <h1 class="govuk-panel__title">
+                You have changed the status of the study to
+            </h1>
+            <div class="govuk-panel__body">
+                {{ data['change-status'] | replace('-', ' ') | capitalize | default('Not started', true) }}
+            </div>
+        </div>
+
+        <p>We've updated [study name] with the new status of the study.</p>
+                        
+        <h2 class="govuk-heading-m">What happens next</h2>
+        <p>We've sent an email to the chief investigator and the study team members to let them know that the study status has been changed.</p>
+        <p>To update more information in this study, <a href="manage-my-study" class="govuk-link--no-visited-state">return to manage this study</a>.</p>
+        <!-- <p>To start a new search or create a new GRIS ID, <a href="dashboard" class="govuk-link--no-visited-state">return to the dashboard</a>.</p> -->
+    </div>
+</div>
+
+{% endblock %}
