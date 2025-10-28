@@ -1,0 +1,65 @@
+{% extends "layouts/offline-v2.html" %}
+{% set containerClasses = "govuk-full-width-body" %}
+
+{% block pageTitle %}
+  What is the current phase of this study? - {{ serviceName }} - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukBackLink({
+		text: "Back",
+		href: "manage-study"
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+		<form action="manage-study-change-phase" method="post">
+            <span class="govuk-caption-l">Manage study</span>
+            {{ govukRadios({
+                name: "change-phase",
+                fieldset: {
+                    legend: {
+                    text: "What is the current phase of this study?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                    }
+                },
+                items: [
+                    {
+                    value: "pre-clinical",
+                    text: "Pre-clinical"
+                    },
+                    {
+                    value: "phase-one",
+                    text: "Phase I"
+                    },
+                    {
+                    value: "phase-two",
+                    text: "Phase II"
+                    },
+                    {
+                    value: "phase-three",
+                    text: "Phase III"
+                    },
+                    {
+                    value: "phase-four",
+                    text: "Phase IV"
+                    },
+                    {
+                    value: "na",
+                    text: "Not applicable"
+                    }
+                ]
+            }) }}
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form>
+    </div>
+</div>
+
+{% endblock %}

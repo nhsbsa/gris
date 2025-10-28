@@ -1,0 +1,48 @@
+{% extends "layouts/main-new-header.html" %}
+
+{% block pageTitle %}
+	Enter the 6-digit security code as you see it in your authenticator app - {{ serviceName }} - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+    {{ govukBackLink({
+        text: "Back",
+        href: "enter-your-password"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+        <form action="enter-auth-code" method="post">
+            <div class="govuk-form-group">
+                <h1 class="govuk-label-wrapper">
+                    <label class="govuk-label govuk-label--l" for="auth-code">
+                        Enter the 6-digit security code as you see it in your authenticator app
+                    </label>
+                </h1>
+              
+                <input class="govuk-input govuk-input--width-10" id="auth-code" name="auth-code" type="number">
+            </div>
+
+			<button type="submit" class="govuk-button" data-module="govuk-button">
+				Continue
+			</button>
+		</form>
+
+        <details class="govuk-details">
+            <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                    I do not have access to the authenticator app
+                </span>
+            </summary>
+            <div class="govuk-details__text">
+                You can securely <a href="#">change how you get security codes</a>.
+            </div>
+        </details>
+    </div>
+</div>
+
+
+{% endblock %}

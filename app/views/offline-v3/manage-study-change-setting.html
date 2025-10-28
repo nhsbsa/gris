@@ -1,0 +1,87 @@
+{% extends "layouts/offline-v2.html" %}
+{% set containerClasses = "govuk-full-width-body" %}
+
+{% block pageTitle %}
+  What is the study setting? - {{ serviceName }} - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukBackLink({
+		text: "Back",
+		href: "manage-study"
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+		<form action="manage-study-change-setting" method="post">
+            <span class="govuk-caption-l">Manage study</span>
+            {{ govukCheckboxes({
+                name: "change-setting",
+                fieldset: {
+                    legend: {
+                    text: "What is the study setting?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                    }
+                },
+                hint: {
+                    html: "<p>Indicate the type of environment in which the study will take place.</p><p>Select all that apply.</p>"
+                },
+                items: [
+                    {
+                    value: "primary-care",
+                    text: "Primary care",
+                    hint: {
+                        text: "This could be at a GP practice or community pharmacy"
+                    }
+                    },
+                    {
+                    value: "secondary-care",
+                    text: "Secondary care",
+                    hint: {
+                        text: "This could be at a hospital, in an outpatient or an inpatient service"
+                    }
+                    },
+                    {
+                    value: "tertiary-care",
+                    text: "Tertiary care",
+                    hint: {
+                        text: "This could be at a specialist or teaching hospital"
+                    }
+                    },
+                    {
+                    value: "community-setting",
+                    text: "Community setting",
+                    hint: {
+                        text: "This could be at a school, workplace, or a local community centre"
+                    }
+                    },
+                    {
+                    value: "social-care-setting",
+                    text: "Social care setting",
+                    hint: {
+                        text: "This could be at a care home, in a supported living setting, or in domiciliary care"
+                    }
+                    },
+                    {
+                    value: "online-or-virtual-setting",
+                    text: "Online or virtual setting",
+                    hint: {
+                        text: "This could be using remote data collection or an online survey"
+                    }
+                    }             
+                ]
+            }) }}
+            
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

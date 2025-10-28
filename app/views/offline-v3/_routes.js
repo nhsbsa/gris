@@ -10,6 +10,30 @@ router.post('/sign-in', function(req, res) {
         res.redirect("sign-in")
         // add proper error functionality in future versions instead of redirect
     } else {
+        res.redirect("enter-your-password")
+    }
+})
+
+// Enter your password
+router.post('/enter-your-password', function(req, res) {
+    let password = req.session.data['password']
+
+    if (!password || password.trim() === "") {
+        res.redirect("enter-your-password")
+        // add proper error functionality in future versions instead of redirect
+    } else {
+        res.redirect("enter-auth-code")
+    }
+})
+
+// Enter auth code
+router.post('/enter-auth-code', function(req, res) {
+    let code = req.session.data['auth-code']
+
+    if (!code || code.trim() === "") {
+        res.redirect("enter-auth-code")
+        // add proper error functionality in future versions instead of redirect
+    } else {
         req.session.data['loggedIn'] = true;
         res.redirect("dashboard")
     }
@@ -66,6 +90,159 @@ router.post('/manage-study-change-title', function(req, res) {
     } else {
         // Redirect to the "check your answers" page if filled
         res.redirect("manage-study-change-title-cya");
+    }
+});
+
+// Manage study - change disease area speciality
+router.post('/manage-study-change-speciality', function(req, res) {
+    const changeSpeciality = req.session.data['change-speciality'];
+
+    const validSpecialities = [
+        "ageing",
+        "anaesthesia-perioperative-medicine-pain-management",
+        "cancer",
+        "cardiovascular-disease-cardiac-surgery",
+        "children",
+        "critical-care",
+        "dementias-neurodegeneration",
+        "dermatology",
+        "diabetes",
+        "ear-nose-throat",
+        "gastroenterology",
+        "genetics",
+        "haematology-non-cancer",
+        "health-services-research",
+        "hepatology",
+        "infection",
+        "mental-health",
+        "metabolic-endocrine-disorders",
+        "musculoskeletal-disorders-elective-orthopaedic",
+        "neurological-disorders",
+        "obstetrics-gynaecology",
+        "oral-dental-health",
+        "palliative-care",
+        "primary-care",
+        "public-health",
+        "rare-diseases",
+        "renal",
+        "reproductive-health-childbirth",
+        "residential"
+    ];
+
+    if (validSpecialities.includes(changeSpeciality)) {
+        res.redirect("manage-study-change-speciality-cya");
+    } else {
+        // add proper error functionality in future versions instead of redirect
+        res.redirect("manage-study-change-speciality");
+    }
+});
+
+// Manage study - change government priority
+router.post('/manage-study-change-priority', function(req, res) {
+    let changePriorities = req.session.data['change-priorities'];
+
+    const validPriority = [
+        "prevention-early-detection",
+        "patient-safety-quality",
+        "health-inequalities",
+        "mental-health",
+        "healthy-ageing",
+        "digital-health",
+        "capacity-building",
+        "sustainability-net-zero",
+        "social-care-integration",
+        "public-health",
+        "none"
+    ];
+
+    if (Array.isArray(changePriorities)) {
+        const allValid = changePriorities.every(p => validPriority.includes(p));
+        return allValid
+            ? res.redirect("manage-study-change-priority-cya")
+            : res.redirect("manage-study-change-priority");
+    } else if (validPriority.includes(changePriorities)) {
+        return res.redirect("manage-study-change-priority-cya");
+    }
+
+    res.redirect("manage-study-change-priority");
+});
+
+// Manage study - change status
+router.post('/manage-study-change-status', function(req, res) {
+    const changeStatus = req.session.data['change-status'];
+
+    const validStatus = [
+        "open-to-recruitment",
+        "closed-to-recruitment",
+        "completed",
+        "suspended-or-on-hold",
+        "not-started",
+    ];
+
+    if (validStatus.includes(changeStatus)) {
+        res.redirect("manage-study-change-status-cya");
+    } else {
+        // add proper error functionality in future versions instead of redirect
+        res.redirect("manage-study-change-status");
+    }
+});
+
+// Manage study - change phase
+router.post('/manage-study-change-phase', function(req, res) {
+    const changePhase = req.session.data['change-phase'];
+
+    const validPhase = [
+        "pre-clinical",
+        "phase-one",
+        "phase-two",
+        "phase-three",
+        "phase-four",
+        "na"
+    ];
+
+    if (validPhase.includes(changePhase)) {
+        res.redirect("manage-study-change-phase-cya");
+    } else {
+        // add proper error functionality in future versions instead of redirect
+        res.redirect("manage-study-change-phase");
+    }
+});
+
+// Manage study - change setting
+router.post('/manage-study-change-setting', function(req, res) {
+    const changeSetting = req.session.data['change-setting'];
+
+    const validSetting = [
+        "primary-care",
+        "secondary-care",
+        "tertiary-care",
+        "community-setting",
+        "social-care-setting",
+        "online-or-virtual-setting"
+    ];
+
+    if (Array.isArray(changeSetting)) {
+        const allValid = changeSetting.every(setting => validSetting.includes(setting));
+        return allValid
+            ? res.redirect("manage-study-change-setting-cya")
+            : res.redirect("manage-study-change-setting");
+    } else if (validSetting.includes(changeSetting)) {
+        return res.redirect("manage-study-change-setting-cya");
+    }
+
+    // nothing selected or invalid
+    res.redirect("manage-study-change-setting");
+});
+
+// Manage study - change location
+router.post('/manage-study-change-location', function(req, res) {
+    let changeLocation = req.session.data['change-location'];
+
+    if (changeLocation == "england" || changeLocation == "scotland" || changeLocation == "wales" || changeLocation == "northern-ireland") {
+        res.redirect("manage-study-change-location-cya")
+    } else {
+        // add proper error functionality in future versions instead of redirect
+        res.redirect("manage-study-change-location")
     }
 });
 
