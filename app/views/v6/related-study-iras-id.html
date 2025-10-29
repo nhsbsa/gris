@@ -1,0 +1,64 @@
+{% extends "layouts/online-login-header.html" %}
+{% set serviceName="Service name" %}
+
+{% block pageTitle %}
+    Does the related study have the same IRAS ID as the new study? - {{ serviceName }} - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "related-study-relationship"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">       
+
+        <form action="related-study-iras-id" method="post">
+            <span class="govuk-caption-l">Register a study</span>
+
+            {{ govukRadios({
+                name: "iras-id",
+                fieldset: {
+                    legend: {
+                    text: "Does the related study have the same integrated research application system ID (IRAS ID) as the new study? ",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                    }
+                },
+                items: [
+                    {
+                    value: "yes",
+                    text: "Yes"
+                    },
+                    {
+                    value: "no",
+                    text: "No"
+                    }
+                ]
+            }) }}
+
+            {{ govukDetails({
+                summaryText: "How do I find out the related study's IRAS ID?",
+                html: 'If you\'re not sure what the study\'s IRAS ID is, you can usually find it in the <a href="https://www.myresearchproject.org.uk/Signin.aspx">IRAS system</a> or in the system used to apply for approvals.'
+            }) }}
+            
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

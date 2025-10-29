@@ -1,0 +1,62 @@
+{% extends "layouts/online-login-header.html" %}
+{% set serviceName="Service name" %}
+
+{% block pageTitle %}
+	My studies - {{ serviceName }} - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "dashboard"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-full">
+        <h1 class="govuk-heading-l">My studies</h1>
+
+        <table class="govuk-table">
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th scope="col" class="govuk-table__header">Name of study</th>
+                    <th scope="col" class="govuk-table__header govuk-table__header--numeric">Actions</th>
+                </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">
+                        Investigating left arm disease
+                        <p class="govuk-hint">GRIS-111 111 111</p>
+                    </td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link govuk-link--no-visited-state" href="view-my-study">View</a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">
+                        Investigating right arm disease
+                        <p class="govuk-hint">GRIS-458 854 444</p>
+                    </td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link govuk-link--no-visited-state" href="view-my-study">View</a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">
+                        Investigating left leg disease
+                        <p class="govuk-hint">GRIS-564 952 654</p>
+                    </td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link govuk-link--no-visited-state" href="view-my-study">View</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends "layouts/online-login-header.html" %}
+{% set serviceName="Service name" %}
+
+{% block pageTitle %}
+    You have added a sponsoring organisation - {{ serviceName }} - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+        <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-6">
+            <h1 class="govuk-panel__title">
+                You have added a sponsoring organisation
+            </h1>
+            <div class="govuk-panel__body">
+                {{ data['sponsor-name'] | title | default('Manchester University NHS Foundation Trust', true) }}<br>
+                {{ data['sponsor-email'] | default('sponsor-email@email.com', true) }}
+            </div>
+        </div>
+
+        <!-- <p>We've added the sponsoring organisation's details to [study name].</p>
+
+        <h2 class="govuk-heading-m">What happens next</h2>
+
+        <p>We've sent an email to the chief investigator, the study team members, and the organisation’s point of contact to let them know that a sponsor has been added to the study.</p> -->
+
+        <form action="who-is-the-sponsor-completed" method="post">           
+            {{ govukRadios({
+                name: "add-more-sponsors",
+                fieldset: {
+                    legend: {
+                    text: "Do you need to add any additional sponsoring organisations?",
+                    classes: "govuk-fieldset__legend--m"
+                    }
+                },
+                items: [                    
+                    {
+                    value: "yes",
+                    text: "Yes"
+                    },
+                    {
+                    value: "no",
+                    text: "No"
+                    }
+                ]
+            }) }}
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form>                       
+    </div>
+</div>
+
+{% endblock %}

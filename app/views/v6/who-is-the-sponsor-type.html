@@ -1,0 +1,73 @@
+{% extends "layouts/online-login-header.html" %}
+{% set serviceName="Service name" %}
+
+{% block pageTitle %}
+    What type of organisation is acting as the study sponsor? - {{ serviceName }} - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "who-is-the-sponsor"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+        <form action="who-is-the-sponsor-type" method="post">
+            <span class="govuk-caption-l">Register a study</span>          
+
+            {{ govukRadios({
+                name: "sponsor-type",
+                fieldset: {
+                    legend: {
+                    text: "What type of organisation is acting as the study sponsor?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                    }
+                },
+                items: [
+                    {
+                    value: "nhs-organisation",
+                    text: "NHS organisation"
+                    },
+                    {
+                    value: "higher-education-institution",
+                    text: "Higher education institution"
+                    },
+                    {
+                    value: "commercial-company",
+                    text: "Commercial company"
+                    },
+                    {
+                    value: "government-or-public-sector-body",
+                    text: "Government or public sector body (non-NHS)"
+                    },
+                    {
+                    value: "charity-or-not-for-profit-organisation",
+                    text: "Charity or not-for-profit organisation"
+                    },
+                    {
+                    value: "other",
+                    text: "Other"
+                    }
+                ]
+            }) }}        
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form>
+    </div>
+</div>
+
+{% endblock %}

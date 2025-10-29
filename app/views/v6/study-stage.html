@@ -1,0 +1,68 @@
+{% extends "layouts/online-login-header.html" %}
+{% set serviceName="Service name" %}
+
+{% block pageTitle %}
+  What is the current status of this study? - {{ serviceName }} - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+			text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}
+
+	{{ govukBackLink({
+		text: "Back",
+		href: "government-strategic-priority"
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+		<form action="study-stage" method="post">
+            <span class="govuk-caption-l">Register a study</span>
+            {{ govukRadios({
+                name: "status",
+                fieldset: {
+                    legend: {
+                    text: "What is the current status of this study?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                    }
+                },
+                items: [
+                    {
+                    value: "open-to-recruitment",
+                    text: "Open to recruitment"
+                    },
+                    {
+                    value: "closed-to-recruitment",
+                    text: "Closed to recruitment"
+                    },
+                    {
+                    value: "completed",
+                    text: "Completed"
+                    },
+                    {
+                    value: "suspended-or-on-hold",
+                    text: "Suspended or on hold"
+                    },
+                    {
+                    value: "not-started",
+                    text: "Not started"
+                    }
+                ]
+            }) }}
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form>
+    </div>
+</div>
+
+{% endblock %}

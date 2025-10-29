@@ -1,0 +1,68 @@
+{% extends "layouts/online-login-header.html" %}
+{% set serviceName="Service name" %}
+
+{% block pageTitle %}
+    Select the related study or studies which have the same funding ID as the new study - {{ serviceName }} - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "related-study-funding-id"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">       
+
+        <form action="related-study-select-funding" method="post">
+            <span class="govuk-caption-l">Register a study</span>
+
+            {{ govukCheckboxes({
+                name: "funding-name",
+                fieldset: {
+                    legend: {
+                    text: "Select the related study or studies which have the same funding ID as the new study",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                    }
+                },
+                hint: {
+                    text: "Select all that apply"
+                },
+                items: [
+                    {
+                    value: "one",
+                    text: "FUNDING ID 12344, REALMS",
+                    hint: {
+                        text: "The impact of adverse childhood experiences on sensation and pain in people living with multiple long-term health conditions and chronic pain"
+                    }
+                    },
+                    {
+                    value: "two",
+                    text: "FUNDING ID 11982, REALMS",
+                    hint: {
+                        text: "The impact of adverse childhood experiences on sensation and pain in people living with multiple long-term health conditions and chronic pain"
+                    }
+                    }
+                ]
+            }) }}
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

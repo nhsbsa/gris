@@ -1,0 +1,78 @@
+{% extends "layouts/online-login-header.html" %}
+{% set serviceName="Service name" %}
+
+{% block pageTitle %}
+    Related study information - {{ serviceName }} - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "related-to-other-studies"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">       
+
+        <form action="related-study-gris-id" method="post">
+            <span class="govuk-caption-l">Register a study</span>
+            {% set yesHtml %}
+                {{ govukInput({
+                id: "related-id",
+                name: "related-id",
+                type: "text",
+                spellcheck: false,
+                classes: "govuk-!-width-two-thirds",
+                label: {
+                    text: "GRIS ID of the related study"
+                }
+                }) }}
+            {% endset -%}
+
+            {{ govukRadios({
+                name: "study-gris-id",
+                fieldset: {
+                    legend: {
+                    text: "Do you know the government research identifier service ID (GRIS ID) of the related study?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                    }
+                },
+                items: [
+                    {
+                    value: "yes",
+                    text: "Yes",
+                    conditional: {
+                        html: yesHtml
+                    }
+                    },
+                    {
+                    value: "no",
+                    text: "No"
+                    }
+                ]
+            }) }}
+
+            {{ govukDetails({
+                summaryText: "How do I find the GRIS ID of the related study?",
+                html: 'The GRIS ID should be held by the chief investigator of the related study. If you cannot contact them, email the NIHR Study Support Service Helpdesk at <a href="mailto:supportmystudy@nihr.ac.uk">supportmystudy@nihr.ac.uk</a>.'
+            }) }}
+            
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form>
+    </div>
+</div>
+
+{% endblock %}

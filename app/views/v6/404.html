@@ -1,0 +1,31 @@
+{% extends "layouts/online-login-header.html" %}
+{% set serviceName="Service name" %}
+
+{% block pageTitle %}
+	This page cannot be found - {{ serviceName }} - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">This page cannot be found</h1>
+		<p>If you typed the web address, check it is correct.</p>
+        <p>If you pasted the web address, check you copied the entire address.</p>
+		<p>If you need to speak to someone about the GRIS ID service, contact our help desk on:</p>
+		<p>Phone: 0808 157 3900</p>
+		<p>GRIS help desk opening times: Monday to Friday: 8:30am to 4:30pm</p>
+    </div>
+</div>
+
+
+{% endblock %}

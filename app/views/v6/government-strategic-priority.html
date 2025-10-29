@@ -1,0 +1,104 @@
+
+
+
+{% extends "layouts/online-login-header.html" %}
+{% set serviceName="Service name" %}
+
+{% block pageTitle %}
+  Which of the following government strategic priorities does your study align with? - {{ serviceName }} - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+			text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}
+
+	{{ govukBackLink({
+		text: "Back",
+		href: "disease-area-speciality"
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+		<form action="government-strategic-priority" method="post">
+            <span class="govuk-caption-l">Register a study</span>
+            {{ govukCheckboxes({
+                name: "priorities",
+                fieldset: {
+                    legend: {
+                    text: "Which of the following government strategic priorities does your study align with?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                    }
+                },
+                hint: {
+                    text: "Select all that apply."
+                },
+                items: [
+                    {
+                        value: "digital-health-and-data-driven-innovation",
+                        text: "Digital health and data-driven innovation"
+                    },
+                    {
+                        value: "healthy-ageing-and-multimorbidity",
+                        text: "Healthy ageing and multimorbidity"
+                    },
+                    {
+                        value: "improving-patient-safety-and-quality-of-care",
+                        text: "Improving patient safety and quality of care"
+                    },
+                    {
+                        value: "mental-health-and-wellbeing",
+                        text: "Mental health and wellbeing"
+                    },
+                    {
+                        value: "prevention-and-early-detection-of-disease",
+                        text: "Prevention and early detection of disease"
+                    },
+                    {
+                        value: "public-and-community-health-improvement",
+                        text: "Public and community health improvement"
+                    },
+                    {
+                        value: "reducing-health-inequalities",
+                        text: "Reducing health inequalities"
+                    },
+                    {
+                        value: "social-care-and-integration-of-services",
+                        text: "Social care and integration of services"
+                    },
+                    {
+                        value: "sustainability-and-net-zero-in-health-and-care",
+                        text: "Sustainability and net zero in health and care"
+                    },
+                    {
+                        value: "translational-and-clinical-research-capacity-building",
+                        text: "Translational and clinical research capacity building"
+                    }
+                    ,
+                    {
+                    divider: "or"
+                    },
+                    {
+                    value: "none",
+                    text: "None",
+                    behaviour: "exclusive"
+                    }
+                ]
+            }) }}
+            
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

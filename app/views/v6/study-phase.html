@@ -1,0 +1,73 @@
+{% extends "layouts/online-login-header.html" %}
+{% set serviceName="Service name" %}
+
+{% block pageTitle %}
+  What is the current phase of this study? - {{ serviceName }} - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+			text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}
+
+	{{ govukBackLink({
+		text: "Back",
+		href: "study-stage"
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+		<form action="study-phase" method="post">
+            <span class="govuk-caption-l">Register a study</span>
+            {{ govukRadios({
+                name: "phase",
+                fieldset: {
+                    legend: {
+                    text: "What is the current phase of this study?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                    }
+                },
+                items: [
+                    {
+                    value: "pre-clinical",
+                    text: "Pre-clinical"
+                    },
+                    {
+                    value: "phase-one",
+                    text: "Phase I"
+                    },
+                    {
+                    value: "phase-two",
+                    text: "Phase II"
+                    },
+                    {
+                    value: "phase-three",
+                    text: "Phase III"
+                    },
+                    {
+                    value: "phase-four",
+                    text: "Phase IV"
+                    },
+                    {
+                    value: "na",
+                    text: "Not applicable"
+                    }
+                ]
+            }) }}
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

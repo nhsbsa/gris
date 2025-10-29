@@ -1,0 +1,190 @@
+{% extends "layouts/online-login-header.html" %}
+{% set serviceName="Service name" %}
+
+{% block pageTitle %}
+	View my study - {{ serviceName }} - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "my-studies"
+    }) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-clearfix govuk-!-margin-bottom-4">
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full" style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <span class="govuk-caption-l">View study</span>
+                <h1 class="govuk-heading-l">Investigating right arm disease</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-full">
+        <div class="govuk-summary-card">
+            <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">
+                    Study details
+                </h2>
+            </div>
+
+            <div class="govuk-summary-card__content">
+                <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Short title of study
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            Investigating right arm disease
+                        </dd>
+                    </div>
+
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            GRIS ID
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            GRIS-458 854 444
+                        </dd>
+                    </div>
+
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Disease area or speciality
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            <p class="govuk-body">Genetics</p>
+                        </dd>
+                    </div>
+
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Government strategic priorities
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            <p class="govuk-body">Healthy ageing and multimorbidity</p>
+                        </dd>
+                    </div>
+
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Current stage of study
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            <p class="govuk-body">Open to recruitment</p>
+                        </dd>
+                    </div>
+
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Current phase of study
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            <p class="govuk-body">Phase I</p>
+                        </dd>
+                    </div>
+
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Study setting
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            <p class="govuk-body">Primary care</p>
+                        </dd>
+                    </div>
+
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Study location
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            <p class="govuk-body">England</p>
+                        </dd>
+                    </div>
+
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Chief investigator
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            Amrit Banstola
+                        </dd>
+                    </div>
+
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Chief investigator's email
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            a.banstola@email.ac.uk
+                        </dd>
+                    </div>
+                </dl>
+            </div>
+        </div>
+
+        <div class="govuk-summary-card">
+            <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">
+                    Sponsor's details
+                </h2>
+            </div>
+
+            <div class="govuk-summary-card__content">
+                <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Manchester University NHS Foundation Trust
+                            <p class="govuk-hint govuk-!-margin-bottom-0">Higher education institution</p>
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            sponsor-contact@email.com
+                        </dd>
+                    </div>
+                </dl>
+            </div>
+        </div>
+
+        <div class="govuk-summary-card">
+            <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">
+                    Study members
+                </h2>
+            </div>
+
+            <div class="govuk-summary-card__content">
+                <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Jane Doe
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            jane.doe@email.ac.uk
+                        </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Joe Bloggs                            
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            joe.bloggs@email.com
+                        </dd>
+                    </div>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>  
+{% endblock %}

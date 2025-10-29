@@ -1,0 +1,165 @@
+{% extends "layouts/online-login-header.html" %}
+{% set serviceName="Service name" %}
+
+{% block pageTitle %}
+  What is the disease area or speciality for this study? - {{ serviceName }} - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+			text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}
+
+	{{ govukBackLink({
+		text: "Back",
+		href: "what-is-the-short-title"
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+		<form action="disease-area-speciality" method="post">
+            <span class="govuk-caption-l">Register a study</span>
+            {{ govukRadios({
+                name: "speciality",
+                fieldset: {
+                    legend: {
+                    text: "What is the disease area or speciality for this study?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                    }
+                },
+                items: [
+                    {
+                        "value": "ageing",
+                        "text": "Ageing"
+                    },
+                    {
+                        "value": "anaesthesia-perioperative-medicine-pain-management",
+                        "text": "Anaesthesia, Perioperative Medicine and Pain Management"
+                    },
+                    {
+                        "value": "cancer",
+                        "text": "Cancer"
+                    },
+                    {
+                        "value": "cardiovascular-disease-cardiac-surgery",
+                        "text": "Cardiovascular Disease/Cardiac Surgery"
+                    },
+                    {
+                        "value": "children",
+                        "text": "Children"
+                    },
+                    {
+                        "value": "critical-care",
+                        "text": "Critical Care"
+                    },
+                    {
+                        "value": "dementias-neurodegeneration",
+                        "text": "Dementias & Neurodegeneration"
+                    },
+                    {
+                        "value": "dermatology",
+                        "text": "Dermatology"
+                    },
+                    {
+                        "value": "diabetes",
+                        "text": "Diabetes"
+                    },
+                    {
+                        "value": "ear-nose-throat",
+                        "text": "Ear, Nose and Throat"
+                    },
+                    {
+                        "value": "gastroenterology",
+                        "text": "Gastroenterology"
+                    },
+                    {
+                        "value": "genetics",
+                        "text": "Genetics"
+                    },
+                    {
+                        "value": "haematology-non-cancer",
+                        "text": "Haematology (Non-cancer)"
+                    },
+                    {
+                        "value": "health-services-research",
+                        "text": "Health Services Research"
+                    },
+                    {
+                        "value": "hepatology",
+                        "text": "Hepatology"
+                    },
+                    {
+                        "value": "infection",
+                        "text": "Infection"
+                    },
+                    {
+                        "value": "mental-health",
+                        "text": "Mental Health"
+                    },
+                    {
+                        "value": "metabolic-endocrine-disorders",
+                        "text": "Metabolic and Endocrine Disorders"
+                    },
+                    {
+                        "value": "musculoskeletal-disorders-elective-orthopaedic",
+                        "text": "Musculoskeletal Disorders/Elective Orthopaedic"
+                    },
+                    {
+                        "value": "neurological-disorders",
+                        "text": "Neurological Disorders"
+                    },
+                    {
+                        "value": "obstetrics-gynaecology",
+                        "text": "Obstetrics and Gynaecology"
+                    },
+                    {
+                        "value": "oral-dental-health",
+                        "text": "Oral and Dental Health"
+                    },
+                    {
+                        "value": "palliative-care",
+                        "text": "Palliative Care"
+                    },
+                    {
+                        "value": "primary-care",
+                        "text": "Primary Care"
+                    },
+                    {
+                        "value": "public-health",
+                        "text": "Public Health"
+                    },
+                    {
+                        "value": "rare-diseases",
+                        "text": "Rare Diseases"
+                    },
+                    {
+                        "value": "renal",
+                        "text": "Renal"
+                    },
+                    {
+                        "value": "reproductive-health-childbirth",
+                        "text": "Reproductive Health and Childbirth"
+                    },
+                    {
+                        "value": "residential",
+                        "text": "Residential"
+                    }
+                ]
+            }) }}
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}
