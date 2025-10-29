@@ -153,22 +153,12 @@
                             Chief investigator
                         </dt>
                         <dd class="govuk-summary-list__value">
-                            <p class="govuk-body">Amrit Banstola</p>
+                            <p class="govuk-body">
+                                {{ data['investigator-name'] | default('Amrit Banstola', true) }}
+                            </p>
                         </dd>
                         <dd class="govuk-summary-list__actions">
-                            <a class="govuk-link govuk-link--no-visited-state" href="chief-investigator-orcid-id">Change<span class="govuk-visually-hidden"> Chief Investigator ORCID ID</span></a>
-                        </dd>
-                    </div>
-
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-                            Chief investigator ORCID iD
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-                            <p class="govuk-body">0000-0003-3185-9638</p>
-                        </dd>
-                        <dd class="govuk-summary-list__actions">
-                            <a class="govuk-link govuk-link--no-visited-state" href="chief-investigator-orcid-id">Change<span class="govuk-visually-hidden"> Chief Investigator ORCID ID</span></a>
+                            <a class="govuk-link govuk-link--no-visited-state" href="chief-investigator-name">Change<span class="govuk-visually-hidden"> Chief Investigator name</span></a>
                         </dd>
                     </div>
 

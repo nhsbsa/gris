@@ -119,6 +119,16 @@ router.post('/study-location', function(req, res) {
 })
 
 // Register study - chief investigator name
+router.post('/chief-investigator-name', function(req, res) {
+    let ciName = req.session.data['investigator-name']
+
+    if (!ciName ||ciName.trim() === "") {
+        res.redirect("chief-investigator-name")
+        // add proper error functionality in future versions instead of redirect
+    } else {
+        res.redirect("chief-investigator-email")
+    }
+})
 
 // Register study - chief investigator email
 router.post('/chief-investigator-email', function(req, res) {

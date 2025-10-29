@@ -2,7 +2,7 @@
 {% set serviceName="Service name" %}
 
 {% block pageTitle %}
-    What is the email address for the chief investigator? - {{ serviceName }} - GOV.UK Prototype Kit
+    What is the name of the chief investigator? - {{ serviceName }} - GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}      
@@ -15,25 +15,24 @@
 
     {{ govukBackLink({
         text: "Back",
-        href: "chief-investigator-name"
+        href: "study-location"
     }) }}
 {% endblock %}
 
 {% block content %}
 
 <div class="govuk-grid-row">
-	<div class="govuk-grid-column-two-thirds">        
-		<form action="chief-investigator-email" method="post">
-            <span class="govuk-caption-l">Register a study</span>
+	<div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-l">Register a study</span>
+        <h1 class="govuk-heading-l">What is the name of the chief investigator?</h1>
+       
+        <form action="chief-investigator-name" method="post">     
             {{ govukInput({
                 label: {
-                    text: "What is the email address for the chief investigator?",
-                    classes: "govuk-label--l",
-					isPageHeading: true
+                    text: "Full name"
                 },
-                id: "email-address",
-                name: "investigator-email",
-                type: "email"
+                id: "investigator-name",
+                name: "investigator-name"
             }) }}
 
             {{ govukButton({
@@ -42,6 +41,5 @@
         </form>
     </div>
 </div>
-
 
 {% endblock %}
