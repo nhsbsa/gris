@@ -22,8 +22,7 @@
         <h1 class="govuk-heading-l">Check your answers before you submit your new study details</h1>
 
         <p>If there is a mistake, you can edit responses by selecting 'Change'.</p>
-        <p>You'll also have the option to change the responses after the submission through the 'my studies' section of the dashboard.</p>
-
+        
         <!-- Study details -->
         <div class="govuk-summary-card">
             <div class="govuk-summary-card__title-wrapper">
@@ -195,7 +194,6 @@
                     <div class="govuk-summary-list__row">
                         <dt class="govuk-summary-list__key">
                             {{ data['add-full-name'] | title | default('James Bond', true) }}
-                            <p class="govuk-hint govuk-!-margin-bottom-0">({{ data['add-member-permissions'] | capitalize | default('Read-only', true) }} permissions)</p>
                         </dt>
                         <dd class="govuk-summary-list__value">
                             {{ data['add-member-email'] | default('james.bond@email.com', true) }}
@@ -274,13 +272,13 @@
 
                     <div class="govuk-summary-list__row">
                         <dt class="govuk-summary-list__key">
-                            GRIS ID of related study
+                            [Service name ID] of related study
                         </dt>
                         <dd class="govuk-summary-list__value">
                             <p class="govuk-body">GRIS-342 524 247</p>
                         </dd>
                         <dd class="govuk-summary-list__actions">
-                            <a class="govuk-link govuk-link--no-visited-state" href="related-study-gris-id">Change <span class="govuk-visually-hidden">GRIS ID of related study</span></a>
+                            <a class="govuk-link govuk-link--no-visited-state" href="related-study-id">Change <span class="govuk-visually-hidden">GRIS ID of related study</span></a>
                         </dd>
                     </div>
 
@@ -293,30 +291,6 @@
                         </dd>
                         <dd class="govuk-summary-list__actions">
                             <a class="govuk-link govuk-link--no-visited-state" href="related-study-relationship">Change <span class="govuk-visually-hidden">relationship</span></a>
-                        </dd>
-                    </div>
-
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-                           Does the related study have the same integrated research application system ID (IRAS ID) as the new study?
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-                            <p class="govuk-body">Yes</p>
-                        </dd>
-                        <dd class="govuk-summary-list__actions">
-                            <a class="govuk-link govuk-link--no-visited-state" href="related-study-iras-id">Change <span class="govuk-visually-hidden">relationship</span></a>
-                        </dd>
-                    </div>
-
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-                            Funding ID of related study
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-                            <p class="govuk-body">FUNDING ID 12344, REALMS</p>
-                        </dd>
-                        <dd class="govuk-summary-list__actions">
-                            <a class="govuk-link govuk-link--no-visited-state" href="related-study-select-funding">Change <span class="govuk-visually-hidden">funding</span></a>
                         </dd>
                     </div>
                 </dl>

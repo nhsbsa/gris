@@ -2,7 +2,7 @@
 {% set serviceName="Service name" %}
 
 {% block pageTitle %}
-    Does the related study have the same IRAS ID as the new study? - {{ serviceName }} - GOV.UK Prototype Kit
+    Related study information - {{ serviceName }} - GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}      
@@ -15,7 +15,7 @@
 
     {{ govukBackLink({
         text: "Back",
-        href: "related-study-relationship"
+        href: "related-to-other-studies"
     }) }}
 {% endblock %}
 
@@ -24,14 +24,26 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">       
 
-        <form action="related-study-iras-id" method="post">
+        <form action="related-study-id" method="post">
             <span class="govuk-caption-l">Register a study</span>
+            {% set yesHtml %}
+                {{ govukInput({
+                id: "related-id",
+                name: "related-id",
+                type: "text",
+                spellcheck: false,
+                classes: "govuk-!-width-two-thirds",
+                label: {
+                    text: "[Service name ID] of the related study"
+                }
+                }) }}
+            {% endset -%}
 
             {{ govukRadios({
-                name: "iras-id",
+                name: "related-study-id",
                 fieldset: {
                     legend: {
-                    text: "Does the related study have the same integrated research application system ID (IRAS ID) as the new study? ",
+                    text: "Do you know the [service name ID] of the related study?",
                     isPageHeading: true,
                     classes: "govuk-fieldset__legend--l"
                     }
@@ -39,7 +51,10 @@
                 items: [
                     {
                     value: "yes",
-                    text: "Yes"
+                    text: "Yes",
+                    conditional: {
+                        html: yesHtml
+                    }
                     },
                     {
                     value: "no",
@@ -49,15 +64,14 @@
             }) }}
 
             {{ govukDetails({
-                summaryText: "How do I find out the related study's IRAS ID?",
-                html: 'If you\'re not sure what the study\'s IRAS ID is, you can usually find it in the <a href="https://www.myresearchproject.org.uk/Signin.aspx">IRAS system</a> or in the system used to apply for approvals.'
+                summaryText: "How do I find the [service name ID] of the related study?",
+                html: 'The [service name ID] should be held by the chief investigator of the related study. If you cannot contact them, email the NIHR Study Support Service Helpdesk at <a href="mailto:supportmystudy@nihr.ac.uk">supportmystudy@nihr.ac.uk</a>.'
             }) }}
             
             {{ govukButton({
                 text: "Continue"
             }) }}
         </form>
-
     </div>
 </div>
 
