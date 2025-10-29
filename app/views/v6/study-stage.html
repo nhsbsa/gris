@@ -26,7 +26,7 @@
 		<form action="study-stage" method="post">
             <span class="govuk-caption-l">Register a study</span>
             {{ govukRadios({
-                name: "status",
+                name: "stage",
                 fieldset: {
                     legend: {
                     text: "What is the current status of this study?",
@@ -36,24 +36,20 @@
                 },
                 items: [
                     {
-                    value: "open-to-recruitment",
-                    text: "Open to recruitment"
+                    value: "discovery-stage",
+                    text: "Discovery stage"
                     },
                     {
-                    value: "closed-to-recruitment",
-                    text: "Closed to recruitment"
+                    value: "pre-award-stage",
+                    text: "Pre-award stage"
                     },
                     {
-                    value: "completed",
-                    text: "Completed"
+                    value: "study-implementation-stage",
+                    text: "Study implementation stage"
                     },
                     {
-                    value: "suspended-or-on-hold",
-                    text: "Suspended or on hold"
-                    },
-                    {
-                    value: "not-started",
-                    text: "Not started"
+                    value: "post-award-stage",
+                    text: "Post-award stage"
                     }
                 ]
             }) }}

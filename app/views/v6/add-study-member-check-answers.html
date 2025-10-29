@@ -51,19 +51,7 @@
                 <dd class="govuk-summary-list__actions">
                     <a class="govuk-link govuk-link--no-visited-state" href="add-study-member-email">Change<span class="govuk-visually-hidden"> email address</span></a>
                 </dd>
-            </div>
-
-            <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                    Permissions
-                </dt>
-                <dd class="govuk-summary-list__value">
-                    {{ data['add-member-permissions'] | capitalize | default('Read-only', true) }}
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link govuk-link--no-visited-state" href="add-study-member-permissions">Change<span class="govuk-visually-hidden"> permissions</span></a>
-                </dd>
-            </div>
+            </div>            
         </dl>
 
         <a href="add-study-member-completed" role="button" class="govuk-button" data-module="govuk-button">

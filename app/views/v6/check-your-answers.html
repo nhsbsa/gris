@@ -78,11 +78,11 @@
 
                     <div class="govuk-summary-list__row">
                         <dt class="govuk-summary-list__key">
-                            Current status of study
+                            Current stage of study
                         </dt>
                         <dd class="govuk-summary-list__value">
                             <p class="govuk-body">
-                                {{ data['status'] | replace('-', ' ') | capitalize | default('Not started', true) }}
+                                {{ data['stage'] | replace('-', ' ') | capitalize | default('Discovery stage', true) }}
                             </p>
                         </dd>
                         <dd class="govuk-summary-list__actions">
@@ -135,8 +135,12 @@
                             Study location
                         </dt>
                         <dd class="govuk-summary-list__value">
-                            <p class="govuk-body">
-                                {{ data['location'] | replace('-', ' ') | title | default('England', true) }}
+                            <p class="govuk-body">                                
+                                {% if data['location'] %}
+                                    {{ data['location'] | join(', ') | replace('-', ' ') | title }}
+                                {% else %}
+                                    England
+                                {% endif %}
                             </p>
                         </dd>
                         <dd class="govuk-summary-list__actions">
