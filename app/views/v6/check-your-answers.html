@@ -231,7 +231,7 @@
                     <div class="govuk-summary-list__row">
                         <dt class="govuk-summary-list__key">
                             {{ data['sponsor-name'] | title | default('Manchester University NHS Foundation Trust', true) }}
-                            <p class="govuk-hint govuk-!-margin-bottom-0">{{ data['sponsor-type'] | replace('-', ' ') | capitalize | default('Higher education institution', true)}}</p>
+                            <p class="govuk-hint govuk-!-margin-bottom-0">{{ data['sponsor-type'] | replace('-', ' ') | capitalize | replace('Nhs', 'NHS') | default('Higher education institution', true)}}</p>
                         </dt>
                         <dd class="govuk-summary-list__value">
                             {{ data['sponsor-email'] | default('sponsor-email@email.com', true) }}
@@ -297,7 +297,7 @@
             </div>
         </div>
         
-        <a href="gris-confirmed" class="govuk-button" data-module="govuk-button" role="button" draggable="false">
+        <a href="id-confirmed" class="govuk-button" data-module="govuk-button" role="button" draggable="false">
             Submit
         </a>
     </div>
