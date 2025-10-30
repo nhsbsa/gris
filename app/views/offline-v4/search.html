@@ -1,0 +1,77 @@
+{% extends "layouts/offline-v2.html" %}
+{% set containerClasses = "govuk-full-width-body" %}
+
+{% block pageTitle %}
+	Search for a study - {{ serviceName }} - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-full">
+        <div class="govuk-panel govuk-search-panel">
+            <h1 class="govuk-heading-l">
+                Search for a study
+            </h1>
+            <form action="search" method="post">
+                <div class="govuk-grid-row govuk-!-margin-bottom-6">
+                    <div class="govuk-grid-column-one-half">
+                        <label class="govuk-label" for="search-study-title">
+                            Short title of study
+                        </label>
+                        <input class="govuk-input" id="search-study-title" name="search-study-title" type="text">
+                    </div>
+
+                    <div class="govuk-grid-column-one-half">
+                        <label class="govuk-label" for="search-gris-id">
+                            GRIS ID
+                        </label>
+                        <input class="govuk-input" id="search-gris-id" name="search-gris-id" type="text">
+                    </div>
+                </div>
+                <div class="govuk-grid-row govuk-!-margin-bottom-6">
+                    <div class="govuk-grid-column-one-half">
+                        <label class="govuk-label" for="search-ci-name">
+                            Chief investigator's name
+                        </label>
+                        <input class="govuk-input" id="search-ci-name" name="search-ci-name" type="text">
+                    </div>
+
+                    <div class="govuk-grid-column-one-half">
+                        <label class="govuk-label" for="search-ci-email">
+                            Chief investigator's email address
+                        </label>
+                        <input class="govuk-input" id="search-ci-email" name="search-ci-email" type="text">
+                    </div>
+                </div>
+
+                <div class="govuk-grid-row govuk-!-margin-bottom-6">
+                    <div class="govuk-grid-column-one-half">
+                        <label class="govuk-label" for="search-ci-name">
+                            Study sponsor name
+                        </label>
+                        <input class="govuk-input" id="search-ci-name" name="search-ci-name" type="text">
+                    </div>
+
+                    <div class="govuk-grid-column-one-half">
+                        <label class="govuk-label" for="search-ci-email">
+                            Study sponsor email address
+                        </label>
+                        <input class="govuk-input" id="search-ci-email" name="search-ci-email" type="text">
+                    </div>
+                </div>
+
+                <button type="submit" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">
+                    Search
+                </button>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

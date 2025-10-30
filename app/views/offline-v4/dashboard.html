@@ -1,0 +1,47 @@
+{% extends "layouts/offline-v2.html" %}
+{% set containerClasses = "govuk-full-width-body" %}
+
+{% block pageTitle %}
+	Dashboard - {{ serviceName }} - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Dashboard</h1>
+
+        <p>You're signed in as <strong>{{ data['email-login'] | default('name@email.com') }}</strong></p>
+    </div>
+</div>
+
+<div class="govuk-grid-row govuk-card-equal-height">
+	<div class="govuk-grid-column-one-half">
+        <div class="govuk-card govuk-card--contained">
+            <div class="govuk-card__content">
+                <h2 class="govuk-heading-m"><a href="search" class="govuk-link--no-visited-state">Search and manage studies</a></h2>
+                <p>
+					You can search for a study and update the study details.
+				</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="govuk-grid-column-one-half">
+        <div class="govuk-card govuk-card--contained">
+            <div class="govuk-card__content">
+                <h2 class="govuk-heading-m"><a href="register-study" class="govuk-link--no-visited-state">Register a new study</a></h2>
+                <p>
+					Register to get a GRIS ID for a new study.
+				</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

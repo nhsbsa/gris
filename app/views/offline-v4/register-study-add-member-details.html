@@ -1,0 +1,75 @@
+{% extends "layouts/offline-v2.html" %}
+{% set containerClasses = "govuk-full-width-body" %}
+
+{% block pageTitle %}
+   Study team member's details - Register a study - {{ serviceName }} - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+    {{ govukBackLink({
+        text: "Back",
+        href: "register-study-add-members"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-l">Register a study</span>
+        <h1 class="govuk-heading-l">
+            Study team member's details
+        </h1>
+        <form action="register-study-add-member-details" method="post">
+            {{ govukInput({
+                label: {
+                    text: "Full name"
+                },
+                id: "member-full-name",
+                name: "add-full-name"
+            }) }}
+
+            {{ govukInput({
+                label: {
+                    text: "Email address"
+                },
+                id: "member-email",
+                name: "add-member-email",
+                type: "email",
+                autocomplete: "email"
+            }) }}
+
+            {{ govukRadios({
+                name: "add-member-permissions",
+                fieldset: {
+                    legend: {
+                    text: "What permissions do you want to give this team member?",
+                    classes: ""
+                    }
+                },
+                items: [
+                    {
+                    value: "read-only",
+                    text: "Read-only",
+                    hint: {
+                        text: "This option allows the team member to view all study information. They will not be able to change the study information or add new members."
+                    }
+                    },
+                    {
+                    value: "editor",
+                    text: "Editor",
+                    hint: {
+                        text: "This option allows the team member to update study information and add or remove other members."
+                    }
+                    }
+                ]
+            }) }}
+            
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form>
+    </div>
+</div>
+
+{% endblock %}
