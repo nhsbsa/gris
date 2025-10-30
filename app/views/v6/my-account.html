@@ -1,0 +1,27 @@
+{% extends "layouts/online-login-header.html" %}
+{% set serviceName="Service name" %}
+
+{% block pageTitle %}
+	Account settings - {{ serviceName }} - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">    
+            Account settings
+        </h1>
+    </div>
+</div>
+
+{% endblock %}
