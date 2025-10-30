@@ -1,9 +1,10 @@
-{#
-    For guidance on how to use layouts see:
-    https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
-#}
+{% extends "layouts/offline-login-header.html" %}
+{% set containerClasses = "govuk-full-width-body" %}
+{% set serviceName="Service name" %}
 
-{% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
+{% block pageTitle %}
+    No studies found - Register a study - {{ serviceName }} - GOV.UK Prototype Kit
+{% endblock %}
 
 {% block header %}
     <header class="rebranded-cross-service-header govuk-header--full-width-border" data-module="one-login-header">
@@ -29,7 +30,6 @@
                         </svg>
                     </a>
                 </div>
-                {% if data['loggedIn'] %}
                 <button type="button" aria-controls="one-login-header__nav" aria-label="Show login menu" data-open-class="rebranded-cross-service-header__toggle--open" data-label-for-show="Show login menu" data-label-for-hide="Hide login menu" aria-expanded="false" class="rebranded-cross-service-header__toggle js-x-header-toggle">
                     <span class="rebranded-cross-service-header__toggle-content-wrapper">
                 
@@ -66,8 +66,7 @@
                             </a>
                         </li>
                     </ul>
-                </nav>
-                {% endif %}   
+                </nav> 
             </div>
         </div>
 
@@ -84,8 +83,7 @@
                             {{ serviceName }}
                         </span>          
                     </span>
-
-                    {% if data['loggedIn'] %}
+                    
                     <nav aria-label="Menu" class="govuk-service-navigation__wrapper">          
                         <button type="button" class="govuk-service-navigation__toggle govuk-js-service-navigation-toggle" aria-controls="navigation" hidden>
                             Menu
@@ -98,8 +96,7 @@
                                 </a>
                             </li>
                         </ul>
-                    </nav>  
-                    {% endif %}    
+                    </nav>    
                 </div>
             </div>
         </section>                
@@ -107,8 +104,19 @@
     </header>
 {% endblock %}
 
-{% block footer %}
-    {{ govukFooter({
-        containerClasses: "govuk-full-width"
-    }) }}
+
+{% block beforeContent %}      
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-l">View study</span>
+        <h1 class="govuk-heading-l">    
+            No studies found
+        </h1>
+
+    </div>
+</div>
 {% endblock %}

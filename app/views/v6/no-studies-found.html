@@ -1,9 +1,9 @@
-{#
-    For guidance on how to use layouts see:
-    https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
-#}
+{% extends "layouts/online-login-header.html" %}
+{% set serviceName="Service name" %}
 
-{% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
+{% block pageTitle %}
+	No studies found - {{ serviceName }} - GOV.UK Prototype Kit
+{% endblock %}
 
 {% block header %}
 <header class="rebranded-cross-service-header" data-module="one-login-header">
@@ -29,7 +29,7 @@
                     </svg>
                 </a>
             </div>
-            {% if data['loggedIn'] %}
+
             <button type="button" aria-controls="one-login-header__nav" aria-label="Show login menu" data-open-class="rebranded-cross-service-header__toggle--open" data-label-for-show="Show login menu" data-label-for-hide="Hide login menu" aria-expanded="false" class="rebranded-cross-service-header__toggle js-x-header-toggle">
                 <span class="rebranded-cross-service-header__toggle-content-wrapper">
             
@@ -67,7 +67,7 @@
                     </li>
                 </ul>
             </nav>
-            {% endif %}   
+
         </div>
     </div>
 
@@ -107,4 +107,27 @@
     </section>                
     <!-- End of service navigation -->
 </header>
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-l">View study</span>
+        <h1 class="govuk-heading-l">    
+            No studies found
+        </h1>
+
+    </div>
+</div>
+
 {% endblock %}

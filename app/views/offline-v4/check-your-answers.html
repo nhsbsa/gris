@@ -13,7 +13,7 @@
 {% block content %}
 
 <div class="govuk-grid-row">
-	<div class="govuk-grid-column-two-thirds">    
+	<div class="govuk-grid-column-full">    
         <span class="govuk-caption-l">Register a study</span>   
         <h1 class="govuk-heading-l">Check your answers before you submit the new study details</h1>
 
@@ -77,7 +77,7 @@
                         </dt>
                         <dd class="govuk-summary-list__value">
                             <p class="govuk-body">
-                                {{ data['stage'] | replace('-', ' ') | capitalize | default('Not started', true) }}
+                                {{ data['stage'] | replace('-', ' ') | capitalize | default('Discovery stage', true) }}
                             </p>
                         </dd>
                         <dd class="govuk-summary-list__actions">
@@ -195,7 +195,7 @@
                                     <a class="govuk-link govuk-link--no-visited-state" href="register-study-add-member-details">Change<span class="govuk-visually-hidden"> Joe Bloggs</span></a>
                                 </li>
                                 <li class="govuk-summary-list__actions-list-item">
-                                    <a class="govuk-link govuk-link--no-visited-state" href="#">Delete<span class="govuk-visually-hidden"> {{ data['add-full-name'] | title | default('James Bond', true) }}</span></a>
+                                    <a class="govuk-link govuk-link--no-visited-state" href="delete-study-member">Delete<span class="govuk-visually-hidden"> {{ data['add-full-name'] | title | default('James Bond', true) }}</span></a>
                                 </li>
                             </ul>    
                         </dd>
