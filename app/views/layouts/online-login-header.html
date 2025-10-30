@@ -80,7 +80,11 @@
         <div class="govuk-width-container">
             <div class="govuk-service-navigation__container">
                 <span class="govuk-service-navigation__service-name">          
-                    <span class="govuk-service-navigation__text">{{ serviceName }}</span>          
+                    <span class="govuk-service-navigation__text">
+                        <a href="start" class="govuk-service-navigation__link">
+                            {{ serviceName }}
+                        </a>
+                    </span>           
                 </span>
 
                 {% if data['loggedIn'] %}

@@ -17,9 +17,8 @@
         <span class="govuk-caption-l">Register a study</span>   
         <h1 class="govuk-heading-l">Check your answers before you submit the new study details</h1>
 
-        <p>If there is a mistake, you can edit responses by selecting 'Change'. </p>
-        <p>You'll also have the option to change the responses after the submission through the 'manage studies' section of the dashboard.</p>
-
+        <p>If there is a mistake, you can edit responses by selecting 'Change'.</p>
+        
         <!-- Study details -->
         <div class="govuk-summary-card">
             <div class="govuk-summary-card__title-wrapper">
@@ -74,15 +73,15 @@
 
                     <div class="govuk-summary-list__row">
                         <dt class="govuk-summary-list__key">
-                            Current status of study
+                            Current stage of study
                         </dt>
                         <dd class="govuk-summary-list__value">
                             <p class="govuk-body">
-                                {{ data['status'] | replace('-', ' ') | capitalize | default('Not started', true) }}
+                                {{ data['stage'] | replace('-', ' ') | capitalize | default('Not started', true) }}
                             </p>
                         </dd>
                         <dd class="govuk-summary-list__actions">
-                            <a class="govuk-link govuk-link--no-visited-state" href="register-study">Change<span class="govuk-visually-hidden"> status</span></a>
+                            <a class="govuk-link govuk-link--no-visited-state" href="register-study">Change<span class="govuk-visually-hidden"> stage</span></a>
                         </dd>
                     </div>
 
@@ -122,7 +121,7 @@
                             </p>
                         </dd>
                         <dd class="govuk-summary-list__actions">
-                            <a class="govuk-link govuk-link--no-visited-state" href="study-setting">Change<span class="govuk-visually-hidden"> setting</span></a>
+                            <a class="govuk-link govuk-link--no-visited-state" href="register-study">Change<span class="govuk-visually-hidden"> setting</span></a>
                         </dd>
                     </div>
 
@@ -136,7 +135,7 @@
                             </p>
                         </dd>
                         <dd class="govuk-summary-list__actions">
-                            <a class="govuk-link govuk-link--no-visited-state" href="study-location">Change<span class="govuk-visually-hidden"> location</span></a>
+                            <a class="govuk-link govuk-link--no-visited-state" href="register-study">Change<span class="govuk-visually-hidden"> location</span></a>
                         </dd>
                     </div>
 
@@ -145,22 +144,11 @@
                             Chief investigator
                         </dt>
                         <dd class="govuk-summary-list__value">
-                            <p class="govuk-body">Amrit Banstola</p>
+                            <p class="govuk-body">
+                                {{ data['investigator-name'] | default('Amrit Banstola', true) }}</p>
                         </dd>
                         <dd class="govuk-summary-list__actions">
-                            <a class="govuk-link govuk-link--no-visited-state" href="chief-investigator-orcid-id">Change<span class="govuk-visually-hidden"> Chief Investigator ORCID ID</span></a>
-                        </dd>
-                    </div>
-
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-                            Chief investigator ORCID iD
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-                            <p class="govuk-body">0000-0003-3185-9638</p>
-                        </dd>
-                        <dd class="govuk-summary-list__actions">
-                            <a class="govuk-link govuk-link--no-visited-state" href="chief-investigator-orcid-id">Change<span class="govuk-visually-hidden"> Chief Investigator ORCID ID</span></a>
+                            <a class="govuk-link govuk-link--no-visited-state" href="register-study">Change<span class="govuk-visually-hidden"> Chief Investigator ORCID ID</span></a>
                         </dd>
                     </div>
 
@@ -172,7 +160,7 @@
                             {{ data['investigator-email'] | default('a.banstola@email.ac.uk', true) }}
                         </dd>
                         <dd class="govuk-summary-list__actions">
-                            <a class="govuk-link govuk-link--no-visited-state" href="chief-investigator-email">Change<span class="govuk-visually-hidden"> Chief investigator email</span></a>
+                            <a class="govuk-link govuk-link--no-visited-state" href="register-study">Change<span class="govuk-visually-hidden"> Chief investigator email</span></a>
                         </dd>
                     </div>
                 </dl>
@@ -197,7 +185,6 @@
                     <div class="govuk-summary-list__row">
                         <dt class="govuk-summary-list__key">
                             {{ data['add-full-name'] | title | default('James Bond', true) }}
-                            <p class="govuk-hint govuk-!-margin-bottom-0">({{ data['add-member-permissions'] | capitalize | default('Read-only', true) }} permissions)</p>
                         </dt>
                         <dd class="govuk-summary-list__value">
                             {{ data['add-member-email'] | default('james.bond@email.com', true) }}
@@ -235,7 +222,9 @@
                     <div class="govuk-summary-list__row">
                         <dt class="govuk-summary-list__key">
                             {{ data['sponsor-name'] | title | default('Manchester University NHS Foundation Trust', true) }}
-                            <p class="govuk-hint govuk-!-margin-bottom-0">{{ data['sponsor-type'] | replace('-', ' ') | capitalize | default('Higher education institution', true)}}</p>
+                            <p class="govuk-hint govuk-!-margin-bottom-0">
+                                {{ data['sponsor-type'] | replace('-', ' ') | capitalize | replace('Nhs', 'NHS') | default('Higher education institution', true) }}
+                            </p>
                         </dt>
                         <dd class="govuk-summary-list__value">
                             {{ data['sponsor-email'] | default('sponsor-email@email.com', true) }}
@@ -295,30 +284,6 @@
                         </dd>
                         <dd class="govuk-summary-list__actions">
                             <a class="govuk-link govuk-link--no-visited-state" href="register-study-related-information">Change <span class="govuk-visually-hidden">relationship</span></a>
-                        </dd>
-                    </div>
-
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-                           Does the related study have the same IRAS ID as the new study?
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-                            <p class="govuk-body">Yes</p>
-                        </dd>
-                        <dd class="govuk-summary-list__actions">
-                            <a class="govuk-link govuk-link--no-visited-state" href="register-study-related-information">Change <span class="govuk-visually-hidden">relationship</span></a>
-                        </dd>
-                    </div>
-
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-                            Funding ID of related study
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-                            <p class="govuk-body">FUNDING ID 12344, REALMS</p>
-                        </dd>
-                        <dd class="govuk-summary-list__actions">
-                            <a class="govuk-link govuk-link--no-visited-state" href="register-study-related-information">Change <span class="govuk-visually-hidden">funding</span></a>
                         </dd>
                     </div>
                 </dl>

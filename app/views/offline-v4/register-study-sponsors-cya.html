@@ -41,7 +41,7 @@
                     Type of organisation
                 </dt>
                 <dd class="govuk-summary-list__value">
-                    NHS organisation
+                    {{ data['sponsor-type'] | replace('-', ' ') | capitalize | replace('Nhs', 'NHS') | default('Higher education institution', true)}}
                 </dd>
                 <dd class="govuk-summary-list__actions">
                     <a class="govuk-link govuk-link--no-visited-state" href="register-study-sponsors">Change<span class="govuk-visually-hidden"> sponsor type</span></a>

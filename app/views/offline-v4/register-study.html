@@ -160,12 +160,12 @@
             }) }}
 
             <!-- Government strategic priorities -->
-            {{ govukCheckboxes({
+              {{ govukCheckboxes({
                 name: "priorities",
                 fieldset: {
                     legend: {
-                    text: "Which of the following government strategic priorities does your study align with?",
-                    classes: ""
+                        text: "Which of the following government strategic priorities does your study align with?",
+                        classes: ""
                     }
                 },
                 hint: {
@@ -173,45 +173,46 @@
                 },
                 items: [
                     {
-                        value: "prevention-early-detection",
-                        text: "Prevention and early detection of disease"
-                    },
-                    {
-                        value: "patient-safety-quality",
-                        text: "Improving patient safety and quality of care"
-                    },
-                    {
-                        value: "health-inequalities",
-                        text: "Reducing health inequalities"
-                    },
-                    {
-                        value: "mental-health",
-                        text: "Mental health and wellbeing"
-                    },
-                    {
-                        value: "healthy-ageing",
-                        text: "Healthy ageing and multimorbidity"
-                    },
-                    {
-                        value: "digital-health",
+                        value: "digital-health-and-data-driven-innovation",
                         text: "Digital health and data-driven innovation"
                     },
                     {
-                        value: "capacity-building",
-                        text: "Translational & clinical research capacity building"
+                        value: "healthy-ageing-and-multimorbidity",
+                        text: "Healthy ageing and multimorbidity"
                     },
                     {
-                        value: "sustainability-net-zero",
-                        text: "Sustainability and net zero in health and care"
+                        value: "improving-patient-safety-and-quality-of-care",
+                        text: "Improving patient safety and quality of care"
                     },
                     {
-                        value: "social-care-integration",
+                        value: "mental-health-and-wellbeing",
+                        text: "Mental health and wellbeing"
+                    },
+                    {
+                        value: "prevention-and-early-detection-of-disease",
+                        text: "Prevention and early detection of disease"
+                    },
+                    {
+                        value: "public-and-community-health-improvement",
+                        text: "Public and community health improvement"
+                    },
+                    {
+                        value: "reducing-health-inequalities",
+                        text: "Reducing health inequalities"
+                    },
+                    {
+                        value: "social-care-and-integration-of-services",
                         text: "Social care and integration of services"
                     },
                     {
-                        value: "public-health",
-                        text: "Public and community health improvement"
+                        value: "sustainability-and-net-zero-in-health-and-care",
+                        text: "Sustainability and net zero in health and care"
                     },
+                    {
+                        value: "translational-and-clinical-research-capacity-building",
+                        text: "Translational and clinical research capacity building"
+                    }
+                    ,
                     {
                     divider: "or"
                     },
@@ -223,41 +224,37 @@
                 ]
             }) }}
 
-            <!-- Study status-->
+            <!-- Study stage -->
             {{ govukRadios({
-                name: "status",
+                name: "stage",
                 fieldset: {
                     legend: {
-                    text: "What is the current status of this study?",
+                    text: "What is the current stage of this study?",
                     classes: ""
                     }
                 },
                 items: [
                     {
-                    value: "open-to-recruitment",
-                    text: "Open to recruitment"
+                    value: "discovery-stage",
+                    text: "Discovery stage"
                     },
                     {
-                    value: "closed-to-recruitment",
-                    text: "Closed to recruitment"
+                    value: "pre-award-stage",
+                    text: "Pre-award stage"
                     },
                     {
-                    value: "completed",
-                    text: "Completed"
+                    value: "study-implementation-stage",
+                    text: "Study implementation stage"
                     },
                     {
-                    value: "suspended-or-on-hold",
-                    text: "Suspended or on hold"
-                    },
-                    {
-                    value: "not-started",
-                    text: "Not started"
+                    value: "post-award-stage",
+                    text: "Post-award stage"
                     }
                 ]
             }) }}
 
             <!-- Study phase -->
-            {{ govukRadios({   
+            {{ govukRadios({
                 name: "phase",
                 fieldset: {
                     legend: {
@@ -285,6 +282,9 @@
                     {
                     value: "phase-four",
                     text: "Phase IV"
+                    },
+                    {
+                    divider: "or"
                     },
                     {
                     value: "na",
@@ -352,13 +352,16 @@
             }) }}
 
             <!-- Study location -->
-            {{ govukRadios({   
+            {{ govukCheckboxes({
                 name: "location",
                 fieldset: {
                     legend: {
                     text: "Where is the study located?",
                     classes: ""
                     }
+                },
+                hint: {
+                    html: "<p>Select all that apply.</p>"
                 },
                 items: [
                     {
@@ -376,7 +379,7 @@
                     {
                     value: "northern-ireland",
                     text: "Northern Ireland"
-                    }
+                    }                               
                 ]
             }) }}
 
@@ -386,8 +389,8 @@
 					text: "What is the chief investigator or key lead's full name?",
 					classes: ""
 				},
-				id: "ci-name",
-				name: "ci-name"
+				id: "investigator-name",
+				name: "investigator-name"
 			}) }}
 
             <!-- Email address for chief investigator or key lead -->
@@ -396,79 +399,9 @@
 					text: "What is the chief investigator or key lead's email address?",
 					classes: ""
 				},
-				id: "ci-email",
-				name: "ci-email"
+				id: "investigator-email",
+				name: "investigator-email"
 			}) }}
-
-            <!-- OCID ID of chief investigtor or key lead -->
-            <div class="govuk-form-group">                
-                <div class="govuk-form-group">
-                    <fieldset class="govuk-fieldset" role="group" aria-describedby="orcid-id-hint">
-                        <legend class="govuk-fieldset__legend">
-                            What is the ORCID iD of the chief investigator or the key lead?
-                        </legend>
-                        
-                        <div id="orcid-id-hint" class="govuk-hint">
-                            For example, 0000-0003-3185-9638
-                        </div>
-                        
-                        <div class="govuk-date-input" id="orcid-id">
-                            <div class="govuk-date-input__item govuk-!-margin-right-0">
-                                <div class="govuk-form-group">
-                                    <label class="govuk-label govuk-visually-hidden" for="orcid-id-one">
-                                        ORCID ID part one
-                                    </label>
-                                    <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="orcid-id-one" name="orcid-id-one" type="text" inputmode="numeric">
-                                </div>
-                            </div>
-
-                            <p class="govuk-!-display-inline govuk-!-margin-right-1 govuk-!-margin-left-1" >-</p>
-
-                            <div class="govuk-date-input__item govuk-!-margin-right-0">
-                                <div class="govuk-form-group">
-                                    <label class="govuk-label govuk-visually-hidden" for="orcid-id-two">
-                                        ORCID ID part two
-                                    </label>
-                                    <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="orcid-id-two" name="orcid-id-two" type="text" inputmode="numeric">
-                                </div>
-                            </div>
-
-                            <p class="govuk-!-display-inline govuk-!-margin-right-1 govuk-!-margin-left-1" >-</p>
-                            
-                            <div class="govuk-date-input__item govuk-!-margin-right-0">
-                                <div class="govuk-form-group">
-                                    <label class="govuk-label govuk-visually-hidden" for="orcid-id-three">
-                                        ORCID ID part three
-                                    </label>
-                                    <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="orcid-id-three" name="orcid-id-three" type="text" inputmode="numeric">
-                                </div>
-                            </div>
-
-                            <p class="govuk-!-display-inline govuk-!-margin-right-1 govuk-!-margin-left-1" >-</p>
-
-                            <div class="govuk-date-input__item govuk-!-margin-right-0">
-                                <div class="govuk-form-group">
-                                    <label class="govuk-label govuk-visually-hidden" for="orcid-id-four">
-                                        ORCID ID part four
-                                    </label>
-                                    <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="orcid-id-four" name="orcid-id-four" type="text" inputmode="numeric">
-                                </div>
-                            </div>
-                        </div>
-                    </fieldset>
-                </div>
-            </div>
-            
-            <details class="govuk-details">
-                <summary class="govuk-details__summary">
-                    <span class="govuk-details__summary-text">
-                        Where can I find an ORCID iD?
-                    </span>
-                </summary>
-                <div class="govuk-details__text">
-                    To find an ORCID iD, you can <a href="#" target="_blank">search the ORCID registry (opens in new tab)</a>.
-                </div>
-            </details>    
 
             {{ govukButton({
                 text: "Continue"

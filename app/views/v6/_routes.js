@@ -304,7 +304,7 @@ router.post('/related-study-id', function(req, res) {
 router.post('/related-study-relationship', function(req, res) {
     let relationship = req.session.data['study-relationship']
 
-    if (relationship == "sub" || relationship == "parent" || relationship == "platform" || relationship == "cont") {
+    if (relationship == "sub-study" || relationship == "parent-study" || relationship == "platform-study" || relationship == "continuation-study") {
         res.redirect("check-your-answers")
     } else {
         res.redirect("related-study-relationship")
