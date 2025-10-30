@@ -1,5 +1,6 @@
-{% extends "layouts/offline-v2.html" %}
+{% extends "layouts/offline-login-header.html" %}
 {% set containerClasses = "govuk-full-width-body" %}
+{% set serviceName="Service name" %}
 
 {% block pageTitle %}
 	Search for a study - {{ serviceName }} - GOV.UK Prototype Kit
@@ -40,8 +41,8 @@
                 Sort by
             </label>
             <select class="govuk-select" id="sort" name="sort">
-                <option value="gris-asc" selected>GRIS ID (ascending)</option>
-                <option value="gris-desc">GRIS ID (descending)</option>
+                <option value="gris-asc" selected>[Service name ID] (ascending)</option>
+                <option value="gris-desc">[Service name ID] (descending)</option>
                 <option value="title-asc">Study title (ascending)</option>
                 <option value="title-desc">Study title (descending)</option>
                 <option value="sponsor-asc">Study sponsor (ascending)</option>
@@ -54,7 +55,7 @@
         <table class="govuk-table govuk-table--small-text-until-tablet">        
             <thead class="govuk-table__head">
                 <tr class="govuk-table__row">
-                    <th scope="col" class="govuk-table__header">GRIS ID</th>
+                    <th scope="col" class="govuk-table__header">[Service name ID]</th>
                     <th scope="col" class="govuk-table__header">Short title of study</th>
                     <!-- <th scope="col" class="govuk-table__header">Study phase</th> -->
                     <th scope="col" class="govuk-table__header">Chief investigator</th>
@@ -64,7 +65,7 @@
             </thead>
             <tbody class="govuk-table__body">
                 <tr class="govuk-table__row">
-                    <td class="govuk-table__cell"><a href="manage-study" class="govuk-link--no-visited-state">GRIS-111 111 111</a></th>
+                    <td class="govuk-table__cell"><a href="view-study" class="govuk-link--no-visited-state">GRIS-111 111 111</a></th>
                     <td class="govuk-table__cell">Investigating left arm disease</td>
                     <!-- <td class="govuk-table__cell">        
                         <strong class="govuk-tag govuk-tag--blue">
@@ -77,7 +78,7 @@
                 </tr>
 
                 <tr class="govuk-table__row">
-                    <td class="govuk-table__cell"><a href="manage-study" class="govuk-link--no-visited-state">GRIS-260 620 251 </a></th>
+                    <td class="govuk-table__cell"><a href="view-study" class="govuk-link--no-visited-state">GRIS-260 620 251 </a></th>
                     <td class="govuk-table__cell">Investigating if dogs are the best</td>
                     <!-- <td class="govuk-table__cell">
                         <strong class="govuk-tag govuk-tag--light-blue">
@@ -90,7 +91,7 @@
                 </tr>
 
                 <tr class="govuk-table__row">
-                    <td class="govuk-table__cell"><a href="manage-study" class="govuk-link--no-visited-state">GRIS-360 119 931 </a></th>
+                    <td class="govuk-table__cell"><a href="view-study" class="govuk-link--no-visited-state">GRIS-360 119 931 </a></th>
                     <td class="govuk-table__cell">Investigating if eye colour can change</td>
                     <!-- <td class="govuk-table__cell">
                         <strong class="govuk-tag govuk-tag--turquoise">

@@ -1,6 +1,8 @@
 const express = require('express')
 const router = express.Router()
 
+let version = 'v6';
+
 // Sign in
 router.post('/sign-in', function(req, res) {
     let emailLogin = req.session.data['email-login']
@@ -38,9 +40,38 @@ router.post('/enter-auth-code', function(req, res) {
     }
 })
 
-// Dashboard - Don't let user view unless logged in
-let version = 'v6';
+// If signed in already, don't let the user go to sign in, enter password, or enter auth code screens
+router.get('/sign-in', function (req, res) {
+    let currentPath = req.path;
+    
+    if (req.session.data['loggedIn']) {
+       res.redirect('dashboard');
+    } else {
+        res.render(`${version}/sign-in`, { currentPath });
+    }
+});
 
+router.get('/enter-password', function (req, res) {
+    let currentPath = req.path;
+    
+    if (req.session.data['loggedIn']) {
+       res.redirect('dashboard');
+    } else {
+        res.render(`${version}/enter-password`, { currentPath });
+    }
+});
+
+router.get('/enter-auth-code', function (req, res) {
+    let currentPath = req.path;
+    
+    if (req.session.data['loggedIn']) {
+       res.redirect('dashboard');
+    } else {
+        res.render(`${version}/enter-auth-code`, { currentPath });
+    }
+});
+
+// Dashboard - Don't let user view unless logged in
 router.get('/dashboard', function (req, res) {
     let currentPath = req.path;
 

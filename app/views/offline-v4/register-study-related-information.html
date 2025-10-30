@@ -1,5 +1,6 @@
-{% extends "layouts/offline-v2.html" %}
+{% extends "layouts/offline-login-header.html" %}
 {% set containerClasses = "govuk-full-width-body" %}
+{% set serviceName="Service name" %}
 
 {% block pageTitle %}
    Related study information - Register a study - {{ serviceName }} - GOV.UK Prototype Kit
@@ -24,7 +25,7 @@
         <!-- <hr class="govuk-!-margin-bottom-6"> -->
 
 		<form action="register-study-related-information" method="post">
-            <!-- Do you know related study GRIS ID -->
+            <!-- Do you know related study [Service name ID] -->
             {% set yesHtml %}
                 {{ govukInput({
                 id: "related-id",
@@ -33,7 +34,7 @@
                 spellcheck: false,
                 classes: "govuk-!-width-two-thirds",
                 label: {
-                    text: "GRIS ID of the related study"
+                    text: "[Service name ID] of the related study"
                 }
                 }) }}
             {% endset -%}
@@ -42,7 +43,7 @@
                 name: "study-gris-id",
                 fieldset: {
                     legend: {
-                    text: "Do you know the GRIS ID of the related study?",
+                    text: "Do you know the [Service name ID] of the related study?",
                     classes: ""
                     }
                 },

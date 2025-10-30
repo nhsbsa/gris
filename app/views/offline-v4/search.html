@@ -1,5 +1,6 @@
-{% extends "layouts/offline-v2.html" %}
+{% extends "layouts/offline-login-header.html" %}
 {% set containerClasses = "govuk-full-width-body" %}
+{% set serviceName="Service name" %}
 
 {% block pageTitle %}
 	Search for a study - {{ serviceName }} - GOV.UK Prototype Kit
@@ -28,7 +29,7 @@
 
                     <div class="govuk-grid-column-one-half">
                         <label class="govuk-label" for="search-gris-id">
-                            GRIS ID
+                            [Service name ID]
                         </label>
                         <input class="govuk-input" id="search-gris-id" name="search-gris-id" type="text">
                     </div>
