@@ -3,6 +3,91 @@ const router = express.Router()
 
 let version = 'v6';
 
+// Register an account - email
+router.post('/register-account', function(req, res) {
+    let registerEmail = req.session.data['email-register']
+
+    if (!registerEmail || registerEmail.trim() === "") {
+        res.redirect("register-account")
+        // add proper error functionality in future versions instead of redirect
+    } else {
+        res.redirect("register-account-check-email")
+    }
+})
+
+// Register an account - security code
+router.post('/register-account-check-email', function(req, res) {
+    let registerCode = req.session.data['code-register']
+
+    if (!registerCode || registerCode.trim() === "") {
+        res.redirect("register-account-check-email")
+        // add proper error functionality in future versions instead of redirect
+    } else {
+        res.redirect("register-account-create-password")
+    }
+})
+
+// Register an account - create password
+router.post('/register-account-create-password', function(req, res) {
+    let registerPass = req.session.data['password-register']
+
+    if (!registerPass || registerPass.trim() === "") {
+        res.redirect("register-account-create-password")
+        // add proper error functionality in future versions instead of redirect
+    } else {
+        res.redirect("register-account-choose-auth")
+    }
+})
+
+// Register an account - choose 2FA method
+router.post('/register-account-choose-auth', function(req, res) {
+    let registerAuth = req.session.data['auth-register']
+
+    if (registerAuth == "text-message") {
+        res.redirect("register-account-mobile")
+    } else if (registerAuth == "authenticator-app") {
+        res.redirect("register-account-authenticator")
+    } else {
+        res.redirect("egister-account-choose-auth")
+    }
+})
+
+// Register an account - enter mobile number
+router.post('/register-account-mobile', function(req, res) {
+    let registerMobile = req.session.data['mobile-register']
+
+    if (!registerMobile || registerMobile.trim() === "") {
+        res.redirect("register-account-mobile")
+        // add proper error functionality in future versions instead of redirect
+    } else {
+        res.redirect("register-account-mobile-code")
+    }
+})
+
+// Register an account - phone code
+router.post('/register-account-mobile-code', function(req, res) {
+    let phoneCode = req.session.data['code-register']
+
+    if (!phoneCode || phoneCode.trim() === "") {
+        res.redirect("register-account-mobile-code")
+        // add proper error functionality in future versions instead of redirect
+    } else {
+        res.redirect("register-account-completed")
+    }
+})
+
+// Register an account - authenticator app
+router.post('/register-account-authenticator', function(req, res) {
+    let authenticatorCode = req.session.data['auth-code-register']
+
+    if (!authenticatorCode || authenticatorCode.trim() === "") {
+        res.redirect("register-account-authenticator")
+        // add proper error functionality in future versions instead of redirect
+    } else {
+        res.redirect("register-account-completed")
+    }
+})
+
 // Sign in
 router.post('/sign-in', function(req, res) {
     let emailLogin = req.session.data['email-login']
@@ -27,6 +112,30 @@ router.post('/enter-your-password', function(req, res) {
     }
 })
 
+// Forgot my password
+router.post('/forgot-my-password', function(req, res) {
+    let passwordCode = req.session.data['forgot-password']
+
+    if (!passwordCode || passwordCode.trim() === "") {
+        res.redirect("forgot-my-password")
+        // add proper error functionality in future versions instead of redirect
+    } else {
+        res.redirect("reset-my-password")
+    }
+})
+
+// Reset my password
+router.post('/reset-my-password', function(req, res) {
+    let passwordReset = req.session.data['password-reset']
+
+    if (!passwordReset || passwordReset.trim() === "") {
+        res.redirect("reset-my-password")
+        // add proper error functionality in future versions instead of redirect
+    } else {
+        res.redirect("reset-my-password-completed")
+    }
+})
+
 // Enter auth code
 router.post('/enter-auth-code', function(req, res) {
     let code = req.session.data['auth-code']
@@ -40,7 +149,7 @@ router.post('/enter-auth-code', function(req, res) {
     }
 })
 
-// If signed in already, don't let the user go to sign in, enter password, or enter auth code screens
+// If signed in already, don't let the user go to certain screens
 router.get('/sign-in', function (req, res) {
     let currentPath = req.path;
     

@@ -24,18 +24,20 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
         <form action="sign-in" method="post">
-			<div class="govuk-form-group">
-				<h1 class="govuk-label-wrapper">
-					<label class="govuk-label govuk-label--l" for="email-login">
-						Enter your email address
-					</label>
-				</h1>
-				<input class="govuk-input" id="email-login" name="email-login" type="email">
-			</div>
+			{{ govukInput({
+				label: {
+					text: "Enter your email address",
+					classes: "govuk-label--l",
+					isPageHeading: true
+				},
+					id: "email-login",
+					name: "email-login",
+					type: "email"
+			}) }}
 
-			<button type="submit" class="govuk-button" data-module="govuk-button">
-				Continue
-			</button>
+            {{ govukButton({
+                text: "Continue"
+            }) }}
 		</form>
     </div>
 </div>

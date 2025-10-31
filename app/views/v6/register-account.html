@@ -1,0 +1,54 @@
+{% extends "layouts/online-login-header.html" %}
+{% set serviceName="Service name" %}
+
+{% block pageTitle %}
+	Enter your email address - {{ serviceName }} - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "start"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+        <form action="register-account" method="post">
+            {{ govukInput({
+            label: {
+                text: "Enter your email address",
+                classes: "govuk-label--l",
+                isPageHeading: true
+            },
+                id: "email-register",
+                name: "email-register",
+                type: "email"
+            }) }}
+
+            <h2 class="govuk-heading-s">Agree to the [service name] terms of use</h2>
+
+            <p>By continuing, you confirm that you agree to our:</p>
+
+            <ul class="govuk-list govuk-list--bullet">
+                <li><a href="#" class="govuk-link--no-visited-state">privacy notice (opens in a new tab)</a> which explains how we use your personal information</li>
+                <li><a href="#" class="govuk-link--no-visited-state">terms and conditions (opens in a new tab)</a></li>
+            </ul>
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+		</form>
+    </div>
+</div>
+
+{% endblock %}

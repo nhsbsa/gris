@@ -1,0 +1,61 @@
+{% extends "layouts/online-login-header.html" %}
+{% set serviceName="Service name" %}
+
+{% block pageTitle %}
+	Check your email - {{ serviceName }} - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "register-account"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Check your email</h1>
+
+        {% set email = data['email-register'] | default('james.bond@email.com', true) %}
+
+        {{ govukInsetText({
+            html: "We have sent an email to: <strong>" + email + "</strong>"
+        }) }}
+
+        <p>The email contains a 6 digit security code.</p>
+        <p>Your email might take a few minutes to arrive. If you do not get an email, check your spam folder.</p>
+        <p>The code will expire after one hour.</p>
+
+        <form action="register-account-check-email" method="post">
+            {{ govukInput({
+            label: {
+                text: "Enter the 6 digit security code",
+                classes: "govuk-label"
+            },
+                classes: "govuk-input--width-10",
+                id: "code-register",
+                name: "code-register"
+            }) }}
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+		</form>
+
+        {{ govukDetails({
+            summaryText: "Problems with the code?",
+            html: '<p>We can <a href="#" class="govuk-link--no-visited-state">send the code again</a> or you can <a href="register-account-mobile" class="govuk-link--no-visited-state">use a different email address</a>.</p>'
+        }) }}
+    </div>
+</div>
+
+{% endblock %}

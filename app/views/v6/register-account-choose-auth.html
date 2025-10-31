@@ -1,0 +1,62 @@
+{% extends "layouts/online-login-header.html" %}
+{% set serviceName="Service name" %}
+
+{% block pageTitle %}
+	Choose how to get security codes - {{ serviceName }} - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+        <form action="register-account-choose-auth" method="post">
+
+            {{ govukRadios({
+                name: "auth-register",
+                fieldset: {
+                    legend: {
+                    text: "Choose how to get security codes",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                    }
+                },
+                hint: { 
+                    text: "You'll need to enter a security code when you sign in to [service name]"
+                },
+                items: [    
+                    {
+                        value: "text-message",
+                        text: "Text message"
+                    },
+                    {
+                        value: "authenticator-app",
+                        text: "Authenticator app",
+                        hint: {
+                            text: "You can use any authenticator app to create security codes when you sign in"
+                        }
+                    }
+                ]
+            }) }}            
+
+            {{ govukDetails({
+                summaryText: "What is an authenticator app?",
+                html: "<p>An authenticator app creates a security code that helps confirm it's you when you sign in.</p><p>You can use an authenticator app on your smartphone, tablet or desktop computer.</p><p>Download an authenticator app from your app store or search online for one you can use on your computer.</p>"
+            }) }}
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+		</form>
+    </div>
+</div>
+
+{% endblock %}
