@@ -28,6 +28,30 @@ router.post('/enter-your-password', function(req, res) {
     }
 })
 
+// Forgot my password
+router.post('/forgot-my-password', function(req, res) {
+    let passwordCode = req.session.data['forgot-password']
+
+    if (!passwordCode || passwordCode.trim() === "") {
+        res.redirect("forgot-my-password")
+        // add proper error functionality in future versions instead of redirect
+    } else {
+        res.redirect("reset-my-password")
+    }
+})
+
+// Reset my password
+router.post('/reset-my-password', function(req, res) {
+    let passwordReset = req.session.data['password-reset']
+
+    if (!passwordReset || passwordReset.trim() === "") {
+        res.redirect("reset-my-password")
+        // add proper error functionality in future versions instead of redirect
+    } else {
+        res.redirect("reset-my-password-completed")
+    }
+})
+
 // Enter auth code
 router.post('/enter-auth-code', function(req, res) {
     let code = req.session.data['auth-code']
