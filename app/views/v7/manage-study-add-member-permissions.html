@@ -1,0 +1,67 @@
+{% extends "layouts/online-login-header.html" %}
+{% set serviceName="Service name" %}
+
+{% block pageTitle %}
+	What permissions do you want to give this team member for [study name]? - {{ serviceName }} - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "manage-study-add-member-email"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+        <form action="manage-study-add-member-permissions" method="post">
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                        <span class="govuk-caption-l">Manage study</span>
+                        <h1 class="govuk-fieldset__heading">
+                            What permissions do you want to give this team member?
+                        </h1>
+                    </legend>
+
+                    <div class="govuk-radios" data-module="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="permissions" name="permissions" type="radio" value="read-only" aria-describedby="permissions-item-hint">
+                            <label class="govuk-label govuk-radios__label" for="permissions">
+                                Read-only
+                            </label>
+                            <div id="permissions-item-hint" class="govuk-hint govuk-radios__hint">
+                                This option allows the team member view all study information. They will not be able to change the study information or add new members.
+                            </div>
+                        </div>
+
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="permissions-2" name="permissions" type="radio" value="editor" aria-describedby="permissions-2-item-hint">
+                            <label class="govuk-label govuk-radios__label" for="permissions-2">
+                                Editor
+                            </label>
+                            <div id="permissions-2-item-hint" class="govuk-hint govuk-radios__hint">
+                                This option allows the team member update study information and add or remove other members.
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+   
+            <button type="submit" class="govuk-button" data-module="govuk-button">
+                Continue
+            </button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

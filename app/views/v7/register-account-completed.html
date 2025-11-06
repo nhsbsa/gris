@@ -1,0 +1,37 @@
+{% extends "layouts/online-login-header.html" %}
+{% set serviceName="Service name" %}
+
+{% block pageTitle %}
+	You have created your [service name] login - {{ serviceName }} - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+        <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-6">
+            <h1 class="govuk-panel__title">
+                You have created your [service name] login
+            </h1>
+        </div>
+
+        <p>We've sent an email to you confirming the creation of your [service name] account.</p>
+
+        <h2 class="govuk-heading-m">What happens next</h2>
+
+        <p>You can <a href="start" class="govuk-link govuk-link--no-visited-state">return to the home page</a> to login to your account and view your studies, or register a new study</a>.</p>        
+    
+
+    </div>
+</div>
+
+{% endblock %}

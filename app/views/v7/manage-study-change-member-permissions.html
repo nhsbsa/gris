@@ -1,0 +1,62 @@
+{% extends "layouts/online-login-header.html" %}
+{% set serviceName="Service name" %}
+
+{% block pageTitle %}
+	Change study member's details - Manage study - {{ serviceName }} - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}   
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}   
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "manage-study-change-member-email"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">        
+        <form action="manage-study-change-member-permissions" method="post">
+            <span class="govuk-caption-l">Manage study</span>
+            {{ govukRadios({
+                name: "change-permissions",
+                fieldset: {
+                    legend: {
+                    text: "What permissions do you want to give this team member?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                    }
+                },
+                items: [
+                    {
+                    value: "read-only",
+                    text: "Read-only",
+                    hint: {
+                        text: "This option allows the team member to view all study information. They will not be able to change the study information or add new members."
+                    }
+                    },
+                    {
+                    value: "editor",
+                    text: "Editor",
+                    hint: {
+                        text: "This option allows the team member to update study information and add or remove other members."
+                    }
+                    }
+                ]
+            }) }}
+
+            <button type="submit" class="govuk-button" data-module="govuk-button">
+                Continue
+            </button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

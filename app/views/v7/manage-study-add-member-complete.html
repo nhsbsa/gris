@@ -1,0 +1,41 @@
+{% extends "layouts/online-login-header.html" %}
+{% set serviceName="Service name" %}
+
+{% block pageTitle %}
+	You have added a new study team member - {{ serviceName }} - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}   
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}   
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+        <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-6">
+            <h1 class="govuk-panel__title">
+                You have added a new study team member
+            </h1>
+            <div class="govuk-panel__body">
+                {{ data['member-full-name'] | title | default('James Bond', true) }}<br>
+                <strong>{{ data['member-email-address'] | default('james.bond@email.com', true) }}</strong>
+            </div>
+        </div>
+
+        <p>We have updated [study name] with the new team member's details.</p> 
+                        
+        <h2 class="govuk-heading-m">What happens next</h2>
+            
+        <p>We've sent an email to the chief investigator, the study team members, and the organisation's point of contact to let them know that a new study team member has been added to the study.</p>
+        <p>To update more information in this study, <a href="view-my-study" class="govuk-link--no-visited-state">return to manage this study</a>.</p>
+        <p>You can return to dashboard to <a href="dashboard" class="govuk-link--no-visited-state">register a study</a>.</p>
+    </div>
+</div>
+
+{% endblock %}

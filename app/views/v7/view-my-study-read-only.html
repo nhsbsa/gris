@@ -1,0 +1,143 @@
+{% extends "layouts/online-login-header.html" %}
+{% set serviceName="Service name" %}
+
+{% block pageTitle %}
+	Manage my study - {{ serviceName }} - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "my-studies"
+    }) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-clearfix govuk-!-margin-bottom-4">
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full" style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <span class="govuk-caption-l">Manage study</span>
+                <h1 class="govuk-heading-l">Investigating right arm disease</h1>
+            </div>
+            
+            <a href="manage-study-request-access" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+                Request edit access
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-full">
+        <div class="govuk-summary-card">
+            <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">
+                    Study details
+                </h2>
+            </div>
+
+            <div class="govuk-summary-card__content">
+                <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Short title of study
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            Investigating right arm disease
+                        </dd>
+                    </div>
+
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            [Service name ID]
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            GRIS-458 854 444
+                        </dd>
+                    </div>
+                </dl>
+            </div>
+        </div>
+
+        <div class="govuk-summary-card">
+            <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">
+                    Study members
+                </h2>
+            </div>
+
+            <div class="govuk-summary-card__content">
+                <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Jane Doe
+                            <p class="govuk-hint govuk-!-margin-bottom-0">(Read-only permissions)</p>
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            jane.doe@email.ac.uk
+                        </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Joe Bloggs
+                            <p class="govuk-hint govuk-!-margin-bottom-0">(Editor permissions)</p>
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            joe.bloggs@email.com
+                        </dd>
+                    </div>
+                </dl>
+            </div>
+        </div>
+        
+        <div class="govuk-summary-card">
+            <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">
+                    Activity log
+                </h2>
+            </div>
+
+            <div class="govuk-summary-card__content">
+                <table class="govuk-table govuk-table--small-text-until-tablet govuk-!-margin-bottom-0">
+                    <thead class="govuk-table__head">
+                        <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header">Date</th>
+                        <th scope="col" class="govuk-table__header">Time</th>
+                        <th scope="col" class="govuk-table__header">Study member</th>
+                        <th scope="col" class="govuk-table__header">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell">12/05/2025</td>
+                            <td class="govuk-table__cell">14:43</td>
+                            <td class="govuk-table__cell">Jane Doe</td>
+                            <td class="govuk-table__cell">Study team member permissions changed</td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell">06/01/2025</td>
+                            <td class="govuk-table__cell">09:13</td>
+                            <td class="govuk-table__cell">Joe Bloggs</td>
+                            <td class="govuk-table__cell">Study team member added</td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell">23/11/2024</td>
+                            <td class="govuk-table__cell">11:17</td>
+                            <td class="govuk-table__cell">Jane Doe</td>
+                            <td class="govuk-table__cell">Short title of study changed</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>  
+{% endblock %}

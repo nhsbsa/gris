@@ -1,0 +1,96 @@
+{% extends "layouts/online-login-header.html" %}
+{% set serviceName="Service name" %}
+{% set serviceName="Service name" %}
+
+{% block pageTitle %}
+	Sign in to {{ serviceName }} - {{ serviceName }} - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "/"
+      },
+      {
+        text: serviceName
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+  	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<h1 class="govuk-heading-xl">
+				Sign in
+			</h1>
+
+			<p>Use this service to:</p>
+
+			<ul class="govuk-list govuk-list--bullet">
+				<li>create a [service name ID]</li>
+				<li>view an existing study record</li>
+			</ul>
+
+			<h2 class="govuk-heading-m">
+				Before you start
+			</h2>
+
+			<p>To create an ID for your new study, you'll need to <a href="register-account" class="govuk-link--no-visited-state">register for a [service name] account</a> if you don't already have one, and you will also need details, such as:</p>
+			
+			<ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-6">
+				<li>the short title of the study</li>
+				<li>the disease area or speciality</li>
+				<li>if it has a government strategic priority</li>
+				<li>study stage, phase, setting, and location</li>
+				<li>chief investigator's details</li>
+				<li>team member details</li>
+				<li>the sponsoring organisation's details</li>
+			</ul>
+
+			{{ govukButton({
+				text: "Start now",
+				href: "sign-in",
+				isStartButton: true
+			}) }}
+		</div>
+
+		<!-- <div class="govuk-grid-column-one-third">
+
+			<aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+				<h2 class="govuk-heading-m" id="subsection-title">
+					Subsection
+				</h2>
+				<nav role="navigation" aria-labelledby="subsection-title">
+					<ul class="govuk-list govuk-!-font-size-16">
+					<li>
+						<a href="#">
+						Related link
+						</a>
+					</li>
+					<li>
+						<a href="#">
+						Related link
+						</a>
+					</li>
+					<li>
+						<a href="#" class="govuk-!-font-weight-bold">
+						More <span class="govuk-visually-hidden">in Subsection</span>
+						</a>
+					</li>
+					</ul>
+				</nav>
+			</aside>
+
+		</div> -->
+	</div>
+{% endblock %}

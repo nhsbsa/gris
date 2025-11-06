@@ -1,0 +1,96 @@
+{% extends "layouts/online-login-header.html" %}
+{% set serviceName="Service name" %}
+
+{% block pageTitle %}
+    Check your answers - {{ serviceName }} - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-full">   
+        <span class="govuk-caption-l">Register a study</span>    
+        <h1 class="govuk-heading-l">Check your answers before you submit your new study details</h1>
+
+        <p>If there is a mistake, you can edit responses by selecting 'Change'.</p>
+        <p>You'll also have the option to change the responses after the submission through the 'my studies' section of the dashboard.</p>
+        
+        <!-- Study details -->
+        <div class="govuk-summary-card">
+            <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">
+                    New study details
+                </h2>
+            </div>
+
+            <div class="govuk-summary-card__content">
+                <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Short title of study
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['short-title'] | capitalize | default('Investigating left arm disease', true) }}
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link govuk-link--no-visited-state" href="what-is-the-short-title">Change<span class="govuk-visually-hidden"> short study title</span></a>
+                        </dd>
+                    </div>
+                </dl>
+            </div>
+        </div>
+
+        <!-- Team member details -->
+        <div class="govuk-summary-card">
+            <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">
+                    Study team members
+                </h2>
+                <ul class="govuk-summary-card__actions">
+                    <li class="govuk-summary-card__action">
+                        <a class="govuk-link govuk-link--no-visited-state" href="add-study-member-name">Add a study member</a>
+                    </li>
+                  </ul>
+            </div>
+
+            <div class="govuk-summary-card__content">
+                <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            {{ data['add-full-name'] | title | default('James Bond', true) }}
+                            <p class="govuk-hint govuk-!-margin-bottom-0">({{ data['add-member-permissions'] | capitalize | default('Read-only', true) }} permissions)</p>
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['add-member-email'] | default('james.bond@email.com', true) }}
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <ul class="govuk-summary-list__actions-list">
+                                <li class="govuk-summary-list__actions-list-item">
+                                    <a class="govuk-link govuk-link--no-visited-state" href="add-study-member-name">Change<span class="govuk-visually-hidden"> Joe Bloggs</span></a>
+                                </li>
+                                <li class="govuk-summary-list__actions-list-item">
+                                    <a class="govuk-link govuk-link--no-visited-state" href="delete-study-member">Delete<span class="govuk-visually-hidden"> Joe Bloggs</span></a>
+                                </li>
+                            </ul>    
+                        </dd>
+                    </div>
+                </dl>
+            </div>
+        </div>
+        
+        <a href="id-confirmed" class="govuk-button" data-module="govuk-button" role="button" draggable="false">
+            Submit
+        </a>
+    </div>
+</div>
+
+{% endblock %}

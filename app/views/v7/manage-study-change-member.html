@@ -1,0 +1,44 @@
+{% extends "layouts/online-login-header.html" %}
+{% set serviceName="Service name" %}
+
+{% block pageTitle %}
+	What is the study team member's name? - Manage study - {{ serviceName }} - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}   
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+	}) }}   
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "view-my-study"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-l">Manage study</span>
+        <h1 class="govuk-heading-l">What is the study team member's name?</h1>
+        
+        <form action="manage-study-change-member" method="post">
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="change-full-name">
+                    Full name
+                </label>
+                <input class="govuk-input" id="change-full-name" name="change-full-name" type="text" spellcheck="false">
+            </div>
+
+            <button type="submit" class="govuk-button" data-module="govuk-button">
+                Continue
+            </button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
