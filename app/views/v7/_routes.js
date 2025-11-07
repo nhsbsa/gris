@@ -211,6 +211,65 @@ router.post('/manage-study-change-title', function(req, res) {
     }
 });
 
+// Manage study - change chief investigator
+router.post('/manage-study-change-ci', function (req, res) {
+  // Reset if no input sent
+  if (!('change-ci' in req.body)) {
+    req.session.data['change-ci'] = null;
+  }
+
+  let changeCi = req.session.data['change-ci'];
+
+  if (!changeCi) {
+    res.redirect("manage-study-change-ci");
+  } else if (changeCi == "jane" || changeCi == "joe") {
+    res.redirect("manage-study-change-ci-cya");
+  } else if (changeCi == "new") {
+    res.redirect("manage-study-change-ci-name");
+  }
+});
+
+// Manage study - change chief investigator (new - name)
+router.post('/manage-study-change-ci-name', function(req, res) {
+    let newCiName = req.session.data['new-ci-name'];
+
+    if (!newCiName || newCiName.trim() === "") {
+        res.redirect("manage-study-change-ci-name");
+        // Add error message functionality here
+    } else {
+        // Redirect to the "check your answers" page if filled
+        res.redirect("manage-study-change-ci-email");
+    }
+})
+
+// Manage study - change chief investigator (new - email)
+router.post('/manage-study-change-ci-email', function(req, res) {
+    let newCiEmail = req.session.data['new-ci-email'];
+
+    if (!newCiEmail || newCiEmail.trim() === "") {
+        res.redirect("manage-study-change-ci-email");
+        // Add error message functionality here
+    } else {
+        // Redirect to the "check your answers" page if filled
+        res.redirect("manage-study-change-ci-cya");
+    }
+})
+
+// Manage study - change chief investigator (check answers)
+router.post('/manage-study-change-ci-cya', function(req, res) {
+    let confirm = req.session.data['are-you-sure']
+
+    if (confirm == "yes") {
+        res.redirect("manage-study-change-ci-complete")
+    } else if (confirm == "no") {
+        res.redirect("view-my-study")
+    } else {
+        // add proper error functionality in future versions instead of redirect
+        res.redirect("manage-study-change-ci-cya")
+    }
+})
+
+
 // Manage my study - add a member (name)
 router.post('/manage-study-add-member', function(req, res) {
     let name = req.session.data['member-full-name']
@@ -298,6 +357,19 @@ router.post('/manage-study-delete-member', function(req, res) {
     } else {
         // add proper error functionality in future versions instead of redirect
         res.redirect("manage-study-delete-member")
+    }
+})
+
+// Register study - are you the chief investigator?
+router.post('/are-you-chief-investigator', function(req, res) {
+    let ci = req.session.data['chief-investigator']
+
+    if (ci == "yes") {
+        res.redirect("what-is-the-short-title")
+    } else if (ci == "no") {
+        res.redirect("we-could-not-register-study")
+    } else {
+        res.redirect("are-you-chief-investigator")
     }
 })
 

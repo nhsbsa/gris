@@ -2,7 +2,7 @@
 {% set serviceName="Service name" %}
 
 {% block pageTitle %}
-	You have added a new study team member - {{ serviceName }} - GOV.UK Prototype Kit
+	You have changed the chief investigator - {{ serviceName }} - GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}   
@@ -20,15 +20,25 @@
 	<div class="govuk-grid-column-two-thirds">
         <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-6">
             <h1 class="govuk-panel__title">
-                You have added a new study team member
+                You have changed the chief investigator
             </h1>
             <div class="govuk-panel__body">
-                {{ data['member-full-name'] | title | default('James Bond', true) }}<br>
-                <strong>{{ data['member-email-address'] | default('james.bond@email.com', true) }}</strong>
+                {% if data['change-ci'] == 'new' %}
+                    {{ data['new-ci-name'] | title | default('James Bond', true) }}<br>
+                    <strong>{{ data['new-ci-email'] | default('james.bond@email.com', true) }}</strong>
+                {% else %}
+                    {% if data['change-ci'] == 'jane' %}
+                        Jane Doe<br>
+                        <strong>jane.doe@email.ac.uk</strong>
+                    {% else %}
+                        Joe Bloggs<br>
+                        <strong>joe.bloggs@email.com</strong>
+                    {% endif %}
+                {% endif %}                 
             </div>
         </div>
 
-        <p>We have updated [study name] with the new team member's details.</p> 
+        <p>We have updated [study name] with the new cheif investigator's details.</p> 
                         
         <h2 class="govuk-heading-m">What happens next</h2>
             

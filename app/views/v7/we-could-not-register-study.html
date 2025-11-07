@@ -2,7 +2,7 @@
 {% set serviceName="Service name" %}
 
 {% block pageTitle %}
-	Enter your email address - {{ serviceName }} - GOV.UK Prototype Kit
+	This page cannot be found - {{ serviceName }} - GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}      
@@ -12,33 +12,17 @@
 		},
 		html: 'This is a new service - your <a class="govuk-link govuk-link--no-visited-state" href="#">feedback</a> will help us improve it.'
 	}) }}
-
-    {{ govukBackLink({
-        text: "Back",
-        href: "start"
-    }) }}
 {% endblock %}
 
 {% block content %}
 
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
-        <form action="sign-in" method="post">
-			{{ govukInput({
-				label: {
-					text: "Enter your email address",
-					classes: "govuk-label--l",
-					isPageHeading: true
-				},
-					id: "email-login",
-					name: "email-login",
-					type: "email"
-			}) }}
+        <h1 class="govuk-heading-l">We could not register this study</h1>
 
-            {{ govukButton({
-                text: "Continue"
-            }) }}
-		</form>
+        <p>In order to register a study for a [service name] ID you must be the chief investigator for the study.</p>
+        
+        <p><a href="dashboard" class="govuk-link--no-visited-state">Return to the dashboard</a></p>
     </div>
 </div>
 

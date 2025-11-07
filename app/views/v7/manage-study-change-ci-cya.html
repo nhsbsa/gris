@@ -1,0 +1,123 @@
+{% extends "layouts/online-login-header.html" %}
+{% set serviceName="Service name" %}
+
+{% block pageTitle %}
+    What is the new chief investigator's email address? - {{ serviceName }} - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+			text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link govuk-link--no-visited-state" href="#">feedback</a> will help us improve it.'
+	}) }}
+
+	{{ govukBackLink({
+		text: "Back",
+		href: "manage-study-change-ci"
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-l">Manage study</span>
+        <h1 class="govuk-heading-l">Check your answers before changing the chief investigator</h1>
+
+        <h2 class="govuk-heading-m">New chief investigator details</h2>
+
+        <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+
+
+                {% if data['change-ci'] == 'new' %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Chief investigator's name
+                        </dt>
+
+                        <dd class="govuk-summary-list__value">
+                            {{ data['new-ci-name'] | title | default('James Bond', true) }}
+                        </dd>
+                        
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link govuk-link--no-visited-state" href="manage-study-change-ci-name">Change<span class="govuk-visually-hidden"> name</span></a>
+                        </dd>
+                    </div>
+
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Chief investigator's email address
+                        </dt>
+
+                        <dd class="govuk-summary-list__value">
+                            {{ data['new-ci-email'] | default('james.bond@email.com', true) }}
+                        </dd>
+                        
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link govuk-link--no-visited-state" href="manage-study-change-ci-email">Change<span class="govuk-visually-hidden"> email</span></a>
+                        </dd>
+                    </div>
+                {% else %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Chief investigator
+                        </dt>
+
+                        <dd class="govuk-summary-list__value">
+                            {% if data['change-ci'] == 'jane' %}
+                                Jane Doe
+                                <p class="govuk-hint govuk-!-margin-bottom-0">
+                                    jane.doe@email.ac.uk
+                                </p>
+                            {% else %}
+                                Joe Bloggs
+                                <p class="govuk-hint govuk-!-margin-bottom-0">
+                                    joe.bloggs@email.com
+                                </p>
+                            {% endif %}
+                        </dd>
+
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link govuk-link--no-visited-state" href="manage-study-change-ci">Change<span class="govuk-visually-hidden"> member</span></a>
+                        </dd>
+                    </div>
+                {% endif %}
+            </div>  
+        </dl>
+
+            {{ govukWarningText({
+                html: 'Changing the chief investigator will remove access to this study for the original chief investigator.<br><br>If they still need access to this study, a study team member with editor permissions or the new chief invesitgator will need to add them again as a study team member.',
+                iconFallbackText: "Warning"
+            }) }}
+
+		<form action="manage-study-change-ci-cya" method="post">
+            {{ govukRadios({
+            name: "are-you-sure",
+            fieldset: {
+                legend: {
+                text: "Are you sure you want to change the chief investigator?"
+                }
+            },
+            items: [
+                {
+                value: "yes",
+                text: "Yes"
+                },
+                {
+                value: "no",
+                text: "No"
+                }
+            ]
+            }) }}
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form>
+    </div>
+</div>
+
+{% endblock %}

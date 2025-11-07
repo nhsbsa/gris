@@ -10,7 +10,7 @@
 		tag: {
 		text: "Alpha"
 		},
-		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+		html: 'This is a new service - your <a class="govuk-link govuk-link--no-visited-state" href="#">feedback</a> will help us improve it.'
 	}) }}   
 
     {{ govukBackLink({
@@ -34,9 +34,9 @@
                 <input class="govuk-input" id="change-email-address" name="change-email-address" type="email" spellcheck="false" >
             </div>
 
-            <button type="submit" class="govuk-button" data-module="govuk-button">
-                Continue
-            </button>
+            {{ govukButton({
+                text: "Continue"
+            }) }}
         </form>
     </div>
 </div>

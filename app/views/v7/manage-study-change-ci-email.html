@@ -2,43 +2,43 @@
 {% set serviceName="Service name" %}
 
 {% block pageTitle %}
-	Enter your email address - {{ serviceName }} - GOV.UK Prototype Kit
+    What is the new chief investigator's email address? - {{ serviceName }} - GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}      
 	{{ govukPhaseBanner({
 		tag: {
-		text: "Alpha"
+			text: "Alpha"
 		},
 		html: 'This is a new service - your <a class="govuk-link govuk-link--no-visited-state" href="#">feedback</a> will help us improve it.'
 	}) }}
 
-    {{ govukBackLink({
-        text: "Back",
-        href: "start"
-    }) }}
+	{{ govukBackLink({
+		text: "Back",
+		href: "manage-study-change-ci-name"
+	}) }}
 {% endblock %}
 
 {% block content %}
 
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
-        <form action="sign-in" method="post">
+		<form action="manage-study-change-ci-email" method="post">
+            <span class="govuk-caption-l">Manage study</span>
 			{{ govukInput({
 				label: {
-					text: "Enter your email address",
+					text: "What is the new chief investigator's email address?",
 					classes: "govuk-label--l",
 					isPageHeading: true
 				},
-					id: "email-login",
-					name: "email-login",
-					type: "email"
+				id: "new-ci-email",
+				name: "new-ci-email"
 			}) }}
 
             {{ govukButton({
                 text: "Continue"
             }) }}
-		</form>
+        </form>
     </div>
 </div>
 

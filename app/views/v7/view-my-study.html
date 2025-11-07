@@ -10,7 +10,7 @@
 		tag: {
 		text: "Alpha"
 		},
-		html: 'This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+		html: 'This is a new service - your <a class="govuk-link govuk-link--no-visited-state" href="#">feedback</a> will help us improve it.'
 	}) }}
 
     {{ govukBackLink({
@@ -60,6 +60,19 @@
                         </dt>
                         <dd class="govuk-summary-list__value">
                             GRIS-111 111 111
+                        </dd>
+                    </div>
+
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Chief investigator
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            Amrit Banstola
+                            <p class="govuk-hint govuk-!-margin-bottom-0">{{ data['email-login'] | default('name@email.com', true) }}</p>
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link govuk-link--no-visited-state" href="manage-study-change-ci">Change<span class="govuk-visually-hidden"> chief investigator</span></a>
                         </dd>
                     </div>
                 </dl>

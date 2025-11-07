@@ -2,7 +2,7 @@
 {% set serviceName="Service name" %}
 
 {% block pageTitle %}
-    What permissions do you want to give this team member? - {{ serviceName }} - GOV.UK Prototype Kit
+	What is the name of the study team member you want to add to [study name]? - {{ serviceName }} - GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}      
@@ -15,7 +15,7 @@
 
     {{ govukBackLink({
         text: "Back",
-        href: "add-study-member-email"
+        href: "view-my-study"
     }) }}
 {% endblock %}
 
@@ -23,31 +23,40 @@
 
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
-        <form action="add-study-member-permissions" method="post">
-            <span class="govuk-caption-l">Register a study</span>
+        <span class="govuk-caption-l">Manage study</span>
+        
+        <form action="manage-study-change-ci" method="post">
+
             {{ govukRadios({
-                name: "add-member-permissions",
+                name: "change-ci",
                 fieldset: {
                     legend: {
-                    text: "What permissions do you want to give this team member?",
-                    isPageHeading: true,
-                    classes: "govuk-fieldset__legend--l"
+                        text: "Which study member do you want to change to the chief investigator?",
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--l"
                     }
                 },
                 items: [
                     {
-                    value: "read-only",
-                    text: "Read-only",
+                    value: "jane",
+                    text: "Jane Doe",
                     hint: {
-                        text: "This option allows the team member to view all study information. They will not be able to change the study information or add new members."
+                        text: "jane.doe@email.ac.uk"
                     }
                     },
                     {
-                    value: "editor",
-                    text: "Editor",
+                    value: "joe",
+                    text: "Joe Bloggs",
                     hint: {
-                        text: "This option allows the team member to update study information and add or remove other members."
+                        text: "joe.bloggs@email.com"
                     }
+                    },
+                    {
+                    divider: "or"
+                    },
+                    {
+                    value: "new",
+                    text: "Add a new chief investigator"
                     }
                 ]
             }) }}

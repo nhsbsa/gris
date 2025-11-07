@@ -2,47 +2,52 @@
 {% set serviceName="Service name" %}
 
 {% block pageTitle %}
-   Are you sure you want to delete [member name] from [study name]? - Manage study - {{ serviceName }} - GOV.UK Prototype Kit
+    Are you the chief investigator for this study? - {{ serviceName }} - GOV.UK Prototype Kit
 {% endblock %}
 
-{% block beforeContent %}   
+{% block beforeContent %}      
 	{{ govukPhaseBanner({
 		tag: {
 		text: "Alpha"
 		},
 		html: 'This is a new service - your <a class="govuk-link govuk-link--no-visited-state" href="#">feedback</a> will help us improve it.'
-	}) }}  
+	}) }}
 
     {{ govukBackLink({
         text: "Back",
-        href: "view-my-study"
+        href: "dashboard"
     }) }}
 {% endblock %}
 
 {% block content %}
 
 <div class="govuk-grid-row">
-	<div class="govuk-grid-column-two-thirds">        
-        <form action="manage-study-delete-member" method="post">
+	<div class="govuk-grid-column-two-thirds">
+        <form action="are-you-chief-investigator" method="post">
             <div class="govuk-form-group">
+                <span class="govuk-caption-l">Register a study</span>
                 <fieldset class="govuk-fieldset">
                     <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-                        <span class="govuk-caption-l">Manage study</span>
                         <h1 class="govuk-fieldset__heading">
-                            Are you sure you want to delete [member name] from [study name]?  
+                            Are you the chief investigator for this study?
                         </h1>
                     </legend>
 
+                    <p>To register a study for a [service name] ID, you must be the chief investigator.</p>
+
                     <div class="govuk-radios" data-module="govuk-radios">
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="delete-member-yes" name="delete-member" type="radio" value="yes">
-                            <label class="govuk-label govuk-radios__label" for="delete-member-yes">
-                                Yes
+                            <input class="govuk-radios__input" id="yes" name="chief-investigator" type="radio" value="yes">
+                            
+                            <label class="govuk-label govuk-radios__label" for="yes">
+                                Yes, I am the chief investigator for this study
                             </label>
                         </div>
+
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="delete-member-no" name="delete-member" type="radio" value="no">
-                            <label class="govuk-label govuk-radios__label" for="delete-member-no">
+                            <input class="govuk-radios__input" id="no" name="chief-investigator" type="radio" value="no">
+                            
+                            <label class="govuk-label govuk-radios__label" for="no">
                                 No
                             </label>
                         </div>
