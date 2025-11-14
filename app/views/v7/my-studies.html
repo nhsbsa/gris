@@ -40,7 +40,10 @@
                         <p class="govuk-hint">GRIS-111 111 111</p>
                     </td>
                     <td class="govuk-table__cell">Editor</td>
-                    <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link govuk-link--no-visited-state" href="view-my-study">View</a></td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">
+                        <a class="govuk-link govuk-link--no-visited-state" href="view-my-study">View</a><br>
+                        <button class="copy-btn app-copy-button" data-copy="GRIS-111 111 111">Copy ID</button>
+                    </td>
                 </tr>
                 <tr class="govuk-table__row">
                     <td class="govuk-table__cell">
@@ -48,7 +51,10 @@
                         <p class="govuk-hint">GRIS-458 854 444</p>
                     </td>
                     <td class="govuk-table__cell">Read-only</td>
-                    <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link govuk-link--no-visited-state" href="view-my-study-read-only">View</a></td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">
+                        <a class="govuk-link govuk-link--no-visited-state govuk-!-margin-bottom-6" href="view-my-study-read-only">View</a><br>
+                        <button class="copy-btn app-copy-button" data-copy="GRIS-458 854 444">Copy ID</button>
+                    </td>
                 </tr>
                 <tr class="govuk-table__row">
                     <td class="govuk-table__cell">
@@ -56,11 +62,32 @@
                         <p class="govuk-hint">GRIS-564 952 654</p>
                     </td>
                     <td class="govuk-table__cell">Editor</td>
-                    <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link govuk-link--no-visited-state" href="view-my-study">View</a></td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">
+                        <a class="govuk-link govuk-link--no-visited-state" href="view-my-study">View</a><br>
+                        <button class="copy-btn app-copy-button" data-copy="GRIS-564 952 654">Copy ID</button>
+                    </td>
                 </tr>
             </tbody>
         </table>
     </div>
 </div>
+
+<!-- JS for copy code button -->
+<script>
+    document.querySelectorAll(".copy-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+        const value = btn.dataset.copy;
+
+        navigator.clipboard.writeText(value).then(() => {
+        const originalText = btn.textContent;
+        btn.textContent = "ID copied";
+
+        setTimeout(() => {
+            btn.textContent = originalText;
+        }, 2000);
+        });
+    });
+    });
+</script>
 
 {% endblock %}

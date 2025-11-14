@@ -61,6 +61,9 @@
                         <dd class="govuk-summary-list__value">
                             GRIS-111 111 111
                         </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <button class="copy-btn app-copy-button" data-copy="GRIS-111 111 111">Copy ID</button>
+                        </dd>
                     </div>
 
                     <div class="govuk-summary-list__row">
@@ -177,4 +180,22 @@
         </div>
     </div>
 </div>  
+
+<!-- JS for copy code button -->
+<script>
+    document.querySelectorAll(".copy-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+        const value = btn.dataset.copy;
+
+        navigator.clipboard.writeText(value).then(() => {
+        const originalText = btn.textContent;
+        btn.textContent = "ID copied";
+
+        setTimeout(() => {
+            btn.textContent = originalText;
+        }, 2000);
+        });
+    });
+    });
+</script>
 {% endblock %}
