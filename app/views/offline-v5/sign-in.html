@@ -1,0 +1,35 @@
+{% extends "layouts/offline-login-header.html" %}
+{% set containerClasses = "govuk-full-width-body" %}
+{% set serviceName="Service name" %}
+
+{% block pageTitle %}
+	Enter your email address to sign in to your GOV.UK One Login - {{ serviceName }} - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+        <form action="sign-in" method="post">
+			<div class="govuk-form-group">
+				<h1 class="govuk-label-wrapper">
+					<label class="govuk-label govuk-label--l" for="email-login">
+						Enter your email address to sign in
+					</label>
+				</h1>
+				<input class="govuk-input" id="email-login" name="email-login" type="email">
+			</div>
+
+			<button type="submit" class="govuk-button" data-module="govuk-button">
+				Continue
+			</button>
+		</form>
+    </div>
+</div>
+
+
+{% endblock %}

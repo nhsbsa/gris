@@ -1,0 +1,59 @@
+{% extends "layouts/offline-login-header.html" %}
+{% set containerClasses = "govuk-full-width-body" %}
+{% set serviceName="Service name" %}
+
+{% block pageTitle %}
+   New study information - Register a study - {{ serviceName }} - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-l">Register a study</span>
+        <h1 class="govuk-heading-l">
+            New study information
+        </h1>
+
+		<form action="register-study" method="post">
+            <!-- Short title of study -->
+            {{ govukInput({
+				label: {
+					text: "What is the short title of the study?",
+					classes: ""
+				},
+				id: "short-title",
+				name: "short-title"
+			}) }}
+
+            <!-- Name of chief investigator or key lead -->
+            {{ govukInput({
+				label: {
+					text: "What is the chief investigator or key lead's full name?",
+					classes: ""
+				},
+				id: "investigator-name",
+				name: "investigator-name"
+			}) }}
+
+            <!-- Email address for chief investigator or key lead -->
+            {{ govukInput({
+				label: {
+					text: "What is the chief investigator or key lead's email address?",
+					classes: ""
+				},
+				id: "investigator-email",
+				name: "investigator-email"
+			}) }}
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form> 
+    </div>
+</div>
+{% endblock %}

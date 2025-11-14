@@ -1,0 +1,60 @@
+{% extends "layouts/offline-login-header.html" %}
+{% set containerClasses = "govuk-full-width-body" %}
+{% set serviceName="Service name" %}
+
+{% block pageTitle %}
+    Do you want to add additional study team members? - Register a study - {{ serviceName }} - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+    {{ govukBackLink({
+        text: "Back",
+        href: "register-study"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+        <form action="register-study-add-members" method="post">
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                        <span class="govuk-caption-l">Register a study</span>
+                        <h1 class="govuk-fieldset__heading">
+                            Do you want to add additional study team members?
+                        </h1>
+                    </legend>
+
+                    <p>You only need to add study team members who might need access to the study information.</p>
+                    <p>You can add more team members later.</p>
+
+                    <div class="govuk-radios" data-module="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="add-members" name="add-members" type="radio" value="yes">
+                            
+                            <label class="govuk-label govuk-radios__label" for="add-members">
+                                Yes, add additional study team members
+                            </label>
+                        </div>
+
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="no-other" name="add-members" type="radio" value="no">
+                            
+                            <label class="govuk-label govuk-radios__label" for="no-other">
+                                No, I can confirm that there are no other team members who need access to this study
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form>
+    </div>
+</div>
+
+{% endblock %}
