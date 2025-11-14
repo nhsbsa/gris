@@ -3,12 +3,24 @@ const router = express.Router()
 
 let version = 'v7';
 
+// Register an account - name
+router.post('/register-account-name', function(req, res) {
+    let registerName = req.session.data['name-register']
+
+    if (!registerName || registerName.trim() === "") {
+        res.redirect("register-account-name")
+        // add proper error functionality in future versions instead of redirect
+    } else {
+        res.redirect("register-account-email")
+    }
+})
+
 // Register an account - email
-router.post('/register-account', function(req, res) {
+router.post('/register-account-email', function(req, res) {
     let registerEmail = req.session.data['email-register']
 
     if (!registerEmail || registerEmail.trim() === "") {
-        res.redirect("register-account")
+        res.redirect("register-account-email")
         // add proper error functionality in future versions instead of redirect
     } else {
         res.redirect("register-account-check-email")

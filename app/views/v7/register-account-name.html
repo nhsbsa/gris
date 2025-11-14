@@ -2,7 +2,7 @@
 {% set serviceName="Service name" %}
 
 {% block pageTitle %}
-	Enter your email address - {{ serviceName }} - GOV.UK Prototype Kit
+	Enter your full name - {{ serviceName }} - GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}      
@@ -23,26 +23,25 @@
 
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
-        <form action="register-account" method="post">
+        <form action="register-account-name" method="post">
             {{ govukInput({
             label: {
-                text: "Enter your email address",
+                text: "Enter your full name",
                 classes: "govuk-label--l",
                 isPageHeading: true
             },
-                id: "email-register",
-                name: "email-register",
-                type: "email"
+                id: "name-register",
+                name: "name-register"
             }) }}
 
-            <h2 class="govuk-heading-s">Agree to the [service name] terms of use</h2>
+            <!-- <h2 class="govuk-heading-s">Agree to the [service name] terms of use</h2>
 
             <p>By continuing, you confirm that you agree to our:</p>
 
             <ul class="govuk-list govuk-list--bullet">
                 <li><a href="#" class="govuk-link--no-visited-state">privacy notice (opens in a new tab)</a> which explains how we use your personal information</li>
                 <li><a href="#" class="govuk-link--no-visited-state">terms and conditions (opens in a new tab)</a></li>
-            </ul>
+            </ul> -->
 
             {{ govukButton({
                 text: "Continue"
