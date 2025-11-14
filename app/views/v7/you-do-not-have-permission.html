@@ -2,7 +2,7 @@
 {% set serviceName="Service name" %}
 
 {% block pageTitle %}
-	We could not register this study - {{ serviceName }} - GOV.UK Prototype Kit
+	You do not have permission to view this study - {{ serviceName }} - GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}      
@@ -18,9 +18,12 @@
 
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-l">We could not register this study</h1>
-
-        <p>In order to register a study for a [service name] ID you must be the chief investigator for the study.</p>
+        <h1 class="govuk-heading-l">You do not have permission to view this study</h1>
+        
+        <p>It looks like you don't have the required permissions to access this study.</p>       
+		<p>If you believe this is an error and need to speak to someone, you can contact our help desk on:</p>
+		<p>Phone: 0808 157 3900</p>
+		<p>[Service name] help desk opening times: Monday to Friday: 8:30am to 4:30pm</p>
         
         <p><a href="dashboard" class="govuk-link--no-visited-state">Return to the dashboard</a></p>
     </div>
