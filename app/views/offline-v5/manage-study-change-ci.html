@@ -1,0 +1,56 @@
+{% extends "layouts/offline-login-header.html" %}
+{% set containerClasses = "govuk-full-width-body" %}
+{% set serviceName="Service name" %}
+
+{% block pageTitle %}
+   Change chief investigator's details - manage study - {{ serviceName }} - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}  
+    {{ govukBackLink({
+        text: "Back",
+        href: "view-study"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">      
+        <span class="govuk-caption-l">Manage study</span>
+        <h1 class="govuk-heading-l">Change chief investigator's details</h1>   
+        
+        {{ govukWarningText({
+            html: 'Changing the chief investigator will remove access to this study for the original chief investigator.<br><br>If they still need access to this study, you will need to add them again as a study team member.',
+            iconFallbackText: "Warning"
+        }) }}
+
+        <form action="manage-study-change-ci" method="post">  
+            <!-- Name of chief investigator or key lead -->
+            {{ govukInput({
+				label: {
+					text: "What is the chief investigator or key lead's full name?",
+					classes: ""
+				},
+				id: "change-investigator-name",
+				name: "change-investigator-name"
+			}) }}
+
+            <!-- Email address for chief investigator or key lead -->
+            {{ govukInput({
+				label: {
+					text: "What is the chief investigator or key lead's email address?",
+					classes: ""
+				},
+				id: "change-investigator-email",
+				name: "change-investigator-email"
+			}) }}
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form>
+    </div>
+</div>
+
+{% endblock %}

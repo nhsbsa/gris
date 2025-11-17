@@ -3,7 +3,7 @@
 {% set serviceName="Service name" %}
 
 {% block pageTitle %}
-	Short title of study has been changed - {{ serviceName }} - GOV.UK Prototype Kit
+	The chief investigator's details have been changed - manage study - {{ serviceName }} - GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}      
@@ -15,19 +15,20 @@
 	<div class="govuk-grid-column-two-thirds">
         <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-6">
             <h1 class="govuk-panel__title">
-                The short title of the study has been changed
+                The chief investigator's details have been changed
             </h1>
             <div class="govuk-panel__body">
-                The new short title is<br><br>{{ data['change-title'] | title | default('Investigating left arm disease in the UK') }}
+                {{ data['change-investigator-name'] | title | default('James Bond') }}<br>
+                {{ data['change-investigator-email'] | default('james.bond@email.com') }}
             </div>
         </div>
-
-        <p>We've updated [study name] with the new short title.</p>
                         
+        <p>We've updated [study name] with the chief investigator's details.</p>
+        
         <h2 class="govuk-heading-m">What happens next</h2>
-        <p>We've sent an email to the chief investigator and the study team member to let them know that the short title has changed.</p>
+        <p>We've sent an email to the chief investigator and the study team members to let them know that the chief invstigator's details have been changed.</p>
         <p>To update more information in this study, <a href="view-study" class="govuk-link--no-visited-state">return to manage this study</a>.</p>
         <p>To start a new search or create a new [service name] ID, <a href="dashboard" class="govuk-link--no-visited-state">return to the dashboard</a>.</p>
     </div>
-</div>
+</div>  
 {% endblock %}

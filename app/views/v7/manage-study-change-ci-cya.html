@@ -88,10 +88,10 @@
             </div>  
         </dl>
 
-            {{ govukWarningText({
-                html: 'Changing the chief investigator will remove access to this study for the original chief investigator.<br><br>If they still need access to this study, a study team member with editor permissions or the new chief invesitgator will need to add them again as a study team member.',
-                iconFallbackText: "Warning"
-            }) }}
+        {{ govukWarningText({
+            html: 'Changing the chief investigator will remove access to this study for the original chief investigator.<br><br>If they still need access to this study, a study team member with editor permissions or the new chief invesitgator will need to add them again as a study team member.',
+            iconFallbackText: "Warning"
+        }) }}
 
 		<form action="manage-study-change-ci-cya" method="post">
             {{ govukRadios({

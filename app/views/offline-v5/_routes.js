@@ -191,6 +191,20 @@ router.post('/manage-study-change-title', function(req, res) {
     }
 });
 
+// Manage study - change chief investigator 
+router.post('/manage-study-change-ci', function(req, res) {
+    let name = req.session.data['change-investigator-name'];
+    let email = req.session.data['change-investigator-email'];
+
+    // Check if name or email are blank, or if permissions is invalid
+    if (!name || name.trim() === "" || !email || email.trim() === "") {
+        res.redirect("manage-study-change-ci");
+        // add proper error functionality in future versions instead of redirect
+    } else {
+        res.redirect("manage-study-change-ci-cya");
+    }
+});
+
 // Manage study - add a member 
 router.post('/manage-study-add-member', function(req, res) {
     let name = req.session.data['member-full-name'];
