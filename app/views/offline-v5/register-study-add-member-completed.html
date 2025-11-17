@@ -24,6 +24,36 @@
             </div>
         </div>
 
+        {{ govukTable({
+            caption: "Study members you have already added:",
+            captionClasses: "govuk-!-margin-bottom-4",
+            firstCellIsHeader: false,
+            head: [
+                {
+                text: "Name"
+                },
+                {
+                text: "Email address"
+                },
+                {
+                    text: "Permissions"
+                }
+            ],
+            rows: [
+                [
+                {
+                    html: data['add-full-name'] | title | default('James Bond', true)
+                },
+                {
+                    html: data['add-member-email'] | default('james.bond@email.com', true)
+                },
+                {
+                    html: data['add-member-permissions'] | capitalize | default('Read-only', true)
+                }
+                ]
+            ]
+        }) }}
+
         <form action="register-study-add-member-completed" method="post">
             <div class="govuk-form-group">
                 <fieldset class="govuk-fieldset">

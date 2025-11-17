@@ -1,0 +1,36 @@
+{% extends "layouts/offline-login-header.html" %}
+{% set containerClasses = "govuk-full-width-body" %}
+{% set serviceName="Service name" %}
+
+{% block pageTitle %}
+	You have added a new study team member has been added to [study name] - {{ serviceName }} - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+        <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-6">
+            <h1 class="govuk-panel__title">
+                A new study team member has been added
+            </h1>
+            <div class="govuk-panel__body">
+                {{ data['member-full-name'] | title | default('James Bond') }}<br>
+                <strong>{{ data['member-email-address'] | default('james.bond@email.com') }}</strong>
+            </div>
+        </div>
+                        
+        <p>We've updated [study name] with the new team member's details.</p> 
+        
+        <h2 class="govuk-heading-m">What happens next</h2>
+            
+        <p>We've sent an email to the chief investigator and the study team members to let them know that a new study team member has been added to the study.</p>
+        <p>To update more information in this study, <a href="view-study" class="govuk-link--no-visited-state">return to manage this study</a>.</p>
+        <p>To start a new search or create a new [service name] ID, <a href="dashboard" class="govuk-link--no-visited-state">return to the dashboard</a>.</p>
+    </div>
+</div>
+
+{% endblock %}

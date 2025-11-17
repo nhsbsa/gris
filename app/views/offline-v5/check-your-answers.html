@@ -78,7 +78,10 @@
             <div class="govuk-summary-card__content">
                 <dl class="govuk-summary-list">
                     <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">{{ data['add-full-name'] | title | default('James Bond', true) }}</dt>
+                        <dt class="govuk-summary-list__key">
+                            {{ data['add-full-name'] | title | default('James Bond', true) }}
+                            <p class="govuk-hint govuk-!-margin-bottom-0">({{ data['add-member-permissions'] | capitalize | default('Read-only', true) }} permissions)</p>
+                        </dt>
                         <dd class="govuk-summary-list__value">{{ data['add-member-email'] | default('james.bond@email.com', true) }}</dd>
                         <dd class="govuk-summary-list__actions">
                             <ul class="govuk-summary-list__actions-list">

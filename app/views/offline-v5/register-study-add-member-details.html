@@ -39,6 +39,32 @@
                 type: "email",
                 autocomplete: "email"
             }) }}
+
+            {{ govukRadios({
+                name: "add-member-permissions",
+                fieldset: {
+                    legend: {
+                    text: "What permissions do you want to give this team member?",
+                    classes: ""
+                    }
+                },
+                items: [
+                    {
+                    value: "read-only",
+                    text: "Read-only",
+                    hint: {
+                        text: "This option allows the team member to view all study information. They will not be able to change the study information or add new members."
+                    }
+                    },
+                    {
+                    value: "editor",
+                    text: "Editor",
+                    hint: {
+                        text: "This option allows the team member to update study information and add or remove other members."
+                    }
+                    }
+                ]
+            }) }}
             
             {{ govukButton({
                 text: "Continue"

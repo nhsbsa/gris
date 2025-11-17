@@ -178,4 +178,65 @@ router.post('/register-study-add-member-completed', function(req, res) {
     }
 })
 
+// Manage study - change title
+router.post('/manage-study-change-title', function(req, res) {
+    let changeTitle = req.session.data['change-title'];
+
+    if (!changeTitle || changeTitle.trim() === "") {
+        res.redirect("manage-study-change-title");
+        // Add error message functionality here
+    } else {
+        // Redirect to the "check your answers" page if filled
+        res.redirect("manage-study-change-title-cya");
+    }
+});
+
+// Manage study - add a member 
+router.post('/manage-study-add-member', function(req, res) {
+    let name = req.session.data['member-full-name'];
+    let email = req.session.data['member-email-address'];
+    let permissions = req.session.data['permissions'];
+
+    // Check if name or email are blank, or if permissions is invalid
+    if (!name || name.trim() === "" ||
+        !email || email.trim() === "" ||
+        (permissions !== "read only" && permissions !== "editor")) {
+        res.redirect("manage-study-add-member");
+        // add proper error functionality in future versions instead of redirect
+    } else {
+        res.redirect("manage-study-add-member-cya");
+    }
+});
+
+// Manage study - change member 
+router.post('/manage-study-change-member', function(req, res) {
+    let name = req.session.data['change-full-name'];
+    let email = req.session.data['change-email-address'];
+    let permissions = req.session.data['change-permissions'];
+
+    // Check if name or email are blank, or if permissions is invalid
+    if (!name || name.trim() === "" ||
+        !email || email.trim() === "" ||
+        (permissions !== "read only" && permissions !== "editor")) {
+        res.redirect("manage-study-change-member");
+        // add proper error functionality in future versions instead of redirect
+    } else {
+        res.redirect("manage-study-change-member-cya");
+    }
+});
+
+// Manage study - delete member 
+router.post('/manage-study-delete-member', function(req, res) {
+    let deleteMember = req.session.data['delete-member']
+
+    if (deleteMember == "yes") {
+        res.redirect("manage-study-delete-member-complete")
+    } else if (deleteMember == "no") {
+        res.redirect("manage-study")
+    } else {
+        // add proper error functionality in future versions instead of redirect
+        res.redirect("manage-study-delete-member")
+    }
+})
+
 module.exports = router
