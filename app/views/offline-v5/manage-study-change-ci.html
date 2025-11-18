@@ -3,7 +3,7 @@
 {% set serviceName="Service name" %}
 
 {% block pageTitle %}
-   Change chief investigator's details - manage study - {{ serviceName }} - GOV.UK Prototype Kit
+   Change the lead applicant's details - manage study - {{ serviceName }} - GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}  
@@ -18,10 +18,10 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">      
         <span class="govuk-caption-l">Manage study</span>
-        <h1 class="govuk-heading-l">Change chief investigator's details</h1>   
+        <h1 class="govuk-heading-l">Change the lead applicant's details</h1>   
         
         {{ govukWarningText({
-            html: 'Changing the chief investigator will remove access to this study for the original chief investigator.<br><br>If they still need access to this study, you will need to add them again as a study team member.',
+            html: "Changing the lead applicant removes the original lead applicant's access to this study.<br><br>If they still need access, the new lead or an editor must add them as a study team member.",
             iconFallbackText: "Warning"
         }) }}
 
@@ -29,7 +29,7 @@
             <!-- Name of chief investigator or key lead -->
             {{ govukInput({
 				label: {
-					text: "What is the chief investigator or key lead's full name?",
+					text: "What is the lead applicant's full name?",
 					classes: ""
 				},
 				id: "change-investigator-name",
@@ -39,12 +39,17 @@
             <!-- Email address for chief investigator or key lead -->
             {{ govukInput({
 				label: {
-					text: "What is the chief investigator or key lead's email address?",
+					text: "What is the lead applicant's email address?",
 					classes: ""
 				},
 				id: "change-investigator-email",
 				name: "change-investigator-email"
 			}) }}
+
+            {{ govukDetails({ß
+                summaryText: "What is a lead applicant?",
+                text: "The lead applicant is responsible for managing the study. This is usually the chief or principal investigator, or someone entering details on their behalf."
+            }) }}
 
             {{ govukButton({
                 text: "Continue"
