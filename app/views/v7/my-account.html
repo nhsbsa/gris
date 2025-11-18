@@ -35,15 +35,6 @@
 				},
 				value: {
 					html: data['email-login'] | default('name@email.com', true)
-				},
-				actions: {
-					items: [
-					{
-						href: "#",
-						text: "Change",
-						visuallyHiddenText: "email address"
-					}
-					]
 				}
 				},
 				{
@@ -58,6 +49,7 @@
 					{
 						href: "#",
 						text: "Change",
+						classes: "govuk-link--no-visited-state",
 						visuallyHiddenText: "password"
 					}
 					]
@@ -82,7 +74,7 @@
 							Authenticator app
 						</dd>
 						<dd class="govuk-summary-list__actions">
-							<a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> method</span></a>
+							<a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> method</span></a>
 						</dd>
 					</div>	
 				</dl>

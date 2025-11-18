@@ -2,7 +2,7 @@
 {% set serviceName="Service name" %}
 
 {% block pageTitle %}
-	What is the name of the study team member you want to add to [study name]? - {{ serviceName }} - GOV.UK Prototype Kit
+	Which study member do you want to change to the lead applicant? - {{ serviceName }} - GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}      
@@ -31,10 +31,13 @@
                 name: "change-ci",
                 fieldset: {
                     legend: {
-                        text: "Which study member do you want to change to the chief investigator?",
+                        text: "Which study member do you want to change to the lead applicant?",
                         isPageHeading: true,
                         classes: "govuk-fieldset__legend--l"
                     }
+                },
+                hint: {
+                    text: "This gives the new lead applicant access to update the study's short title and manage team members."
                 },
                 items: [
                     {
@@ -56,9 +59,14 @@
                     },
                     {
                     value: "new",
-                    text: "Add a new chief investigator"
+                    text: "Add a new lead applicant"
                     }
                 ]
+            }) }}
+
+            {{ govukDetails({
+                summaryText: "What is a lead applicant?",
+                text: "The lead applicant is responsible for managing the study. This is usually the chief or principal investigator, or someone entering details on their behalf."
             }) }}
 
             {{ govukButton({

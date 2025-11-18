@@ -372,16 +372,16 @@ router.post('/manage-study-delete-member', function(req, res) {
     }
 })
 
-// Register study - are you the chief investigator?
-router.post('/are-you-chief-investigator', function(req, res) {
-    let ci = req.session.data['chief-investigator']
+// Register study - are you the lead applicant?
+router.post('/are-you-lead-applicant', function(req, res) {
+    let la = req.session.data['chief-investigator']
 
-    if (ci == "yes") {
+    if (la == "yes") {
         res.redirect("what-is-the-short-title")
-    } else if (ci == "no") {
+    } else if (la == "no") {
         res.redirect("we-could-not-register-study")
     } else {
-        res.redirect("are-you-chief-investigator")
+        res.redirect("are-you-lead-applicant")
     }
 })
 

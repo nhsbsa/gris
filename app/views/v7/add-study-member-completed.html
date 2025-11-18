@@ -2,7 +2,7 @@
 {% set serviceName="Service name" %}
 
 {% block pageTitle %}
-    New study team member has been added - {{ serviceName }} - GOV.UK Prototype Kit
+    You have added a new study team member - {{ serviceName }} - GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}      
@@ -20,7 +20,7 @@
 	<div class="govuk-grid-column-two-thirds">
         <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-6">
             <h1 class="govuk-panel__title">
-                New study team member has been added
+                You have added a new study team member
             </h1>
             <div class="govuk-panel__body">
                 {{ data['add-full-name'] | title | default('James Bond', true) }}<br>
@@ -28,7 +28,8 @@
             </div>
         </div>
 
-        <!-- <p>Study members you have already added:</p> -->
+        <p>We've sent you and the study team member an email confirming they have been added to the study.</p>
+       
         {{ govukTable({
             caption: "Study members you have already added:",
             captionClasses: "govuk-!-margin-bottom-4",

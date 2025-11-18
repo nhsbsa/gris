@@ -2,7 +2,7 @@
 {% set serviceName="Service name" %}
 
 {% block pageTitle %}
-    Are you the chief investigator for this study? - {{ serviceName }} - GOV.UK Prototype Kit
+    Are you the lead applicant for this study? - {{ serviceName }} - GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}      
@@ -23,24 +23,24 @@
 
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
-        <form action="are-you-chief-investigator" method="post">
+        <form action="are-you-lead-applicant" method="post">
             <div class="govuk-form-group">
                 <span class="govuk-caption-l">Register a study</span>
                 <fieldset class="govuk-fieldset">
                     <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                         <h1 class="govuk-fieldset__heading">
-                            Are you the chief investigator for this study?
+                            Are you the lead applicant for this study?
                         </h1>
                     </legend>
 
-                    <p>To register a study for a [service name] ID, you must be the chief investigator.</p>
+                    <p>To register a study for a [service name] ID, you must be the lead applicant.</p>
 
                     <div class="govuk-radios" data-module="govuk-radios">
                         <div class="govuk-radios__item">
                             <input class="govuk-radios__input" id="yes" name="chief-investigator" type="radio" value="yes">
                             
                             <label class="govuk-label govuk-radios__label" for="yes">
-                                Yes, I am the chief investigator for this study
+                                Yes, I'm the lead applicant for this study
                             </label>
                         </div>
 
@@ -54,6 +54,11 @@
                     </div>
                 </fieldset>
             </div>
+
+            {{ govukDetails({
+                summaryText: "What is a lead applicant?",
+                text: "The lead applicant is responsible for managing the study. This is usually the chief or principal investigator, or someone entering details on their behalf."
+            }) }}
 
             {{ govukButton({
                 text: "Continue"
