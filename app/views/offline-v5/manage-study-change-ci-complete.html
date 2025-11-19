@@ -3,7 +3,7 @@
 {% set serviceName="Service name" %}
 
 {% block pageTitle %}
-	The chief investigator's details have been changed - manage study - {{ serviceName }} - GOV.UK Prototype Kit
+	You have changed the lead applicant - manage study - {{ serviceName }} - GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}      
@@ -15,7 +15,7 @@
 	<div class="govuk-grid-column-two-thirds">
         <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-6">
             <h1 class="govuk-panel__title">
-                The chief investigator's details have been changed
+                You have changed the lead applicant
             </h1>
             <div class="govuk-panel__body">
                 {{ data['change-investigator-name'] | title | default('James Bond') }}<br>
@@ -23,10 +23,10 @@
             </div>
         </div>
                         
-        <p>We've updated [study name] with the chief investigator's details.</p>
+        <p>We've updated [study name] with the new lead applicant's details.</p>
         
         <h2 class="govuk-heading-m">What happens next</h2>
-        <p>We've sent an email to the chief investigator and the study team members to let them know that the chief invstigator's details have been changed.</p>
+        <p>We've sent an email to the new lead applicant and the study team members to let them know that this change has been made.</p>
         <p>To update more information in this study, <a href="view-study" class="govuk-link--no-visited-state">return to manage this study</a>.</p>
         <p>To start a new search or create a new [service name] ID, <a href="dashboard" class="govuk-link--no-visited-state">return to the dashboard</a>.</p>
     </div>

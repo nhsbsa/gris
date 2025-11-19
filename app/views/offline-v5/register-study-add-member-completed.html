@@ -3,7 +3,7 @@
 {% set serviceName="Service name" %}
 
 {% block pageTitle %}
-    New study team member has been added - Register a study - {{ serviceName }} - GOV.UK Prototype Kit
+    You have added a new study team member - Register a study - {{ serviceName }} - GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}      
@@ -16,13 +16,15 @@
 	<div class="govuk-grid-column-two-thirds">
         <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-6">
             <h1 class="govuk-panel__title">
-                New study team member has been added
+                You have added a new study team member
             </h1>
             <div class="govuk-panel__body">
                 {{ data['add-full-name'] | title | default('James Bond', true) }}<br>
                 <strong>{{ data['add-member-email'] | default('james.bond@email.com', true) }}</strong>
             </div>
         </div>
+
+        <p>We've sent the lead applicant and the study team member an email confirming they have been added to the study.</p>
 
         {{ govukTable({
             caption: "Study members you have already added:",
