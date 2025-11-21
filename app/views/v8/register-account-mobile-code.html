@@ -1,0 +1,59 @@
+{% extends "layouts/online-login-header.html" %}
+{% set serviceName="Service name" %}
+
+{% block pageTitle %}
+	Check your phone - {{ serviceName }} - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link govuk-link--no-visited-state" href="#">feedback</a> will help us improve it.'
+	}) }}
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "register-account-mobile"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">Check your phone</h1>
+
+        <form action="register-account-mobile-code" method="post">
+            {{ govukInsetText({
+                html: "We have sent a code to your phone number ending with <strong>0123</strong>"
+            }) }}
+
+            <p>It might take a few minutes to arrive. The code will expire after 15 minutes.</p>
+
+        
+            {{ govukInput({
+            label: {
+                text: "Enter the 6 digit security code",
+                classes: "govuk-label"
+            },
+                classes: "govuk-input--width-10",
+                id: "code-register",
+                name: "code-register"
+            }) }}
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+
+            {{ govukDetails({
+                summaryText: "Problems with the code?",
+                html: '<p>We can <a href="#" class="govuk-link--no-visited-state">send the code again</a> or you can <a href="register-account-mobile" class="govuk-link--no-visited-state">use a different phone number</a>.</p><p><a href="register-account-choose-auth" class="govuk-link--no-visited-state">Choose another way to get security codes</a>.</p>'
+            }) }}
+		</form>
+    </div>
+</div>
+
+{% endblock %}

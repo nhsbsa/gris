@@ -1,0 +1,48 @@
+{% extends "layouts/online-login-header.html" %}
+{% set serviceName="Service name" %}
+
+{% block pageTitle %}
+    Confirmation of [Service name] ID - {{ serviceName }} - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link govuk-link--no-visited-state" href="#">feedback</a> will help us improve it.'
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">       
+        <div class="govuk-panel govuk-panel--confirmation">
+            <h1 class="govuk-panel__title">
+                Application complete
+            </h1>
+            <div class="govuk-panel__body">
+                Your [Service name] ID is
+                <br><br>
+                GRIS-872 872 241
+            </div>
+        </div>
+
+        <p>We've sent an email to you and the study team members containing your study's [Service name] ID.</p>
+        <p>Keep a copy of the [Service name] ID for your records. This will help you track your study throughout its lifecycle.</p>
+
+        <h2 class="govuk-heading-m">What happens next</h2>
+
+        <p>You can make changes to your study by visiting the <a href="my-studies" class="govuk-link govuk-link--no-visited-state">manage study</a> section, finding your submitted study and selecting the change or delete links.</p>
+        <p>You can update your study in the <a href="my-studies" class="govuk-link govuk-link--no-visited-state">manage study</a> section. Find your submitted study and select the change or delete links.</p>
+        <p>You can <a href="dashboard" class="govuk-link govuk-link--no-visited-state">return to the dashboard</a> to view your studies or <a href="what-is-the-short-title" class="govuk-link govuk-link--no-visited-state">register a new study</a>.</p>
+
+        <h2 class="govuk-heading-m">Recruit more potential participants with Be Part of Research</h2>
+
+        <p>Be Part of Research is a free UK-wide registry of people who've expressed an interest in health research. Accessing our registry gives you access to more potential participants for your future studies.</p>
+        <p>Find out more about our <a href="#" class="govuk-link govuk-link--no-visited-state">Be Part of Research service</a>.</p>
+    </div>
+</div>
+
+{% endblock %}

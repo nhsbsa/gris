@@ -1,0 +1,32 @@
+{% extends "layouts/online-login-header.html" %}
+{% set serviceName="Service name" %}
+
+{% block pageTitle %}
+	You do not have permission to view this study - {{ serviceName }} - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link govuk-link--no-visited-state" href="#">feedback</a> will help us improve it.'
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">You do not have permission to view this study</h1>
+        
+        <p>It looks like you are not registered as a team member for this study.</p>       
+		<p>If you believe this is an error and need to speak to someone, you can contact our help desk on:</p>
+		<p>Phone: 0808 157 3900</p>
+		<p>[Service name] help desk opening times: Monday to Friday: 8:30am to 4:30pm</p>
+        
+        <p><a href="dashboard" class="govuk-link--no-visited-state">Return to the dashboard</a></p>
+    </div>
+</div>
+
+{% endblock %}

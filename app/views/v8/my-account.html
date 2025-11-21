@@ -1,0 +1,96 @@
+{% extends "layouts/online-login-header.html" %}
+{% set serviceName="Service name" %}
+
+{% block pageTitle %}
+	Account settings - {{ serviceName }} - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link govuk-link--no-visited-state" href="#">feedback</a> will help us improve it.'
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">    
+            Account settings
+        </h1>
+
+		{{ govukSummaryList({
+			card: {
+				title: {
+				text: "Your login details"
+				}
+			},
+			rows: [
+				{
+				key: {
+					text: "Email address"
+				},
+				value: {
+					html: data['email-login'] | default('name@email.com', true)
+				}
+				},
+				{
+				key: {
+					text: "Password"
+				},
+				value: {
+					html: "••••••••••••••••"
+				},
+				actions: {
+					items: [
+					{
+						href: "#",
+						text: "Change",
+						classes: "govuk-link--no-visited-state",
+						visuallyHiddenText: "password"
+					}
+					]
+				}
+				}
+			]
+		}) }}
+
+		<div class="govuk-summary-card">
+			<div class="govuk-summary-card__title-wrapper">
+				<h2 class="govuk-summary-card__title">
+					How you get security codes to sign in
+				</h2>
+			</div>
+			<div class="govuk-summary-card__content">
+				<dl class="govuk-summary-list">
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">
+							Your default method
+						</dt>
+						<dd class="govuk-summary-list__value">
+							Authenticator app
+						</dd>
+						<dd class="govuk-summary-list__actions">
+							<a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> method</span></a>
+						</dd>
+					</div>	
+				</dl>
+
+				<hr>
+
+				<h3 class="govuk-heading-s">
+					Add a back-up method
+				</h3>
+				<p>We recommend you add a back-up method for getting security codes.</p>
+				<p>This will make sure you can always sign in, even if you cannot get security codes using your default method.</p>
+				<p class="govuk-!-margin-bottom-4"><a href="#" class="govuk-link--no-visited-state">Add a back-up method</a></p>
+						
+			</div>
+		</div>
+    </div>
+</div>
+
+{% endblock %}
