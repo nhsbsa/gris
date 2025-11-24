@@ -37,6 +37,9 @@ router.use('/v1', require('./views/v1/\_routes'));
 
 // Offline Journey:
 
+// Routes for v6
+router.use('/offline-v6', require('./views/offline-v6/\_routes'));
+
 // Routes for v5
 router.use('/offline-v5', require('./views/offline-v5/\_routes'));
 
