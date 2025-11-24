@@ -16,48 +16,12 @@ router.post('/sign-in', function(req, res) {
     }
 })
 
-// Enter your password
-router.post('/enter-your-password', function(req, res) {
-    let password = req.session.data['password']
+// NHS Login
+router.post('/nhs-login', function(req, res) {
+    let email = req.session.data['email-login']
 
-    if (!password || password.trim() === "") {
-        res.redirect("enter-your-password")
-        // add proper error functionality in future versions instead of redirect
-    } else {
-        res.redirect("enter-auth-code")
-    }
-})
-
-// Forgot my password
-router.post('/forgot-my-password', function(req, res) {
-    let passwordCode = req.session.data['forgot-password']
-
-    if (!passwordCode || passwordCode.trim() === "") {
-        res.redirect("forgot-my-password")
-        // add proper error functionality in future versions instead of redirect
-    } else {
-        res.redirect("reset-my-password")
-    }
-})
-
-// Reset my password
-router.post('/reset-my-password', function(req, res) {
-    let passwordReset = req.session.data['password-reset']
-
-    if (!passwordReset || passwordReset.trim() === "") {
-        res.redirect("reset-my-password")
-        // add proper error functionality in future versions instead of redirect
-    } else {
-        res.redirect("reset-my-password-completed")
-    }
-})
-
-// Enter auth code
-router.post('/enter-auth-code', function(req, res) {
-    let code = req.session.data['auth-code']
-
-    if (!code || code.trim() === "") {
-        res.redirect("enter-auth-code")
+    if (!email || email.trim() === "") {
+        res.redirect("nhs-login")
         // add proper error functionality in future versions instead of redirect
     } else {
         req.session.data['loggedIn'] = true;
@@ -72,7 +36,7 @@ router.get('/sign-out', function (req, res) {
     });
 });
 
-// If signed in already, don't let the user go to sign in, enter password, or enter auth code screens
+// If signed in already, don't let the user go to sign in, or auth screens
 router.get('/sign-in', function (req, res) {
     let currentPath = req.path;
     
@@ -83,23 +47,13 @@ router.get('/sign-in', function (req, res) {
     }
 });
 
-router.get('/enter-password', function (req, res) {
+router.get('/nhs-login', function (req, res) {
     let currentPath = req.path;
     
     if (req.session.data['loggedIn']) {
        res.redirect('dashboard');
     } else {
-        res.render(`${version}/enter-password`, { currentPath });
-    }
-});
-
-router.get('/enter-auth-code', function (req, res) {
-    let currentPath = req.path;
-    
-    if (req.session.data['loggedIn']) {
-       res.redirect('dashboard');
-    } else {
-        res.render(`${version}/enter-auth-code`, { currentPath });
+        res.render(`${version}/nhs-login`, { currentPath });
     }
 });
 

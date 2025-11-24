@@ -181,7 +181,6 @@ $govuk-card-selected-foreground-colour : govuk-colour("white");
     background-color: #f3f2f1;
 }
 
-
 // Copy button
 
 .app-copy-button {
@@ -208,6 +207,7 @@ $govuk-card-selected-foreground-colour : govuk-colour("white");
 .app-copy-button:active {
     box-shadow: none;
 }
+
 .app-copy-button:active, 
 .app-copy-button:focus {
     padding: 2px 10px;
