@@ -23,37 +23,54 @@
 
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
+		{% if errorSummary %}
+            {{ govukErrorSummary({  
+                titleText: "There is a problem",
+                errorList: [
+                    {
+                        text: "Select if you want to add additional team members",
+                        href: "#add-members-yes"
+                    }
+                ]
+            }) }}
+        {% endif %}   
+
         <form action="add-additional-study-members" method="post">
             <div class="govuk-form-group">
                 <span class="govuk-caption-l">Register a study</span>
-                <fieldset class="govuk-fieldset">
-                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-                        <h1 class="govuk-fieldset__heading">
-                            Do you need to add additional study team members?
-                        </h1>
-                    </legend>
 
-                    <p>You only need to add study team members who might need access to the study's short title, study team members, and [service name] ID</p>
-                    <p>You can add more team members later.</p>
+				{% if errorSummary %}
+					{% set errorMessage = { text: "Select if you want to add additional team members" } %}
+				{% else %}
+					{% set errorMessage = null %}
+				{% endif %}
 
-                    <div class="govuk-radios" data-module="govuk-radios">
-                        <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="add-members" name="add-members" type="radio" value="yes">
-                            
-                            <label class="govuk-label govuk-radios__label" for="add-members">
-                                Yes, add additional study team members
-                            </label>
-                        </div>
-
-                        <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="no-other" name="add-members" type="radio" value="no">
-                            
-                            <label class="govuk-label govuk-radios__label" for="no-other">
-                                No, I can confirm that there are no other team members who need access to this study
-                            </label>
-                        </div>
-                    </div>
-                </fieldset>
+				{{ govukRadios({
+					name: "add-members",
+					fieldset: {
+						legend: {
+						text: "Do you need to add additional study team members?",
+						isPageHeading: true,
+						classes: "govuk-fieldset__legend--l"
+						}
+					},
+					hint: {
+						html: "<p>You only need to add study team members who might need access to the study's short title, study team members, and [service name] ID</p><p>You can add more team members later.</p>"
+					},
+					items: [
+						{
+							value: "yes",
+							text: "Yes, add additional study team members",
+							id: "add-members-yes"
+						},
+						{
+							value: "no",
+							text: "No, I can confirm that there are no other team members who need access to this study",
+							id: "add-members-no"
+						}
+					],
+					errorMessage: errorMessage
+				}) }}
             </div>
 
             {{ govukButton({

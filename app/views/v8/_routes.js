@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+const path = require('path')
 
 let version = 'v8';
 
@@ -215,8 +216,10 @@ router.post('/manage-study-change-title', function(req, res) {
     let changeTitle = req.session.data['change-title'];
 
     if (!changeTitle || changeTitle.trim() === "") {
-        res.redirect("manage-study-change-title");
-        // Add error message functionality here
+        // Error message functionality
+        return res.render(path.join(__dirname, "manage-study-change-title"), {
+            errorSummary: true
+        });
     } else {
         // Redirect to the "check your answers" page if filled
         res.redirect("manage-study-change-title-cya");
@@ -228,8 +231,10 @@ router.post('/manage-study-add-member', function(req, res) {
     let name = req.session.data['member-full-name']
 
     if (!name || name.trim() === "") {
-        res.redirect("manage-study-add-member")
-        // add proper error functionality in future versions instead of redirect
+        // Error message functionality
+        return res.render(path.join(__dirname, "manage-study-add-member"), {
+            errorSummary: true
+        });
     } else {
         res.redirect("manage-study-add-member-email")
     }
@@ -240,8 +245,10 @@ router.post('/manage-study-add-member-email', function(req, res) {
     let email = req.session.data['member-email-address']
 
     if (!email || email.trim() === "") {
-        res.redirect("manage-study-add-member-email")
-        // add proper error functionality in future versions instead of redirect
+        // Error message functionality
+        return res.render(path.join(__dirname, "manage-study-add-member-email"), {
+            errorSummary: true
+        });
     } else {
         res.redirect("manage-study-add-member-cya")
     }
@@ -253,9 +260,10 @@ router.post('/manage-study-change-member', function(req, res) {
 
     // Check if name is blank
     if (!name || name.trim() === "") {
-        // Don't progress if blank
-        res.redirect("manage-study-change-member");
-        // add proper error functionality in future versions instead of redirect
+        // Error message functionality
+        return res.render(path.join(__dirname, "manage-study-change-member"), {
+            errorSummary: true
+        });
     } else {
         res.redirect("manage-study-change-member-email");
     }
@@ -267,9 +275,10 @@ router.post('/manage-study-change-member-email', function(req, res) {
 
     // Check if email is blank
     if (!email || email.trim() === "") {
-        // Don't progress if blank
-        res.redirect("manage-study-change-member-email");
-        // add proper error functionality in future versions instead of redirect
+        // Error message functionality
+        return res.render(path.join(__dirname, "manage-study-change-member-email"), {
+            errorSummary: true
+        });
     } else {
         res.redirect("manage-study-change-member-cya");
     }
@@ -284,8 +293,10 @@ router.post('/manage-study-delete-member', function(req, res) {
     } else if (deleteMember == "no") {
         res.redirect("view-my-study")
     } else {
-        // add proper error functionality in future versions instead of redirect
-        res.redirect("manage-study-delete-member")
+        // Error message functionality
+        return res.render(path.join(__dirname, "manage-study-delete-member"), {
+            errorSummary: true
+        });
     }
 })
 
@@ -294,8 +305,10 @@ router.post('/what-is-the-short-title', function(req, res) {
     let title = req.session.data['short-title']
 
     if (!title || title.trim() === "") {
-        res.redirect("what-is-the-short-title")
-        // add proper error functionality in future versions instead of redirect
+        // Error message functionality
+        return res.render(path.join(__dirname, "what-is-the-short-title"), {
+            errorSummary: true
+        });
     } else {
         res.redirect("add-additional-study-members")
     }
@@ -310,7 +323,10 @@ router.post('/add-additional-study-members', function(req, res) {
     } else if (add == "no") {
         res.redirect("check-your-answers")
     } else {
-        res.redirect("add-additional-study-members")
+        // Error message functionality
+        return res.render(path.join(__dirname, "add-additional-study-members"), {
+            errorSummary: true
+        });
     }
 })
 
@@ -319,8 +335,10 @@ router.post('/add-study-member-name', function(req, res) {
     let name = req.session.data['add-full-name']
 
     if (!name || name.trim() === "") {
-        res.redirect("add-study-member-name")
-        // add proper error functionality in future versions instead of redirect
+        // Error message functionality
+        return res.render(path.join(__dirname, "add-study-member-name"), {
+            errorSummary: true
+        });
     } else {
         res.redirect("add-study-member-email")
     }
@@ -331,8 +349,10 @@ router.post('/add-study-member-email', function(req, res) {
     let email = req.session.data['add-member-email']
 
     if (!email || email.trim() === "") {
-        res.redirect("add-study-member-email")
-        // add proper error functionality in future versions instead of redirect
+        // Error message functionality
+        return res.render(path.join(__dirname, "add-study-member-email"), {
+            errorSummary: true
+        });
     } else {
         res.redirect("add-study-member-check-answers")
     }
@@ -347,8 +367,10 @@ router.post('/add-study-member-completed', function(req, res) {
     } else if (more == "no") {
         res.redirect("check-your-answers")
     } else {
-        // no option selected - add proper error functionality in future versions instead of redirect
-        res.redirect("add-study-member-completed")
+        // Error message functionality
+        return res.render(path.join(__dirname, "add-study-member-completed"), {
+            errorSummary: true
+        });
     }
 })
 

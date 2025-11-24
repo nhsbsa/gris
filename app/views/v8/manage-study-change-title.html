@@ -11,7 +11,7 @@
 		text: "Alpha"
 		},
 		html: 'This is a new service - your <a class="govuk-link govuk-link--no-visited-state" href="#">feedback</a> will help us improve it.'
-	}) }}   
+	}) }}
 
     {{ govukBackLink({
         text: "Back",
@@ -22,17 +22,40 @@
 {% block content %}
 
 <div class="govuk-grid-row">
-	<div class="govuk-grid-column-two-thirds">        
+	<div class="govuk-grid-column-two-thirds">      
+        {% if errorSummary %}
+            {{ govukErrorSummary({  
+                titleText: "There is a problem",
+                errorList: [
+                    {
+                        text: "Enter the short title of the study",
+                        href: "#change-title"
+                    }
+                ]
+            }) }}
+        {% endif %}        
+
         <form action="manage-study-change-title" method="post">
             <div class="govuk-form-group">
                 <span class="govuk-caption-l">Manage study</span>
-                <h1 class="govuk-label-wrapper">
-                    <label class="govuk-label govuk-label--l" for="change-title">
-                        What is the short title of the study?
-                    </label>
-                </h1>
-                <input class="govuk-input" id="change-title" name="change-title" type="text">
-            </div>        
+
+                {% if errorSummary %}
+                    {% set errorMessage = { text: "Enter the short title of the study" } %}
+                {% else %}
+                    {% set errorMessage = null %}
+                {% endif %}
+
+                {{ govukInput({
+                    label: {
+                        text: "What is the short title of the study?",
+                        classes: "govuk-label--l",
+                        isPageHeading: true
+                    },
+                    id: "change-title",
+                    name: "change-title",
+                    errorMessage: errorMessage
+                }) }}
+            </div>
 
             {{ govukButton({
                 text: "Continue"

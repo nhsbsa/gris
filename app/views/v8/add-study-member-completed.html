@@ -18,6 +18,18 @@
 
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
+        {% if errorSummary %}
+            {{ govukErrorSummary({  
+                titleText: "There is a problem",
+                errorList: [
+                    {
+                        text: "Select if you want to add additional team members",
+                        href: "#add-members-yes"
+                    }
+                ]
+            }) }}
+        {% endif %}  
+
         <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-6">
             <h1 class="govuk-panel__title">
                 You have added a new study team member
@@ -55,24 +67,33 @@
         }) }}
 
         <form action="add-study-member-completed" method="post">
+            {% if errorSummary %}
+                {% set errorMessage = { text: "Select if you want to add additional team members" } %}
+            {% else %}
+                {% set errorMessage = null %}
+            {% endif %}
+
             {{ govukRadios({
-            name: "add-more-members",
-            fieldset: {
-                legend: {
-                text: "Do you need to add any additional team members?",
-                classes: "govuk-fieldset__legend--m"
-                }
-            },
-            items: [                
-                {
-                    value: "yes",
-                    text: "Yes"
+                name: "add-more-members",
+                fieldset: {
+                    legend: {
+                    text: "Do you need to add any additional team members?",
+                    classes: "govuk-fieldset__legend--m"
+                    }
                 },
-                {
-                    value: "no",
-                    text: "No"
-                }
-            ]
+                items: [                
+                    {
+                        value: "yes",
+                        text: "Yes",
+                        id: "add-members-yes"
+                    },
+                    {
+                        value: "no",
+                        text: "No",
+                        id: "add-members-no"
+                    }
+                ],
+                errorMessage: errorMessage
             }) }}
 
             {{ govukButton({

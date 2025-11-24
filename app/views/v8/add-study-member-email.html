@@ -23,18 +23,36 @@
 
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
+        {% if errorSummary %}
+            {{ govukErrorSummary({  
+                titleText: "There is a problem",
+                errorList: [
+                    {
+                        text: "Enter the email address of the study team member",
+                        href: "#email-address"
+                    }
+                ]
+            }) }}
+        {% endif %}    
+
         <span class="govuk-caption-l">Register a study</span>
         <h1 class="govuk-heading-l">What is the email address of the study team member you want to add?</h1>
         
         <form action="add-study-member-email" method="post">
+            {% if errorSummary %}
+                {% set errorMessage = { text: "Enter the email address of the study team member" } %}
+            {% else %}
+                {% set errorMessage = null %}
+            {% endif %}
+
             {{ govukInput({
                 label: {
                     text: "Email address"
                 },
-                id: "member-email",
+                id: "email-address",
                 name: "add-member-email",
                 type: "email",
-                autocomplete: "email"
+                errorMessage: errorMessage
             }) }}
 
             {{ govukButton({

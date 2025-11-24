@@ -23,15 +23,38 @@
 
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
+        {% if errorSummary %}
+            {{ govukErrorSummary({  
+                titleText: "There is a problem",
+                errorList: [
+                    {
+                        text: "Enter the email address of the study team member",
+                        href: "#email-address"
+                    }
+                ]
+            }) }}
+        {% endif %}   
+
         <span class="govuk-caption-l">Manage study</span>
         <h1 class="govuk-heading-l">What is the study team member's email address?</h1>
         
         <form action="manage-study-change-member-email" method="post">
-            <div class="govuk-form-group">
-                <label class="govuk-label" for="change-email-address">
-                    Email address
-                </label>
-                <input class="govuk-input" id="change-email-address" name="change-email-address" type="email" spellcheck="false" >
+            <div class="govuk-form-group">    
+                {% if errorSummary %}
+                    {% set errorMessage = { text: "Enter the email address of the study team member" } %}
+                {% else %}
+                    {% set errorMessage = null %}
+                {% endif %}
+
+                {{ govukInput({
+                    label: {
+                        text: "Email address"
+                    },
+                    id: "email-address",
+                    name: "change-email-address",
+                    type: "email",
+                    errorMessage: errorMessage
+                }) }}
             </div>
 
             {{ govukButton({
