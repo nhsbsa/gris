@@ -28,7 +28,7 @@
                 titleText: "There is a problem",
                 errorList: [
                     {
-                        text: "Enter the email address of the study team member",
+                        text: "Enter the email address of the study team member you want to add",
                         href: "#email-address"
                     }
                 ]
@@ -40,7 +40,7 @@
         
         <form action="add-study-member-email" method="post">
             {% if errorSummary %}
-                {% set errorMessage = { text: "Enter the email address of the study team member" } %}
+                {% set errorMessage = { text: "Enter the email address of the study team member you want to add" } %}
             {% else %}
                 {% set errorMessage = null %}
             {% endif %}

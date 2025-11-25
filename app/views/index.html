@@ -52,18 +52,25 @@
 				
 				<ul>
 					<li><strong>COMING SOON (AWAITING REQUIREMENTS)</strong> New login and register journey with options on sign in / register method</li>
+					<li class="govuk-!-margin-bottom-6"><strong>COMING SOON (AWAITING REQUIREMENTS)</strong> Error messages for login and register once requirements are decided</li>
+
 					<li>Removed the now un-needed register study lead applicant question</li>
 					<li>Removed member permisisons question for add and change study member again</li>
 					<li>Removed functionality for changing chief investigator details via study management screen</li>
 					<li>Removed permissions information on my studies page table</li>
+					<li>Added we found a matching study functionality on register a study journey<strong>*</strong></li>
 					<li>Implemented error messages on register a study journey</li>
-					<li>Implemented error messages on manage a study journey</li>
-					<li><strong>COMING SOON (AWAITING REQUIREMENTS)</strong> Error messages for login and register once requirements are decided</li>
+					<li>Implemented error messages on manage a study journey</li>					
 				</ul>
 
-				<h4 class="govuk-heading-s">Other screens</h4>
 
-				<ul>
+				{{ govukInsetText({
+					html: '<p><strong>*</strong> To see this part of the journey, when registering a study enter "Investigating" as the short title.</p>'
+				}) }}
+				
+				<h4 class="govuk-heading-s">Other screens:</h4>
+
+				<ul class="govuk-!-margin-bottom-6">
 					<li><a href="/v8/no-studies-found" class="govuk-link govuk-link--no-visited-state">No studies found</a></li>
 					<li><a href="/v8/you-do-not-have-permission" class="govuk-link govuk-link--no-visited-state">You do not have permission to view this study</a></li>
 					<li><a href="/v8/404" class="govuk-link govuk-link--no-visited-state">404 Page</li>
@@ -103,9 +110,9 @@
 					<li>Signposting to BPOR (Be part of research) on the confirmation screen</li>
 				</ul>
 
-				<h4 class="govuk-heading-s">Other screens</h4>
+				<h4 class="govuk-heading-s">Other screens:</h4>
 
-				<ul>
+				<ul class="govuk-!-margin-bottom-6">
 					<li><a href="/v7/no-studies-found" class="govuk-link govuk-link--no-visited-state">No studies found</a></li>
 					<li><a href="/v7/you-do-not-have-permission" class="govuk-link govuk-link--no-visited-state">You do not have permission to view this study</a></li>
 					<li><a href="/v7/404" class="govuk-link govuk-link--no-visited-state">404 Page</li>
@@ -141,9 +148,9 @@
 					<li>Slightly refined register study journey (removal of un-needed steps, reworked study location from radio buttons to checkboxes, alphabetical order of options etc.)</li>
 				</ul>
 
-				<h4 class="govuk-heading-s">Other screens</h4>
+				<h4 class="govuk-heading-s">Other screens:</h4>
 
-				<ul>
+				<ul class="govuk-!-margin-bottom-6">
 					<li><a href="/v6/no-studies-found" class="govuk-link govuk-link--no-visited-state">No studies found</a></li>
 					<li><a href="/v6/404" class="govuk-link govuk-link--no-visited-state">404 Page</li>
 				</ul>
@@ -179,9 +186,9 @@
 					<li>404 page</li>
 				</ul>
 
-				<h4 class="govuk-heading-s">Other screens</h4>
+				<h4 class="govuk-heading-s">Other screens:</h4>
 
-				<ul>
+				<ul class="govuk-!-margin-bottom-6">
 					<li><a href="/v5/404" class="govuk-link govuk-link--no-visited-state">404 Page</li>
 				</ul>
 
@@ -214,7 +221,7 @@
 
 				<h4 class="govuk-heading-s">Known issues</h4>
 
-				<ul>
+				<ul class="govuk-!-margin-bottom-6">
 					<li>Exploration needs to be done on how viable this is as an option in regards to security of data</li>
 					<li>Error messaging throughout, for example when fields are left blank, and more kickout screen, 404 etc.</li>
 				</ul>
@@ -245,7 +252,7 @@
 
 				<h4 class="govuk-heading-s">Known issues</h4>
 
-				<ul>
+				<ul class="govuk-!-margin-bottom-6">
 					<li>No studies found or read only versions of dashboard screens need exploring</li>
 					<li>Kickout / 404 pages etc. also still need to be looked at</li>
 				</ul>
@@ -278,7 +285,7 @@
 
 				<h4 class="govuk-heading-s">Known issues</h4>
 
-				<ul>
+				<ul class="govuk-!-margin-bottom-6">
 					<li>Content needs to be updated, <strong>currently in review</strong></li>
 					<li>No studies found or read only versions of dashboard screens need exploring</li>
 					<li>Kickout / 404 pages etc. also still need to be looked at</li>
@@ -311,7 +318,7 @@
 
 				<h4 class="govuk-heading-s">Known issues</h4>
 
-				<ul>
+				<ul class="govuk-!-margin-bottom-6">
 					<li>The journey flow itself still needs work / screens breaking down</li>
 					<li>Content needs looking at by a content designer</li>
 					<li>Service unavailable / 404 page / Kickout pages missing etc.</li>
@@ -344,7 +351,7 @@
 
 				<h4 class="govuk-heading-s">Known issues</h4>
 
-				<ul>
+				<ul class="govuk-!-margin-bottom-6">
 					<li>Currrent designs are not currently on pattern</li>
 					<li>The journey flow itself needs work / screens breaking down</li>
 					<li>Some of journey doesn't even have pages - only happy path</li>
@@ -383,9 +390,9 @@
 					<li>Removed search and manage functionality regarding lead applicant and permissions</li>
 				</ul>
 
-				<h4 class="govuk-heading-s">Other screens</h4>
+				<h4 class="govuk-heading-s">Other screens:</h4>
 
-				<ul>
+				<ul class="govuk-!-margin-bottom-6">
 					<li><a href="/offline-v6/no-results-found" class="govuk-link govuk-link--no-visited-state">No search results found</li>
 					<li><a href="/offline-v6/404" class="govuk-link govuk-link--no-visited-state">404 Page</li>
 				</ul>
@@ -420,9 +427,9 @@
 					<li>Added a button to copy study ID to clipboard on view studies page</li>
 				</ul>
 
-				<h4 class="govuk-heading-s">Other screens</h4>
+				<h4 class="govuk-heading-s">Other screens:</h4>
 
-				<ul>
+				<ul class="govuk-!-margin-bottom-6">
 					<li><a href="/offline-v5/404" class="govuk-link govuk-link--no-visited-state">404 Page</li>
 				</ul>
 
@@ -454,9 +461,9 @@
 					<li>Slightly refined register study journey (removal of un-needed steps, reworked study location from radio buttons to checkboxes, alphabetical order of options etc.)</li>
 				</ul>
 
-				<h4 class="govuk-heading-s">Other screens</h4>
+				<h4 class="govuk-heading-s">Other screens:</h4>
 
-				<ul>
+				<ul class="govuk-!-margin-bottom-6">
 					<li><a href="/offline-v4/404" class="govuk-link govuk-link--no-visited-state">404 Page</li>
 				</ul>
 
@@ -488,9 +495,9 @@
 					<li>404 page</li>
 				</ul>
 
-				<h4 class="govuk-heading-s">Other screens</h4>
+				<h4 class="govuk-heading-s">Other screens:</h4>
 
-				<ul>
+				<ul class="govuk-!-margin-bottom-6">
 					<li><a href="/offline-v3/404" class="govuk-link govuk-link--no-visited-state">404 Page</li>
 				</ul>
 
@@ -526,7 +533,7 @@
 
 				<h4 class="govuk-heading-s">Known issues</h4>
 
-				<ul>
+				<ul class="govuk-!-margin-bottom-6">
 					<li>Need to explore MFA to protect study information from potential bad actors</li>
 					<li>Session time out might also be a nice addition for security purposes</li>
 				</ul>
@@ -564,7 +571,7 @@
 
 				<h4 class="govuk-heading-s">Known issues</h4>
 
-				<ul>
+				<ul class="govuk-!-margin-bottom-6">
 					<li>From prior projects / research call centre staff sometimes like to have a 'condensed' journey, more than one question per page so this is something we would like to try and test in version 2.</li>
 				</ul>
 

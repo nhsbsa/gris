@@ -28,7 +28,7 @@
                 titleText: "There is a problem",
                 errorList: [
                     {
-                        text: "Enter the name of the study team member",
+                        text: "Enter the study team member's name",
                         href: "#full-name"
                     }
                 ]
@@ -41,7 +41,7 @@
         <form action="manage-study-change-member" method="post">
             <div class="govuk-form-group">
                 {% if errorSummary %}
-                    {% set errorMessage = { text: "Enter the name of the study team member" } %}
+                    {% set errorMessage = { text: "Enter the study team member's name" } %}
                 {% else %}
                     {% set errorMessage = null %}
                 {% endif %}
