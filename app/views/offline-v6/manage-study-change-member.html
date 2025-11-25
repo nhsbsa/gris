@@ -18,27 +18,60 @@
 
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
+        {% if errorSummary %}
+            {{ govukErrorSummary({  
+                titleText: "There is a problem",
+                errorList: [
+                    {
+                        text: "Enter a full name",
+                        href: "#change-full-name"
+                    },  
+                    {
+                        text: "Enter an email address",
+                        href: "#change-email-address"
+                    }
+                ]
+            }) }}
+        {% endif %}  
+
         <span class="govuk-caption-l">Manage study</span>
         <h1 class="govuk-heading-l">Change a study member's details</h1>
         
         <form action="manage-study-change-member" method="post">
+            {% if errorSummary %}
+				{% set errorMessageOne = { text: "Enter a full name" } %}
+                {% set errorMessageTwo = { text: "Enter an email address" } %}
+			{% else %}
+				{% set errorMessageOne = null %}
+                {% set errorMessageTwo = null %}
+			{% endif %}
+
             <div class="govuk-form-group">
-                <label class="govuk-label" for="change-full-name">
-                    Full name
-                </label>
-                <input class="govuk-input" id="change-full-name" name="change-full-name" type="text" spellcheck="false">
+                {{ govukInput({
+                    label: {
+                        text: "Full name"
+                    },
+                    id: "change-full-name",
+                    name: "change-full-name",
+                    errorMessage: errorMessageOne
+                }) }}
             </div>
 
             <div class="govuk-form-group">
-                <label class="govuk-label" for="change-email-address">
-                    Email address
-                </label>
-                <input class="govuk-input" id="change-email-address" name="change-email-address" type="email" spellcheck="false" >
+                {{ govukInput({
+                    label: {
+                        text: "Email address"
+                    },
+                    id: "change-email-address",
+                    name: "change-email-address",
+                    type: "email",
+                    errorMessage: errorMessageTwo
+                }) }}
             </div>
 
-            <button type="submit" class="govuk-button" data-module="govuk-button">
-                Continue
-            </button>
+            {{ govukButton({
+                text: "Continue"
+            }) }}
         </form>
     </div>
 </div>

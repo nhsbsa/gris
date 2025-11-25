@@ -4,25 +4,13 @@ const path = require('path')
 
 let version = 'offline-v6';
 
-// Sign in
-router.post('/sign-in', function(req, res) {
-    let emailLogin = req.session.data['email-login']
-
-    if (!emailLogin || emailLogin.trim() === "") {
-        res.redirect("sign-in")
-        // add proper error functionality in future versions instead of redirect
-    } else {
-        res.redirect("enter-your-password")
-    }
-})
-
 // NHS Login
 router.post('/nhs-login', function(req, res) {
     let email = req.session.data['email-login']
 
     if (!email || email.trim() === "") {
         res.redirect("nhs-login")
-        // add proper error functionality in future versions instead of redirect
+        // This page is not in toolkit or else would add error msg functionality here
     } else {
         req.session.data['loggedIn'] = true;
         res.redirect("dashboard")
@@ -69,35 +57,48 @@ router.get('/dashboard', function (req, res) {
 });
 
 // Search
-router.post('/search', function(req, res) {
-    let title   = String(req.session.data['search-study-title'] || '').trim();
-    let grisID  = String(req.session.data['search-gris-id'] || '').trim();
-
-    // If any field is NOT blank
-    if (
-        (title && title.trim() !== "") || (grisID && grisID.trim() !== "")
-    ) {
-        res.redirect("search-results")
+router.post('/search', function(req, res) { 
+    let title = String(req.session.data['search-study-title'] || '').trim(); 
+    let grisID = String(req.session.data['search-gris-id'] || '').trim(); 
+    
+    // So long as no field is empty, show search results 
+    if (title !== "" || grisID !== "") {
+        res.redirect("search-results");
     } else {
-        res.redirect("search")
-        // Add error functionality here
+        return res.render(path.join(__dirname, "search"), {
+            errorSummary: true
+        });
     }
 })
 
-// Register study - study information
+// Register study - short title of study
 router.post('/register-study', function(req, res) {
-    // Need to add rules here for checking fields are not empty etc.
+    let title = req.session.data['short-title']
 
-    // For now, just redirect to next page on submit:
-    res.redirect("register-study-add-member-details")
+    if (!title || title.trim() === "") {
+        // Error message functionality
+        return res.render(path.join(__dirname, "register-study"), {
+            errorSummary: true
+        });
+    }  else {
+        res.redirect("register-study-add-member-details")
+    }    
 })
 
 // Register study - add study member details
 router.post('/register-study-add-member-details', function(req, res) {
-    // Need to add rules here for checking fields are not empty etc.
+    let name = req.session.data['add-full-name'];
+    let email = req.session.data['add-member-email'];
 
-    // For now, just redirect to next page on submit:
-    res.redirect("register-study-add-member-details-cya")
+    // Check if name or email are blank, or if permissions is invalid
+    if (!name || name.trim() === "" || !email || email.trim() === "") {       
+        // Error message functionality
+        return res.render(path.join(__dirname, "register-study-add-member-details"), {
+            errorSummary: true
+        });
+    } else {
+        res.redirect("register-study-add-member-details-cya");
+    }
 })
 
 // Register study - add study member completed
@@ -109,8 +110,10 @@ router.post('/register-study-add-member-completed', function(req, res) {
     } else if (more == "no") {
         res.redirect("check-your-answers")
     } else {
-        // no option selected - add proper error functionality in future versions instead of redirect
-        res.redirect("register-study-add-member-completed")
+        // Error message functionality
+        return res.render(path.join(__dirname, "register-study-add-member-completed"), {
+            errorSummary: true
+        });
     }
 })
 
@@ -118,9 +121,11 @@ router.post('/register-study-add-member-completed', function(req, res) {
 router.post('/manage-study-change-title', function(req, res) {
     let changeTitle = req.session.data['change-title'];
 
-    if (!changeTitle || changeTitle.trim() === "") {
-        res.redirect("manage-study-change-title");
-        // Add error message functionality here
+    if (!changeTitle || changeTitle.trim() === "") {        
+        // Error message functionality
+        return res.render(path.join(__dirname, "manage-study-change-title"), {
+            errorSummary: true
+        });
     } else {
         // Redirect to the "check your answers" page if filled
         res.redirect("manage-study-change-title-cya");
@@ -133,9 +138,11 @@ router.post('/manage-study-add-member', function(req, res) {
     let email = req.session.data['member-email-address'];
 
     // Check if name or email are blank, or if permissions is invalid
-    if (!name || name.trim() === "" || !email || email.trim() === "") {
-        res.redirect("manage-study-add-member");
-        // add proper error functionality in future versions instead of redirect
+    if (!name || name.trim() === "" || !email || email.trim() === "") {       
+        // Error message functionality
+        return res.render(path.join(__dirname, "manage-study-add-member"), {
+            errorSummary: true
+        });
     } else {
         res.redirect("manage-study-add-member-cya");
     }
@@ -147,9 +154,11 @@ router.post('/manage-study-change-member', function(req, res) {
     let email = req.session.data['change-email-address'];
 
     // Check if name or email are blank, or if permissions is invalid
-    if (!name || name.trim() === "" || !email || email.trim() === "") {
-        res.redirect("manage-study-change-member");
-        // add proper error functionality in future versions instead of redirect
+    if (!name || name.trim() === "" || !email || email.trim() === "") {        
+        // Error message functionality
+        return res.render(path.join(__dirname, "manage-study-change-member"), {
+            errorSummary: true
+        });
     } else {
         res.redirect("manage-study-change-member-cya");
     }
@@ -164,8 +173,10 @@ router.post('/manage-study-delete-member', function(req, res) {
     } else if (deleteMember == "no") {
         res.redirect("manage-study")
     } else {
-        // add proper error functionality in future versions instead of redirect
-        res.redirect("manage-study-delete-member")
+        // Error message functionality
+        return res.render(path.join(__dirname, "manage-study-delete-member"), {
+            errorSummary: true
+        });
     }
 })
 

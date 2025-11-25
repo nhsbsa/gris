@@ -19,12 +19,11 @@
             </h1>
             <div class="govuk-panel__body">
                 {{ data['change-full-name'] | title | default('James Bond') }}<br>
-                {{ data['change-email-address'] | default('james.bond@email.com') }}<br>
-                {{ data['change-permissions'] | capitalize | default('Read only') }}
+                {{ data['change-email-address'] | default('james.bond@email.com') }}
             </div>
         </div>
                         
-        <p>We've updated [study name] with the updated name, email address and permissions for the study team member.</p>
+        <p>We've updated [study name] with the updated name and email address.</p>
         
         <h2 class="govuk-heading-m">What happens next</h2>
         <p>We've sent an email to the study team members to let them know that the team member's details have been changed.</p>

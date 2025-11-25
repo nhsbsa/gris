@@ -17,17 +17,42 @@
 
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
+        {% if errorSummary %}
+            {{ govukErrorSummary({  
+                titleText: "There is a problem",
+                errorList: [
+                    {
+                        text: "Enter a full name",
+                        href: "#member-full-name"
+                    },  
+                    {
+                        text: "Enter an email address",
+                        href: "#member-email"
+                    }
+                ]
+            }) }}
+        {% endif %}  
+
         <span class="govuk-caption-l">Register a study</span>
         <h1 class="govuk-heading-l">
-            Study team member's details
+            Study team member details
         </h1>
         <form action="register-study-add-member-details" method="post">
+            {% if errorSummary %}
+				{% set errorMessageOne = { text: "Enter a full name" } %}
+                {% set errorMessageTwo = { text: "Enter an email address" } %}
+			{% else %}
+				{% set errorMessageOne = null %}
+                {% set errorMessageTwo = null %}
+			{% endif %}
+
             {{ govukInput({
                 label: {
                     text: "Full name"
                 },
                 id: "member-full-name",
-                name: "add-full-name"
+                name: "add-full-name",
+                errorMessage: errorMessageOne
             }) }}
 
             {{ govukInput({
@@ -37,7 +62,7 @@
                 id: "member-email",
                 name: "add-member-email",
                 type: "email",
-                autocomplete: "email"
+                errorMessage: errorMessageTwo
             }) }}
             
             {{ govukButton({

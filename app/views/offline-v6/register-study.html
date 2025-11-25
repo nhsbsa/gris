@@ -14,20 +14,41 @@
 
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
-        <span class="govuk-caption-l">Register a study</span>
-        <h1 class="govuk-heading-l">
-            New study information
-        </h1>
-
+        {% if errorSummary %}   
+            {{ govukErrorSummary({  
+                titleText: "There is a problem",
+                errorList: [
+                    {
+                        text: "Enter the short title of the study",
+                        href: "#short-title"
+                    }
+                ]
+            }) }}
+        {% endif %}          
+        
 		<form action="register-study" method="post">
             <!-- Short title of study -->
+            {% if errorSummary %}
+            {% set errorMessage = { text: "Enter the short title of the study" } %}
+			{% else %}
+            {% set errorMessage = null %}
+			{% endif %}
+            
+            <span class="govuk-caption-l">Register a study</span>
             {{ govukInput({
 				label: {
-					text: "What is the short title of the study?",
-					classes: ""
+					text: "Short title of the study",
+					classes: "govuk-label--l",
+                    isPageHeading: true
 				},
+                 hint: {
+                    html: '<div class="govuk-inset-text">
+                            Check that a [service name] ID does not already exist for this study before you create a new ID.
+                            </div>'
+                },
 				id: "short-title",
-				name: "short-title"
+				name: "short-title",
+                errorMessage: errorMessage
 			}) }}
 
             {{ govukButton({

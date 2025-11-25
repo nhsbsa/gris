@@ -11,33 +11,65 @@
 {% endblock %}
 
 {% block content %}
-
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-full">
+        {% if errorSummary %}
+            {{ govukErrorSummary({  
+                titleText: "There is a problem",
+                errorList: [
+                    {
+                        text: "Enter a short title of study",
+                        href: "#search-study-title"
+                    },  
+                    {
+                        text: "Enter a [service name] ID",
+                        href: "#search-gris-id"
+                    }
+                ]
+            }) }}
+        {% endif %}   
         <div class="govuk-panel govuk-search-panel">
             <h1 class="govuk-heading-l">
                 Search for a study
             </h1>
+
+            {% if errorSummary %}
+				{% set errorMessageOne = { text: "Enter the short title of the study" } %}
+                {% set errorMessageTwo = { text: "Enter a [service name] ID" } %}
+			{% else %}
+				{% set errorMessageOne = null %}
+                {% set errorMessageTwo = null %}
+			{% endif %}
+
             <form action="search" method="post">
-                <div class="govuk-grid-row govuk-!-margin-bottom-6">
-                    <div class="govuk-grid-column-one-half">
-                        <label class="govuk-label" for="search-study-title">
-                            Short title of study
-                        </label>
-                        <input class="govuk-input" id="search-study-title" name="search-study-title" type="text">
+                <div class="govuk-grid-row govuk-!-margin-bottom-2">
+                    <div class="govuk-grid-column-one-half">                       
+                        {{ govukInput({
+                            label: {
+                                text: "Short title of study"
+                            },
+                            id: "search-study-title",
+                            name: "search-study-title",
+                            errorMessage: errorMessageOne
+                        }) }}
                     </div>
 
                     <div class="govuk-grid-column-one-half">
-                        <label class="govuk-label" for="search-gris-id">
-                            [Service name] ID
-                        </label>
-                        <input class="govuk-input" id="search-gris-id" name="search-gris-id" type="text">
+                        {{ govukInput({
+                            label: {
+                                text: "[Service name] ID"
+                            },
+                            id: "search-gris-id",
+                            name: "search-gris-id",
+                            errorMessage: errorMessageTwo
+                        }) }}
                     </div>
                 </div>
-
-                <button type="submit" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">
-                    Search
-                </button>
+                {{ govukButton({
+                    text: "Search",
+                    classes: "govuk-!-margin-bottom-0"
+                }) }}
+                
             </form>
 
         </div>
