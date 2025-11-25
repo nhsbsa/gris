@@ -1,0 +1,115 @@
+{% extends "layouts/online-login-header.html" %}
+{% set serviceName="Service name" %}
+
+{% block pageTitle %}
+  We have found studies with a similar short study title - {{ serviceName }} - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+			text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link govuk-link--no-visited-state" href="#">feedback</a> will help us improve it.'
+	}) }}
+
+	{{ govukBackLink({
+		text: "Back",
+		href: "dashboard"
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+		{% if errorSummary %}
+            {{ govukErrorSummary({  
+                titleText: "There is a problem",
+                errorList: [
+                    {
+                        text: "Enter the short title of the study",
+                        href: "#matching-study-yes"
+                    }
+                ]
+            }) }}
+        {% endif %}   
+
+        <span class="govuk-caption-l">Register a study</span>
+        <h1 class="govuk-heading-l">We have found studies with a similar short study title</h1>
+
+        <p>Check that this is not a duplicate of your study.</p>
+        <p>If you find a match, you do not have to create a new [service name] ID.</p>
+
+                <table class="govuk-table">
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th scope="col" class="govuk-table__header">Name of study</th>
+                    <th scope="col" class="govuk-table__header">Last updated</th>
+                </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">
+                        Investigating left arm disease
+                        <p class="govuk-hint">GRIS-111 111 111</p>
+                    </td>
+                    <td class="govuk-table__cell">12/05/2025</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">
+                        Investigating right arm disease
+                        <p class="govuk-hint">GRIS-458 854 444</p>
+                    </td>
+                    <td class="govuk-table__cell">23/12/2024</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">
+                        Investigating left leg disease
+                        <p class="govuk-hint">GRIS-564 952 654</p>
+                    </td>
+                    <td class="govuk-table__cell">06/09/2024</td>
+                </tr>
+            </tbody>
+        </table>
+
+		<form action="what-is-the-short-title" method="post">
+			{% if errorSummary %}
+				{% set errorMessage = { text: "Enter the short title of the study" } %}
+			{% else %}
+				{% set errorMessage = null %}
+			{% endif %}
+
+            {{ govukRadios({
+                name: "matching-study",
+                fieldset: {
+                    legend: {
+                    text: "Do any of the following studies match your study?",
+                    isPageHeading: false,
+                    classes: "govuk-fieldset__legend--m"
+                    }
+                },
+                items: [
+                    {
+                        value: "yes",
+                        text: "Yes",
+                        id: "matching-study-yes"
+                    },
+                    {
+                        value: "no",
+                        text: "No, continue to register my study",
+                        id: "matching-study-no"
+                    }
+                ],
+                errorMessage: errorMessage
+            }) }}
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}
