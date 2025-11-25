@@ -50,7 +50,16 @@
 					isPageHeading: true
 				},
 				hint: {
-					html: "You can change the title before submitting.<br><br>The title should be short but contain enough information so it's clear what the research is about."
+					html: '
+					<div class="govuk-warning-text govuk-!-margin-top-6">
+						<span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+							<strong class="govuk-warning-text__text">
+								<span class="govuk-visually-hidden">Warning</span>
+								Check that a [service name] ID does not already exist for this study before you create a new ID.<br><br>You must be listed as a study contact to view any existing ID.
+							</strong>
+						</div>
+						You can change the title before submitting.<br><br>The title should be short but contain enough information so it\'s clear what the research is about.
+					'
 				},
 				id: "short-title",
 				name: "short-title",

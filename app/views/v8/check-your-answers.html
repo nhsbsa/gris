@@ -24,6 +24,10 @@
         <p>If there is a mistake, you can edit responses by selecting 'Change'.</p>
         <p>You'll also have the option to change the responses after the submission through the 'manage study' section of the dashboard.</p>
         
+        {{ govukInsetText({
+            text: "Check that a [service name] ID does not already exist for this study before you create a new ID."
+        }) }}
+
         <!-- Study details -->
         <div class="govuk-summary-card">
             <div class="govuk-summary-card__title-wrapper">
