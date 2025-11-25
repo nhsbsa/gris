@@ -28,7 +28,7 @@
                 titleText: "There is a problem",
                 errorList: [
                     {
-                        text: "Enter the short title of the study",
+                        text: "Select if there is a matching study",
                         href: "#matching-study-yes"
                     }
                 ]
@@ -41,7 +41,7 @@
         <p>Check that this is not a duplicate of your study.</p>
         <p>If you find a match, you do not have to create a new [service name] ID.</p>
 
-                <table class="govuk-table">
+        <table class="govuk-table">
             <thead class="govuk-table__head">
                 <tr class="govuk-table__row">
                     <th scope="col" class="govuk-table__header">Name of study</th>
@@ -73,9 +73,9 @@
             </tbody>
         </table>
 
-		<form action="what-is-the-short-title" method="post">
+		<form action="we-found-matching-study" method="post">
 			{% if errorSummary %}
-				{% set errorMessage = { text: "Enter the short title of the study" } %}
+				{% set errorMessage = { text: "Select if there is a matching study" } %}
 			{% else %}
 				{% set errorMessage = null %}
 			{% endif %}

@@ -309,8 +309,26 @@ router.post('/what-is-the-short-title', function(req, res) {
         return res.render(path.join(__dirname, "what-is-the-short-title"), {
             errorSummary: true
         });
+    } else if (title == "Investigating"){
+        res.redirect("we-found-matching-study")
     } else {
         res.redirect("add-additional-study-members")
+    }
+})
+
+// Register study - we found a matching study
+router.post('/we-found-matching-study', function(req, res) {
+    let match = req.session.data['matching-study']
+
+    if (match == "yes") {
+        res.redirect("my-studies")
+    } else if (match == "no") {
+        res.redirect("add-additional-study-members")
+    } else {
+        // Error message functionality
+        return res.render(path.join(__dirname, "we-found-matching-study"), {
+            errorSummary: true
+        });
     }
 })
 
