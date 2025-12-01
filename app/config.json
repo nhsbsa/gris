@@ -1,5 +1,5 @@
 {
-  "serviceName": "Government research identifier service",
+  "serviceName": "Get a research ID",
   "plugins": {
     "govuk-frontend": {
       "rebrand": true

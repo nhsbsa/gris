@@ -1,5 +1,5 @@
 {% extends "layouts/online-login-header.html" %}
-{% set serviceName="Service name" %}
+
 
 {% block pageTitle %}
 	Enter your full name - {{ serviceName }} - GOV.UK Prototype Kit
@@ -33,15 +33,6 @@
                 id: "name-register",
                 name: "name-register"
             }) }}
-
-            <!-- <h2 class="govuk-heading-s">Agree to the [service name] terms of use</h2>
-
-            <p>By continuing, you confirm that you agree to our:</p>
-
-            <ul class="govuk-list govuk-list--bullet">
-                <li><a href="#" class="govuk-link--no-visited-state">privacy notice (opens in a new tab)</a> which explains how we use your personal information</li>
-                <li><a href="#" class="govuk-link--no-visited-state">terms and conditions (opens in a new tab)</a></li>
-            </ul> -->
 
             {{ govukButton({
                 text: "Continue"

@@ -1,6 +1,6 @@
 {% extends "layouts/online-login-header.html" %}
-{% set serviceName="Service name" %}
-{% set serviceName="Service name" %}
+
+
 
 {% block pageTitle %}
 	Sign in to {{ serviceName }} - {{ serviceName }} - GOV.UK Prototype Kit
@@ -31,13 +31,13 @@
   	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
 			<h1 class="govuk-heading-xl">
-				Sign in to [service name]
+				Sign in to Get a research ID
 			</h1>
 
 			<p>Use this service to:</p>
 
 			<ul class="govuk-list govuk-list--bullet">
-				<li>create a [Service name] ID</li>
+				<li>create a Research ID</li>
 				<li>view and manage an existing study record</li>
 			</ul>
 
@@ -46,11 +46,11 @@
 			</h2>
 
 			{{ govukWarningText({
-				html: 'To register for a [service name] ID, you must be the chief investigator responsible for managing the study.',
+				html: 'To register for a Research ID, you must be the chief investigator responsible for managing the study.',
 				iconFallbackText: "Warning"
 			}) }}
 
-			<p>To create an ID for your new study, you'll need to <a href="register-account-name" class="govuk-link--no-visited-state">create a [service name] account</a> if you don't already have one.</p>
+			<p>To create an ID for your new study, you'll need to <a href="register-account-name" class="govuk-link--no-visited-state">create a Get a research ID account</a> if you don't already have one.</p>
 			<p>You'll also need details, such as:</p>
 			
 			<ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-6">

@@ -1,5 +1,5 @@
 {% extends "layouts/online-login-header.html" %}
-{% set serviceName="Service name" %}
+
 
 {% block pageTitle %}
   We have found studies with a similar short study title - {{ serviceName }} - GOV.UK Prototype Kit
@@ -39,7 +39,7 @@
         <h1 class="govuk-heading-l">We have found studies with a similar short study title</h1>
 
         <p>Check that this is not a duplicate of your study.</p>
-        <p>If you find a match, you do not have to create a new [service name] ID.</p>
+        <p>If you find a match, you do not have to create a new Research ID.</p>
 
         <table class="govuk-table">
             <thead class="govuk-table__head">
@@ -97,7 +97,7 @@
                     },
                     {
                         value: "no",
-                        text: "No, continue to create a [service name] ID",
+                        text: "No, continue to create a Research ID",
                         id: "matching-study-no"
                     }
                 ],
