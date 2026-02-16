@@ -1,0 +1,46 @@
+{% extends "layouts/offline-login-header.html" %}
+{% set containerClasses = "govuk-full-width-body" %}
+{% set serviceName="Service name" %}
+
+{% block pageTitle %}
+	Dashboard - {{ serviceName }} - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Dashboard</h1>
+    </div>
+</div>
+
+<div class="govuk-grid-row govuk-card-equal-height">
+	<div class="govuk-grid-column-one-half">
+        <div class="govuk-card govuk-card--contained">
+            <div class="govuk-card__content">
+                <h2 class="govuk-heading-m"><a href="search" class="govuk-link--no-visited-state">Search and manage studies</a></h2>
+                <p>
+					You can search for a study and update its short title and team members.
+				</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="govuk-grid-column-one-half">
+        <div class="govuk-card govuk-card--contained">
+            <div class="govuk-card__content">
+                <h2 class="govuk-heading-m"><a href="register-study" class="govuk-link--no-visited-state">Register a new study</a></h2>
+                <p>
+					Register to get a [Service name] ID for a new study.
+				</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

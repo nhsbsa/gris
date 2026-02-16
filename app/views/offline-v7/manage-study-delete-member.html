@@ -1,0 +1,72 @@
+{% extends "layouts/offline-login-header.html" %}
+{% set containerClasses = "govuk-full-width-body" %}
+{% set serviceName="Service name" %}
+
+{% block pageTitle %}
+   Are you sure you want to delete [member name] from [study name]? - manage study - {{ serviceName }} - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "view-study"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">     
+        {% if errorSummary %}
+            {{ govukErrorSummary({  
+                titleText: "There is a problem",
+                errorList: [
+                    {
+                        text: "Select if you want to delete team member",
+                        href: "#delete-member-yes"
+                    }
+                ]
+            }) }}
+        {% endif %}      
+        <form action="manage-study-delete-member" method="post">
+            {% if errorSummary %}
+                {% set errorMessage = { text: "Select if you want to delete team member" } %}
+            {% else %}
+                {% set errorMessage = null %}
+            {% endif %}
+            
+            <div class="govuk-form-group">
+                {{ govukRadios({
+                    name: "delete-member",
+                    fieldset: {
+                        legend: {
+                        text: "Are you sure you want to delete [member name] from [study name]?",
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--l"
+                        }
+                    },
+                    items: [                
+                        {
+                            value: "yes",
+                            text: "Yes",
+                            id: "delete-member-yes"
+                        },
+                        {
+                            value: "no",
+                            text: "No",
+                            id: "delete-member-no"
+                        }
+                    ],
+                    errorMessage: errorMessage
+                }) }}
+            </div>
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form>
+    </div>
+</div>
+
+{% endblock %}

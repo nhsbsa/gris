@@ -1,0 +1,46 @@
+{% extends "layouts/offline-login-header.html" %}
+{% set containerClasses = "govuk-full-width-body" %}
+{% set serviceName="Service name" %}
+
+{% block pageTitle %}
+	Check your answers before changing short study title - manage study - {{ serviceName }} - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "manage-study-change-title"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-l">Manage study</span>
+        <h1 class="govuk-heading-l">Check your answers before changing the short title of the study</h1>
+
+        <h2 class="govuk-heading-m">Study details</h2>
+        
+        <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Short title of the study
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data['change-title'] | title | default('Investigating left arm disease in the UK') }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link govuk-link--no-visited-state" href="manage-study-change-title">Change<span class="govuk-visually-hidden"> title</span></a>
+                </dd>
+            </div>    
+        </dl>
+
+        <a href="manage-study-change-title-complete" role="button" class="govuk-button" data-module="govuk-button">
+            Submit
+        </a>
+    </div>
+</div>
+
+{% endblock %}
