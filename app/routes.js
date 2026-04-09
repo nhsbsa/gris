@@ -8,6 +8,9 @@ const router = govukPrototypeKit.requests.setupRouter()
 
 // Online Journey:
 
+// Routes for v9
+router.use('/v9', require('./views/v9/\_routes'));
+
 // Routes for v8
 router.use('/v8', require('./views/v8/\_routes'));
 

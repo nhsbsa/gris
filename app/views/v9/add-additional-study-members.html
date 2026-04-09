@@ -1,0 +1,86 @@
+{% extends "layouts/online-login-header.html" %}
+
+
+{% block pageTitle %}
+    Do you need to add additional study team members? - {{ serviceName }} - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link govuk-link--no-visited-state" href="#">feedback</a> will help us improve it.'
+	}) }}
+
+    {{ govukBackLink({
+        text: "Back",
+        href: "what-is-the-short-title"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+		{% if errorSummary %}
+            {{ govukErrorSummary({  
+                titleText: "There is a problem",
+                errorList: [
+                    {
+                        text: "Select if you want to add additional team members",
+                        href: "#add-members-yes"
+                    }
+                ]
+            }) }}
+        {% endif %}   
+
+        <form action="add-additional-study-members" method="post">
+            <div class="govuk-form-group">
+                <span class="govuk-caption-l">Register a study</span>
+
+				{% if errorSummary %}
+					{% set errorMessage = { text: "Select if you want to add additional team members" } %}
+				{% else %}
+					{% set errorMessage = null %}
+				{% endif %}
+
+				{{ govukRadios({
+					name: "add-members",
+					fieldset: {
+						legend: {
+						text: "Do you need to add additional study team members?",
+						isPageHeading: true,
+						classes: "govuk-fieldset__legend--l"
+						}
+					},
+					hint: {
+						html: '<p>You only need to add study team members who might need access to the study\'s short title, study team members, and research ID</p><p>You can add more team members later.</p>
+						<div class="govuk-inset-text">
+						If you use more than one email address to access other systems, add each email as a study contact to access all of your studies.
+						</div>'
+					},
+					items: [
+						{
+							value: "yes",
+							text: "Yes, add additional study team members",
+							id: "add-members-yes"
+						},
+						{
+							value: "no",
+							text: "No, I can confirm that there are no other team members who need access to this study",
+							id: "add-members-no"
+						}
+					],
+					errorMessage: errorMessage
+				}) }}
+            </div>
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form>
+    </div>
+</div>
+
+{% endblock %}
