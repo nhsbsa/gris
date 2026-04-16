@@ -294,10 +294,25 @@ router.post('/who-is-the-sponsor-completed', function(req, res) {
     if (more == "yes") {
         res.redirect("who-is-the-sponsor")
     } else if (more == "no") {
-        res.redirect("what-is-iras-id")
+        res.redirect("does-study-have-iras-id")
     } else {
         // no option selected - add proper error functionality in future versions instead of redirect
         res.redirect("who-is-the-sponsor-completed")
+    }
+})
+
+// Register study - does study have an IRAS ID?
+router.post('/does-study-have-iras-id', function(req, res) {
+    let iras = req.session.data['iras-id']
+    let irasInput = req.session.data['iras-id-input']
+
+    if (iras === "yes" && (!irasInput || irasInput.trim() === "")) {
+        // Error message functionality
+        return res.render(path.join(__dirname, "does-study-have-iras-id"), {
+            errorSummary: true
+        });
+    } else {
+        res.redirect("check-your-answers")
     }
 })
 

@@ -1,0 +1,96 @@
+{% extends "layouts/online-login-header.html" %}
+
+
+{% block pageTitle %}
+  Does this study have an IRAS ID? - {{ serviceName }} - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+			text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link govuk-link--no-visited-state" href="#">feedback</a> will help us improve it.'
+	}) }}
+
+	{{ govukBackLink({
+		text: "Back",
+		href: "who-is-the-sponsor-completed"
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+		{% if errorSummary %}
+            {{ govukErrorSummary({  
+                titleText: "There is a problem",
+                errorList: [
+                    {
+                        text: "Select if this study has an IRAS ID",
+                        href: "#iras-id"
+                    }
+                ]
+            }) }}
+        {% endif %}   
+        
+		<form action="does-study-have-iras-id" method="post">
+            <span class="govuk-caption-l">Register a study</span>
+
+            {% if errorSummary %}
+                {% set errorMessage = { text: "Select if this study has an IRAS ID" } %}
+			{% else %}
+                {% set errorMessage = null %}
+			{% endif %}
+
+            {% set yesHtml %}
+                {{ govukInput({
+                    id: "iras-id-input",
+                    name: "iras-id-input",
+                    type: "text",
+                    spellcheck: false,
+                    classes: "govuk-!-width-two-thirds",
+                    label: {
+                        text: "IRAS ID"
+                    }
+                }) }}
+            {% endset -%}
+
+            {{ govukRadios({
+                name: "iras-id",
+                fieldset: {
+                    legend: {
+                    text: "Does this study have an IRAS ID?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                    }
+                },
+                hint: {
+                    text: "Not all studies have IRAS ID..."
+                },
+                items: [
+                    {
+                    value: "yes",
+                    text: "Yes",
+                    conditional: {
+                        html: yesHtml
+                    }
+                    },
+                    {
+                    value: "no",
+                    text: "No"
+                    }
+                ],
+                errorMessage: errorMessage
+            }) }}
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}
