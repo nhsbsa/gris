@@ -22,27 +22,34 @@
 {% block content %}
 
 <div class="govuk-grid-row">
-	<div class="govuk-grid-column-two-thirds">
-		{% if errorSummary %}
-            {{ govukErrorSummary({  
-                titleText: "There is a problem",
-                errorList: [
-                    {
-                        text: "Select if this study has an IRAS ID",
-                        href: "#iras-id"
-                    }
-                ]
-            }) }}
-        {% endif %}   
-        
-		<form action="does-study-have-iras-id" method="post">
-            <span class="govuk-caption-l">Register a study</span>
+    <div class="govuk-grid-column-two-thirds">
+        {% if radioError or inputError %}
 
-            {% if errorSummary %}
-                {% set errorMessage = { text: "Select if this study has an IRAS ID" } %}
-			{% else %}
-                {% set errorMessage = null %}
-			{% endif %}
+        {% set errorList = [] %}
+
+        {% if radioError %}
+            {% set errorList = errorList.concat([{
+            text: radioError.text,
+            href: "#iras-id"
+            }]) %}
+        {% endif %}
+
+        {% if inputError %}
+            {% set errorList = errorList.concat([{
+            text: inputError.text,
+            href: "#iras-id-input"
+            }]) %}
+        {% endif %}
+
+        {{ govukErrorSummary({
+            titleText: "There is a problem",
+            errorList: errorList
+        }) }}
+
+        {% endif %}
+
+        <form action="does-study-have-iras-id" method="post">
+            <span class="govuk-caption-l">Register a study</span>
 
             {% set yesHtml %}
                 {{ govukInput({
@@ -52,37 +59,41 @@
                     spellcheck: false,
                     classes: "govuk-!-width-two-thirds",
                     label: {
-                        text: "IRAS ID"
-                    }
+                    text: "IRAS ID"
+                    },
+                    value: data["iras-id-input"],
+                    errorMessage: inputError
                 }) }}
             {% endset -%}
 
             {{ govukRadios({
+                idPrefix: "iras-id",
                 name: "iras-id",
+                value: data["iras-id"],
                 fieldset: {
-                    legend: {
+                legend: {
                     text: "Does this study have an IRAS ID?",
                     isPageHeading: true,
                     classes: "govuk-fieldset__legend--l"
-                    }
+                }
                 },
-                hint: {
+                    hint: {
                     text: "Not all studies have IRAS ID..."
                 },
                 items: [
-                    {
+                {
                     value: "yes",
                     text: "Yes",
                     conditional: {
-                        html: yesHtml
+                    html: yesHtml
                     }
-                    },
-                    {
+                },
+                {
                     value: "no",
                     text: "No"
-                    }
+                }
                 ],
-                errorMessage: errorMessage
+                errorMessage: radioError
             }) }}
 
             {{ govukButton({

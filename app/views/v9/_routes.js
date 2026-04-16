@@ -303,17 +303,31 @@ router.post('/who-is-the-sponsor-completed', function(req, res) {
 
 // Register study - does study have an IRAS ID?
 router.post('/does-study-have-iras-id', function(req, res) {
-    let iras = req.session.data['iras-id']
-    let irasInput = req.session.data['iras-id-input']
+    const iras = req.session.data['iras-id']
+    const irasInput = req.session.data['iras-id-input']
 
-    if (iras === "yes" && (!irasInput || irasInput.trim() === "")) {
-        // Error message functionality
+    // 1. Nothing selected
+    if (!iras) {
         return res.render(path.join(__dirname, "does-study-have-iras-id"), {
-            errorSummary: true
+            errorSummary: true,
+            radioError: {
+                text: "Select if this study has an IRAS ID"
+            }
         });
-    } else {
-        res.redirect("check-your-answers")
     }
+
+    // 2. Yes selected but no input
+    if (iras === "yes" && (!irasInput || irasInput.trim() === "")) {
+        return res.render(path.join(__dirname, "does-study-have-iras-id"), {
+            errorSummary: true,
+            inputError: {
+                text: "Enter an IRAS ID"
+            }
+        });
+    }
+
+    // 3. Valid
+    res.redirect("check-your-answers")
 })
 
 module.exports = router
