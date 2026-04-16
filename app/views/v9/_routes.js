@@ -280,8 +280,10 @@ router.post('/who-is-the-sponsor-email', function(req, res) {
     let email = req.session.data['sponsor-email']
 
     if (!email || email.trim() === "") {
-        res.redirect("who-is-the-sponsor-email")
-        // add proper error functionality in future versions instead of redirect
+        // Error message functionality
+        return res.render(path.join(__dirname, "who-is-the-sponsor-email"), {
+            errorSummary: true
+        });
     } else {
         res.redirect("who-is-the-sponsor-check-answers")
     }

@@ -24,9 +24,27 @@
 
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
+        {% if errorSummary %}
+            {{ govukErrorSummary({  
+                titleText: "There is a problem",
+                errorList: [
+                    {
+                        text: "Enter the sponsoring organisation\'s email address",
+                        href: "#sponsor-email"
+                    }
+                ]
+            }) }}
+        {% endif %}  
        
         <form action="who-is-the-sponsor-email" method="post">
             <span class="govuk-caption-l">Register a study</span>
+            
+            {% if errorSummary %}
+                {% set errorMessage = { text: "Enter the sponsoring organisation\'s email address" } %}
+            {% else %}
+                {% set errorMessage = null %}
+            {% endif %}
+
             {{ govukInput({
                 label: {
                     text: "What is the email address of the sponsoring organisation's point of contact?",
@@ -36,7 +54,8 @@
                 id: "sponsor-email",
                 name: "sponsor-email",
                 type: "email",
-                autocomplete: "email"
+                autocomplete: "email",
+                errorMessage: errorMessage
             }) }}
 
             {{ govukButton({
