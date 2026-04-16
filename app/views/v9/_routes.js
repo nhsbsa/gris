@@ -258,12 +258,17 @@ router.post('/we-found-matching-study', function(req, res) {
     }
 })
 
+// NEED ERROR MESSAGING FOR WHO IS SPONSOR
+
 // Register study - who is the sponsor of the research (name)
 router.post('/who-is-the-sponsor', function(req, res) {
     let name = req.session.data['sponsor-name']
 
     if (!name || name.trim() === "") {
-        res.redirect("who-is-the-sponsor")
+        // Error message functionality
+        return res.render(path.join(__dirname, "who-is-the-sponsor"), {
+            errorSummary: true
+        });
         // add proper error functionality in future versions instead of redirect
     } else {
         res.redirect("who-is-the-sponsor-email")
