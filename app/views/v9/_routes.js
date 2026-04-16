@@ -258,8 +258,6 @@ router.post('/we-found-matching-study', function(req, res) {
     }
 })
 
-// NEED ERROR MESSAGING FOR WHO IS SPONSOR
-
 // Register study - who is the sponsor of the research (name)
 router.post('/who-is-the-sponsor', function(req, res) {
     let name = req.session.data['sponsor-name']
