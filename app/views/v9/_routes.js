@@ -226,80 +226,6 @@ router.post('/manage-study-change-title', function(req, res) {
     }
 });
 
-// Manage my study - add a member (name)
-router.post('/manage-study-add-member', function(req, res) {
-    let name = req.session.data['member-full-name']
-
-    if (!name || name.trim() === "") {
-        // Error message functionality
-        return res.render(path.join(__dirname, "manage-study-add-member"), {
-            errorSummary: true
-        });
-    } else {
-        res.redirect("manage-study-add-member-email")
-    }
-})
-
-// Manage my study - add a member (email)
-router.post('/manage-study-add-member-email', function(req, res) {
-    let email = req.session.data['member-email-address']
-
-    if (!email || email.trim() === "") {
-        // Error message functionality
-        return res.render(path.join(__dirname, "manage-study-add-member-email"), {
-            errorSummary: true
-        });
-    } else {
-        res.redirect("manage-study-add-member-cya")
-    }
-})
-
-// Manage my study - change member (name)
-router.post('/manage-study-change-member', function(req, res) {
-    let name = req.session.data['change-full-name'];
-
-    // Check if name is blank
-    if (!name || name.trim() === "") {
-        // Error message functionality
-        return res.render(path.join(__dirname, "manage-study-change-member"), {
-            errorSummary: true
-        });
-    } else {
-        res.redirect("manage-study-change-member-email");
-    }
-});
-
-// Manage study - change member (email)
-router.post('/manage-study-change-member-email', function(req, res) {
-    let email = req.session.data['change-email-address'];
-
-    // Check if email is blank
-    if (!email || email.trim() === "") {
-        // Error message functionality
-        return res.render(path.join(__dirname, "manage-study-change-member-email"), {
-            errorSummary: true
-        });
-    } else {
-        res.redirect("manage-study-change-member-cya");
-    }
-});
-
-// Manage study - delete member 
-router.post('/manage-study-delete-member', function(req, res) {
-    let deleteMember = req.session.data['delete-member']
-
-    if (deleteMember == "yes") {
-        res.redirect("manage-study-delete-member-complete")
-    } else if (deleteMember == "no") {
-        res.redirect("view-my-study")
-    } else {
-        // Error message functionality
-        return res.render(path.join(__dirname, "manage-study-delete-member"), {
-            errorSummary: true
-        });
-    }
-})
-
 // Register study - what is the short title of the study?
 router.post('/what-is-the-short-title', function(req, res) {
     let title = req.session.data['short-title']
@@ -323,70 +249,10 @@ router.post('/we-found-matching-study', function(req, res) {
     if (match == "yes") {
         res.redirect("my-studies")
     } else if (match == "no") {
-        res.redirect("add-additional-study-members")
+        res.redirect("check-your-answers")
     } else {
         // Error message functionality
         return res.render(path.join(__dirname, "we-found-matching-study"), {
-            errorSummary: true
-        });
-    }
-})
-
-// Register study - do you need to add additional study members?
-router.post('/add-additional-study-members', function(req, res) {
-    let add = req.session.data['add-members']
-
-    if (add == "yes") {
-        res.redirect("add-study-member-name")
-    } else if (add == "no") {
-        res.redirect("check-your-answers")
-    } else {
-        // Error message functionality
-        return res.render(path.join(__dirname, "add-additional-study-members"), {
-            errorSummary: true
-        });
-    }
-})
-
-// Register study - add additional member (name)
-router.post('/add-study-member-name', function(req, res) {
-    let name = req.session.data['add-full-name']
-
-    if (!name || name.trim() === "") {
-        // Error message functionality
-        return res.render(path.join(__dirname, "add-study-member-name"), {
-            errorSummary: true
-        });
-    } else {
-        res.redirect("add-study-member-email")
-    }
-})
-
-// Register study - add additional member (email)
-router.post('/add-study-member-email', function(req, res) {
-    let email = req.session.data['add-member-email']
-
-    if (!email || email.trim() === "") {
-        // Error message functionality
-        return res.render(path.join(__dirname, "add-study-member-email"), {
-            errorSummary: true
-        });
-    } else {
-        res.redirect("add-study-member-check-answers")
-    }
-})
-
-// Register study - add additional member (completed)
-router.post('/add-study-member-completed', function(req, res) {
-    let more = req.session.data['add-more-members']
-
-    if (more == "yes") {
-        res.redirect("add-study-member-name")
-    } else if (more == "no") {
-        res.redirect("check-your-answers")
-    } else {
-        // Error message functionality
-        return res.render(path.join(__dirname, "add-study-member-completed"), {
             errorSummary: true
         });
     }
