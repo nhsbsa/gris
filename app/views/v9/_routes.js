@@ -238,7 +238,7 @@ router.post('/what-is-the-short-title', function(req, res) {
     } else if (title == "Investigating"){
         res.redirect("we-found-matching-study")
     } else {
-        res.redirect("add-additional-study-members")
+        res.redirect("who-is-the-sponsor")
     }
 })
 
@@ -249,12 +249,50 @@ router.post('/we-found-matching-study', function(req, res) {
     if (match == "yes") {
         res.redirect("my-studies")
     } else if (match == "no") {
-        res.redirect("check-your-answers")
+        res.redirect("who-is-the-sponsor")
     } else {
         // Error message functionality
         return res.render(path.join(__dirname, "we-found-matching-study"), {
             errorSummary: true
         });
+    }
+})
+
+// Register study - who is the sponsor of the research (name)
+router.post('/who-is-the-sponsor', function(req, res) {
+    let name = req.session.data['sponsor-name']
+
+    if (!name || name.trim() === "") {
+        res.redirect("who-is-the-sponsor")
+        // add proper error functionality in future versions instead of redirect
+    } else {
+        res.redirect("who-is-the-sponsor-email")
+    }
+})
+
+// Register study - who is the sponsor of the research (email)
+router.post('/who-is-the-sponsor-email', function(req, res) {
+    let email = req.session.data['sponsor-email']
+
+    if (!email || email.trim() === "") {
+        res.redirect("who-is-the-sponsor-email")
+        // add proper error functionality in future versions instead of redirect
+    } else {
+        res.redirect("who-is-the-sponsor-check-answers")
+    }
+})
+
+// Register study - who is the sponsor of the research (completed)
+router.post('/who-is-the-sponsor-completed', function(req, res) {
+    let more = req.session.data['add-more-sponsors']
+
+    if (more == "yes") {
+        res.redirect("who-is-the-sponsor")
+    } else if (more == "no") {
+        res.redirect("what-is-iras-id")
+    } else {
+        // no option selected - add proper error functionality in future versions instead of redirect
+        res.redirect("who-is-the-sponsor-completed")
     }
 })
 
