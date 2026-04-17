@@ -106,8 +106,10 @@ router.post('/sign-in', function(req, res) {
     let emailLogin = req.session.data['email-login']
 
     if (!emailLogin || emailLogin.trim() === "") {
-        res.redirect("sign-in")
-        // add proper error functionality in future versions instead of redirect
+        // Error message functionality
+        return res.render(path.join(__dirname, "sign-in"), {
+            errorSummary: true
+        });
     } else {
         res.redirect("enter-your-password")
     }
@@ -118,8 +120,10 @@ router.post('/enter-your-password', function(req, res) {
     let password = req.session.data['password']
 
     if (!password || password.trim() === "") {
-        res.redirect("enter-your-password")
-        // add proper error functionality in future versions instead of redirect
+        // Error message functionality
+        return res.render(path.join(__dirname, "enter-your-password"), {
+            errorSummary: true
+        });
     } else {
         res.redirect("enter-auth-code")
     }
@@ -154,8 +158,10 @@ router.post('/enter-auth-code', function(req, res) {
     let code = req.session.data['auth-code']
 
     if (!code || code.trim() === "") {
-        res.redirect("enter-auth-code")
-        // add proper error functionality in future versions instead of redirect
+        // Error message functionality
+        return res.render(path.join(__dirname, "enter-auth-code"), {
+            errorSummary: true
+        });
     } else {
         req.session.data['loggedIn'] = true;
         res.redirect("dashboard")

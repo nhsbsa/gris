@@ -23,31 +23,46 @@
 
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
+        {% if errorSummary %}
+			{% set errorMessage = { text: "Enter your 6-digit security code" } %}
+		{% else %}
+			{% set errorMessage = null %}
+		{% endif %}
+
+		{% if errorSummary %}
+            {{ govukErrorSummary({  
+                titleText: "There is a problem",
+                errorList: [
+                    {
+                        text: errorMessage.text,
+                        href: "#auth-code"
+                    }
+                ]
+            }) }}
+        {% endif %}   
+
         <form action="enter-auth-code" method="post">
-            <div class="govuk-form-group">
-                <h1 class="govuk-label-wrapper">
-                    <label class="govuk-label govuk-label--l" for="auth-code">
-                        Enter the 6-digit security code as you see it in your authenticator app
-                    </label>
-                </h1>
-              
-                <input class="govuk-input govuk-input--width-10" id="auth-code" name="auth-code" type="number">
-            </div>
+            {{ govukInput({
+                label: {
+                    text: "Enter the 6-digit security code as you see it in your authenticator app",
+                    classes: "govuk-label--l",
+                    isPageHeading: true
+                },
+                classes: "govuk-input--width-10",
+                id: "auth-code",
+                name: "auth-code",
+                errorMessage: errorMessage
+            }) }}
 
             {{ govukButton({
                 text: "Continue"
             }) }}
 		</form>
 
-        <details class="govuk-details">
-            <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text">
-                    I do not have access to the authenticator app
-                </span>
-            </summary>
-            <div class="govuk-details__text">
-                You can securely <a href="#">change how you get security codes</a>.
-            </div>
+        {{ govukDetails({
+            summaryText: " I do not have access to the authenticator app",
+            html: "You can securely <a href=\"#\">change how you get security codes</a>."
+        }) }}
         </details>
     </div>
 </div>

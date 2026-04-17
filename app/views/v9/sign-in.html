@@ -23,6 +23,24 @@
 
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
+		{% if errorSummary %}
+			{% set errorMessage = { text: "Enter your email address" } %}
+		{% else %}
+			{% set errorMessage = null %}
+		{% endif %}
+
+		{% if errorSummary %}
+            {{ govukErrorSummary({  
+                titleText: "There is a problem",
+                errorList: [
+                    {
+                        text: errorMessage.text,
+                        href: "#email-login"
+                    }
+                ]
+            }) }}
+        {% endif %}   
+
         <form action="sign-in" method="post">
 			{{ govukInput({
 				label: {
@@ -32,7 +50,8 @@
 				},
 					id: "email-login",
 					name: "email-login",
-					type: "email"
+					type: "email",
+					errorMessage: errorMessage
 			}) }}
 
             {{ govukButton({
