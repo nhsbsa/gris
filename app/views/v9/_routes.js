@@ -134,8 +134,10 @@ router.post('/forgot-my-password', function(req, res) {
     let passwordCode = req.session.data['forgot-password']
 
     if (!passwordCode || passwordCode.trim() === "") {
-        res.redirect("forgot-my-password")
-        // add proper error functionality in future versions instead of redirect
+        // Error message functionality
+        return res.render(path.join(__dirname, "forgot-my-password"), {
+            errorSummary: true
+        });
     } else {
         res.redirect("reset-my-password")
     }
@@ -146,8 +148,10 @@ router.post('/reset-my-password', function(req, res) {
     let passwordReset = req.session.data['password-reset']
 
     if (!passwordReset || passwordReset.trim() === "") {
-        res.redirect("reset-my-password")
-        // add proper error functionality in future versions instead of redirect
+        // Error message functionality
+        return res.render(path.join(__dirname, "reset-my-password"), {
+            errorSummary: true
+        });
     } else {
         res.redirect("reset-my-password-completed")
     }
