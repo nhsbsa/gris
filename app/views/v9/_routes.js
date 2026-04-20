@@ -253,6 +253,16 @@ router.post('/manage-study-change-title', function(req, res) {
     }
 });
 
+// Manage study - add a sponsor (name)
+
+// Manage study - add sponsor (email)
+
+// Manage study - change sponsor (name)
+
+// Manage study - change sponsor (email)
+
+// Manage study - delete sponsor
+
 // Register study - what is the short title of the study?
 router.post('/what-is-the-short-title', function(req, res) {
     let title = req.session.data['short-title']
