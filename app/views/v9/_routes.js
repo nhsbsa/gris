@@ -323,8 +323,10 @@ router.post('/who-is-the-sponsor-completed', function(req, res) {
     } else if (more == "no") {
         res.redirect("does-study-have-iras-id")
     } else {
-        // no option selected - add proper error functionality in future versions instead of redirect
-        res.redirect("who-is-the-sponsor-completed")
+        // Error message functionality
+        return res.render(path.join(__dirname, "who-is-the-sponsor-completed"), {
+            errorSummary: true
+        });
     }
 })
 

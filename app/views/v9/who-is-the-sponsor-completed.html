@@ -17,6 +17,24 @@
 
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
+        {% if errorSummary %}   
+			{% set errorMessage = { text: "Select an option" } %}
+		{% else %}
+			{% set errorMessage = null %}
+		{% endif %}
+
+		{% if errorSummary %}
+            {{ govukErrorSummary({  
+                titleText: "There is a problem",
+                errorList: [
+                    {
+                        text: errorMessage.text,
+                        href: "#add-more-sponsors"
+                    }
+                ]
+            }) }}
+        {% endif %} 
+
         <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-6">
             <h1 class="govuk-panel__title">
                 You have added a sponsoring organisation
@@ -45,7 +63,8 @@
                     value: "no",
                     text: "No"
                     }
-                ]
+                ],
+                errorMessage: errorMessage
             }) }}
 
             {{ govukButton({
