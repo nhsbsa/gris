@@ -23,6 +23,24 @@
 
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
+        {% if errorSummary %}   
+			{% set errorMessage = { text: "Enter the 6 digit security code" } %}
+		{% else %}
+			{% set errorMessage = null %}
+		{% endif %}
+
+		{% if errorSummary %}
+            {{ govukErrorSummary({  
+                titleText: "There is a problem",
+                errorList: [
+                    {
+                        text: errorMessage.text,
+                        href: "#code-register"
+                    }
+                ]
+            }) }}
+        {% endif %} 
+
         <h1 class="govuk-heading-l">Check your email</h1>
 
         {% set email = data['email-register'] | default('james.bond@email.com', true) %}
@@ -37,13 +55,14 @@
 
         <form action="register-account-check-email" method="post">
             {{ govukInput({
-            label: {
-                text: "Enter the 6 digit security code",
-                classes: "govuk-label"
-            },
+                label: {
+                    text: "Enter the 6 digit security code",
+                    classes: "govuk-label"
+                },
                 classes: "govuk-input--width-10",
                 id: "code-register",
-                name: "code-register"
+                name: "code-register",
+                errorMessage: errorMessage
             }) }}
 
             {{ govukButton({

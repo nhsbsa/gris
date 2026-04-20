@@ -9,8 +9,10 @@ router.post('/register-account-name', function(req, res) {
     let registerName = req.session.data['name-register']
 
     if (!registerName || registerName.trim() === "") {
-        res.redirect("register-account-name")
-        // add proper error functionality in future versions instead of redirect
+        // Error message functionality
+        return res.render(path.join(__dirname, "register-account-name"), {
+            errorSummary: true
+        });
     } else {
         res.redirect("register-account-email")
     }
@@ -21,8 +23,10 @@ router.post('/register-account-email', function(req, res) {
     let registerEmail = req.session.data['email-register']
 
     if (!registerEmail || registerEmail.trim() === "") {
-        res.redirect("register-account-email")
-        // add proper error functionality in future versions instead of redirect
+        // Error message functionality
+        return res.render(path.join(__dirname, "register-account-email"), {
+            errorSummary: true
+        });
     } else {
         res.redirect("register-account-check-email")
     }
@@ -30,11 +34,13 @@ router.post('/register-account-email', function(req, res) {
 
 // Register an account - security code
 router.post('/register-account-check-email', function(req, res) {
-    let registerCode = req.session.data['code-register']
+    let authCode = req.session.data['code-register']
 
-    if (!registerCode || registerCode.trim() === "") {
-        res.redirect("register-account-check-email")
-        // add proper error functionality in future versions instead of redirect
+    if (!authCode || authCode.trim() === "") {
+        // Error message functionality
+        return res.render(path.join(__dirname, "register-account-check-email"), {
+            errorSummary: true
+        });
     } else {
         res.redirect("register-account-create-password")
     }
@@ -45,8 +51,10 @@ router.post('/register-account-create-password', function(req, res) {
     let registerPass = req.session.data['password-register']
 
     if (!registerPass || registerPass.trim() === "") {
-        res.redirect("register-account-create-password")
-        // add proper error functionality in future versions instead of redirect
+        // Error message functionality
+        return res.render(path.join(__dirname, "register-account-create-password"), {
+            errorSummary: true
+        });
     } else {
         res.redirect("register-account-choose-auth")
     }
@@ -61,7 +69,10 @@ router.post('/register-account-choose-auth', function(req, res) {
     } else if (registerAuth == "authenticator-app") {
         res.redirect("register-account-authenticator")
     } else {
-        res.redirect("egister-account-choose-auth")
+        // Error message functionality
+        return res.render(path.join(__dirname, "register-account-choose-auth"), {
+            errorSummary: true
+        });
     }
 })
 
@@ -70,8 +81,10 @@ router.post('/register-account-mobile', function(req, res) {
     let registerMobile = req.session.data['mobile-register']
 
     if (!registerMobile || registerMobile.trim() === "") {
-        res.redirect("register-account-mobile")
-        // add proper error functionality in future versions instead of redirect
+        // Error message functionality
+        return res.render(path.join(__dirname, "register-account-mobile"), {
+            errorSummary: true
+        });
     } else {
         res.redirect("register-account-mobile-code")
     }
@@ -82,8 +95,10 @@ router.post('/register-account-mobile-code', function(req, res) {
     let phoneCode = req.session.data['code-register']
 
     if (!phoneCode || phoneCode.trim() === "") {
-        res.redirect("register-account-mobile-code")
-        // add proper error functionality in future versions instead of redirect
+        // Error message functionality
+        return res.render(path.join(__dirname, "register-account-mobile-code"), {
+            errorSummary: true
+        });
     } else {
         res.redirect("register-account-completed")
     }
@@ -94,8 +109,10 @@ router.post('/register-account-authenticator', function(req, res) {
     let authenticatorCode = req.session.data['auth-code-register']
 
     if (!authenticatorCode || authenticatorCode.trim() === "") {
-        res.redirect("register-account-authenticator")
-        // add proper error functionality in future versions instead of redirect
+        // Error message functionality
+        return res.render(path.join(__dirname, "register-account-authenticator"), {
+            errorSummary: true
+        });
     } else {
         res.redirect("register-account-completed")
     }

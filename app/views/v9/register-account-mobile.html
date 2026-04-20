@@ -23,6 +23,23 @@
 
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
+        {% if errorSummary %}   
+			{% set errorMessage = { text: "Enter your mobile phone number" } %}
+		{% else %}
+			{% set errorMessage = null %}
+		{% endif %}
+
+		{% if errorSummary %}
+            {{ govukErrorSummary({  
+                titleText: "There is a problem",
+                errorList: [
+                    {
+                        text: errorMessage.text,
+                        href: "#mobile-register"
+                    }
+                ]
+            }) }}
+        {% endif %} 
 
         <form action="register-account-mobile" method="post">
             {{ govukInput({
@@ -36,7 +53,8 @@
             },
             id: "mobile-register",
             name: "mobile-register",
-            type: "tel"
+            type: "tel",
+            errorMessage: errorMessage
             }) }}
 
             {{ govukButton({

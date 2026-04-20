@@ -18,6 +18,23 @@
 
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
+        {% if errorSummary %}   
+			{% set errorMessage = { text: "Choose how to get security codes" } %}
+		{% else %}
+			{% set errorMessage = null %}
+		{% endif %}
+
+		{% if errorSummary %}
+            {{ govukErrorSummary({  
+                titleText: "There is a problem",
+                errorList: [
+                    {
+                        text: errorMessage.text,
+                        href: "#auth-register"
+                    }
+                ]
+            }) }}
+        {% endif %} 
         <form action="register-account-choose-auth" method="post">
 
             {{ govukRadios({
@@ -44,7 +61,8 @@
                             text: "You can use any authenticator app to create security codes when you sign in"
                         }
                     }
-                ]
+                ],
+                errorMessage: errorMessage
             }) }}            
 
             {{ govukDetails({

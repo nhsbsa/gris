@@ -23,6 +23,23 @@
 
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
+        {% if errorSummary %}   
+			{% set errorMessage = { text: "Enter the 6 digit security code" } %}
+		{% else %}
+			{% set errorMessage = null %}
+		{% endif %}
+
+		{% if errorSummary %}
+            {{ govukErrorSummary({  
+                titleText: "There is a problem",
+                errorList: [
+                    {
+                        text: errorMessage.text,
+                        href: "#code-register"
+                    }
+                ]
+            }) }}
+        {% endif %} 
 
         <h1 class="govuk-heading-l">Check your phone</h1>
 
@@ -41,7 +58,8 @@
             },
                 classes: "govuk-input--width-10",
                 id: "code-register",
-                name: "code-register"
+                name: "code-register",
+                errorMessage: errorMessage
             }) }}
 
             {{ govukButton({
