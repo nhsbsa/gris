@@ -49,6 +49,54 @@
                             <a class="govuk-link govuk-link--no-visited-state" href="what-is-the-short-title">Change<span class="govuk-visually-hidden"> short study title</span></a>
                         </dd>
                     </div>
+
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Does this study have an IRAS ID?
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['iras-id'] | capitalize | default('Yes', true) }}
+                            {% if data['iras-id'] == "yes" %}
+                                <p class="govuk-hint">{{ data['iras-id-input'] | capitalize | default('123456', true) }}</p>
+                            {% endif %}
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link govuk-link--no-visited-state" href="does-study-have-iras-id">Change<span class="govuk-visually-hidden"> short study title</span></a>
+                        </dd>
+                    </div>
+                </dl>
+            </div>
+        </div>
+
+        <div class="govuk-summary-card">
+            <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">
+                    Sponsor details
+                </h2>
+                <ul class="govuk-summary-card__actions">
+                    <li class="govuk-summary-card__action">
+                        <a class="govuk-link govuk-link--no-visited-state" href="who-is-the-sponsor">Add a sponsoring organisation</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="govuk-summary-card__content">
+                <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            {{ data['sponsor-name'] | title | default('Manchester University NHS Foundation Trust', true) }}
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['sponsor-email'] | default('sponsor-email@email.com', true) }}
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <ul class="govuk-summary-list__actions-list">
+                                <li class="govuk-summary-list__actions-list-item">
+                                    <a class="govuk-link govuk-link--no-visited-state" href="who-is-the-sponsor">Change<span class="govuk-visually-hidden"> sponsor</span></a>
+                                </li>
+                            </ul>                            
+                        </dd>
+                    </div>
                 </dl>
             </div>
         </div>
