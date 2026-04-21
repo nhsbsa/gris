@@ -314,6 +314,20 @@ router.post('/manage-study-change-sponsor-email', function(req, res) {
 });
 
 // Manage study - delete sponsor
+router.post('/manage-study-delete-sponsor', function(req, res) {
+    let deleteSponsor = req.session.data['delete-sponsor']
+
+    if (deleteSponsor == "yes") {
+        res.redirect("manage-study-delete-sponsor-complete")
+    } else if (deleteSponsor == "no") {
+        res.redirect("view-my-study")
+    } else {
+        // Error message functionality
+        return res.render(path.join(__dirname, "manage-study-delete-sponsor"), {
+            errorSummary: true
+        });
+    }
+})
 
 // Register study - what is the short title of the study?
 router.post('/what-is-the-short-title', function(req, res) {

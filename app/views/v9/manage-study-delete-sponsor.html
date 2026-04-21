@@ -28,8 +28,8 @@
                 titleText: "There is a problem",
                 errorList: [
                     {
-                        text: "Enter the short title of the study",
-                        href: "#change-title"
+                        text: "Select if you want to delete the sponsor",
+                        href: "#delete-sponsor"
                     }
                 ]
             }) }}
@@ -40,10 +40,32 @@
                 <span class="govuk-caption-l">Manage study</span>
 
                 {% if errorSummary %}
-                    {% set errorMessage = { text: "Enter the short title of the study" } %}
+                    {% set errorMessage = { text: "Select if you want to delete the sponsor" } %}
                 {% else %}
                     {% set errorMessage = null %}
                 {% endif %}
+
+                {{ govukRadios({
+                    name: "delete-sponsor",
+                    fieldset: {
+                        legend: {
+                        text: "Are you sure you want to delete [sponsor name] from this study?",
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--l"
+                        }
+                    },
+                    items: [
+                        {
+                            value: "yes",
+                            text: "Yes"
+                        },
+                        {
+                            value: "no",
+                            text: "No"
+                        }
+                    ],
+                    errorMessage: errorMessage
+                }) }}
             </div>
 
             {{ govukButton({
@@ -54,3 +76,5 @@
 </div>
 
 {% endblock %}
+
+
