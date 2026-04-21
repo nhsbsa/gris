@@ -28,23 +28,36 @@
                 titleText: "There is a problem",
                 errorList: [
                     {
-                        text: "Enter the short title of the study",
-                        href: "#change-title"
+                        text: "Enter the name of the sponsoring organisation",
+                        href: "#add-sponsor-name"
                     }
                 ]
             }) }}
         {% endif %}        
 
-        <form action="manage-study-add-sponsor-name" method="post">
-            <div class="govuk-form-group">
-                <span class="govuk-caption-l">Manage study</span>
+        <form action="manage-study-add-sponsor-name" method="post">                
+            {% if errorSummary %}
+                {% set errorMessage = { text: "Enter the name of the sponsoring organisation" } %}
+            {% else %}
+                {% set errorMessage = null %}
+            {% endif %}
+            <span class="govuk-caption-l">Manage study</span>
 
-                {% if errorSummary %}
-                    {% set errorMessage = { text: "Enter the short title of the study" } %}
-                {% else %}
-                    {% set errorMessage = null %}
-                {% endif %}
-            </div>
+            {{ govukInput({
+                label: {
+                    text: "Add the name of the organisation sponsoring this research",
+                    classes: "govuk-label--l",
+                    isPageHeading: true
+                },
+                hint: {
+                    html: '
+                        <div id="sponsor-name-hint" class="govuk-hint">For example, Manchester University NHS Foundation Trust</div>
+                    '
+                },
+                id: "add-sponsor-name",
+                name: "add-sponsor-name",
+                errorMessage: errorMessage
+            }) }}
 
             {{ govukButton({
                 text: "Continue"

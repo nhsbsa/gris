@@ -28,23 +28,38 @@
                 titleText: "There is a problem",
                 errorList: [
                     {
-                        text: "Enter the short title of the study",
-                        href: "#change-title"
+                        text: "Enter the name of the sponsoring organisation",
+                        href: "#change-sponsor-name"
                     }
                 ]
             }) }}
         {% endif %}        
 
         <form action="manage-study-change-sponsor-name" method="post">
-            <div class="govuk-form-group">
-                <span class="govuk-caption-l">Manage study</span>
+            {% if errorSummary %}
+                {% set errorMessage = { text: "Enter the name of the sponsoring organisation" } %}
+            {% else %}
+                {% set errorMessage = null %}
+            {% endif %}
 
-                {% if errorSummary %}
-                    {% set errorMessage = { text: "Enter the short title of the study" } %}
-                {% else %}
-                    {% set errorMessage = null %}
-                {% endif %}
-            </div>
+            <span class="govuk-caption-l">Manage study</span>
+
+            {{ govukInput({
+                label: {
+                    text: "Change the name of the organisation sponsoring this research",
+                    classes: "govuk-label--l",
+                    isPageHeading: true
+                },
+                hint: {
+                    html: '
+                        <div id="sponsor-name-hint" class="govuk-hint">For example, Manchester University NHS Foundation Trust</div>
+                    '
+                },
+                id: "change-sponsor-name",
+                name: "change-sponsor-name",
+                errorMessage: errorMessage
+            }) }}
+
 
             {{ govukButton({
                 text: "Continue"
