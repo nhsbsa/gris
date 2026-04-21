@@ -254,12 +254,64 @@ router.post('/manage-study-change-title', function(req, res) {
 });
 
 // Manage study - add a sponsor (name)
+router.post('/manage-study-add-sponsor-name', function(req, res) {
+    let sponsor = req.session.data['add-sponsor-name'];
+
+    if (!sponsor || sponsor.trim() === "") {
+        // Error message functionality
+        return res.render(path.join(__dirname, "manage-study-add-sponsor-name"), {
+            errorSummary: true
+        });
+    } else {
+        // Redirect to the "check your answers" page if filled
+        res.redirect("manage-study-add-sponsor-email");
+    }
+});
 
 // Manage study - add sponsor (email)
+router.post('/manage-study-add-sponsor-email', function(req, res) {
+    let sponsor = req.session.data['add-sponsor-email'];
+
+    if (!sponsor || sponsor.trim() === "") {
+        // Error message functionality
+        return res.render(path.join(__dirname, "manage-study-add-sponsor-email"), {
+            errorSummary: true
+        });
+    } else {
+        // Redirect to the "check your answers" page if filled
+        res.redirect("manage-study-add-sponsor-cya");
+    }
+});
 
 // Manage study - change sponsor (name)
+router.post('/manage-study-change-sponsor-name', function(req, res) {
+    let sponsor = req.session.data['change-sponsor-name'];
+
+    if (!sponsor || sponsor.trim() === "") {
+        // Error message functionality
+        return res.render(path.join(__dirname, "manage-study-change-sponsor-name"), {
+            errorSummary: true
+        });
+    } else {
+        // Redirect to the "check your answers" page if filled
+        res.redirect("manage-study-change-sponsor-email");
+    }
+});
 
 // Manage study - change sponsor (email)
+router.post('/manage-study-change-sponsor-email', function(req, res) {
+    let sponsor = req.session.data['change-sponsor-email'];
+
+    if (!sponsor || sponsor.trim() === "") {
+        // Error message functionality
+        return res.render(path.join(__dirname, "manage-study-change-sponsor-email"), {
+            errorSummary: true
+        });
+    } else {
+        // Redirect to the "check your answers" page if filled
+        res.redirect("manage-study-change-sponsor-cya");
+    }
+});
 
 // Manage study - delete sponsor
 
