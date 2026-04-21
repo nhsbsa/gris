@@ -15,7 +15,7 @@
 
     {{ govukBackLink({
         text: "Back",
-        href: "view-my-study"
+        href: "manage-study-change-sponsor-name"
     }) }}
 {% endblock %}
 
@@ -28,23 +28,34 @@
                 titleText: "There is a problem",
                 errorList: [
                     {
-                        text: "Enter the short title of the study",
-                        href: "#change-title"
+                        text: "Enter the sponsoring organisation\'s email address",
+                        href: "#change-sponsor-email"
                     }
                 ]
             }) }}
         {% endif %}        
 
         <form action="manage-study-change-sponsor-email" method="post">
-            <div class="govuk-form-group">
-                <span class="govuk-caption-l">Manage study</span>
+            <span class="govuk-caption-l">Manage study</span>
 
-                {% if errorSummary %}
-                    {% set errorMessage = { text: "Enter the short title of the study" } %}
-                {% else %}
-                    {% set errorMessage = null %}
-                {% endif %}
-            </div>
+            {% if errorSummary %}
+                {% set errorMessage = { text: "Enter the sponsoring organisation\'s email address" } %}
+            {% else %}
+                {% set errorMessage = null %}
+            {% endif %}
+
+            {{ govukInput({
+                label: {
+                    text: "Change the email address of the sponsoring organisation's point of contact",
+                    classes: "govuk-label--l",
+                    isPageHeading: true
+                },
+                id: "change-sponsor-email",
+                name: "change-sponsor-email",
+                type: "email",
+                autocomplete: "email",
+                errorMessage: errorMessage
+            }) }}
 
             {{ govukButton({
                 text: "Continue"
