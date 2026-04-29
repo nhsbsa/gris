@@ -1,0 +1,39 @@
+{% extends "layouts/online-login-header.html" %}
+
+{% block pageTitle %}
+	You have added a sponsoring organisation - {{ serviceName }} - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}      
+	{{ govukPhaseBanner({
+		tag: {
+		text: "Alpha"
+		},
+		html: 'This is a new service - your <a class="govuk-link govuk-link--no-visited-state" href="#">feedback</a> will help us improve it.'
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+        <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-6">
+            <h1 class="govuk-panel__title">
+                You have added a sponsoring organisation
+            </h1>
+            <div class="govuk-panel__body">
+                {{ data['add-sponsor-name'] | title | default('Manchester University NHS Foundation Trust', true) }}<br>
+                {{ data['add-sponsor-email'] | default('name@example.ac.uk', true) }}
+            </div>
+        </div>
+
+        <p>We've updated [study name] with the new sponsoring organisation's details.</p>
+                        
+        <h2 class="govuk-heading-m">What happens next</h2>
+        
+        <p>We've sent an email to you and the organisation's point of contact to let them know that a sponsor has been added to the study.</p>
+        <p>To update more information in this study, <a href="view-my-study" class="govuk-link--no-visited-state">return to manage this study</a>.</p>
+        <p>You can return to dashboard to <a href="dashboard" class="govuk-link--no-visited-state">register a study</a>.</p>
+    </div>
+</div>
+{% endblock %}

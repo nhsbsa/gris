@@ -28,7 +28,7 @@
                 titleText: "There is a problem",
                 errorList: [
                     {
-                        text: "Select if you want to delete the sponsor",
+                        text: "Select yes to delete the sponsor from the study",
                         href: "#delete-sponsor"
                     }
                 ]
@@ -40,7 +40,7 @@
                 <span class="govuk-caption-l">Manage study</span>
 
                 {% if errorSummary %}
-                    {% set errorMessage = { text: "Select if you want to delete the sponsor" } %}
+                    {% set errorMessage = { text: "Select yes to delete the sponsor from the study" } %}
                 {% else %}
                     {% set errorMessage = null %}
                 {% endif %}
@@ -49,7 +49,7 @@
                     name: "delete-sponsor",
                     fieldset: {
                         legend: {
-                        text: "Are you sure you want to delete [sponsor name] from this study?",
+                        text: "Are you sure you want to delete [sponsor name] from [study name]?",
                         isPageHeading: true,
                         classes: "govuk-fieldset__legend--l"
                         }

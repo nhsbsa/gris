@@ -24,7 +24,7 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
         {% if errorSummary %}
-			{% set errorMessage = { text: "Enter your email address" } %}
+			{% set errorMessage = { text: "Enter an email address" } %}
 		{% else %}
 			{% set errorMessage = null %}
 		{% endif %}
@@ -44,7 +44,7 @@
         <form action="register-account-email" method="post">
             {{ govukInput({
             label: {
-                text: "Enter your email address",
+                text: "Enter an email address",
                 classes: "govuk-label--l",
                 isPageHeading: true
             },
