@@ -29,7 +29,7 @@
                 titleText: "There is a problem",
                 errorList: [
                     {
-                        text: "Enter the name of the sponsoring organisation",
+                        text: "Enter the name of the organisation sponsoring the research",
                         href: "#sponsor-name"
                     }
                 ]
@@ -40,20 +40,20 @@
             <span class="govuk-caption-l">Register a study</span>
             
             {% if errorSummary %}
-                {% set errorMessage = { text: "Enter the name of the sponsoring organisation" } %}
+                {% set errorMessage = { text: "Enter the name of the organisation sponsoring the research" } %}
             {% else %}
                 {% set errorMessage = null %}
             {% endif %}
 
             {{ govukInput({
                 label: {
-                    text: "What is the name of the organisation sponsoring this research?",
+                    text: "What is the name of the organisation sponsoring the research?",
                     classes: "govuk-label--l",
                     isPageHeading: true
                 },
                 hint: {
                     html: '
-                        <p>A sponsor is the organisation, company, or person responsible for starting, managing, and funding a research study.</p>
+                        <p>A sponsor is the organisation or partnership which takes responsibility for the set-up, running, and reporting of a research project.</p>
                         <p>You can add more sponsors later.</p>
                         <div id="sponsor-name-hint" class="govuk-hint">For example, Manchester University NHS Foundation Trust</div>
                     '

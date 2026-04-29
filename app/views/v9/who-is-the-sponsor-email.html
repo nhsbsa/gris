@@ -29,7 +29,7 @@
                 titleText: "There is a problem",
                 errorList: [
                     {
-                        text: "Enter the sponsoring organisation\'s email address",
+                        text: "Enter an email address",
                         href: "#sponsor-email"
                     }
                 ]
@@ -40,7 +40,7 @@
             <span class="govuk-caption-l">Register a study</span>
             
             {% if errorSummary %}
-                {% set errorMessage = { text: "Enter the sponsoring organisation\'s email address" } %}
+                {% set errorMessage = { text: "Enter an email address" } %}
             {% else %}
                 {% set errorMessage = null %}
             {% endif %}
@@ -50,6 +50,9 @@
                     text: "What is the email address of the sponsoring organisation's point of contact?",
                     classes: "govuk-label--l",
                     isPageHeading: true
+                },
+                hint: {
+                    text: "This is usually the Research and Development (R&D) office, Research Governance team, or a dedicated Sponsor Representative within that department."
                 },
                 id: "sponsor-email",
                 name: "sponsor-email",

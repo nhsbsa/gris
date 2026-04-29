@@ -2,7 +2,7 @@
 
 
 {% block pageTitle %}
-  Does this study have an IRAS ID? - {{ serviceName }} - GOV.UK Prototype Kit
+  Does the study have an integrated research application system ID (IRAS ID)? - {{ serviceName }} - GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}      
@@ -72,13 +72,13 @@
                 value: data["iras-id"],
                 fieldset: {
                 legend: {
-                    text: "Does this study have an IRAS ID?",
+                    text: "Does the study have an integrated research application system ID (IRAS ID)?",
                     isPageHeading: true,
                     classes: "govuk-fieldset__legend--l"
                 }
                 },
                     hint: {
-                    text: "Not all studies have IRAS ID..."
+                    text: "Your study does not need an IRAS ID to register. "
                 },
                 items: [
                 {
@@ -94,6 +94,11 @@
                 }
                 ],
                 errorMessage: radioError
+            }) }}
+
+            {{ govukDetails({
+                summaryText: "How do I find the IRAS ID?",
+                html: "If you're not sure what the study's IRAS ID is, you can usually find it in the IRAS system or in the system used to apply for approvals."
             }) }}
 
             {{ govukButton({

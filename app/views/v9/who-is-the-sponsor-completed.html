@@ -18,7 +18,7 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
         {% if errorSummary %}   
-			{% set errorMessage = { text: "Select an option" } %}
+			{% set errorMessage = { text: "Select yes if you need to add any additional sponsoring organisations" } %}
 		{% else %}
 			{% set errorMessage = null %}
 		{% endif %}
@@ -40,10 +40,12 @@
                 You have added a sponsoring organisation
             </h1>
             <div class="govuk-panel__body">
-                {{ data['sponsor-name'] | title | default('Manchester University NHS Foundation Trust', true) }}<br>
-                <strong>{{ data['sponsor-email'] | default('sponsor-email@email.com', true) }}</strong>
+                {{ data['sponsor-name'] | title | default('Manchester University NHS Foundation Trust', true) }}<br><br>
+                {{ data['sponsor-email'] | default('sponsor-email@email.com', true) }}
             </div>
         </div>
+
+        <p>We've sent an email to you and the sponsoring organisation's point of contact to let them know they have been added.</p>
 
         <form action="who-is-the-sponsor-completed" method="post">           
             {{ govukRadios({
